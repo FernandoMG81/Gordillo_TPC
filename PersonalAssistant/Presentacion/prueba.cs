@@ -12,17 +12,16 @@ using Personal;
 
 namespace Presentacion
 {
-    public partial class Form1 : Form
+    public partial class prueba : Form
     {
-        public Form1()
+        public prueba()
         {
             InitializeComponent();
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            prueba prueba = new prueba();
-            prueba.ShowDialog();
-
+            EquipoTelefonoPersonal equipo = new EquipoTelefonoPersonal();
+            dataGridView1.DataSource = equipo.Listar();
         }
     }
 }
