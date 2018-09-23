@@ -16,7 +16,7 @@ namespace Presentacion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login()); //INICIO PONER Form1
+            Application.Run(new frmMenuPrincipal()); //INICIO PONER Form1
         }
     }
 }
