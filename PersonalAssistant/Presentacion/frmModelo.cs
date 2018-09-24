@@ -18,6 +18,7 @@ namespace Presentacion
             InitializeComponent();
         }
 
+
         [DllImport("User32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("User32.DLL", EntryPoint = "SendMessage")]

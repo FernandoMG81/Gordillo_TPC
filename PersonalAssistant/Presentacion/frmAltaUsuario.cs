@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
+using Personal;
 
 namespace Presentacion
 {
@@ -15,6 +17,12 @@ namespace Presentacion
         public frmAltaUsuario()
         {
             InitializeComponent();
+        }
+
+        private void frmAltaUsuario_Load(object sender, EventArgs e)
+        {
+            UsuariosPersonal usuarios = new UsuariosPersonal();
+            dgvListaUsuarios.DataSource = usuarios.Listar();
         }
     }
 }

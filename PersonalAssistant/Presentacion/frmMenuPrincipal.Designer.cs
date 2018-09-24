@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenuPrincipal));
             this.rtbNovedades = new System.Windows.Forms.RichTextBox();
             this.lblNovedades = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.rtbPeriodosPrueba = new System.Windows.Forms.RichTextBox();
             this.rtbVacaciones = new System.Windows.Forms.RichTextBox();
             this.ptbModuloEmpleados = new System.Windows.Forms.PictureBox();
@@ -39,9 +38,9 @@
             this.lblModuloEmpleado2 = new System.Windows.Forms.Label();
             this.pbModuloHorarios = new System.Windows.Forms.PictureBox();
             this.pnlUsuario = new System.Windows.Forms.Panel();
-            this.pbUsuario = new System.Windows.Forms.PictureBox();
-            this.lblusuarioActivo = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.lblusuarioActivo = new System.Windows.Forms.Label();
+            this.pbUsuario = new System.Windows.Forms.PictureBox();
             this.pbConfiguracion = new System.Windows.Forms.PictureBox();
             this.lblConfiguracion = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -73,16 +72,6 @@
             this.lblNovedades.Size = new System.Drawing.Size(172, 33);
             this.lblNovedades.TabIndex = 3;
             this.lblNovedades.Text = "Novedades";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(683, 307);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 48);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Prueba";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // rtbPeriodosPrueba
             // 
@@ -165,6 +154,7 @@
             this.pbModuloHorarios.TabIndex = 13;
             this.pbModuloHorarios.TabStop = false;
             this.pbModuloHorarios.Tag = "";
+            this.pbModuloHorarios.Click += new System.EventHandler(this.pbModuloHorarios_Click);
             // 
             // pnlUsuario
             // 
@@ -178,15 +168,15 @@
             this.pnlUsuario.Size = new System.Drawing.Size(112, 566);
             this.pnlUsuario.TabIndex = 14;
             // 
-            // pbUsuario
+            // button2
             // 
-            this.pbUsuario.Image = ((System.Drawing.Image)(resources.GetObject("pbUsuario.Image")));
-            this.pbUsuario.Location = new System.Drawing.Point(10, 409);
-            this.pbUsuario.Name = "pbUsuario";
-            this.pbUsuario.Size = new System.Drawing.Size(89, 87);
-            this.pbUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbUsuario.TabIndex = 0;
-            this.pbUsuario.TabStop = false;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(12, 523);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(87, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Cambiar Clave";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // lblusuarioActivo
             // 
@@ -198,15 +188,15 @@
             this.lblusuarioActivo.TabIndex = 1;
             this.lblusuarioActivo.Text = "Nombre Usuario";
             // 
-            // button2
+            // pbUsuario
             // 
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(12, 523);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(87, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Cambiar Clave";
-            this.button2.UseVisualStyleBackColor = true;
+            this.pbUsuario.Image = ((System.Drawing.Image)(resources.GetObject("pbUsuario.Image")));
+            this.pbUsuario.Location = new System.Drawing.Point(10, 409);
+            this.pbUsuario.Name = "pbUsuario";
+            this.pbUsuario.Size = new System.Drawing.Size(89, 87);
+            this.pbUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbUsuario.TabIndex = 0;
+            this.pbUsuario.TabStop = false;
             // 
             // pbConfiguracion
             // 
@@ -268,7 +258,6 @@
             this.Controls.Add(this.ptbModuloEmpleados);
             this.Controls.Add(this.rtbVacaciones);
             this.Controls.Add(this.rtbPeriodosPrueba);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.lblNovedades);
             this.Controls.Add(this.rtbNovedades);
             this.Cursor = System.Windows.Forms.Cursors.Default;
@@ -276,7 +265,6 @@
             this.Text = "Personal Assistant";
             this.Controls.SetChildIndex(this.rtbNovedades, 0);
             this.Controls.SetChildIndex(this.lblNovedades, 0);
-            this.Controls.SetChildIndex(this.button1, 0);
             this.Controls.SetChildIndex(this.rtbPeriodosPrueba, 0);
             this.Controls.SetChildIndex(this.rtbVacaciones, 0);
             this.Controls.SetChildIndex(this.ptbModuloEmpleados, 0);
@@ -301,7 +289,6 @@
         #endregion
         private System.Windows.Forms.RichTextBox rtbNovedades;
         private System.Windows.Forms.Label lblNovedades;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RichTextBox rtbPeriodosPrueba;
         private System.Windows.Forms.RichTextBox rtbVacaciones;
         private System.Windows.Forms.PictureBox ptbModuloEmpleados;

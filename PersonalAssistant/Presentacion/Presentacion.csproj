@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAltaEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAltaEmpleado.Designer.cs">
+      <DependentUpon>frmAltaEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAltaEquipo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,24 @@
     <Compile Include="frmConvenio.Designer.cs">
       <DependentUpon>frmConvenio.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmHorarioIngreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHorarioIngreso.Designer.cs">
+      <DependentUpon>frmHorarioIngreso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHorarioSalida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHorarioSalida.Designer.cs">
+      <DependentUpon>frmHorarioSalida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLicencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLicencias.Designer.cs">
+      <DependentUpon>frmLicencias.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,20 +136,35 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmModificarEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarEmpleado.Designer.cs">
+      <DependentUpon>frmModificarEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmModuloEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmModuloEmpleados.Designer.cs">
       <DependentUpon>frmModuloEmpleados.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="prueba.cs">
+    <Compile Include="frmVacaciones.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="prueba.Designer.cs">
-      <DependentUpon>prueba.cs</DependentUpon>
+    <Compile Include="frmVacaciones.Designer.cs">
+      <DependentUpon>frmVacaciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmModuloHorarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModuloHorarios.Designer.cs">
+      <DependentUpon>frmModuloHorarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAltaEmpleado.resx">
+      <DependentUpon>frmAltaEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAltaEquipo.resx">
       <DependentUpon>frmAltaEquipo.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,6 +189,15 @@
     <EmbeddedResource Include="frmConvenio.resx">
       <DependentUpon>frmConvenio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmHorarioIngreso.resx">
+      <DependentUpon>frmHorarioIngreso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHorarioSalida.resx">
+      <DependentUpon>frmHorarioSalida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLicencias.resx">
+      <DependentUpon>frmLicencias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMenuPrincipal.resx">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -159,8 +207,17 @@
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarEmpleado.resx">
+      <DependentUpon>frmModificarEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmModuloEmpleados.resx">
       <DependentUpon>frmModuloEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVacaciones.resx">
+      <DependentUpon>frmVacaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModuloHorarios.resx">
+      <DependentUpon>frmModuloHorarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

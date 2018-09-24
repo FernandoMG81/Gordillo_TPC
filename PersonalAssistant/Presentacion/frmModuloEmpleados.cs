@@ -37,5 +37,29 @@ namespace Presentacion
             frmAsignarEquipos asignarEquipo = new frmAsignarEquipos();
             AbrirFormHijo(asignarEquipo);
         }
+
+        private void btnAltaEmpleado_Click(object sender, EventArgs e)
+        {
+            frmAltaEmpleado empleado = new frmAltaEmpleado();
+            AbrirFormHijo(empleado);
+        }
+
+        private void btnCategorias_Click(object sender, EventArgs e)
+        {
+            frmModificarEmpleado modificar = new frmModificarEmpleado();
+            AbrirFormHijo(modificar);
+        }
+
+        private void btnContratos_Click(object sender, EventArgs e)
+        {
+            frmLicencias licencias = new frmLicencias();
+            AbrirFormHijo(licencias);
+        }
+
+        private void btnConvenio_Click(object sender, EventArgs e)
+        {
+            frmVacaciones vacaciones = new frmVacaciones();
+            AbrirFormHijo(vacaciones);
+        }
     }
 }

@@ -18,13 +18,7 @@ namespace Presentacion
         {
             InitializeComponent();
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            prueba prueba = new prueba();
-            prueba.ShowDialog();
-
-        }
-
+      
         private void pictureBox2_MouseEnter(object sender, EventArgs e)
         {
             //VER PORQUE SE ROMPE  
@@ -62,6 +56,12 @@ namespace Presentacion
         {
             frmModuloEmpleados empleados = new frmModuloEmpleados();
             empleados.ShowDialog();
+        }
+
+        private void pbModuloHorarios_Click(object sender, EventArgs e)
+        {
+            frmModuloHorarios moduloHorario = new frmModuloHorarios();
+            moduloHorario.ShowDialog();
         }
     }
 }

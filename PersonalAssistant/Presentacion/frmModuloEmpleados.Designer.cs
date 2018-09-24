@@ -57,6 +57,7 @@
             this.btnAltaEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAltaEmpleado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAltaEmpleado.UseVisualStyleBackColor = true;
+            this.btnAltaEmpleado.Click += new System.EventHandler(this.btnAltaEmpleado_Click);
             // 
             // pnlEmpleados
             // 
@@ -130,6 +131,7 @@
             this.btnCategorias.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCategorias.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCategorias.UseVisualStyleBackColor = true;
+            this.btnCategorias.Click += new System.EventHandler(this.btnCategorias_Click);
             // 
             // btnContratos
             // 
@@ -147,6 +149,7 @@
             this.btnContratos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnContratos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnContratos.UseVisualStyleBackColor = true;
+            this.btnContratos.Click += new System.EventHandler(this.btnContratos_Click);
             // 
             // btnConvenio
             // 
@@ -164,20 +167,21 @@
             this.btnConvenio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnConvenio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnConvenio.UseVisualStyleBackColor = true;
+            this.btnConvenio.Click += new System.EventHandler(this.btnConvenio_Click);
             // 
             // pnlContenedor
             // 
             this.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenedor.Location = new System.Drawing.Point(135, 33);
             this.pnlContenedor.Name = "pnlContenedor";
-            this.pnlContenedor.Size = new System.Drawing.Size(665, 417);
+            this.pnlContenedor.Size = new System.Drawing.Size(715, 417);
             this.pnlContenedor.TabIndex = 3;
             // 
             // frmModuloEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(850, 450);
             this.Controls.Add(this.pnlContenedor);
             this.Controls.Add(this.pnlEmpleados);
             this.Name = "frmModuloEmpleados";

@@ -33,9 +33,9 @@
             this.txbUsuario = new System.Windows.Forms.TextBox();
             this.txbClave = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rdbAdmin = new System.Windows.Forms.RadioButton();
-            this.rdbPersonal = new System.Windows.Forms.RadioButton();
             this.rdbDeposito = new System.Windows.Forms.RadioButton();
+            this.rdbPersonal = new System.Windows.Forms.RadioButton();
+            this.rdbAdmin = new System.Windows.Forms.RadioButton();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.dgvListaUsuarios = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
@@ -90,17 +90,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tipo de Usuario";
             // 
-            // rdbAdmin
+            // rdbDeposito
             // 
-            this.rdbAdmin.AutoSize = true;
-            this.rdbAdmin.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbAdmin.Location = new System.Drawing.Point(8, 25);
-            this.rdbAdmin.Name = "rdbAdmin";
-            this.rdbAdmin.Size = new System.Drawing.Size(116, 21);
-            this.rdbAdmin.TabIndex = 0;
-            this.rdbAdmin.TabStop = true;
-            this.rdbAdmin.Text = "Administrador";
-            this.rdbAdmin.UseVisualStyleBackColor = true;
+            this.rdbDeposito.AutoSize = true;
+            this.rdbDeposito.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbDeposito.Location = new System.Drawing.Point(287, 25);
+            this.rdbDeposito.Name = "rdbDeposito";
+            this.rdbDeposito.Size = new System.Drawing.Size(126, 21);
+            this.rdbDeposito.TabIndex = 2;
+            this.rdbDeposito.TabStop = true;
+            this.rdbDeposito.Text = "Control Horario";
+            this.rdbDeposito.UseVisualStyleBackColor = true;
             // 
             // rdbPersonal
             // 
@@ -114,17 +114,17 @@
             this.rdbPersonal.Text = "Modulo Empleados";
             this.rdbPersonal.UseVisualStyleBackColor = true;
             // 
-            // rdbDeposito
+            // rdbAdmin
             // 
-            this.rdbDeposito.AutoSize = true;
-            this.rdbDeposito.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbDeposito.Location = new System.Drawing.Point(287, 25);
-            this.rdbDeposito.Name = "rdbDeposito";
-            this.rdbDeposito.Size = new System.Drawing.Size(126, 21);
-            this.rdbDeposito.TabIndex = 2;
-            this.rdbDeposito.TabStop = true;
-            this.rdbDeposito.Text = "Control Horario";
-            this.rdbDeposito.UseVisualStyleBackColor = true;
+            this.rdbAdmin.AutoSize = true;
+            this.rdbAdmin.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbAdmin.Location = new System.Drawing.Point(8, 25);
+            this.rdbAdmin.Name = "rdbAdmin";
+            this.rdbAdmin.Size = new System.Drawing.Size(116, 21);
+            this.rdbAdmin.TabIndex = 0;
+            this.rdbAdmin.TabStop = true;
+            this.rdbAdmin.Text = "Administrador";
+            this.rdbAdmin.UseVisualStyleBackColor = true;
             // 
             // btnGuardar
             // 
@@ -147,9 +147,9 @@
             this.dgvListaUsuarios.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
             this.dgvListaUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListaUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaUsuarios.Location = new System.Drawing.Point(144, 271);
+            this.dgvListaUsuarios.Location = new System.Drawing.Point(87, 271);
             this.dgvListaUsuarios.Name = "dgvListaUsuarios";
-            this.dgvListaUsuarios.Size = new System.Drawing.Size(240, 142);
+            this.dgvListaUsuarios.Size = new System.Drawing.Size(342, 142);
             this.dgvListaUsuarios.TabIndex = 6;
             // 
             // frmAltaUsuario
@@ -167,6 +167,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAltaUsuario";
             this.Text = "frmAltaUsuario";
+            this.Load += new System.EventHandler(this.frmAltaUsuario_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaUsuarios)).EndInit();

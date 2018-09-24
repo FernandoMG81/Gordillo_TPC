@@ -46,9 +46,9 @@
             this.dgvListaEquipos.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
             this.dgvListaEquipos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListaEquipos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaEquipos.Location = new System.Drawing.Point(105, 158);
+            this.dgvListaEquipos.Location = new System.Drawing.Point(30, 158);
             this.dgvListaEquipos.Name = "dgvListaEquipos";
-            this.dgvListaEquipos.Size = new System.Drawing.Size(421, 199);
+            this.dgvListaEquipos.Size = new System.Drawing.Size(541, 199);
             this.dgvListaEquipos.TabIndex = 18;
             // 
             // btnAgregar
@@ -137,7 +137,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(583, 368);
+            this.ClientSize = new System.Drawing.Size(595, 368);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.lblComentario);
             this.Controls.Add(this.txbModelo);

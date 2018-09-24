@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Personal;
 
 namespace Presentacion
 {
@@ -15,6 +16,10 @@ namespace Presentacion
         public frmAltaEquipo()
         {
             InitializeComponent();
+            EquipoTelefonoPersonal equipo = new EquipoTelefonoPersonal();
+            dgvListaEquipos.DataSource = equipo.Listar();
         }
+
+
     }
 }
