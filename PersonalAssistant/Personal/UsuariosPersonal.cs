@@ -22,7 +22,7 @@ namespace Personal
 
             try
             {
-                conexion.ConnectionString = "initial catalog = Gordillo_TPC; data source =TRCFAC05\\SQLEXPRESS; integrated security = sspi"; //Data Source=DESKTOP-H1CONUT\\SQLEXPRESS;Initial Catalog=Gordillo_TPC;Integrated Security=True
+                conexion.ConnectionString = "initial catalog = Gordillo_TPC; data source =.; integrated security = sspi"; //Data Source=DESKTOP-H1CONUT\\SQLEXPRESS; TRCFAC05\\SQLEXPRESS
                 comando.CommandType = System.Data.CommandType.Text;
                 comando.CommandText = "select u.nombre,u.clave,tp.decripcion from usuarios u inner join tipoUsuario tp on u.Idtipo = tp.Idtipo";
                 comando.Connection = conexion;

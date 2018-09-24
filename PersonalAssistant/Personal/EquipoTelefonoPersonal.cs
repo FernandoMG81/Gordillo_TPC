@@ -23,7 +23,7 @@ namespace Personal
 
             try
             {
-                conexion.ConnectionString = "initial catalog = Gordillo_TPC; data source =TRCFAC05\\SQLEXPRESS; integrated security = sspi"; //Data Source=DESKTOP-H1CONUT\\SQLEXPRESS;Initial Catalog=Gordillo_TPC;Integrated Security=True
+                conexion.ConnectionString = "initial catalog = Gordillo_TPC; data source =.; integrated security = sspi"; //Data Source=DESKTOP-H1CONUT\\SQLEXPRESS; TRCFAC05\\SQLEXPRESS
                 comando.CommandType = System.Data.CommandType.Text;
                 comando.CommandText = "select IMEI,modelo,marca,comentario, disponible from equipoTelefono";//case when disponible = 'true' then 'SI' when disponible = 'false' then 'NO'end as 'Disponible'
                 comando.Connection = conexion;
