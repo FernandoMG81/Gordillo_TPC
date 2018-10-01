@@ -43,7 +43,7 @@
             this.pbUsuario = new System.Windows.Forms.PictureBox();
             this.pbConfiguracion = new System.Windows.Forms.PictureBox();
             this.lblConfiguracion = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblBotonFichajes = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ptbModuloEmpleados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbModuloHorarios)).BeginInit();
             this.pnlUsuario.SuspendLayout();
@@ -170,6 +170,7 @@
             // 
             // button2
             // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button2.Font = new System.Drawing.Font("Century Gothic", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(12, 523);
             this.button2.Name = "button2";
@@ -180,6 +181,7 @@
             // 
             // lblusuarioActivo
             // 
+            this.lblusuarioActivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblusuarioActivo.AutoSize = true;
             this.lblusuarioActivo.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblusuarioActivo.Location = new System.Drawing.Point(8, 504);
@@ -190,6 +192,7 @@
             // 
             // pbUsuario
             // 
+            this.pbUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pbUsuario.Image = ((System.Drawing.Image)(resources.GetObject("pbUsuario.Image")));
             this.pbUsuario.Location = new System.Drawing.Point(10, 409);
             this.pbUsuario.Name = "pbUsuario";
@@ -229,18 +232,19 @@
             this.lblConfiguracion.Text = "CONFIGURACIONES";
             this.lblConfiguracion.Click += new System.EventHandler(this.lblConfiguracion_Click);
             // 
-            // label2
+            // lblBotonFichajes
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(485, 251);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(186, 22);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "MODULO FICHAJES";
+            this.lblBotonFichajes.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblBotonFichajes.AutoSize = true;
+            this.lblBotonFichajes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.lblBotonFichajes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblBotonFichajes.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBotonFichajes.Location = new System.Drawing.Point(485, 251);
+            this.lblBotonFichajes.Name = "lblBotonFichajes";
+            this.lblBotonFichajes.Size = new System.Drawing.Size(186, 22);
+            this.lblBotonFichajes.TabIndex = 18;
+            this.lblBotonFichajes.Text = "MODULO FICHAJES";
+            this.lblBotonFichajes.Click += new System.EventHandler(this.lblBotonFichajes_Click);
             // 
             // frmMenuPrincipal
             // 
@@ -248,7 +252,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(1082, 599);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblBotonFichajes);
             this.Controls.Add(this.lblConfiguracion);
             this.Controls.Add(this.pbConfiguracion);
             this.Controls.Add(this.pnlUsuario);
@@ -274,7 +278,7 @@
             this.Controls.SetChildIndex(this.pnlUsuario, 0);
             this.Controls.SetChildIndex(this.pbConfiguracion, 0);
             this.Controls.SetChildIndex(this.lblConfiguracion, 0);
-            this.Controls.SetChildIndex(this.label2, 0);
+            this.Controls.SetChildIndex(this.lblBotonFichajes, 0);
             ((System.ComponentModel.ISupportInitialize)(this.ptbModuloEmpleados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbModuloHorarios)).EndInit();
             this.pnlUsuario.ResumeLayout(false);
@@ -301,7 +305,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pbConfiguracion;
         private System.Windows.Forms.Label lblConfiguracion;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblBotonFichajes;
     }
 }
 

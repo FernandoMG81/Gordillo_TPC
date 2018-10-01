@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class Conexion
+    public class Seccion
     {
+        public string Nombre { get; set; }
     }
 }

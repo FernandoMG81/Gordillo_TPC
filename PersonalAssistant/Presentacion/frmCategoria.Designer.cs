@@ -57,6 +57,7 @@
             this.dgvSeccion.Name = "dgvSeccion";
             this.dgvSeccion.Size = new System.Drawing.Size(198, 189);
             this.dgvSeccion.TabIndex = 10;
+            this.dgvSeccion.TabStop = false;
             // 
             // btnAgregarSeccion
             // 
@@ -68,7 +69,7 @@
             this.btnAgregarSeccion.Location = new System.Drawing.Point(513, 26);
             this.btnAgregarSeccion.Name = "btnAgregarSeccion";
             this.btnAgregarSeccion.Size = new System.Drawing.Size(89, 21);
-            this.btnAgregarSeccion.TabIndex = 9;
+            this.btnAgregarSeccion.TabIndex = 2;
             this.btnAgregarSeccion.Text = "AGREGAR";
             this.btnAgregarSeccion.UseVisualStyleBackColor = false;
             // 
@@ -77,7 +78,7 @@
             this.txbSeccion.Location = new System.Drawing.Point(348, 27);
             this.txbSeccion.Name = "txbSeccion";
             this.txbSeccion.Size = new System.Drawing.Size(144, 20);
-            this.txbSeccion.TabIndex = 8;
+            this.txbSeccion.TabIndex = 1;
             // 
             // lblSeccion
             // 
@@ -115,7 +116,7 @@
             this.cbSeccion.Location = new System.Drawing.Point(152, 25);
             this.cbSeccion.Name = "cbSeccion";
             this.cbSeccion.Size = new System.Drawing.Size(161, 21);
-            this.cbSeccion.TabIndex = 13;
+            this.cbSeccion.TabIndex = 0;
             // 
             // cbConcepto
             // 
@@ -123,7 +124,7 @@
             this.cbConcepto.Location = new System.Drawing.Point(152, 65);
             this.cbConcepto.Name = "cbConcepto";
             this.cbConcepto.Size = new System.Drawing.Size(161, 21);
-            this.cbConcepto.TabIndex = 14;
+            this.cbConcepto.TabIndex = 3;
             // 
             // cbCategoria
             // 
@@ -131,21 +132,21 @@
             this.cbCategoria.Location = new System.Drawing.Point(152, 104);
             this.cbCategoria.Name = "cbCategoria";
             this.cbCategoria.Size = new System.Drawing.Size(161, 21);
-            this.cbCategoria.TabIndex = 15;
+            this.cbCategoria.TabIndex = 6;
             // 
             // txbCategoria
             // 
             this.txbCategoria.Location = new System.Drawing.Point(348, 105);
             this.txbCategoria.Name = "txbCategoria";
             this.txbCategoria.Size = new System.Drawing.Size(144, 20);
-            this.txbCategoria.TabIndex = 16;
+            this.txbCategoria.TabIndex = 7;
             // 
             // txbConcepto
             // 
             this.txbConcepto.Location = new System.Drawing.Point(348, 66);
             this.txbConcepto.Name = "txbConcepto";
             this.txbConcepto.Size = new System.Drawing.Size(144, 20);
-            this.txbConcepto.TabIndex = 17;
+            this.txbConcepto.TabIndex = 4;
             // 
             // btnAgregarConcepto
             // 
@@ -157,7 +158,7 @@
             this.btnAgregarConcepto.Location = new System.Drawing.Point(513, 66);
             this.btnAgregarConcepto.Name = "btnAgregarConcepto";
             this.btnAgregarConcepto.Size = new System.Drawing.Size(89, 21);
-            this.btnAgregarConcepto.TabIndex = 18;
+            this.btnAgregarConcepto.TabIndex = 5;
             this.btnAgregarConcepto.Text = "AGREGAR";
             this.btnAgregarConcepto.UseVisualStyleBackColor = false;
             // 
@@ -171,7 +172,7 @@
             this.btnAgregarCategoria.Location = new System.Drawing.Point(513, 105);
             this.btnAgregarCategoria.Name = "btnAgregarCategoria";
             this.btnAgregarCategoria.Size = new System.Drawing.Size(89, 21);
-            this.btnAgregarCategoria.TabIndex = 19;
+            this.btnAgregarCategoria.TabIndex = 8;
             this.btnAgregarCategoria.Text = "AGREGAR";
             this.btnAgregarCategoria.UseVisualStyleBackColor = false;
             // 
@@ -184,6 +185,7 @@
             this.dgvConcepto.Name = "dgvConcepto";
             this.dgvConcepto.Size = new System.Drawing.Size(198, 189);
             this.dgvConcepto.TabIndex = 20;
+            this.dgvConcepto.TabStop = false;
             // 
             // dgvCategoria
             // 
@@ -194,6 +196,7 @@
             this.dgvCategoria.Name = "dgvCategoria";
             this.dgvCategoria.Size = new System.Drawing.Size(198, 189);
             this.dgvCategoria.TabIndex = 21;
+            this.dgvCategoria.TabStop = false;
             // 
             // frmCategoria
             // 

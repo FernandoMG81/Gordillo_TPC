@@ -42,6 +42,7 @@ namespace Presentacion
         {
             frmAltaEmpleado empleado = new frmAltaEmpleado();
             AbrirFormHijo(empleado);
+            empleado.Focus();
         }
 
         private void btnCategorias_Click(object sender, EventArgs e)

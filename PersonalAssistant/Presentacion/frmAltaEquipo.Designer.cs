@@ -32,11 +32,11 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.txbIMEI = new System.Windows.Forms.TextBox();
             this.lblIMEI = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txbMarca = new System.Windows.Forms.TextBox();
             this.lblMarca = new System.Windows.Forms.Label();
             this.txbModelo = new System.Windows.Forms.TextBox();
             this.lblModelo = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txbComentario = new System.Windows.Forms.TextBox();
             this.lblComentario = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaEquipos)).BeginInit();
             this.SuspendLayout();
@@ -49,7 +49,8 @@
             this.dgvListaEquipos.Location = new System.Drawing.Point(30, 158);
             this.dgvListaEquipos.Name = "dgvListaEquipos";
             this.dgvListaEquipos.Size = new System.Drawing.Size(541, 199);
-            this.dgvListaEquipos.TabIndex = 18;
+            this.dgvListaEquipos.TabIndex = 5;
+            this.dgvListaEquipos.TabStop = false;
             // 
             // btnAgregar
             // 
@@ -61,16 +62,17 @@
             this.btnAgregar.Location = new System.Drawing.Point(207, 114);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(213, 31);
-            this.btnAgregar.TabIndex = 17;
+            this.btnAgregar.TabIndex = 4;
             this.btnAgregar.Text = "AGREGAR";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // txbIMEI
             // 
             this.txbIMEI.Location = new System.Drawing.Point(105, 40);
             this.txbIMEI.Name = "txbIMEI";
             this.txbIMEI.Size = new System.Drawing.Size(156, 20);
-            this.txbIMEI.TabIndex = 16;
+            this.txbIMEI.TabIndex = 0;
             // 
             // lblIMEI
             // 
@@ -82,12 +84,12 @@
             this.lblIMEI.TabIndex = 15;
             this.lblIMEI.Text = "IMEI";
             // 
-            // textBox1
+            // txbMarca
             // 
-            this.textBox1.Location = new System.Drawing.Point(105, 76);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(156, 20);
-            this.textBox1.TabIndex = 20;
+            this.txbMarca.Location = new System.Drawing.Point(105, 76);
+            this.txbMarca.Name = "txbMarca";
+            this.txbMarca.Size = new System.Drawing.Size(156, 20);
+            this.txbMarca.TabIndex = 2;
             // 
             // lblMarca
             // 
@@ -104,7 +106,7 @@
             this.txbModelo.Location = new System.Drawing.Point(370, 39);
             this.txbModelo.Name = "txbModelo";
             this.txbModelo.Size = new System.Drawing.Size(156, 20);
-            this.txbModelo.TabIndex = 22;
+            this.txbModelo.TabIndex = 1;
             // 
             // lblModelo
             // 
@@ -116,12 +118,12 @@
             this.lblModelo.TabIndex = 21;
             this.lblModelo.Text = "Modelo";
             // 
-            // textBox3
+            // txbComentario
             // 
-            this.textBox3.Location = new System.Drawing.Point(370, 76);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(156, 20);
-            this.textBox3.TabIndex = 24;
+            this.txbComentario.Location = new System.Drawing.Point(370, 76);
+            this.txbComentario.Name = "txbComentario";
+            this.txbComentario.Size = new System.Drawing.Size(156, 20);
+            this.txbComentario.TabIndex = 3;
             // 
             // lblComentario
             // 
@@ -138,11 +140,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(595, 368);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txbComentario);
             this.Controls.Add(this.lblComentario);
             this.Controls.Add(this.txbModelo);
             this.Controls.Add(this.lblModelo);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txbMarca);
             this.Controls.Add(this.lblMarca);
             this.Controls.Add(this.dgvListaEquipos);
             this.Controls.Add(this.btnAgregar);
@@ -151,6 +153,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAltaEquipo";
             this.Text = "frmAltaEquipo";
+            this.Load += new System.EventHandler(this.frmAltaEquipo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaEquipos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -163,11 +166,11 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.TextBox txbIMEI;
         private System.Windows.Forms.Label lblIMEI;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txbMarca;
         private System.Windows.Forms.Label lblMarca;
         private System.Windows.Forms.TextBox txbModelo;
         private System.Windows.Forms.Label lblModelo;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txbComentario;
         private System.Windows.Forms.Label lblComentario;
     }
 }

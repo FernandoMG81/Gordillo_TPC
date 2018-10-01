@@ -35,36 +35,42 @@ namespace Presentacion
         {
             frmAltaUsuario altaUsuario = new frmAltaUsuario();
             AbrirFormHijo(altaUsuario);
+            altaUsuario.Focus();
         }
 
         private void btnCategorias_Click(object sender, EventArgs e)
         {
             frmCategoria categoria = new frmCategoria();
             AbrirFormHijo(categoria);
+            categoria.Focus();
         }
 
         private void btnContratos_Click(object sender, EventArgs e)
         {
             frmContratos contratos = new frmContratos();
             AbrirFormHijo(contratos);
+            contratos.Focus();
         }
 
         private void btnConvenio_Click(object sender, EventArgs e)
         {
             frmConvenio convenio = new frmConvenio();
             AbrirFormHijo(convenio);
+            convenio.Focus();
         }
 
         private void btnCiudades_Click(object sender, EventArgs e)
         {
             frmCiudades ciudades = new frmCiudades();
             AbrirFormHijo(ciudades);
+            ciudades.Focus();
         }
 
         private void btnAltaEquipos_Click(object sender, EventArgs e)
         {
             frmAltaEquipo altaEquipo = new frmAltaEquipo();
             AbrirFormHijo(altaEquipo);
+            altaEquipo.Focus();
         }
     }
 }

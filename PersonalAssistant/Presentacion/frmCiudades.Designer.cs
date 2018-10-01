@@ -54,7 +54,7 @@
             this.btnAgregarPartido.Location = new System.Drawing.Point(539, 139);
             this.btnAgregarPartido.Name = "btnAgregarPartido";
             this.btnAgregarPartido.Size = new System.Drawing.Size(89, 21);
-            this.btnAgregarPartido.TabIndex = 32;
+            this.btnAgregarPartido.TabIndex = 8;
             this.btnAgregarPartido.Text = "AGREGAR";
             this.btnAgregarPartido.UseVisualStyleBackColor = false;
             // 
@@ -68,7 +68,7 @@
             this.btnAgregarLocalidad.Location = new System.Drawing.Point(539, 100);
             this.btnAgregarLocalidad.Name = "btnAgregarLocalidad";
             this.btnAgregarLocalidad.Size = new System.Drawing.Size(89, 21);
-            this.btnAgregarLocalidad.TabIndex = 31;
+            this.btnAgregarLocalidad.TabIndex = 5;
             this.btnAgregarLocalidad.Text = "AGREGAR";
             this.btnAgregarLocalidad.UseVisualStyleBackColor = false;
             // 
@@ -77,14 +77,14 @@
             this.txbLocalidad.Location = new System.Drawing.Point(374, 100);
             this.txbLocalidad.Name = "txbLocalidad";
             this.txbLocalidad.Size = new System.Drawing.Size(144, 20);
-            this.txbLocalidad.TabIndex = 30;
+            this.txbLocalidad.TabIndex = 4;
             // 
             // txbPartido
             // 
             this.txbPartido.Location = new System.Drawing.Point(374, 139);
             this.txbPartido.Name = "txbPartido";
             this.txbPartido.Size = new System.Drawing.Size(144, 20);
-            this.txbPartido.TabIndex = 29;
+            this.txbPartido.TabIndex = 7;
             // 
             // cbPartido
             // 
@@ -92,7 +92,7 @@
             this.cbPartido.Location = new System.Drawing.Point(178, 138);
             this.cbPartido.Name = "cbPartido";
             this.cbPartido.Size = new System.Drawing.Size(161, 21);
-            this.cbPartido.TabIndex = 28;
+            this.cbPartido.TabIndex = 6;
             // 
             // cbLocalidad
             // 
@@ -100,7 +100,7 @@
             this.cbLocalidad.Location = new System.Drawing.Point(178, 99);
             this.cbLocalidad.Name = "cbLocalidad";
             this.cbLocalidad.Size = new System.Drawing.Size(161, 21);
-            this.cbLocalidad.TabIndex = 27;
+            this.cbLocalidad.TabIndex = 3;
             // 
             // cbCP
             // 
@@ -108,7 +108,7 @@
             this.cbCP.Location = new System.Drawing.Point(178, 59);
             this.cbCP.Name = "cbCP";
             this.cbCP.Size = new System.Drawing.Size(161, 21);
-            this.cbCP.TabIndex = 26;
+            this.cbCP.TabIndex = 0;
             // 
             // lblPartido
             // 
@@ -141,6 +141,7 @@
             this.dgvPartido.Name = "dgvPartido";
             this.dgvPartido.Size = new System.Drawing.Size(395, 189);
             this.dgvPartido.TabIndex = 23;
+            this.dgvPartido.TabStop = false;
             // 
             // btnAgregarCP
             // 
@@ -152,7 +153,7 @@
             this.btnAgregarCP.Location = new System.Drawing.Point(539, 60);
             this.btnAgregarCP.Name = "btnAgregarCP";
             this.btnAgregarCP.Size = new System.Drawing.Size(89, 21);
-            this.btnAgregarCP.TabIndex = 22;
+            this.btnAgregarCP.TabIndex = 2;
             this.btnAgregarCP.Text = "AGREGAR";
             this.btnAgregarCP.UseVisualStyleBackColor = false;
             // 
@@ -161,7 +162,7 @@
             this.txbCP.Location = new System.Drawing.Point(374, 61);
             this.txbCP.Name = "txbCP";
             this.txbCP.Size = new System.Drawing.Size(144, 20);
-            this.txbCP.TabIndex = 21;
+            this.txbCP.TabIndex = 1;
             // 
             // lblCP
             // 

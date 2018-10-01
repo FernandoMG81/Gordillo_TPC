@@ -84,10 +84,10 @@
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnAgregar.Location = new System.Drawing.Point(288, 407);
+            this.btnAgregar.Location = new System.Drawing.Point(250, 368);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(213, 31);
-            this.btnAgregar.TabIndex = 16;
+            this.btnAgregar.TabIndex = 23;
             this.btnAgregar.Text = "AGREGAR";
             this.btnAgregar.UseVisualStyleBackColor = false;
             // 
@@ -96,7 +96,7 @@
             this.txbNombre.Location = new System.Drawing.Point(105, 50);
             this.txbNombre.Name = "txbNombre";
             this.txbNombre.Size = new System.Drawing.Size(156, 20);
-            this.txbNombre.TabIndex = 15;
+            this.txbNombre.TabIndex = 2;
             // 
             // lblNombre
             // 
@@ -113,7 +113,7 @@
             this.textBox1.Location = new System.Drawing.Point(388, 50);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(156, 20);
-            this.textBox1.TabIndex = 18;
+            this.textBox1.TabIndex = 3;
             // 
             // lblApellido
             // 
@@ -130,7 +130,7 @@
             this.dtpFechaAlta.Location = new System.Drawing.Point(501, 8);
             this.dtpFechaAlta.Name = "dtpFechaAlta";
             this.dtpFechaAlta.Size = new System.Drawing.Size(200, 20);
-            this.dtpFechaAlta.TabIndex = 19;
+            this.dtpFechaAlta.TabIndex = 0;
             // 
             // lblContrato
             // 
@@ -148,7 +148,7 @@
             this.cbxContrato.Location = new System.Drawing.Point(290, 8);
             this.cbxContrato.Name = "cbxContrato";
             this.cbxContrato.Size = new System.Drawing.Size(121, 21);
-            this.cbxContrato.TabIndex = 21;
+            this.cbxContrato.TabIndex = 1;
             // 
             // cbxCategoria
             // 
@@ -156,7 +156,7 @@
             this.cbxCategoria.Location = new System.Drawing.Point(105, 118);
             this.cbxCategoria.Name = "cbxCategoria";
             this.cbxCategoria.Size = new System.Drawing.Size(121, 21);
-            this.cbxCategoria.TabIndex = 23;
+            this.cbxCategoria.TabIndex = 6;
             // 
             // lblCategoria
             // 
@@ -174,7 +174,7 @@
             this.cbxSeccion.Location = new System.Drawing.Point(314, 119);
             this.cbxSeccion.Name = "cbxSeccion";
             this.cbxSeccion.Size = new System.Drawing.Size(121, 21);
-            this.cbxSeccion.TabIndex = 25;
+            this.cbxSeccion.TabIndex = 7;
             // 
             // lblSeccion
             // 
@@ -192,7 +192,7 @@
             this.comboBox1.Location = new System.Drawing.Point(545, 119);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 27;
+            this.comboBox1.TabIndex = 8;
             // 
             // lblConcepto
             // 
@@ -209,7 +209,7 @@
             this.txbDni.Location = new System.Drawing.Point(106, 81);
             this.txbDni.Name = "txbDni";
             this.txbDni.Size = new System.Drawing.Size(156, 20);
-            this.txbDni.TabIndex = 29;
+            this.txbDni.TabIndex = 4;
             // 
             // lblDni
             // 
@@ -226,7 +226,7 @@
             this.txbCuil.Location = new System.Drawing.Point(388, 81);
             this.txbCuil.Name = "txbCuil";
             this.txbCuil.Size = new System.Drawing.Size(156, 20);
-            this.txbCuil.TabIndex = 31;
+            this.txbCuil.TabIndex = 5;
             // 
             // lblCuil
             // 
@@ -244,7 +244,7 @@
             this.cbxConvenio.Location = new System.Drawing.Point(105, 152);
             this.cbxConvenio.Name = "cbxConvenio";
             this.cbxConvenio.Size = new System.Drawing.Size(121, 21);
-            this.cbxConvenio.TabIndex = 33;
+            this.cbxConvenio.TabIndex = 9;
             // 
             // lblConvenio
             // 
@@ -261,7 +261,7 @@
             this.txbObraSocial.Location = new System.Drawing.Point(338, 152);
             this.txbObraSocial.Name = "txbObraSocial";
             this.txbObraSocial.Size = new System.Drawing.Size(156, 20);
-            this.txbObraSocial.TabIndex = 35;
+            this.txbObraSocial.TabIndex = 10;
             // 
             // lblObraSocial
             // 
@@ -278,7 +278,7 @@
             this.txbDomicilio.Location = new System.Drawing.Point(105, 187);
             this.txbDomicilio.Name = "txbDomicilio";
             this.txbDomicilio.Size = new System.Drawing.Size(156, 20);
-            this.txbDomicilio.TabIndex = 37;
+            this.txbDomicilio.TabIndex = 11;
             // 
             // lblDomicilio
             // 
@@ -295,7 +295,7 @@
             this.txbEntrecalles1.Location = new System.Drawing.Point(375, 187);
             this.txbEntrecalles1.Name = "txbEntrecalles1";
             this.txbEntrecalles1.Size = new System.Drawing.Size(156, 20);
-            this.txbEntrecalles1.TabIndex = 39;
+            this.txbEntrecalles1.TabIndex = 12;
             // 
             // lblEntreCalles
             // 
@@ -312,14 +312,14 @@
             this.txbEntrecalles2.Location = new System.Drawing.Point(545, 187);
             this.txbEntrecalles2.Name = "txbEntrecalles2";
             this.txbEntrecalles2.Size = new System.Drawing.Size(156, 20);
-            this.txbEntrecalles2.TabIndex = 40;
+            this.txbEntrecalles2.TabIndex = 13;
             // 
             // txbCP
             // 
             this.txbCP.Location = new System.Drawing.Point(104, 222);
             this.txbCP.Name = "txbCP";
             this.txbCP.Size = new System.Drawing.Size(59, 20);
-            this.txbCP.TabIndex = 42;
+            this.txbCP.TabIndex = 14;
             // 
             // lblCp
             // 
@@ -336,7 +336,7 @@
             this.textBox2.Location = new System.Drawing.Point(276, 222);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(156, 20);
-            this.textBox2.TabIndex = 44;
+            this.textBox2.TabIndex = 15;
             // 
             // lblLocalidad
             // 
@@ -353,7 +353,7 @@
             this.txbPartido.Location = new System.Drawing.Point(526, 222);
             this.txbPartido.Name = "txbPartido";
             this.txbPartido.Size = new System.Drawing.Size(156, 20);
-            this.txbPartido.TabIndex = 46;
+            this.txbPartido.TabIndex = 16;
             // 
             // lblPartido
             // 
@@ -370,7 +370,7 @@
             this.txbTelefonoPrincipal.Location = new System.Drawing.Point(147, 254);
             this.txbTelefonoPrincipal.Name = "txbTelefonoPrincipal";
             this.txbTelefonoPrincipal.Size = new System.Drawing.Size(156, 20);
-            this.txbTelefonoPrincipal.TabIndex = 48;
+            this.txbTelefonoPrincipal.TabIndex = 17;
             // 
             // lblTelefono
             // 
@@ -387,7 +387,7 @@
             this.txbTelefonoAlternativo.Location = new System.Drawing.Point(484, 252);
             this.txbTelefonoAlternativo.Name = "txbTelefonoAlternativo";
             this.txbTelefonoAlternativo.Size = new System.Drawing.Size(156, 20);
-            this.txbTelefonoAlternativo.TabIndex = 50;
+            this.txbTelefonoAlternativo.TabIndex = 18;
             // 
             // lblTelefonoAlternativo
             // 
@@ -414,14 +414,14 @@
             this.dtpFechaNac.Location = new System.Drawing.Point(185, 289);
             this.dtpFechaNac.Name = "dtpFechaNac";
             this.dtpFechaNac.Size = new System.Drawing.Size(200, 20);
-            this.dtpFechaNac.TabIndex = 52;
+            this.dtpFechaNac.TabIndex = 19;
             // 
             // txbNacionalidad
             // 
             this.txbNacionalidad.Location = new System.Drawing.Point(511, 289);
             this.txbNacionalidad.Name = "txbNacionalidad";
             this.txbNacionalidad.Size = new System.Drawing.Size(156, 20);
-            this.txbNacionalidad.TabIndex = 54;
+            this.txbNacionalidad.TabIndex = 20;
             // 
             // lblNacionalidad
             // 
@@ -439,7 +439,7 @@
             this.cbxEstadoCivil.Location = new System.Drawing.Point(111, 330);
             this.cbxEstadoCivil.Name = "cbxEstadoCivil";
             this.cbxEstadoCivil.Size = new System.Drawing.Size(121, 21);
-            this.cbxEstadoCivil.TabIndex = 56;
+            this.cbxEstadoCivil.TabIndex = 21;
             // 
             // lblEstadoCivil
             // 
@@ -466,7 +466,7 @@
             this.nudHijos.Location = new System.Drawing.Point(338, 330);
             this.nudHijos.Name = "nudHijos";
             this.nudHijos.Size = new System.Drawing.Size(34, 20);
-            this.nudHijos.TabIndex = 58;
+            this.nudHijos.TabIndex = 22;
             // 
             // lblAlta
             // 
@@ -482,7 +482,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(720, 450);
+            this.ClientSize = new System.Drawing.Size(720, 411);
             this.Controls.Add(this.lblAlta);
             this.Controls.Add(this.nudHijos);
             this.Controls.Add(this.lblHijos);

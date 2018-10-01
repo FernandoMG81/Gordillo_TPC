@@ -23,7 +23,7 @@ namespace Personal
 
             try
             {
-                conexion.ConnectionString = "initial catalog = Gordillo_TPC; data source =.; integrated security = sspi"; //Data Source=DESKTOP-H1CONUT\\SQLEXPRESS; TRCFAC05\\SQLEXPRESS
+                conexion.ConnectionString = "initial catalog = Gordillo_TPC; data source =TRCFAC05\\SQLEXPRESS; integrated security = sspi"; //Data Source=DESKTOP-H1CONUT\\SQLEXPRESS; TRCFAC05\\SQLEXPRESS
                 comando.CommandType = System.Data.CommandType.Text;
                 comando.CommandText = "select IMEI,modelo,marca,comentario, disponible from equipoTelefono";//case when disponible = 'true' then 'SI' when disponible = 'false' then 'NO'end as 'Disponible'
                 comando.Connection = conexion;
@@ -58,5 +58,36 @@ namespace Personal
 
         }
 
+        public void alta (EquipoTelefono nuevo)
+        {
+            Conexion conexion = null;
+            string consulta = "";
+
+            try
+            {
+                conexion = new Conexion();
+                consulta = "insert into EquipoTelefono (IMEI,Modelo,Marca,Disponible,Comentario)";
+                consulta = consulta + " values ('" + nuevo.Imei + "','"+ nuevo.Modelo+ "','"+nuevo.Marca+ "','"+nuevo.Disponible.ToString()+"','"+nuevo.Comentario+ "')";
+
+                conexion.setearConsulta(consulta);
+
+                conexion.abrirConexion();
+                conexion.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            finally
+            {
+                if (conexion != null)
+                    conexion.cerrarConexion();
+            }
+        }
+
+       
+        
     }
 }

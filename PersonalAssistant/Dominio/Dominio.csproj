@@ -42,15 +42,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Baja.cs" />
-    <Compile Include="Conexion.cs" />
+    <Compile Include="Categoria.cs" />
+    <Compile Include="Concepto.cs" />
     <Compile Include="Direccion.cs" />
     <Compile Include="Empleado.cs" />
     <Compile Include="Horario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seccion.cs" />
     <Compile Include="Telefono.cs" />
     <Compile Include="EquipoTelefono.cs" />
     <Compile Include="TipoEmpleado.cs" />
-    <Compile Include="Usuarios.cs" />
+    <Compile Include="Usuario.cs" />
     <Compile Include="Vacaciones.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

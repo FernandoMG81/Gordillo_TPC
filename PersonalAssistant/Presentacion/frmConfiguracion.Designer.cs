@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConfiguracion));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAltaEquipos = new System.Windows.Forms.Button();
             this.lblConfiguracion = new System.Windows.Forms.Label();
             this.btnCategorias = new System.Windows.Forms.Button();
             this.btnContratos = new System.Windows.Forms.Button();
@@ -37,7 +38,6 @@
             this.btnCiudades = new System.Windows.Forms.Button();
             this.btnAltaUsuarios = new System.Windows.Forms.Button();
             this.pnlContenedor = new System.Windows.Forms.Panel();
-            this.btnAltaEquipos = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +56,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(140, 417);
             this.panel1.TabIndex = 1;
+            // 
+            // btnAltaEquipos
+            // 
+            this.btnAltaEquipos.FlatAppearance.BorderSize = 0;
+            this.btnAltaEquipos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAltaEquipos.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAltaEquipos.ForeColor = System.Drawing.Color.White;
+            this.btnAltaEquipos.Image = ((System.Drawing.Image)(resources.GetObject("btnAltaEquipos.Image")));
+            this.btnAltaEquipos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAltaEquipos.Location = new System.Drawing.Point(0, 147);
+            this.btnAltaEquipos.Name = "btnAltaEquipos";
+            this.btnAltaEquipos.Size = new System.Drawing.Size(134, 32);
+            this.btnAltaEquipos.TabIndex = 8;
+            this.btnAltaEquipos.Text = "Alta Equipos";
+            this.btnAltaEquipos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAltaEquipos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAltaEquipos.UseVisualStyleBackColor = true;
+            this.btnAltaEquipos.Click += new System.EventHandler(this.btnAltaEquipos_Click);
             // 
             // lblConfiguracion
             // 
@@ -165,24 +183,6 @@
             this.pnlContenedor.Name = "pnlContenedor";
             this.pnlContenedor.Size = new System.Drawing.Size(660, 417);
             this.pnlContenedor.TabIndex = 2;
-            // 
-            // btnAltaEquipos
-            // 
-            this.btnAltaEquipos.FlatAppearance.BorderSize = 0;
-            this.btnAltaEquipos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAltaEquipos.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAltaEquipos.ForeColor = System.Drawing.Color.White;
-            this.btnAltaEquipos.Image = ((System.Drawing.Image)(resources.GetObject("btnAltaEquipos.Image")));
-            this.btnAltaEquipos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAltaEquipos.Location = new System.Drawing.Point(0, 147);
-            this.btnAltaEquipos.Name = "btnAltaEquipos";
-            this.btnAltaEquipos.Size = new System.Drawing.Size(134, 32);
-            this.btnAltaEquipos.TabIndex = 8;
-            this.btnAltaEquipos.Text = "Alta Equipos";
-            this.btnAltaEquipos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAltaEquipos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAltaEquipos.UseVisualStyleBackColor = true;
-            this.btnAltaEquipos.Click += new System.EventHandler(this.btnAltaEquipos_Click);
             // 
             // frmConfiguracion
             // 

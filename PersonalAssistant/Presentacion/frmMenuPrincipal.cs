@@ -30,11 +30,13 @@ namespace Presentacion
            // pictureBox2.BorderStyle = BorderStyle.FixedSingle;
         }
 
+        //QUITAR SI SE CAMBIA LA IMAGEN
         private void label1_MouseEnter(object sender, EventArgs e)
         {
            // pictureBox2.BorderStyle = BorderStyle.Fixed3D;
         }
 
+        //QUITAR SI SE CAMBIA LA IMAGEN
         private void label2_MouseEnter(object sender, EventArgs e)
         {
             //pictureBox2.BorderStyle = BorderStyle.Fixed3D;
@@ -46,6 +48,7 @@ namespace Presentacion
             configuracion.ShowDialog();
         }
 
+        //QUITAR SI SE CAMBIA LA IMAGEN
         private void lblConfiguracion_Click(object sender, EventArgs e)
         {
             frmConfiguracion configuracion = new frmConfiguracion();
@@ -59,6 +62,13 @@ namespace Presentacion
         }
 
         private void pbModuloHorarios_Click(object sender, EventArgs e)
+        {
+            frmModuloHorarios moduloHorario = new frmModuloHorarios();
+            moduloHorario.ShowDialog();
+        }
+
+        //QUITAR SI SE CAMBIA LA IMAGEN
+        private void lblBotonFichajes_Click(object sender, EventArgs e)
         {
             frmModuloHorarios moduloHorario = new frmModuloHorarios();
             moduloHorario.ShowDialog();
