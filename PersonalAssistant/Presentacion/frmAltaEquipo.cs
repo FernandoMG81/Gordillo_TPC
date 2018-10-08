@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 using Dominio;
 using Personal;
 
@@ -21,22 +22,73 @@ namespace Presentacion
 
         private void frmAltaEquipo_Load(object sender, EventArgs e)
         {
-            EquipoTelefonoPersonal equipo = new EquipoTelefonoPersonal();
-            try
+           cargaCBXestado();
+
             {
-            dgvListaEquipos.DataSource = equipo.Listar();
+                EquipoTelefonoPersonal equipo = new EquipoTelefonoPersonal();
+                try
+                {
+                    dgvListaEquipos.DataSource = equipo.Listar();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+
 
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+        }
 
+
+        public bool validarTextBox ()
+        {
+            foreach (Control item in this.Controls)
+            {
+                try
+                {
+                    if (item is TextBox)
+                    {
+                        //Codigo comprobacion  de textbox
+                        if (item.Text == "")
+                        {
+                            MessageBox.Show("Hay campos vacios");
+                            item.Focus();
+                            return false;
+                        }
+                    }
+                    else if (item is RichTextBox)
+                    {
+                        //codigo comprobacion de richtextbox
+                        if (item.Text == "")
+                        {
+                            MessageBox.Show("Hay campos vacios");
+                            item.Focus();
+                            return false;
+                        }
+                    }
+                    else if (item is ComboBox)
+                    {
+                        if (item.Text == "")
+                        {
+                            MessageBox.Show("Debes seleccionar un item");
+                            item.Focus();
+                            return false;
+                        }
+                    }
+                }
+                catch { }
+            }
+            return true;
 
         }
 
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+
+            if (validarTextBox())
+            { 
             EquipoTelefonoPersonal equipo = new EquipoTelefonoPersonal();
             EquipoTelefono nuevo = new EquipoTelefono();
 
@@ -45,8 +97,9 @@ namespace Presentacion
                 nuevo.Imei = txbIMEI.Text;
                 nuevo.Modelo = txbModelo.Text;
                 nuevo.Marca = txbMarca.Text;
-                nuevo.Comentario = txbComentario.Text;
+                //nuevo.Comentario = txbComentario.Text;
                 nuevo.Disponible = true;
+               
 
                 equipo.alta(nuevo);
                 frmAltaEquipo_Load(sender, e);
@@ -65,6 +118,38 @@ namespace Presentacion
                 txbIMEI.Focus();
 
             }
+            }
         }
+
+        public void cargaCBXestado()
+        {
+            DataTable tabla;
+            
+            SqlDataAdapter adaptador;
+            SqlCommand comando;
+            string consulta = "";
+            try
+            {
+                tabla = new DataTable();
+
+                using (SqlConnection conexion = new SqlConnection(@"data source =.\SQLEXPRESS;initial catalog = Gordillo_TPC ; integrated security = sspi"))
+                {
+                    consulta = "select ID, descripcion from estado_telefono";
+                    comando = new SqlCommand(consulta, conexion);
+                    adaptador = new SqlDataAdapter(comando);
+                    adaptador.Fill(tabla);
+                }
+
+                cbxEstado.DisplayMember = "descripcion";
+                cbxEstado.DataSource = tabla;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
     }
 }

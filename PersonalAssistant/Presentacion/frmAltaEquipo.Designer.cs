@@ -38,6 +38,8 @@
             this.lblModelo = new System.Windows.Forms.Label();
             this.txbComentario = new System.Windows.Forms.TextBox();
             this.lblComentario = new System.Windows.Forms.Label();
+            this.cbxEstado = new System.Windows.Forms.ComboBox();
+            this.lblEstado = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaEquipos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,7 +61,7 @@
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnAgregar.Location = new System.Drawing.Point(207, 114);
+            this.btnAgregar.Location = new System.Drawing.Point(356, 114);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(213, 31);
             this.btnAgregar.TabIndex = 4;
@@ -73,14 +75,15 @@
             this.txbIMEI.Name = "txbIMEI";
             this.txbIMEI.Size = new System.Drawing.Size(156, 20);
             this.txbIMEI.TabIndex = 0;
+            
             // 
             // lblIMEI
             // 
             this.lblIMEI.AutoSize = true;
-            this.lblIMEI.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIMEI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIMEI.Location = new System.Drawing.Point(33, 40);
             this.lblIMEI.Name = "lblIMEI";
-            this.lblIMEI.Size = new System.Drawing.Size(44, 21);
+            this.lblIMEI.Size = new System.Drawing.Size(43, 20);
             this.lblIMEI.TabIndex = 15;
             this.lblIMEI.Text = "IMEI";
             // 
@@ -94,10 +97,10 @@
             // lblMarca
             // 
             this.lblMarca.AutoSize = true;
-            this.lblMarca.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMarca.Location = new System.Drawing.Point(33, 76);
             this.lblMarca.Name = "lblMarca";
-            this.lblMarca.Size = new System.Drawing.Size(62, 21);
+            this.lblMarca.Size = new System.Drawing.Size(53, 20);
             this.lblMarca.TabIndex = 19;
             this.lblMarca.Text = "Marca";
             // 
@@ -111,10 +114,10 @@
             // lblModelo
             // 
             this.lblModelo.AutoSize = true;
-            this.lblModelo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblModelo.Location = new System.Drawing.Point(298, 39);
             this.lblModelo.Name = "lblModelo";
-            this.lblModelo.Size = new System.Drawing.Size(69, 21);
+            this.lblModelo.Size = new System.Drawing.Size(61, 20);
             this.lblModelo.TabIndex = 21;
             this.lblModelo.Text = "Modelo";
             // 
@@ -128,18 +131,38 @@
             // lblComentario
             // 
             this.lblComentario.AutoSize = true;
-            this.lblComentario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblComentario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblComentario.Location = new System.Drawing.Point(268, 76);
             this.lblComentario.Name = "lblComentario";
-            this.lblComentario.Size = new System.Drawing.Size(104, 21);
+            this.lblComentario.Size = new System.Drawing.Size(91, 20);
             this.lblComentario.TabIndex = 23;
             this.lblComentario.Text = "Comentario";
+            // 
+            // cbxEstado
+            // 
+            this.cbxEstado.FormattingEnabled = true;
+            this.cbxEstado.Location = new System.Drawing.Point(105, 114);
+            this.cbxEstado.Name = "cbxEstado";
+            this.cbxEstado.Size = new System.Drawing.Size(156, 21);
+            this.cbxEstado.TabIndex = 24;
+            // 
+            // lblEstado
+            // 
+            this.lblEstado.AutoSize = true;
+            this.lblEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstado.Location = new System.Drawing.Point(33, 115);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(60, 20);
+            this.lblEstado.TabIndex = 25;
+            this.lblEstado.Text = "Estado";
             // 
             // frmAltaEquipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(595, 368);
+            this.Controls.Add(this.lblEstado);
+            this.Controls.Add(this.cbxEstado);
             this.Controls.Add(this.txbComentario);
             this.Controls.Add(this.lblComentario);
             this.Controls.Add(this.txbModelo);
@@ -172,5 +195,7 @@
         private System.Windows.Forms.Label lblModelo;
         private System.Windows.Forms.TextBox txbComentario;
         private System.Windows.Forms.Label lblComentario;
+        private System.Windows.Forms.ComboBox cbxEstado;
+        private System.Windows.Forms.Label lblEstado;
     }
 }

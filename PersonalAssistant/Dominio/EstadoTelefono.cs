@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class Seccion
+    public class EstadoTelefono
     {
-        public Int64 Idseccion { get; set; }
+        public Int16 Id { get; set; }
         public string Nombre { get; set; }
 
         public override string ToString()

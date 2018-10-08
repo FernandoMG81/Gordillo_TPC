@@ -44,8 +44,12 @@
     <Compile Include="Baja.cs" />
     <Compile Include="Categoria.cs" />
     <Compile Include="Concepto.cs" />
+    <Compile Include="Contrato.cs" />
+    <Compile Include="Convenio.cs" />
     <Compile Include="Direccion.cs" />
     <Compile Include="Empleado.cs" />
+    <Compile Include="EstadoCivil.cs" />
+    <Compile Include="EstadoTelefono.cs" />
     <Compile Include="Horario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seccion.cs" />

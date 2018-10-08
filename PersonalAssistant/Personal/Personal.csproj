@@ -41,9 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoriaPersonal.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="ConceptoPersonal.cs" />
+    <Compile Include="ContratoPersonal.cs" />
+    <Compile Include="ConvenioPersonal.cs" />
+    <Compile Include="EmpleadoPersonal.cs" />
     <Compile Include="EquipoTelefonoPersonal.cs" />
+    <Compile Include="EstadoCivilPersonal.cs" />
+    <Compile Include="EstadoTelPersonal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeccionPersonal.cs" />
     <Compile Include="UsuariosPersonal.cs" />
   </ItemGroup>
   <ItemGroup>

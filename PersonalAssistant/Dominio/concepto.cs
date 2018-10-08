@@ -8,6 +8,13 @@ namespace Dominio
 {
     public class Concepto
     {
+        public Int64 IdConcepto { get; set; }
         public string Nombre { get; set; }
+        public Int64 IdArea { get; set; }
+
+        public override string ToString()
+        {
+            return Nombre;
+        }
     }
 }

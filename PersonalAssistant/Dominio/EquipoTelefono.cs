@@ -12,6 +12,7 @@ namespace Dominio
         public string Modelo { get; set; }
         public string Imei { get; set; }
         public Boolean Disponible { get; set; }
-        public string Comentario { get; set; }
+        //public string Comentario { get; set; }
+        public string Condicion { get; set; }
     }
 }

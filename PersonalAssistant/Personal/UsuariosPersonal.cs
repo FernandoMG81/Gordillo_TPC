@@ -22,9 +22,10 @@ namespace Personal
 
             try
             {
-                conexion.ConnectionString = "initial catalog = Gordillo_TPC; data source =TRCFAC05\\SQLEXPRESS; integrated security = sspi"; //Data Source=DESKTOP-H1CONUT\\SQLEXPRESS; TRCFAC05\\SQLEXPRESS
+                //conexion.ConnectionString = "data source =.;initial catalog = Gordillo_TPC; integrated security = sspi";
+                conexion.ConnectionString = @"data source =.\SQLEXPRESS;initial catalog = Gordillo_TPC; integrated security = sspi"; //Data Source=DESKTOP-H1CONUT\\SQLEXPRESS;
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "select u.nombre,u.clave,tp.decripcion from usuarios u inner join tipoUsuario tp on u.Idtipo = tp.Idtipo";
+                comando.CommandText = "select u.nombre,u.clave,u.sexo,tp.descripcion from usuarios u inner join tipoUsuario tp on u.Idtipo = tp.Idtipo";
                 comando.Connection = conexion;
                 conexion.Open();
                 lector = comando.ExecuteReader();
@@ -32,9 +33,10 @@ namespace Personal
                 while (lector.Read())
                 {
                     aux = new Usuario();
-                    aux.Nombre = lector.GetString(0);
-                    aux.Password = lector.GetString(1);
-                    aux.Tipo = lector.GetString(2);
+                    aux.Nombre = (string)lector["nombre"];
+                    aux.Password = (string)lector["clave"];
+                    aux.Sexo = (string)lector["sexo"];
+                    aux.Tipo = (string)lector["descripcion"];
                     lista.Add(aux);
                 }
 

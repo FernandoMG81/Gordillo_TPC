@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class Seccion
+    public class EstadoCivil
     {
-        public Int64 Idseccion { get; set; }
-        public string Nombre { get; set; }
+        public byte IdEstadoCivil { get; set; }
+        public string Descripcion { get; set; }
 
         public override string ToString()
         {
-            return Nombre;
+            return Descripcion;
         }
     }
 }
