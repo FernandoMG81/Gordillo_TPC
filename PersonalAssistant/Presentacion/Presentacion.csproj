@@ -100,6 +100,12 @@
     <Compile Include="frmConvenio.Designer.cs">
       <DependentUpon>frmConvenio.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEmpleadosLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEmpleadosLista.Designer.cs">
+      <DependentUpon>frmEmpleadosLista.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHorarioIngreso.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmConvenio.resx">
       <DependentUpon>frmConvenio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEmpleadosLista.resx">
+      <DependentUpon>frmEmpleadosLista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHorarioIngreso.resx">
       <DependentUpon>frmHorarioIngreso.cs</DependentUpon>

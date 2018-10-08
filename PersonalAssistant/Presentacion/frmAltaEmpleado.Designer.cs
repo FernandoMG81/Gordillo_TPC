@@ -150,6 +150,7 @@
             this.cbxContrato.Name = "cbxContrato";
             this.cbxContrato.Size = new System.Drawing.Size(145, 21);
             this.cbxContrato.TabIndex = 1;
+            this.cbxContrato.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxContrato_KeyPress);
             // 
             // cbxCategoria
             // 
@@ -158,6 +159,7 @@
             this.cbxCategoria.Name = "cbxCategoria";
             this.cbxCategoria.Size = new System.Drawing.Size(121, 21);
             this.cbxCategoria.TabIndex = 8;
+            this.cbxCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxCategoria_KeyPress);
             // 
             // lblCategoria
             // 
@@ -176,6 +178,7 @@
             this.cbxSeccion.Name = "cbxSeccion";
             this.cbxSeccion.Size = new System.Drawing.Size(121, 21);
             this.cbxSeccion.TabIndex = 6;
+            this.cbxSeccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxSeccion_KeyPress);
             // 
             // lblSeccion
             // 
@@ -194,6 +197,7 @@
             this.cbxConcepto.Name = "cbxConcepto";
             this.cbxConcepto.Size = new System.Drawing.Size(144, 21);
             this.cbxConcepto.TabIndex = 7;
+            this.cbxConcepto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxConcepto_KeyPress);
             // 
             // lblConcepto
             // 
@@ -248,6 +252,7 @@
             this.cbxConvenio.Name = "cbxConvenio";
             this.cbxConvenio.Size = new System.Drawing.Size(121, 21);
             this.cbxConvenio.TabIndex = 9;
+            this.cbxConvenio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxConvenio_KeyPress);
             // 
             // lblConvenio
             // 
@@ -443,6 +448,7 @@
             this.cbxEstadoCivil.Name = "cbxEstadoCivil";
             this.cbxEstadoCivil.Size = new System.Drawing.Size(121, 21);
             this.cbxEstadoCivil.TabIndex = 21;
+            this.cbxEstadoCivil.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxEstadoCivil_KeyPress);
             // 
             // lblEstadoCivil
             // 
