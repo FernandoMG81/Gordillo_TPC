@@ -10,7 +10,38 @@ namespace Personal
 {
     public class EmpleadoPersonal
     {
+        public IList<Empleado> listar ()
+        {
+            List<Empleado> lista = new List<Empleado>();
+            Empleado aux;
+            Conexion conexion;
+            try
+            {
+                aux = new Empleado();
+                conexion = new Conexion();
+                conexion.setearConsulta("select legajo,fecAlta,IDcontrato, IDseccion,IDconcepto,IDconvenio,IDcategoria,nombre,apellido,fechaNac,dni,cuil,nacionalidad,IDestadoCivil,hijos,domicilio,entreCalle1,entreCalle2,cp from empleado");
+                conexion.abrirConexion();
+                conexion.ejecutarAccion();
 
+                while(conexion.Lector.Read())
+                {
+                    if (!conexion.Lector.IsDBNull(2))
+                    {
+                        aux.Legajo = (Int64)conexion.Lector["legajo"];
+                        //aux.IDContrato = 
+                    }
+                    aux.FechaAlta = (DateTime)conexion.Lector["fecAlta"];
+                    lista.Add(aux);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return lista;
+        }
 
 
 

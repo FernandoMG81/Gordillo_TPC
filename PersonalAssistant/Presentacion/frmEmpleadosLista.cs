@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Presentacion
 {
-    public partial class frmEmpleadosLista : frmModelo
+    public partial class frmEmpleadosLista : Form
     {
         public frmEmpleadosLista()
         {

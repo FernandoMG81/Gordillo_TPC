@@ -22,22 +22,23 @@ namespace Presentacion
 
         private void frmAltaEquipo_Load(object sender, EventArgs e)
         {
-           cargaCBXestado();
+            EstadoTelPersonal estado = new EstadoTelPersonal(); ;           
+            EquipoTelefonoPersonal equipo = new EquipoTelefonoPersonal();
 
+            try
             {
-                EquipoTelefonoPersonal equipo = new EquipoTelefonoPersonal();
-                try
-                {
-                    dgvListaEquipos.DataSource = equipo.Listar();
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-
-
+                cbxEstado.DataSource = estado.listar();
+                cbxEstado.ValueMember = "Id";
+                cbxEstado.DisplayMember = "Nombre";
+                dgvListaEquipos.DataSource = equipo.Listar();
             }
+            catch (Exception ex)
+            {
+              MessageBox.Show(ex.ToString());
+            }
+
+
+            
         }
 
 
@@ -94,15 +95,16 @@ namespace Presentacion
 
             try
             {
-                nuevo.Imei = txbIMEI.Text;
-                nuevo.Modelo = txbModelo.Text;
-                nuevo.Marca = txbMarca.Text;
-                //nuevo.Comentario = txbComentario.Text;
-                nuevo.Disponible = true;
-               
+                    nuevo.Imei = txbIMEI.Text;
+                    nuevo.Modelo = txbModelo.Text;
+                    nuevo.Marca = txbMarca.Text;
+                    nuevo.Condicion = cbxEstado.SelectedValue.ToString();
+                    //nuevo.Comentario = txbComentario.Text;
+                    nuevo.Disponible = true;
+                
 
-                equipo.alta(nuevo);
-                frmAltaEquipo_Load(sender, e);
+                    equipo.alta(nuevo);
+                    frmAltaEquipo_Load(sender, e);
             }
             catch (Exception ex)
             {
@@ -119,36 +121,6 @@ namespace Presentacion
 
             }
             }
-        }
-
-        public void cargaCBXestado()
-        {
-            DataTable tabla;
-            
-            SqlDataAdapter adaptador;
-            SqlCommand comando;
-            string consulta = "";
-            try
-            {
-                tabla = new DataTable();
-
-                using (SqlConnection conexion = new SqlConnection(@"data source =.\SQLEXPRESS;initial catalog = Gordillo_TPC ; integrated security = sspi"))
-                {
-                    consulta = "select ID, descripcion from estado_telefono";
-                    comando = new SqlCommand(consulta, conexion);
-                    adaptador = new SqlDataAdapter(comando);
-                    adaptador.Fill(tabla);
-                }
-
-                cbxEstado.DisplayMember = "descripcion";
-                cbxEstado.DataSource = tabla;
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
         }
 
     }

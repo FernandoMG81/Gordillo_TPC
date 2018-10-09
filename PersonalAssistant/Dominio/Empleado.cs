@@ -9,7 +9,7 @@ namespace Dominio
     public class Empleado
     {
         public Int64 IDContrato { get; set; }
-        public int Legajo { get; set; }
+        public Int64 Legajo { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         //public Direccion Direccion { get; set; }

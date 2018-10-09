@@ -10,17 +10,14 @@ namespace Personal
 {
     public class EstadoTelPersonal
     {
-        public int IdEstado { get; set; }
-        public string Descripcion { get; set; }
 
-        public IList<EstadoTelefono> llenar ()
+        public IList<EstadoTelefono> listar ()
         {
             Conexion conexion = null;
             EstadoTelefono aux;
             List<EstadoTelefono> lista;
             try
             {
-                aux = new EstadoTelefono();
                 lista = new List<EstadoTelefono>();
                 conexion = new Conexion();
                 conexion.setearConsulta("select ID, descripcion from estado_telefono");
@@ -29,6 +26,7 @@ namespace Personal
 
                 while (conexion.Lector.Read())
                 {
+                    aux = new EstadoTelefono();
                     aux.Id = (byte)conexion.Lector["ID"];
                     aux.Nombre = (string)conexion.Lector["descripcion"];
                     lista.Add(aux);

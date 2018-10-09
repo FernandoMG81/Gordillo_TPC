@@ -67,7 +67,7 @@ namespace Personal
             try
             {
                 conexion = new Conexion();
-                consulta = "insert into EquipoTelefono (IMEI,Modelo,Marca,Disponible,Idestado) values (@IMEI,@modelo,@marca,1,1)";
+                consulta = "insert into EquipoTelefono (IMEI,Modelo,Marca,Disponible,Idestado) values (@IMEI,@modelo,@marca,1,@estado)";
                 conexion.setearConsulta(consulta);
 
                 //consulta = consulta + " values ('" + nuevo.Imei + "','"+ nuevo.Modelo+ "','"+nuevo.Marca+ "','"+nuevo.Disponible.ToString()+"','"+nuevo.Comentario+ "')";
@@ -75,7 +75,7 @@ namespace Personal
                 conexion.Comando.Parameters.AddWithValue("@IMEI", nuevo.Imei);
                 conexion.Comando.Parameters.AddWithValue("@modelo", nuevo.Modelo);
                 conexion.Comando.Parameters.AddWithValue("@marca", nuevo.Marca);
-                //conexion.Comando.Parameters.AddWithValue("@estado", nuevo.Condicion);
+                conexion.Comando.Parameters.AddWithValue("@estado", nuevo.Condicion);
 
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();
