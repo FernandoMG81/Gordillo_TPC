@@ -124,6 +124,7 @@
             this.lblModuloEmpleado1.Size = new System.Drawing.Size(96, 22);
             this.lblModuloEmpleado1.TabIndex = 11;
             this.lblModuloEmpleado1.Text = "MODULO";
+            this.lblModuloEmpleado1.Click += new System.EventHandler(this.lblModuloEmpleado1_Click);
             this.lblModuloEmpleado1.MouseEnter += new System.EventHandler(this.label1_MouseEnter);
             // 
             // lblModuloEmpleado2
@@ -138,6 +139,7 @@
             this.lblModuloEmpleado2.Size = new System.Drawing.Size(122, 22);
             this.lblModuloEmpleado2.TabIndex = 12;
             this.lblModuloEmpleado2.Text = "EMPLEADOS";
+            this.lblModuloEmpleado2.Click += new System.EventHandler(this.lblModuloEmpleado2_Click);
             this.lblModuloEmpleado2.MouseEnter += new System.EventHandler(this.label2_MouseEnter);
             // 
             // pbModuloHorarios

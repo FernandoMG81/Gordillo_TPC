@@ -27,7 +27,8 @@ namespace Personal
         {
             conexion = new SqlConnection();
             //conexion.ConnectionString = "initial catalog = Gordillo_TPC; data source =.; integrated security = sspi";
-            conexion.ConnectionString = @"data source =.\SQLEXPRESS;initial catalog = Gordillo_TPC ; integrated security = sspi";
+            conexion.ConnectionString = "initial catalog = Gordillo_TPC; data source =TRCFAC05\\SQLEXPRESS; integrated security = sspi";
+            //conexion.ConnectionString = @"data source =.\SQLEXPRESS;initial catalog = Gordillo_TPC ; integrated security = sspi";
         }
 
         public void setearConsulta(string consulta)

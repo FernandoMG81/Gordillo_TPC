@@ -61,6 +61,17 @@ namespace Presentacion
             empleados.ShowDialog();
         }
 
+        private void lblModuloEmpleado1_Click(object sender, EventArgs e)
+        {
+            frmModuloEmpleados empleados = new frmModuloEmpleados();
+            empleados.ShowDialog();
+        }
+        private void lblModuloEmpleado2_Click(object sender, EventArgs e)
+        {
+            frmModuloEmpleados empleados = new frmModuloEmpleados();
+            empleados.ShowDialog();
+        }
+
         private void pbModuloHorarios_Click(object sender, EventArgs e)
         {
             frmModuloHorarios moduloHorario = new frmModuloHorarios();

@@ -19,18 +19,36 @@ namespace Personal
             {
                 aux = new Empleado();
                 conexion = new Conexion();
-                conexion.setearConsulta("select legajo,fecAlta,IDcontrato, IDseccion,IDconcepto,IDconvenio,IDcategoria,nombre,apellido,fechaNac,dni,cuil,nacionalidad,IDestadoCivil,hijos,domicilio,entreCalle1,entreCalle2,cp from empleado");
+                conexion.setearConsulta("select legajo,fecAlta,IDcontrato, IDseccion,IDconcepto,IDconvenio,IDcategoria,nombre," +
+                    "apellido,fechaNac,dni,cuil,nacionalidad,IDestadoCivil,hijos,domicilio,entreCalle1,entreCalle2,cp from empleado");
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();
 
                 while(conexion.Lector.Read())
                 {
-                    if (!conexion.Lector.IsDBNull(2))
+                    if (!conexion.Lector.IsDBNull(0))
                     {
                         aux.Legajo = (Int64)conexion.Lector["legajo"];
-                        //aux.IDContrato = 
+                        
                     }
                     aux.FechaAlta = (DateTime)conexion.Lector["fecAlta"];
+                    aux.IDContrato = (Int64)conexion.Lector["IDcontrato"];
+                    aux.IDSeccion = (Int64)conexion.Lector["IDseccion"];
+                    aux.IDConcepto = (Int64)conexion.Lector["IDconcepto"];
+                    aux.IDConvenio = (Int64)conexion.Lector["IDconvenio"];
+                    aux.IDCategoria = (Int64)conexion.Lector["IDcategoria"];
+                    aux.Nombre = (string)conexion.Lector["nombre"];
+                    aux.Apellido = (string)conexion.Lector["apellido"];
+                    aux.FechaDeNacimiento = (DateTime)conexion.Lector["fechaNac"];
+                    aux.Dni = (string)conexion.Lector["dni"];
+                    aux.Cuil = (string)conexion.Lector["cuil"];
+                    aux.Nacionalidad = (string)conexion.Lector["nacionalidad"];
+                    aux.EstadoCivil = (byte)conexion.Lector["IDestadoCivil"];
+                    aux.Hijos = (int)conexion.Lector["hijos"];
+                    aux.Domicilio = (string)conexion.Lector["domicilio"];
+                    aux.Entrecalle1 = (string)conexion.Lector["entreCalle1"];
+                    aux.Entrecalle2 = (string)conexion.Lector["entreCalle2"];
+                    aux.CP = (Int64)conexion.Lector["CP"];
                     lista.Add(aux);
                 }
 

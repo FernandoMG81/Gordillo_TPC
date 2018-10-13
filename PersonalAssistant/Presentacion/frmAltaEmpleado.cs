@@ -75,11 +75,11 @@ namespace Presentacion
 
             if (dtpFechaAlta.Value.DayOfWeek.ToString() == "Saturday")
             {
-                dtpFechaAlta.Value = DateTime.Today.AddDays(2);
+                dtpFechaAlta.Value = DateTime.Today.AddDays(3);
             }
             else if (dtpFechaAlta.Value.DayOfWeek.ToString() == "Sunday")
             {
-                dtpFechaAlta.Value = DateTime.Today.AddDays(1);
+                dtpFechaAlta.Value = DateTime.Today.AddDays(2);
             }
 
 
