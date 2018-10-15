@@ -19,7 +19,7 @@ namespace Personal
             {
                 lista = new List<Convenio>();
                 conexion = new Conexion();
-                conexion.setearConsulta("select IDconvenio,descripcion from convenio");
+                conexion.setearConsulta("select IDconvenio,convenio from convenio");
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();
 
@@ -27,7 +27,7 @@ namespace Personal
                 {
                     aux = new Convenio();
                     aux.IDconvenio = (Int64)conexion.Lector["IDconvenio"];
-                    aux.Descripcion = (string)conexion.Lector["descripcion"];
+                    aux.Descripcion = (string)conexion.Lector["convenio"];
                     lista.Add(aux);
                 }
             }

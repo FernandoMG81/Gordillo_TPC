@@ -34,5 +34,24 @@ namespace Presentacion
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            EmpleadoPersonal empleado = new EmpleadoPersonal();
+            Empleado modificar;
+
+            try
+            {
+
+                modificar = (Empleado)dgvEmpleados.CurrentRow.DataBoundItem;
+                //empleado.alta(modificar);
+                frmAltaEmpleado modificado = new frmAltaEmpleado(modificar);
+                modificado.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }

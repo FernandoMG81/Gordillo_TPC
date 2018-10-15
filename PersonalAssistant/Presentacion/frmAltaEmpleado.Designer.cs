@@ -57,9 +57,7 @@
             this.txbEntrecalles2 = new System.Windows.Forms.TextBox();
             this.txbCP = new System.Windows.Forms.TextBox();
             this.lblCp = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.lblLocalidad = new System.Windows.Forms.Label();
-            this.txbPartido = new System.Windows.Forms.TextBox();
             this.lblPartido = new System.Windows.Forms.Label();
             this.txbTelefonoPrincipal = new System.Windows.Forms.TextBox();
             this.lblTelefono = new System.Windows.Forms.Label();
@@ -74,7 +72,15 @@
             this.lblHijos = new System.Windows.Forms.Label();
             this.nudHijos = new System.Windows.Forms.NumericUpDown();
             this.lblAlta = new System.Windows.Forms.Label();
+            this.cbxLocalidad = new System.Windows.Forms.ComboBox();
+            this.cbxPartido = new System.Windows.Forms.ComboBox();
+            this.gbxSexo = new System.Windows.Forms.GroupBox();
+            this.rdbMasculino = new System.Windows.Forms.RadioButton();
+            this.rdbFemenino = new System.Windows.Forms.RadioButton();
+            this.txbBasico = new System.Windows.Forms.TextBox();
+            this.lblBasico = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudHijos)).BeginInit();
+            this.gbxSexo.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAgregar
@@ -87,7 +93,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(250, 368);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(213, 31);
-            this.btnAgregar.TabIndex = 23;
+            this.btnAgregar.TabIndex = 24;
             this.btnAgregar.Text = "AGREGAR";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -131,7 +137,7 @@
             this.dtpFechaAlta.Location = new System.Drawing.Point(501, 8);
             this.dtpFechaAlta.Name = "dtpFechaAlta";
             this.dtpFechaAlta.Size = new System.Drawing.Size(200, 20);
-            this.dtpFechaAlta.TabIndex = 0;
+            this.dtpFechaAlta.TabIndex = 25;
             // 
             // lblContrato
             // 
@@ -149,7 +155,7 @@
             this.cbxContrato.Location = new System.Drawing.Point(290, 8);
             this.cbxContrato.Name = "cbxContrato";
             this.cbxContrato.Size = new System.Drawing.Size(145, 21);
-            this.cbxContrato.TabIndex = 1;
+            this.cbxContrato.TabIndex = 0;
             this.cbxContrato.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxContrato_KeyPress);
             // 
             // cbxCategoria
@@ -211,7 +217,7 @@
             // 
             // txbDni
             // 
-            this.txbDni.Location = new System.Drawing.Point(106, 81);
+            this.txbDni.Location = new System.Drawing.Point(105, 81);
             this.txbDni.MaxLength = 8;
             this.txbDni.Name = "txbDni";
             this.txbDni.Size = new System.Drawing.Size(156, 20);
@@ -324,10 +330,11 @@
             // 
             // txbCP
             // 
-            this.txbCP.Location = new System.Drawing.Point(104, 222);
+            this.txbCP.Location = new System.Drawing.Point(105, 220);
             this.txbCP.Name = "txbCP";
             this.txbCP.Size = new System.Drawing.Size(59, 20);
             this.txbCP.TabIndex = 14;
+            this.txbCP.Validated += new System.EventHandler(this.txbCP_Validated);
             // 
             // lblCp
             // 
@@ -339,13 +346,6 @@
             this.lblCp.TabIndex = 41;
             this.lblCp.Text = "CP";
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(276, 222);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(156, 20);
-            this.textBox2.TabIndex = 15;
-            // 
             // lblLocalidad
             // 
             this.lblLocalidad.AutoSize = true;
@@ -355,13 +355,6 @@
             this.lblLocalidad.Size = new System.Drawing.Size(71, 18);
             this.lblLocalidad.TabIndex = 43;
             this.lblLocalidad.Text = "Localidad";
-            // 
-            // txbPartido
-            // 
-            this.txbPartido.Location = new System.Drawing.Point(526, 222);
-            this.txbPartido.Name = "txbPartido";
-            this.txbPartido.Size = new System.Drawing.Size(156, 20);
-            this.txbPartido.TabIndex = 16;
             // 
             // lblPartido
             // 
@@ -487,11 +480,88 @@
             this.lblAlta.TabIndex = 59;
             this.lblAlta.Text = "Alta";
             // 
+            // cbxLocalidad
+            // 
+            this.cbxLocalidad.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxLocalidad.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbxLocalidad.FormattingEnabled = true;
+            this.cbxLocalidad.Location = new System.Drawing.Point(269, 220);
+            this.cbxLocalidad.Name = "cbxLocalidad";
+            this.cbxLocalidad.Size = new System.Drawing.Size(178, 21);
+            this.cbxLocalidad.Sorted = true;
+            this.cbxLocalidad.TabIndex = 15;
+            this.cbxLocalidad.Enter += new System.EventHandler(this.cbxLocalidad_Enter);
+            // 
+            // cbxPartido
+            // 
+            this.cbxPartido.FormattingEnabled = true;
+            this.cbxPartido.Location = new System.Drawing.Point(519, 219);
+            this.cbxPartido.Name = "cbxPartido";
+            this.cbxPartido.Size = new System.Drawing.Size(148, 21);
+            this.cbxPartido.Sorted = true;
+            this.cbxPartido.TabIndex = 16;
+            // 
+            // gbxSexo
+            // 
+            this.gbxSexo.Controls.Add(this.rdbFemenino);
+            this.gbxSexo.Controls.Add(this.rdbMasculino);
+            this.gbxSexo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxSexo.Location = new System.Drawing.Point(579, 39);
+            this.gbxSexo.Name = "gbxSexo";
+            this.gbxSexo.Size = new System.Drawing.Size(106, 65);
+            this.gbxSexo.TabIndex = 1;
+            this.gbxSexo.TabStop = false;
+            this.gbxSexo.Text = "Sexo";
+            // 
+            // rdbMasculino
+            // 
+            this.rdbMasculino.AutoSize = true;
+            this.rdbMasculino.Location = new System.Drawing.Point(7, 16);
+            this.rdbMasculino.Name = "rdbMasculino";
+            this.rdbMasculino.Size = new System.Drawing.Size(90, 21);
+            this.rdbMasculino.TabIndex = 0;
+            this.rdbMasculino.TabStop = true;
+            this.rdbMasculino.Text = "Masculino";
+            this.rdbMasculino.UseVisualStyleBackColor = true;
+            // 
+            // rdbFemenino
+            // 
+            this.rdbFemenino.AutoSize = true;
+            this.rdbFemenino.Location = new System.Drawing.Point(7, 41);
+            this.rdbFemenino.Name = "rdbFemenino";
+            this.rdbFemenino.Size = new System.Drawing.Size(89, 21);
+            this.rdbFemenino.TabIndex = 1;
+            this.rdbFemenino.TabStop = true;
+            this.rdbFemenino.Text = "Femenino";
+            this.rdbFemenino.UseVisualStyleBackColor = true;
+            // 
+            // txbBasico
+            // 
+            this.txbBasico.Location = new System.Drawing.Point(571, 331);
+            this.txbBasico.Name = "txbBasico";
+            this.txbBasico.Size = new System.Drawing.Size(59, 20);
+            this.txbBasico.TabIndex = 23;
+            // 
+            // lblBasico
+            // 
+            this.lblBasico.AutoSize = true;
+            this.lblBasico.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBasico.Location = new System.Drawing.Point(516, 333);
+            this.lblBasico.Name = "lblBasico";
+            this.lblBasico.Size = new System.Drawing.Size(54, 18);
+            this.lblBasico.TabIndex = 64;
+            this.lblBasico.Text = "Basico";
+            // 
             // frmAltaEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(720, 411);
+            this.Controls.Add(this.txbBasico);
+            this.Controls.Add(this.lblBasico);
+            this.Controls.Add(this.gbxSexo);
+            this.Controls.Add(this.cbxPartido);
+            this.Controls.Add(this.cbxLocalidad);
             this.Controls.Add(this.lblAlta);
             this.Controls.Add(this.nudHijos);
             this.Controls.Add(this.lblHijos);
@@ -505,9 +575,7 @@
             this.Controls.Add(this.lblTelefonoAlternativo);
             this.Controls.Add(this.txbTelefonoPrincipal);
             this.Controls.Add(this.lblTelefono);
-            this.Controls.Add(this.txbPartido);
             this.Controls.Add(this.lblPartido);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.lblLocalidad);
             this.Controls.Add(this.txbCP);
             this.Controls.Add(this.lblCp);
@@ -543,6 +611,8 @@
             this.Text = "frmAltaEmpleado";
             this.Load += new System.EventHandler(this.frmAltaEmpleado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudHijos)).EndInit();
+            this.gbxSexo.ResumeLayout(false);
+            this.gbxSexo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -579,9 +649,7 @@
         private System.Windows.Forms.TextBox txbEntrecalles2;
         private System.Windows.Forms.TextBox txbCP;
         private System.Windows.Forms.Label lblCp;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label lblLocalidad;
-        private System.Windows.Forms.TextBox txbPartido;
         private System.Windows.Forms.Label lblPartido;
         private System.Windows.Forms.TextBox txbTelefonoPrincipal;
         private System.Windows.Forms.Label lblTelefono;
@@ -596,5 +664,12 @@
         private System.Windows.Forms.Label lblHijos;
         private System.Windows.Forms.NumericUpDown nudHijos;
         private System.Windows.Forms.Label lblAlta;
+        private System.Windows.Forms.ComboBox cbxLocalidad;
+        private System.Windows.Forms.ComboBox cbxPartido;
+        private System.Windows.Forms.GroupBox gbxSexo;
+        private System.Windows.Forms.RadioButton rdbFemenino;
+        private System.Windows.Forms.RadioButton rdbMasculino;
+        private System.Windows.Forms.TextBox txbBasico;
+        private System.Windows.Forms.Label lblBasico;
     }
 }

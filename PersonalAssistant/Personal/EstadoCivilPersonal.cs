@@ -19,7 +19,7 @@ namespace Personal
             {
                 lista = new List<EstadoCivil>();
                 conexion = new Conexion();
-                conexion.setearConsulta("select IDestadoCivil, descripcion from estadoCivil");
+                conexion.setearConsulta("select IDestadoCivil, estado from estadoCivil");
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();
 
@@ -27,7 +27,7 @@ namespace Personal
                 {
                     aux = new EstadoCivil();
                     aux.IdEstadoCivil = (byte)conexion.Lector["IDestadoCivil"];
-                    aux.Descripcion = (string)conexion.Lector["descripcion"];
+                    aux.Descripcion = (string)conexion.Lector["estado"];
                     lista.Add(aux);
                 }
             }

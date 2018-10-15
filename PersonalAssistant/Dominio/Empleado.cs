@@ -8,7 +8,8 @@ namespace Dominio
 {
     public class Empleado
     {
-        public Int64 IDContrato { get; set; }
+        //public Int64 IDContrato { get; set; }
+        public Contrato Contrato { get; set; }
         public Int64 Legajo { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
@@ -29,12 +30,17 @@ namespace Dominio
         public int Hijos { get; set; }
         public string ObraSocial { get; set; }
         public DateTime VencimientoPrueba { get; set; }
-        public Int64 CP { get; set; }
+        //public Int64 CP { get; set; }
+        public Localidad Localidad { get; set; }
         //public TipoEmpleado Puesto { get; set; }
-        public Int64 IDCategoria { get; set; }
-        public Int64 IDSeccion { get; set; }
-        public Int64 IDConcepto { get; set; }
-        public Int64 IDConvenio { get; set; }
-        public int Basico { get; set; }
+        //public Int64 IDCategoria { get; set; }
+        public Categoria Categoria { get; set; }
+        //public Int64 IDSeccion { get; set; }
+        public Seccion Seccion { get; set; }
+        //public Int64 IDConcepto { get; set; }
+        public Concepto Concepto { get; set; }
+        //public Int64 IDConvenio { get; set; }
+        public Convenio Convenio { get; set; }
+        public decimal Basico { get; set; }
     }
 }

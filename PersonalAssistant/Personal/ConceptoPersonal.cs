@@ -19,7 +19,7 @@ namespace Personal
             {
                 lista = new List<Concepto>();
                 conexion = new Conexion();
-                conexion.setearConsulta("select IDconcepto,descripcion,IDarea from concepto");
+                conexion.setearConsulta("select IDconcepto,concepto,IDarea from concepto");
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();
 
@@ -27,7 +27,7 @@ namespace Personal
                 {
                     aux = new Concepto();
                     aux.IdConcepto= (Int64)conexion.Lector["IDConcepto"];
-                    aux.Nombre = (string)conexion.Lector["descripcion"];
+                    aux.Nombre = conexion.Lector.GetString(1);  //  (string)conexion.Lector["concepto"];
                     aux.IdArea = (Int64)conexion.Lector["Idarea"];
                     lista.Add(aux);
                 }

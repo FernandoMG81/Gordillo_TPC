@@ -50,6 +50,8 @@
     <Compile Include="EquipoTelefonoPersonal.cs" />
     <Compile Include="EstadoCivilPersonal.cs" />
     <Compile Include="EstadoTelPersonal.cs" />
+    <Compile Include="LocalidadPersonal.cs" />
+    <Compile Include="PartidoPersonal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeccionPersonal.cs" />
     <Compile Include="UsuariosPersonal.cs" />

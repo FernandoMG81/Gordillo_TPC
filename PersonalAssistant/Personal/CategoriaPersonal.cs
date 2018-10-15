@@ -19,7 +19,7 @@ namespace Personal
             {
                 lista = new List<Categoria>();
                 conexion = new Conexion();
-                conexion.setearConsulta("select IDcategoria, descripcion, Idconcepto from categoria ");
+                conexion.setearConsulta("select IDcategoria, categoria, Idconcepto from categoria ");
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();
 
@@ -27,7 +27,7 @@ namespace Personal
                 {
                     aux = new Categoria();
                     aux.Idcategoria = (Int64)conexion.Lector["IDcategoria"];
-                    aux.nombre = (string)conexion.Lector["descripcion"];
+                    aux.nombre = (string)conexion.Lector["categoria"];
                     aux.IdConcepto = (Int64)conexion.Lector["Idconcepto"];
                     lista.Add(aux);
                 }
