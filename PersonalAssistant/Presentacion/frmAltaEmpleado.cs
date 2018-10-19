@@ -82,6 +82,30 @@ namespace Presentacion
                 {
                     cbxContrato.SelectedItem = empleado.Contrato.Idcontrato;
                     dtpFechaAlta.Value = empleado.FechaAlta;
+                    txbNombre.Text = empleado.Nombre;
+                    txbApellido.Text = empleado.Apellido;
+                    txbDni.Text = empleado.Dni;
+                    txbCuil.Text = empleado.Cuil;
+                    if (empleado.Sexo == 'M') rdbMasculino.Checked = true;
+                    else rdbFemenino.Checked = true;
+                    cbxSeccion.SelectedItem = empleado.Seccion.Idseccion;
+                    cbxConcepto.SelectedItem = empleado.Concepto.IdConcepto;
+                    cbxCategoria.SelectedItem = empleado.Categoria.Idcategoria;
+                    cbxConvenio.SelectedItem = empleado.Convenio.IDconvenio;
+                    txbObraSocial.Text = empleado.ObraSocial;
+                    txbDomicilio.Text = empleado.Domicilio;
+                    txbEntrecalles1.Text = empleado.Entrecalle1;
+                    txbEntrecalles2.Text = empleado.Entrecalle2;
+                    txbCP.Text = empleado.Localidad.cp.ToString();
+                    cbxLocalidad.SelectedItem = empleado.Localidad.IDlocalidad;
+                    //cbxPartido.SelectedItem = empleado.Localidad.
+                    txbTelefonoPrincipal.Text = empleado.TelefonoPrincipal;
+                    txbTelefonoAlternativo.Text = empleado.TelefonoSecundario;
+                    dtpFechaNac.Value = empleado.FechaDeNacimiento;
+                    txbNacionalidad.Text = empleado.Nacionalidad;
+                    cbxEstadoCivil.SelectedItem = empleado.EstadoCivil;
+                    nudHijos.Value = empleado.Hijos;
+                    txbBasico.Text = empleado.Basico.ToString();
 
                 }
 

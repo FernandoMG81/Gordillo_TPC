@@ -22,7 +22,8 @@ namespace Dominio
         public string Nacionalidad { get; set; }
         public byte EstadoCivil { get; set; }
         public char Sexo { get; set; }
-        public List<Telefono> Telefonos { get; set; }
+        public string TelefonoPrincipal { get; set; }
+        public string TelefonoSecundario { get; set; }
         public string Dni { get; set; }
         public string Cuil { get; set; }
         public string Entrecalle1 { get; set; }

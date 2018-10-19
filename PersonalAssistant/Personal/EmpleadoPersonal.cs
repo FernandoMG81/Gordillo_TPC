@@ -22,7 +22,7 @@ namespace Personal
                  //   "apellido,fechaNac,dni,cuil,nacionalidad,IDestadoCivil,hijos,domicilio,entreCalle1,entreCalle2,cp from empleado");
 
 
-                conexion.setearConsulta("select emp.legajo, emp.fecAlta, emp.sexo, con.IDcontrato, con.contrato, sec.IDseccion, sec.seccion, ccp.IDconcepto, ccp.concepto, cvn.IDconvenio, cvn.convenio, cat.IDcategoria, cat.categoria, emp.nombre, emp.apellido, emp.fechaNac, emp.dni, emp.cuil, emp.nacionalidad, etc.IDestadoCivil, etc.estado, emp.hijos, emp.domicilio, emp.entreCalle1, emp.entreCalle2, loc.cp, loc.IDlocalidad, loc.localidad, loc.IDpartido, par.partido,emp.basico from empleado emp, contrato con, seccion sec, concepto ccp, convenio cvn, categoria cat, estadoCivil etc, localidad loc, partido par where emp.IDcontrato = con.IDcontrato and emp.IDseccion = sec.IDseccion and emp.IDconcepto = ccp.IDconcepto and emp.IDconvenio = cvn.IDconvenio and emp.IDcategoria = cat.IDcategoria and emp.IDestadoCivil = etc.IDestadoCivil and emp.IDlocalidad = loc.IDlocalidad and loc.IDpartido = par.IDpartido");
+                conexion.setearConsulta("select emp.legajo, emp.fecAlta, emp.sexo, con.IDcontrato, con.contrato, sec.IDseccion, sec.seccion, ccp.IDconcepto, ccp.concepto, cvn.IDconvenio, cvn.convenio, cat.IDcategoria, cat.categoria, emp.nombre, emp.apellido, emp.fechaNac, emp.dni, emp.cuil, emp.telPrincipal,emp.telSecundario, emp.nacionalidad, etc.IDestadoCivil, etc.estado, emp.hijos, emp.domicilio, emp.entreCalle1, emp.entreCalle2, loc.cp, loc.IDlocalidad, loc.localidad, loc.IDpartido, par.partido,emp.basico from empleado emp, contrato con, seccion sec, concepto ccp, convenio cvn, categoria cat, estadoCivil etc, localidad loc, partido par where emp.IDcontrato = con.IDcontrato and emp.IDseccion = sec.IDseccion and emp.IDconcepto = ccp.IDconcepto and emp.IDconvenio = cvn.IDconvenio and emp.IDcategoria = cat.IDcategoria and emp.IDestadoCivil = etc.IDestadoCivil and emp.IDlocalidad = loc.IDlocalidad and loc.IDpartido = par.IDpartido");
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();
 
@@ -35,7 +35,7 @@ namespace Personal
                         
                     }
                     aux.FechaAlta = (DateTime)conexion.Lector["fecAlta"];
-                    //aux.Sexo = (char)conexion.Lector["sexo"];
+                    aux.Sexo =  Convert.ToChar(conexion.Lector["sexo"]); //(char)conexion.Lector["sexo"];
                     aux.Contrato = new Contrato();
                     aux.Contrato.Idcontrato = (Int64)conexion.Lector["IDcontrato"];
                     aux.Contrato.Descripcion = (string)conexion.Lector["contrato"];
@@ -65,6 +65,8 @@ namespace Personal
                     aux.Localidad = new Localidad();
                     aux.Localidad.cp = (Int64)conexion.Lector["CP"];
                     aux.Localidad.Nombre = (string)conexion.Lector["localidad"];
+                    aux.TelefonoPrincipal = (string)conexion.Lector["telPrincipal"];
+                    aux.TelefonoSecundario = (string)conexion.Lector["telSecundario"];
                     aux.Basico = (decimal)conexion.Lector["basico"];
 
                     lista.Add(aux);
@@ -91,8 +93,8 @@ namespace Personal
             try
             {
                 conexion = new Conexion();
-                consulta = "insert into empleado (fecAlta,sexo,IDcontrato,IDseccion,IDconcepto,IDconvenio,IDcategoria,nombre,apellido,fechaNac,dni,cuil,nacionalidad,IDestadoCivil,hijos,Domicilio,entrecalle1,entrecalle2,IDlocalidad,basico)";
-                consulta = consulta + "values (@fecAlta,@sexo,@IDcontrato,@IDseccion,@IDconcepto,@IDconvenio,@IDcategoria,@nombre,@apellido,@fechaNac,@dni,@cuil,@nacionalidad,@IDestadoCivil,@hijos,@Domicilio,@entrecalle1,@entrecalle2,@IDlocalidad,@basico)";
+                consulta = "insert into empleado (fecAlta,sexo,IDcontrato,IDseccion,IDconcepto,IDconvenio,IDcategoria,nombre,apellido,fechaNac,dni,cuil,nacionalidad,IDestadoCivil,hijos,Domicilio,entrecalle1,entrecalle2,IDlocalidad,basico,telPrincipal,telSecundario)";
+                consulta = consulta + "values (@fecAlta,@sexo,@IDcontrato,@IDseccion,@IDconcepto,@IDconvenio,@IDcategoria,@nombre,@apellido,@fechaNac,@dni,@cuil,@nacionalidad,@IDestadoCivil,@hijos,@Domicilio,@entrecalle1,@entrecalle2,@IDlocalidad,@basico,@telPrincipal,@telSecundario)";
                 conexion.setearConsulta(consulta);
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@fecAlta",nuevo.FechaAlta);
@@ -115,6 +117,8 @@ namespace Personal
                 conexion.Comando.Parameters.AddWithValue("@entrecalle2", nuevo.Entrecalle2);
                 conexion.Comando.Parameters.AddWithValue("@IDlocalidad", nuevo.Localidad.IDlocalidad);
                 conexion.Comando.Parameters.AddWithValue("@basico", nuevo.Basico);
+                conexion.Comando.Parameters.AddWithValue("@telPrincipal", nuevo.TelefonoPrincipal);
+                conexion.Comando.Parameters.AddWithValue("@telSecundario", nuevo.TelefonoSecundario);
 
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();
