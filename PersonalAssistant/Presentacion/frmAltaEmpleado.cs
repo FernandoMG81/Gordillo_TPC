@@ -80,6 +80,7 @@ namespace Presentacion
 
                 if (empleado!=null)
                 {
+                    btnCerrar.Visible = true;
                     cbxContrato.SelectedItem = empleado.Contrato.Idcontrato;
                     dtpFechaAlta.Value = empleado.FechaAlta;
                     txbNombre.Text = empleado.Nombre;
@@ -213,7 +214,10 @@ namespace Presentacion
                 nuevo.Localidad.cp = Int64.Parse(txbCP.Text);
                 nuevo.Localidad.IDlocalidad = Convert.ToInt64(cbxLocalidad.SelectedValue);
                 nuevo.Basico = Convert.ToDecimal(txbBasico.Text);
-                empleado.alta(nuevo);
+
+                if(nuevo.Legajo!=0) empleado.modificar(nuevo);
+                
+                else empleado.alta(nuevo);
             }
             catch (Exception ex)
             {
@@ -291,6 +295,11 @@ namespace Presentacion
             cbxPartido.ValueMember = "IDpartido";
             cbxPartido.DisplayMember = "nombre";
             cbxPartido.Text = "";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -53,10 +53,37 @@ namespace Personal
                     conexion.cerrarConexion();
                 }
             }
-
-
-
             return lista;
         }
+/*
+        public List<Localidad> buscarCP(Int64 codigo)
+        {
+            Conexion conexion = null;
+            try
+            {
+
+                conexion = new Conexion();
+                conexion.setearConsulta("select cp from localidad where IDlocalidad like '"+ codigo.ToString() + "'");
+                conexion.abrirConexion();
+                conexion.ejecutarAccion();
+                while (conexion.Lector.Read())
+                {
+                    //aux = new Localidad();
+                    //aux.cp = (Int64)conexion.Lector["cp"];
+                }
+            
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.cerrarConexion();
+            }
+            return aux.cp.ToString();
+        }*/
     }
 }

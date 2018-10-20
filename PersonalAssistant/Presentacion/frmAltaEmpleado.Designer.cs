@@ -75,10 +75,11 @@
             this.cbxLocalidad = new System.Windows.Forms.ComboBox();
             this.cbxPartido = new System.Windows.Forms.ComboBox();
             this.gbxSexo = new System.Windows.Forms.GroupBox();
-            this.rdbMasculino = new System.Windows.Forms.RadioButton();
             this.rdbFemenino = new System.Windows.Forms.RadioButton();
+            this.rdbMasculino = new System.Windows.Forms.RadioButton();
             this.txbBasico = new System.Windows.Forms.TextBox();
             this.lblBasico = new System.Windows.Forms.Label();
+            this.btnCerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudHijos)).BeginInit();
             this.gbxSexo.SuspendLayout();
             this.SuspendLayout();
@@ -94,7 +95,7 @@
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(213, 31);
             this.btnAgregar.TabIndex = 24;
-            this.btnAgregar.Text = "AGREGAR";
+            this.btnAgregar.Text = "GUARDAR";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
@@ -513,17 +514,6 @@
             this.gbxSexo.TabStop = false;
             this.gbxSexo.Text = "Sexo";
             // 
-            // rdbMasculino
-            // 
-            this.rdbMasculino.AutoSize = true;
-            this.rdbMasculino.Location = new System.Drawing.Point(7, 16);
-            this.rdbMasculino.Name = "rdbMasculino";
-            this.rdbMasculino.Size = new System.Drawing.Size(90, 21);
-            this.rdbMasculino.TabIndex = 0;
-            this.rdbMasculino.TabStop = true;
-            this.rdbMasculino.Text = "Masculino";
-            this.rdbMasculino.UseVisualStyleBackColor = true;
-            // 
             // rdbFemenino
             // 
             this.rdbFemenino.AutoSize = true;
@@ -534,6 +524,17 @@
             this.rdbFemenino.TabStop = true;
             this.rdbFemenino.Text = "Femenino";
             this.rdbFemenino.UseVisualStyleBackColor = true;
+            // 
+            // rdbMasculino
+            // 
+            this.rdbMasculino.AutoSize = true;
+            this.rdbMasculino.Location = new System.Drawing.Point(7, 16);
+            this.rdbMasculino.Name = "rdbMasculino";
+            this.rdbMasculino.Size = new System.Drawing.Size(90, 21);
+            this.rdbMasculino.TabIndex = 0;
+            this.rdbMasculino.TabStop = true;
+            this.rdbMasculino.Text = "Masculino";
+            this.rdbMasculino.UseVisualStyleBackColor = true;
             // 
             // txbBasico
             // 
@@ -552,11 +553,28 @@
             this.lblBasico.TabIndex = 64;
             this.lblBasico.Text = "Basico";
             // 
+            // btnCerrar
+            // 
+            this.btnCerrar.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnCerrar.Location = new System.Drawing.Point(488, 368);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(213, 31);
+            this.btnCerrar.TabIndex = 65;
+            this.btnCerrar.Text = "CERRAR";
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Visible = false;
+            this.btnCerrar.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmAltaEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(720, 411);
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.txbBasico);
             this.Controls.Add(this.lblBasico);
             this.Controls.Add(this.gbxSexo);
@@ -608,6 +626,7 @@
             this.Controls.Add(this.lblNombre);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAltaEmpleado";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmAltaEmpleado";
             this.Load += new System.EventHandler(this.frmAltaEmpleado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudHijos)).EndInit();
@@ -671,5 +690,6 @@
         private System.Windows.Forms.RadioButton rdbMasculino;
         private System.Windows.Forms.TextBox txbBasico;
         private System.Windows.Forms.Label lblBasico;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }

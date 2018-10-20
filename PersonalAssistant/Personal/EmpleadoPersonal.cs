@@ -136,6 +136,45 @@ namespace Personal
             }
         }
 
+        public void modificar(Empleado nuevo)
+        {
+            Conexion conexion;
+            try
+            {
+                conexion = new Conexion();                                                                                                                                                                  
+                conexion.setearConsulta("update empleado  set fecAlta = @fecAlta, sexo = @sexo, IDcontrato = @IDcontrato, IDseccion = @IDseccion, IDconcepto = @IDconcepto, IDconvenio = @IDconvenio, IDcategoria = @IDcategoria, nombre = @nombre, apellido = @apellido, fechaNac= @fechaNac, dni = @dni, cuil = @cuil, nacionalidad=@nacionalidad, IDestadoCivil = @IDestadoCivil, hijos@hijos, Domicilio=@Domicilio, entrecalle1=@entreCalles1, entrecalle2=entreCalles2, IDlocalidad=IDlocalidad, basico=@basico, telPrincipal=@telPrincipal, telSecundario=@telSecundario where dni = @dni");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@fecAlta", nuevo.FechaAlta);
+                conexion.Comando.Parameters.AddWithValue("@sexo", nuevo.Sexo);
+                conexion.Comando.Parameters.AddWithValue("@IDcontrato", nuevo.Contrato.Idcontrato);
+                conexion.Comando.Parameters.AddWithValue("@IDseccion", nuevo.Seccion.Idseccion);
+                conexion.Comando.Parameters.AddWithValue("@IDconcepto", nuevo.Concepto.IdConcepto);
+                conexion.Comando.Parameters.AddWithValue("@IDconvenio", nuevo.Convenio.IDconvenio);
+                conexion.Comando.Parameters.AddWithValue("@IDcategoria", nuevo.Categoria.Idcategoria);
+                conexion.Comando.Parameters.AddWithValue("@nombre", nuevo.Nombre);
+                conexion.Comando.Parameters.AddWithValue("@apellido", nuevo.Apellido);
+                conexion.Comando.Parameters.AddWithValue("@fechaNac", nuevo.FechaDeNacimiento);
+                conexion.Comando.Parameters.AddWithValue("@dni", nuevo.Dni);
+                conexion.Comando.Parameters.AddWithValue("@cuil", nuevo.Cuil);
+                conexion.Comando.Parameters.AddWithValue("@nacionalidad", nuevo.Nacionalidad);
+                conexion.Comando.Parameters.AddWithValue("@IDestadoCivil", nuevo.EstadoCivil);
+                conexion.Comando.Parameters.AddWithValue("@hijos", nuevo.Hijos);
+                conexion.Comando.Parameters.AddWithValue("@Domicilio", nuevo.Domicilio);
+                conexion.Comando.Parameters.AddWithValue("@entrecalle1", nuevo.Entrecalle1);
+                conexion.Comando.Parameters.AddWithValue("@entrecalle2", nuevo.Entrecalle2);
+                conexion.Comando.Parameters.AddWithValue("@IDlocalidad", nuevo.Localidad.IDlocalidad);
+                conexion.Comando.Parameters.AddWithValue("@basico", nuevo.Basico);
+                conexion.Comando.Parameters.AddWithValue("@telPrincipal", nuevo.TelefonoPrincipal);
+                conexion.Comando.Parameters.AddWithValue("@telSecundario", nuevo.TelefonoSecundario);
 
+                conexion.abrirConexion();
+                conexion.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
