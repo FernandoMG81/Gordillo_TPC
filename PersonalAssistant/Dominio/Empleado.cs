@@ -9,6 +9,7 @@ namespace Dominio
     public class Empleado
     {
         //public Int64 IDContrato { get; set; }
+        public Int64 IDregistro { get; set; }
         public Contrato Contrato { get; set; }
         public Int64 Legajo { get; set; }
         public string Nombre { get; set; }
@@ -20,7 +21,7 @@ namespace Dominio
         public DateTime FechaDeNacimiento { get; set; }
         public int Edad { get; set; }
         public string Nacionalidad { get; set; }
-        public byte EstadoCivil { get; set; }
+        public EstadoCivil EstadoCivil { get; set; }
         public char Sexo { get; set; }
         public string TelefonoPrincipal { get; set; }
         public string TelefonoSecundario { get; set; }

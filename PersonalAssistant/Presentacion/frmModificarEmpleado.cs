@@ -30,7 +30,6 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.ToString());
             }
         }
@@ -47,6 +46,7 @@ namespace Presentacion
                 //empleado.alta(modificar);
                 frmAltaEmpleado modificado = new frmAltaEmpleado(modificar);
                 modificado.ShowDialog();
+                frmModificarEmpleado_Load(sender, e);
             }
             catch (Exception ex)
             {

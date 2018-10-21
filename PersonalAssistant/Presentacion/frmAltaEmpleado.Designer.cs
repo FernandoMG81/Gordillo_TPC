@@ -489,9 +489,8 @@
             this.cbxLocalidad.Location = new System.Drawing.Point(269, 220);
             this.cbxLocalidad.Name = "cbxLocalidad";
             this.cbxLocalidad.Size = new System.Drawing.Size(178, 21);
-            this.cbxLocalidad.Sorted = true;
             this.cbxLocalidad.TabIndex = 15;
-            this.cbxLocalidad.Enter += new System.EventHandler(this.cbxLocalidad_Enter);
+            this.cbxLocalidad.Validating += new System.ComponentModel.CancelEventHandler(this.cbxLocalidad_Validating);
             // 
             // cbxPartido
             // 
@@ -499,7 +498,6 @@
             this.cbxPartido.Location = new System.Drawing.Point(519, 219);
             this.cbxPartido.Name = "cbxPartido";
             this.cbxPartido.Size = new System.Drawing.Size(148, 21);
-            this.cbxPartido.Sorted = true;
             this.cbxPartido.TabIndex = 16;
             // 
             // gbxSexo
@@ -567,7 +565,7 @@
             this.btnCerrar.Text = "CERRAR";
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Visible = false;
-            this.btnCerrar.Click += new System.EventHandler(this.button1_Click);
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // frmAltaEmpleado
             // 

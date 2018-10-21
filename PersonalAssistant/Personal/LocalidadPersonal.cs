@@ -12,7 +12,7 @@ namespace Personal
     {
         private Int64 cp;
 
-        public List<Localidad> listar (Int64 CP=0)
+        public List<Localidad> listar(Int64 CP = 0)
         {
             cp = CP;
             Conexion conexion = null;
@@ -38,6 +38,7 @@ namespace Personal
                     aux.IDlocalidad = (Int64)conexion.Lector["IDlocalidad"];
                     aux.Nombre = (string)conexion.Lector["localidad"];
                     aux.cp = (Int64)conexion.Lector["cp"];
+                    aux.IDpartido = (Int64)conexion.Lector["IDpartido"];
                     lista.Add(aux);
                 }
             }
@@ -48,30 +49,33 @@ namespace Personal
             }
             finally
             {
-                if(conexion!=null)
+                if (conexion != null)
                 {
                     conexion.cerrarConexion();
                 }
             }
             return lista;
         }
-/*
-        public List<Localidad> buscarCP(Int64 codigo)
+
+        public Localidad buscarIDpartido(Int64 codigo)
         {
             Conexion conexion = null;
+            Localidad aux;
             try
             {
-
+                aux = new Localidad();
                 conexion = new Conexion();
-                conexion.setearConsulta("select cp from localidad where IDlocalidad like '"+ codigo.ToString() + "'");
+                conexion.setearConsulta("select cp,IDlocalidad,IDpartido,localidad from localidad where IDlocalidad like '" + codigo.ToString() + "'");
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();
-                while (conexion.Lector.Read())
-                {
-                    //aux = new Localidad();
-                    //aux.cp = (Int64)conexion.Lector["cp"];
-                }
-            
+                conexion.Lector.Read();
+                aux.cp = (Int64)conexion.Lector["CP"];
+                aux.IDlocalidad = (Int64)conexion.Lector["IDlocalidad"];
+                aux.IDpartido = (Int64)conexion.Lector["IDpartido"];
+                aux.Nombre = (string)conexion.Lector["localidad"];
+
+
+
             }
             catch (Exception ex)
             {
@@ -83,7 +87,7 @@ namespace Personal
                 if (conexion != null)
                     conexion.cerrarConexion();
             }
-            return aux.cp.ToString();
-        }*/
+            return aux;
+        }
     }
 }

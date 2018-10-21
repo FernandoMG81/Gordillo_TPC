@@ -39,11 +39,9 @@ namespace Presentacion
             ConvenioPersonal convenio = new ConvenioPersonal();
             EstadoCivilPersonal estadoCivil = new EstadoCivilPersonal();
 
-            LocalidadPersonal localidades = new LocalidadPersonal();
-            PartidoPersonal partidos = new PartidoPersonal();
+
             try
             {
-                //txbCP.AutoCompleteSource = localidades.listar();
 
                 cbxConcepto.DataSource = concepto.listar();
                 cbxConcepto.ValueMember = "IdConcepto";
@@ -57,7 +55,6 @@ namespace Presentacion
                 cbxContrato.ValueMember = "Idcontrato";
                 cbxContrato.DisplayMember = "Descripcion";
 
-
                 cbxSeccion.DataSource = seccion.listar();
                 cbxSeccion.ValueMember = "Idseccion";
                 cbxSeccion.DisplayMember = "nombre";
@@ -70,18 +67,13 @@ namespace Presentacion
                 cbxEstadoCivil.ValueMember = "IdEstadoCivil";
                 cbxEstadoCivil.DisplayMember = "Descripcion";
 
-                cbxLocalidad.DataSource = localidades.listar();
-                cbxLocalidad.ValueMember = "Idlocalidad";
-                cbxLocalidad.DisplayMember = "nombre";
+                cargarLocalidad();
+                cargarPartido();
 
-                cbxPartido.DataSource = partidos.listar();
-                cbxPartido.ValueMember = "IDpartido";
-                cbxPartido.DisplayMember = "nombre";
-
-                if (empleado!=null)
+                if (empleado != null)
                 {
                     btnCerrar.Visible = true;
-                    cbxContrato.SelectedItem = empleado.Contrato.Idcontrato;
+                    cbxContrato.SelectedValue = empleado.Contrato.Idcontrato;
                     dtpFechaAlta.Value = empleado.FechaAlta;
                     txbNombre.Text = empleado.Nombre;
                     txbApellido.Text = empleado.Apellido;
@@ -89,22 +81,22 @@ namespace Presentacion
                     txbCuil.Text = empleado.Cuil;
                     if (empleado.Sexo == 'M') rdbMasculino.Checked = true;
                     else rdbFemenino.Checked = true;
-                    cbxSeccion.SelectedItem = empleado.Seccion.Idseccion;
-                    cbxConcepto.SelectedItem = empleado.Concepto.IdConcepto;
-                    cbxCategoria.SelectedItem = empleado.Categoria.Idcategoria;
-                    cbxConvenio.SelectedItem = empleado.Convenio.IDconvenio;
+                    cbxSeccion.SelectedValue = empleado.Seccion.Idseccion;
+                    cbxConcepto.SelectedValue = empleado.Concepto.IdConcepto;
+                    cbxCategoria.SelectedValue = empleado.Categoria.Idcategoria;
+                    cbxConvenio.SelectedValue = empleado.Convenio.IDconvenio;
                     txbObraSocial.Text = empleado.ObraSocial;
                     txbDomicilio.Text = empleado.Domicilio;
                     txbEntrecalles1.Text = empleado.Entrecalle1;
                     txbEntrecalles2.Text = empleado.Entrecalle2;
                     txbCP.Text = empleado.Localidad.cp.ToString();
-                    cbxLocalidad.SelectedItem = empleado.Localidad.IDlocalidad;
-                    //cbxPartido.SelectedItem = empleado.Localidad.
+                    cbxLocalidad.SelectedValue = empleado.Localidad.IDlocalidad;
+                    cbxPartido.SelectedValue = empleado.Localidad.IDpartido;
                     txbTelefonoPrincipal.Text = empleado.TelefonoPrincipal;
                     txbTelefonoAlternativo.Text = empleado.TelefonoSecundario;
                     dtpFechaNac.Value = empleado.FechaDeNacimiento;
                     txbNacionalidad.Text = empleado.Nacionalidad;
-                    cbxEstadoCivil.SelectedItem = empleado.EstadoCivil;
+                    cbxEstadoCivil.SelectedValue = empleado.EstadoCivil;
                     nudHijos.Value = empleado.Hijos;
                     txbBasico.Text = empleado.Basico.ToString();
 
@@ -112,7 +104,7 @@ namespace Presentacion
 
                 else
                 {
-          
+
                     cbxConcepto.Text = "";
                     cbxCategoria.Text = "";
                     cbxContrato.Text = "";
@@ -123,24 +115,24 @@ namespace Presentacion
                     cbxPartido.Text = "";
                     dtpFechaAlta.Value = DateTime.Today.AddDays(1);
 
-                if (dtpFechaAlta.Value.DayOfWeek.ToString() == "Saturday")
-                {
-                    dtpFechaAlta.Value = DateTime.Today.AddDays(3);
-                }
-                else if (dtpFechaAlta.Value.DayOfWeek.ToString() == "Sunday")
-                {
-                    dtpFechaAlta.Value = DateTime.Today.AddDays(2);
-                }
+                    if (dtpFechaAlta.Value.DayOfWeek.ToString() == "Saturday")
+                    {
+                        dtpFechaAlta.Value = DateTime.Today.AddDays(3);
+                    }
+                    else if (dtpFechaAlta.Value.DayOfWeek.ToString() == "Sunday")
+                    {
+                        dtpFechaAlta.Value = DateTime.Today.AddDays(2);
                     }
                 }
+            }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.ToString());
             }
 
-            
-            
+
+
             //SE INICIA CON EL DIA DE ALTA POSTERIOR AL DE LA CARGA, SI ES FINDE SE CORRE AL LUNES.
 
         }
@@ -174,60 +166,62 @@ namespace Presentacion
                 throw ex;
             }
         }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            EmpleadoPersonal empleado= new EmpleadoPersonal();
-            Empleado nuevo = new Empleado();
+            EmpleadoPersonal empleadoPersonal = new EmpleadoPersonal();
+            
             try
             {
-                nuevo.FechaAlta = dtpFechaAlta.Value.Date;
-                nuevo.Contrato = new Contrato();
-                nuevo.Contrato.Idcontrato = Convert.ToInt64(cbxContrato.SelectedValue);
-                nuevo.Contrato.Descripcion = cbxContrato.DisplayMember;
-                nuevo.Sexo = rdbMasculino.Checked ? 'M' : 'F';
-                nuevo.Seccion = new Seccion();
-                nuevo.Seccion.Idseccion = Convert.ToInt64(cbxSeccion.SelectedValue);
-                nuevo.Seccion.Nombre = cbxSeccion.DisplayMember;
-                nuevo.Concepto = new Concepto();
-                nuevo.Concepto.IdConcepto = Convert.ToInt64(cbxConcepto.SelectedValue);
-                nuevo.Concepto.Nombre = cbxConcepto.DisplayMember;
-                //nuevo.Concepto.IdArea = cbxSeccion.SelectedItem;
-                nuevo.Convenio = new Convenio();
-                nuevo.Convenio.IDconvenio = Convert.ToInt64(cbxConvenio.SelectedValue);
-                nuevo.Convenio.Descripcion = cbxConvenio.DisplayMember;
-                nuevo.Categoria = new Categoria();
-                nuevo.Categoria.Idcategoria = Convert.ToInt64(cbxCategoria.SelectedValue);
-                nuevo.Categoria.nombre = cbxCategoria.DisplayMember;
-                //nuevo.Categoria.IdConcepto = cbxConcepto.SelectedValue;
-                nuevo.Nombre = txbNombre.Text;
-                nuevo.Apellido = txbApellido.Text;
-                nuevo.FechaDeNacimiento = dtpFechaNac.Value.Date;
-                nuevo.Dni = txbDni.Text;
-                nuevo.Cuil = txbCuil.Text;
-                nuevo.Nacionalidad = txbNacionalidad.Text;
-                nuevo.EstadoCivil = Convert.ToByte(cbxEstadoCivil.SelectedValue);
-                nuevo.Hijos = Convert.ToByte(nudHijos.Value.ToString());
-                nuevo.Domicilio = txbDomicilio.Text;
-                nuevo.Entrecalle1 = txbEntrecalles1.Text;
-                nuevo.Entrecalle2 = txbEntrecalles2.Text;
-                nuevo.Localidad = new Localidad();
-                nuevo.Localidad.cp = Int64.Parse(txbCP.Text);
-                nuevo.Localidad.IDlocalidad = Convert.ToInt64(cbxLocalidad.SelectedValue);
-                nuevo.Basico = Convert.ToDecimal(txbBasico.Text);
+                if (empleado == null) empleado = new Empleado();
 
-                if(nuevo.Legajo!=0) empleado.modificar(nuevo);
-                
-                else empleado.alta(nuevo);
+                empleado.FechaAlta = dtpFechaAlta.Value.Date;
+                empleado.Contrato = new Contrato();
+                empleado.Contrato.Idcontrato = Convert.ToInt64(cbxContrato.SelectedValue);
+                empleado.Contrato.Descripcion = cbxContrato.DisplayMember;
+                empleado.Sexo = rdbMasculino.Checked ? 'M' : 'F';
+                empleado.Seccion = new Seccion();
+                empleado.Seccion.Idseccion = Convert.ToInt64(cbxSeccion.SelectedValue);
+                empleado.Seccion.Nombre = cbxSeccion.DisplayMember;
+                empleado.Concepto = new Concepto();
+                empleado.Concepto.IdConcepto = Convert.ToInt64(cbxConcepto.SelectedValue);
+                empleado.Concepto.Nombre = cbxConcepto.DisplayMember;
+                empleado.Convenio = new Convenio();
+                empleado.Convenio.IDconvenio = Convert.ToInt64(cbxConvenio.SelectedValue);
+                empleado.Convenio.Descripcion = cbxConvenio.DisplayMember;
+                empleado.Categoria = new Categoria();
+                empleado.Categoria.Idcategoria = Convert.ToInt64(cbxCategoria.SelectedValue);
+                empleado.Categoria.nombre = cbxCategoria.DisplayMember;
+                empleado.Nombre = txbNombre.Text;
+                empleado.Apellido = txbApellido.Text;
+                empleado.FechaDeNacimiento = dtpFechaNac.Value.Date;
+                empleado.Dni = txbDni.Text;
+                empleado.Cuil = txbCuil.Text;
+                empleado.TelefonoPrincipal = txbTelefonoPrincipal.Text;
+                empleado.TelefonoSecundario = txbTelefonoAlternativo.Text;
+                empleado.Nacionalidad = txbNacionalidad.Text;
+                empleado.EstadoCivil = new EstadoCivil();
+                empleado.EstadoCivil.IdEstadoCivil = Convert.ToByte(cbxEstadoCivil.SelectedValue);
+                empleado.EstadoCivil.Descripcion = cbxEstadoCivil.DisplayMember;
+                empleado.Hijos = Convert.ToByte(nudHijos.Value.ToString());
+                empleado.Domicilio = txbDomicilio.Text;
+                empleado.Entrecalle1 = txbEntrecalles1.Text;
+                empleado.Entrecalle2 = txbEntrecalles2.Text;
+                empleado.Localidad = new Localidad();
+                empleado.Localidad.cp = Int64.Parse(txbCP.Text);
+                empleado.Localidad.IDlocalidad = Convert.ToInt64(cbxLocalidad.SelectedValue);
+                empleado.Basico = Convert.ToDecimal(txbBasico.Text);
+
+                if (empleado.IDregistro != 0) empleadoPersonal.modificar(empleado);
+
+                else empleadoPersonal.alta(empleado);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
 
-            finally
-            {
 
-            }
         }
 
         private void cbxContrato_KeyPress(object sender, KeyPressEventArgs e)
@@ -260,81 +254,106 @@ namespace Presentacion
             e.Handled = true;
         }
 
-        private void cbxLocalidad_Enter(object sender, EventArgs e)
-        {
-            
-        }
 
         private void txbCP_Validated(object sender, EventArgs e)
         {
-            LocalidadPersonal localidades = new LocalidadPersonal();
+            PartidoPersonal partidos = new PartidoPersonal();
 
             if (txbCP.Text == "")
             {
-                cbxLocalidad.DataSource = localidades.listar();
-                cbxLocalidad.ValueMember = "Idlocalidad";
-                cbxLocalidad.DisplayMember = "nombre";
-                cbxLocalidad.Text = "";
+                cargarLocalidad();
+                cargarPartido();
             }
 
             else
             {
-
-            cbxLocalidad.DataSource = localidades.listar(Int64.Parse(txbCP.Text));
-            cbxLocalidad.ValueMember = "Idlocalidad";
-            cbxLocalidad.DisplayMember = "nombre";
-            cbxLocalidad.Text = "";
-
-            Int64 ID = Convert.ToInt64(cbxLocalidad.SelectedValue);
+                LocalidadPersonal aux = new LocalidadPersonal();
+                Localidad aux2 = new Localidad();
+                cargarLocalidad(Int64.Parse(txbCP.Text));
+                Int64 ID = Convert.ToInt64(cbxLocalidad.SelectedValue);
+                MessageBox.Show(cbxLocalidad.SelectedValue.ToString());
+                aux2 = aux.buscarIDpartido(ID);
+                cargarPartido(aux2.IDpartido);              
             }
-
-            //buscarIDpartido(Convert.ToInt64(cbxLocalidad.SelectedValue));
-
-            PartidoPersonal partidos = new PartidoPersonal();
-            cbxPartido.DataSource = partidos.listar();
-            cbxPartido.ValueMember = "IDpartido";
-            cbxPartido.DisplayMember = "nombre";
-            cbxPartido.Text = "";
+           
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void cargarLocalidad(Int64 cp = 0)
         {
-            this.Close();
-        }
-    }
-}
-
-/*
-    if (validarTextBox())
-            { 
-            EquipoTelefonoPersonal equipo = new EquipoTelefonoPersonal();
-            EquipoTelefono nuevo = new EquipoTelefono();
+            LocalidadPersonal localidades;
 
             try
             {
-                nuevo.Imei = txbIMEI.Text;
-                nuevo.Modelo = txbModelo.Text;
-                nuevo.Marca = txbMarca.Text;
-                //nuevo.Comentario = txbComentario.Text;
-                nuevo.Disponible = true;
-               
+                localidades = new LocalidadPersonal();
 
-                equipo.alta(nuevo);
-                frmAltaEquipo_Load(sender, e);
+                if (cp == 0)
+                {
+                    cbxLocalidad.DataSource = localidades.listar();
+                    cbxLocalidad.ValueMember = "IDlocalidad";
+                    cbxLocalidad.DisplayMember = "nombre";
+                    cbxLocalidad.Text = "";
+                }
+
+                else
+                {
+                    cbxLocalidad.DataSource = localidades.listar(Int64.Parse(txbCP.Text));
+                    cbxLocalidad.ValueMember = "IDlocalidad";
+                    cbxLocalidad.DisplayMember = "nombre";
+                    cbxLocalidad.Text = "";
+                }
+
             }
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.ToString());
+                throw ex;
             }
-            finally
-            {
-                txbIMEI.Text = "";
-                txbMarca.Text = "";
-                txbModelo.Text = "";
-                txbComentario.Text = "";
-                txbIMEI.Focus();
+        }
 
+        private void cargarPartido(Int64 ID = 0)
+        {
+            PartidoPersonal partidos;
+
+            try
+            {
+                partidos = new PartidoPersonal();
+
+                if (ID == 0)
+                {
+                    cbxPartido.DataSource = partidos.listar();
+                    cbxPartido.ValueMember = "IDpartido";
+                    cbxPartido.DisplayMember = "nombre";
+                    cbxPartido.Text = "";
+                }
+                else
+                {
+                    cbxPartido.DataSource = partidos.listar(ID);
+                    cbxPartido.ValueMember = "IDpartido";
+                    cbxPartido.DisplayMember = "nombre";
+                }
             }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
-*/
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void cbxLocalidad_Validating(object sender, CancelEventArgs e)
+        {
+            LocalidadPersonal aux = new LocalidadPersonal();
+            Localidad aux2 = new Localidad();
+            Int64 ID = Convert.ToInt64(cbxLocalidad.SelectedValue);
+            aux2 = aux.buscarIDpartido(ID);
+            txbCP.Text = aux2.cp.ToString();
+            cargarPartido(aux2.IDpartido);
+        }
+    }
+}
+
