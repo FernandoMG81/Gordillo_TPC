@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="Baja.cs" />
     <Compile Include="Categoria.cs" />
+    <Compile Include="equipoXusuario.cs" />
+    <Compile Include="Ficha.cs" />
     <Compile Include="Localidad.cs" />
     <Compile Include="Concepto.cs" />
     <Compile Include="Contrato.cs" />

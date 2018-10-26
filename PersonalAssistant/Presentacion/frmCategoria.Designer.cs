@@ -117,6 +117,7 @@
             this.cbSeccion.Name = "cbSeccion";
             this.cbSeccion.Size = new System.Drawing.Size(161, 21);
             this.cbSeccion.TabIndex = 0;
+            this.cbSeccion.SelectedIndexChanged += new System.EventHandler(this.cbSeccion_SelectedIndexChanged);
             // 
             // cbConcepto
             // 
@@ -221,6 +222,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmCategoria";
             this.Text = "Categoria";
+            this.Load += new System.EventHandler(this.frmCategoria_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSeccion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConcepto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).EndInit();

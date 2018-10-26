@@ -11,6 +11,8 @@ using Dominio;
 using Personal;
 using System.Data.SqlClient;
 
+
+
 namespace Presentacion
 {
     public partial class frmAltaEmpleado : Form
@@ -96,10 +98,11 @@ namespace Presentacion
                     txbTelefonoAlternativo.Text = empleado.TelefonoSecundario;
                     dtpFechaNac.Value = empleado.FechaDeNacimiento;
                     txbNacionalidad.Text = empleado.Nacionalidad;
-                    cbxEstadoCivil.SelectedValue = empleado.EstadoCivil;
+                    cbxEstadoCivil.SelectedValue = empleado.EstadoCivil.IdEstadoCivil;
                     nudHijos.Value = empleado.Hijos;
                     txbBasico.Text = empleado.Basico.ToString();
-
+                    if (empleado.ControlHorario == true) rdbSi.Checked = true;
+                    else rdbNo.Checked = false;
                 }
 
                 else
@@ -163,64 +166,68 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                throw ex;
+                MessageBox.Show(ex.ToString());
             }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             EmpleadoPersonal empleadoPersonal = new EmpleadoPersonal();
-            
-            try
+
+            if (validarTextBoxsVacios())
             {
-                if (empleado == null) empleado = new Empleado();
+                try
+                {
+                    if (empleado == null) empleado = new Empleado();
 
-                empleado.FechaAlta = dtpFechaAlta.Value.Date;
-                empleado.Contrato = new Contrato();
-                empleado.Contrato.Idcontrato = Convert.ToInt64(cbxContrato.SelectedValue);
-                empleado.Contrato.Descripcion = cbxContrato.DisplayMember;
-                empleado.Sexo = rdbMasculino.Checked ? 'M' : 'F';
-                empleado.Seccion = new Seccion();
-                empleado.Seccion.Idseccion = Convert.ToInt64(cbxSeccion.SelectedValue);
-                empleado.Seccion.Nombre = cbxSeccion.DisplayMember;
-                empleado.Concepto = new Concepto();
-                empleado.Concepto.IdConcepto = Convert.ToInt64(cbxConcepto.SelectedValue);
-                empleado.Concepto.Nombre = cbxConcepto.DisplayMember;
-                empleado.Convenio = new Convenio();
-                empleado.Convenio.IDconvenio = Convert.ToInt64(cbxConvenio.SelectedValue);
-                empleado.Convenio.Descripcion = cbxConvenio.DisplayMember;
-                empleado.Categoria = new Categoria();
-                empleado.Categoria.Idcategoria = Convert.ToInt64(cbxCategoria.SelectedValue);
-                empleado.Categoria.nombre = cbxCategoria.DisplayMember;
-                empleado.Nombre = txbNombre.Text;
-                empleado.Apellido = txbApellido.Text;
-                empleado.FechaDeNacimiento = dtpFechaNac.Value.Date;
-                empleado.Dni = txbDni.Text;
-                empleado.Cuil = txbCuil.Text;
-                empleado.TelefonoPrincipal = txbTelefonoPrincipal.Text;
-                empleado.TelefonoSecundario = txbTelefonoAlternativo.Text;
-                empleado.Nacionalidad = txbNacionalidad.Text;
-                empleado.EstadoCivil = new EstadoCivil();
-                empleado.EstadoCivil.IdEstadoCivil = Convert.ToByte(cbxEstadoCivil.SelectedValue);
-                empleado.EstadoCivil.Descripcion = cbxEstadoCivil.DisplayMember;
-                empleado.Hijos = Convert.ToByte(nudHijos.Value.ToString());
-                empleado.Domicilio = txbDomicilio.Text;
-                empleado.Entrecalle1 = txbEntrecalles1.Text;
-                empleado.Entrecalle2 = txbEntrecalles2.Text;
-                empleado.Localidad = new Localidad();
-                empleado.Localidad.cp = Int64.Parse(txbCP.Text);
-                empleado.Localidad.IDlocalidad = Convert.ToInt64(cbxLocalidad.SelectedValue);
-                empleado.Basico = Convert.ToDecimal(txbBasico.Text);
+                    empleado.FechaAlta = dtpFechaAlta.Value.Date;
+                    empleado.Contrato = new Contrato();
+                    empleado.Contrato.Idcontrato = Convert.ToInt64(cbxContrato.SelectedValue);
+                    empleado.Contrato.Descripcion = cbxContrato.DisplayMember;
+                    empleado.Sexo = rdbMasculino.Checked ? 'M' : 'F';
+                    empleado.Seccion = new Seccion();
+                    empleado.Seccion.Idseccion = Convert.ToInt64(cbxSeccion.SelectedValue);
+                    empleado.Seccion.Nombre = cbxSeccion.DisplayMember;
+                    empleado.Concepto = new Concepto();
+                    empleado.Concepto.IdConcepto = Convert.ToInt64(cbxConcepto.SelectedValue);
+                    empleado.Concepto.Nombre = cbxConcepto.DisplayMember;
+                    empleado.Convenio = new Convenio();
+                    empleado.Convenio.IDconvenio = Convert.ToInt64(cbxConvenio.SelectedValue);
+                    empleado.Convenio.Descripcion = cbxConvenio.DisplayMember;
+                    empleado.Categoria = new Categoria();
+                    empleado.Categoria.Idcategoria = Convert.ToInt64(cbxCategoria.SelectedValue);
+                    empleado.Categoria.nombre = cbxCategoria.DisplayMember;
+                    empleado.Nombre = txbNombre.Text;
+                    empleado.Apellido = txbApellido.Text;
+                    empleado.FechaDeNacimiento = dtpFechaNac.Value.Date;
+                    empleado.Dni = txbDni.Text;
+                    empleado.Cuil = txbCuil.Text;
+                    empleado.ObraSocial = txbObraSocial.Text;
+                    empleado.TelefonoPrincipal = txbTelefonoPrincipal.Text;
+                    empleado.TelefonoSecundario = txbTelefonoAlternativo.Text;
+                    empleado.Nacionalidad = txbNacionalidad.Text;
+                    empleado.EstadoCivil = new EstadoCivil();
+                    empleado.EstadoCivil.IdEstadoCivil = Convert.ToByte(cbxEstadoCivil.SelectedValue);
+                    empleado.EstadoCivil.Descripcion = cbxEstadoCivil.DisplayMember;
+                    empleado.Hijos = Convert.ToByte(nudHijos.Value.ToString());
+                    empleado.Domicilio = txbDomicilio.Text;
+                    empleado.Entrecalle1 = txbEntrecalles1.Text;
+                    empleado.Entrecalle2 = txbEntrecalles2.Text;
+                    empleado.Localidad = new Localidad();
+                    empleado.Localidad.cp = Int64.Parse(txbCP.Text);
+                    empleado.Localidad.IDlocalidad = Convert.ToInt64(cbxLocalidad.SelectedValue);
+                    empleado.Basico = Convert.ToDecimal(txbBasico.Text);
+                    empleado.ControlHorario = rdbSi.Checked ? true : false;
 
-                if (empleado.IDregistro != 0) empleadoPersonal.modificar(empleado);
+                    if (empleado.IDregistro != 0) empleadoPersonal.modificar(empleado);
 
-                else empleadoPersonal.alta(empleado);
+                    else empleadoPersonal.alta(empleado);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-
 
         }
 
@@ -254,30 +261,36 @@ namespace Presentacion
             e.Handled = true;
         }
 
-
         private void txbCP_Validated(object sender, EventArgs e)
         {
             PartidoPersonal partidos = new PartidoPersonal();
-
-            if (txbCP.Text == "")
+            try
             {
-                cargarLocalidad();
-                cargarPartido();
+                if (txbCP.Text == "")
+                {
+                    cargarLocalidad();
+                    cargarPartido();
+                }
+
+                else
+                {
+                    LocalidadPersonal aux = new LocalidadPersonal();
+                    Localidad aux2 = new Localidad();
+                    cargarLocalidad(Int64.Parse(txbCP.Text));
+                    Int64 ID = Convert.ToInt64(cbxLocalidad.SelectedValue);
+                    MessageBox.Show(cbxLocalidad.SelectedValue.ToString());
+                    aux2 = aux.buscarIDpartido(ID);
+                    cargarPartido(aux2.IDpartido);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
             }
 
-            else
-            {
-                LocalidadPersonal aux = new LocalidadPersonal();
-                Localidad aux2 = new Localidad();
-                cargarLocalidad(Int64.Parse(txbCP.Text));
-                Int64 ID = Convert.ToInt64(cbxLocalidad.SelectedValue);
-                MessageBox.Show(cbxLocalidad.SelectedValue.ToString());
-                aux2 = aux.buscarIDpartido(ID);
-                cargarPartido(aux2.IDpartido);              
-            }
-           
         }
-
 
         private void cargarLocalidad(Int64 cp = 0)
         {
@@ -307,7 +320,7 @@ namespace Presentacion
             catch (Exception ex)
             {
 
-                throw ex;
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -336,7 +349,7 @@ namespace Presentacion
             catch (Exception ex)
             {
 
-                throw ex;
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -345,14 +358,156 @@ namespace Presentacion
             this.Close();
         }
 
-        private void cbxLocalidad_Validating(object sender, CancelEventArgs e)
+        private void cbxLocalidad_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LocalidadPersonal aux = new LocalidadPersonal();
-            Localidad aux2 = new Localidad();
-            Int64 ID = Convert.ToInt64(cbxLocalidad.SelectedValue);
-            aux2 = aux.buscarIDpartido(ID);
-            txbCP.Text = aux2.cp.ToString();
-            cargarPartido(aux2.IDpartido);
+
+            try
+            {
+                if (txbDni.Text != "")
+                {
+                    LocalidadPersonal aux = new LocalidadPersonal();
+                    Localidad aux2 = new Localidad();
+                    Int64 ID = Convert.ToInt64(cbxLocalidad.SelectedValue);
+                    aux2 = aux.buscarIDpartido(ID);
+                    txbCP.Text = aux2.cp.ToString();
+                    cargarPartido(aux2.IDpartido);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+
+        bool validarTextBoxsVacios()
+        {
+            foreach (Control item in this.Controls)
+            {
+                try
+                {
+                    if (item is TextBox)
+                    {
+                        //Codigo comprobacion  de textbox
+                        if (item.Text == "")
+                        {
+                            MessageBox.Show("Hay campos vacios");
+                            item.Focus();
+                            return false;
+                        }
+                    }
+                    else if (item is RichTextBox)
+                    {
+                        //codigo comprobacion de richtextbox
+                        if (item.Text == "")
+                        {
+                            MessageBox.Show("Hay campos vacios");
+                            item.Focus();
+                            return false;
+                        }
+                    }
+                    else if (item is ComboBox)
+                    {
+                        if (item.Text == "")
+                        {
+                            MessageBox.Show("Debes seleccionar un item");
+                            item.Focus();
+                            return false;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+            return true;
+        }
+
+        private void txbCP_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
+                e.Handled = true;
+        }
+
+        private void txbDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
+                e.Handled = true;
+        }
+
+        private void txbCuil_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
+                e.Handled = true;
+        }
+
+        private void txbTelefonoPrincipal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
+                e.Handled = true;
+        }
+
+        private void txbTelefonoAlternativo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
+                e.Handled = true;
+        }
+
+        private void txbObraSocial_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetterOrDigit(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
+                e.Handled = true;
+        }
+
+        private void txbNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetterOrDigit(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
+                e.Handled = true;
+        }
+
+        private void txbApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetterOrDigit(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
+                e.Handled = true;
+        }
+
+        private void txbDomicilio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetterOrDigit(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
+                e.Handled = true;
+        }
+
+        private void txbEntrecalles1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetterOrDigit(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
+                e.Handled = true;
+        }
+
+        private void txbEntrecalles2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetterOrDigit(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
+                e.Handled = true;
+        }
+
+        private void cbxLocalidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetterOrDigit(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
+                e.Handled = true;
+        }
+
+        private void cbxPartido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetterOrDigit(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
+                e.Handled = true;
+        }
+
+        private void txbNacionalidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
+                e.Handled = true;
         }
     }
 }

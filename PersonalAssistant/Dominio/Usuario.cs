@@ -8,6 +8,7 @@ namespace Dominio
 {
     public class Usuario
     {
+        public long ID { get; set; }
         public string Nombre { get; set; }
         public string Password { get; set; }
         public string Sexo { get; set; }

@@ -10,7 +10,7 @@ namespace Personal
 {
     public class ConceptoPersonal
     {
-        public IList<Concepto> listar()
+        public IList<Concepto> listar(long ID=0)
         {
             Conexion conexion = null;
             Concepto aux;

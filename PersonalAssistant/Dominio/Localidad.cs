@@ -12,6 +12,7 @@ namespace Dominio
         public Int64 cp { get; set; }
         public string Nombre { get; set; }
         public Int64 IDpartido { get; set; }
+        public string partido { get; set; }
 
         public override string ToString()
         {

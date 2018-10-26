@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmModuloEmpleados));
             this.btnAltaEmpleado = new System.Windows.Forms.Button();
             this.pnlEmpleados = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAsignarEquipo = new System.Windows.Forms.Button();
             this.lblEmpleado2 = new System.Windows.Forms.Label();
             this.lblEmpleados1 = new System.Windows.Forms.Label();
-            this.btnCategorias = new System.Windows.Forms.Button();
-            this.btnContratos = new System.Windows.Forms.Button();
-            this.btnConvenio = new System.Windows.Forms.Button();
+            this.btnListaEmpleados = new System.Windows.Forms.Button();
+            this.btnLicencias = new System.Windows.Forms.Button();
+            this.btnVacaciones = new System.Windows.Forms.Button();
             this.pnlContenedor = new System.Windows.Forms.Panel();
             this.pnlEmpleados.SuspendLayout();
             this.SuspendLayout();
@@ -62,36 +62,36 @@
             // pnlEmpleados
             // 
             this.pnlEmpleados.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.pnlEmpleados.Controls.Add(this.button1);
+            this.pnlEmpleados.Controls.Add(this.btnAsignarEquipo);
             this.pnlEmpleados.Controls.Add(this.lblEmpleado2);
             this.pnlEmpleados.Controls.Add(this.lblEmpleados1);
-            this.pnlEmpleados.Controls.Add(this.btnCategorias);
-            this.pnlEmpleados.Controls.Add(this.btnContratos);
-            this.pnlEmpleados.Controls.Add(this.btnConvenio);
+            this.pnlEmpleados.Controls.Add(this.btnListaEmpleados);
+            this.pnlEmpleados.Controls.Add(this.btnLicencias);
+            this.pnlEmpleados.Controls.Add(this.btnVacaciones);
             this.pnlEmpleados.Controls.Add(this.btnAltaEmpleado);
             this.pnlEmpleados.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlEmpleados.Location = new System.Drawing.Point(0, 33);
             this.pnlEmpleados.Name = "pnlEmpleados";
-            this.pnlEmpleados.Size = new System.Drawing.Size(135, 417);
+            this.pnlEmpleados.Size = new System.Drawing.Size(135, 550);
             this.pnlEmpleados.TabIndex = 2;
             // 
-            // button1
+            // btnAsignarEquipo
             // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 261);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 32);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "  Asignar Equipo";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAsignarEquipo.FlatAppearance.BorderSize = 0;
+            this.btnAsignarEquipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAsignarEquipo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsignarEquipo.ForeColor = System.Drawing.Color.White;
+            this.btnAsignarEquipo.Image = ((System.Drawing.Image)(resources.GetObject("btnAsignarEquipo.Image")));
+            this.btnAsignarEquipo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAsignarEquipo.Location = new System.Drawing.Point(0, 261);
+            this.btnAsignarEquipo.Name = "btnAsignarEquipo";
+            this.btnAsignarEquipo.Size = new System.Drawing.Size(145, 32);
+            this.btnAsignarEquipo.TabIndex = 9;
+            this.btnAsignarEquipo.Text = "  Asignar Equipo";
+            this.btnAsignarEquipo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAsignarEquipo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAsignarEquipo.UseVisualStyleBackColor = true;
+            this.btnAsignarEquipo.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblEmpleado2
             // 
@@ -115,73 +115,73 @@
             this.lblEmpleados1.TabIndex = 7;
             this.lblEmpleados1.Text = "MODULO";
             // 
-            // btnCategorias
+            // btnListaEmpleados
             // 
-            this.btnCategorias.FlatAppearance.BorderSize = 0;
-            this.btnCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCategorias.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCategorias.ForeColor = System.Drawing.Color.White;
-            this.btnCategorias.Image = ((System.Drawing.Image)(resources.GetObject("btnCategorias.Image")));
-            this.btnCategorias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCategorias.Location = new System.Drawing.Point(0, 147);
-            this.btnCategorias.Name = "btnCategorias";
-            this.btnCategorias.Size = new System.Drawing.Size(145, 32);
-            this.btnCategorias.TabIndex = 6;
-            this.btnCategorias.Text = "  Modificar";
-            this.btnCategorias.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCategorias.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCategorias.UseVisualStyleBackColor = true;
-            this.btnCategorias.Click += new System.EventHandler(this.btnCategorias_Click);
+            this.btnListaEmpleados.FlatAppearance.BorderSize = 0;
+            this.btnListaEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListaEmpleados.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListaEmpleados.ForeColor = System.Drawing.Color.White;
+            this.btnListaEmpleados.Image = ((System.Drawing.Image)(resources.GetObject("btnListaEmpleados.Image")));
+            this.btnListaEmpleados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnListaEmpleados.Location = new System.Drawing.Point(0, 147);
+            this.btnListaEmpleados.Name = "btnListaEmpleados";
+            this.btnListaEmpleados.Size = new System.Drawing.Size(145, 32);
+            this.btnListaEmpleados.TabIndex = 6;
+            this.btnListaEmpleados.Text = "Lista Empleados";
+            this.btnListaEmpleados.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnListaEmpleados.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnListaEmpleados.UseVisualStyleBackColor = true;
+            this.btnListaEmpleados.Click += new System.EventHandler(this.btnCategorias_Click);
             // 
-            // btnContratos
+            // btnLicencias
             // 
-            this.btnContratos.FlatAppearance.BorderSize = 0;
-            this.btnContratos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnContratos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnContratos.ForeColor = System.Drawing.Color.White;
-            this.btnContratos.Image = ((System.Drawing.Image)(resources.GetObject("btnContratos.Image")));
-            this.btnContratos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnContratos.Location = new System.Drawing.Point(0, 185);
-            this.btnContratos.Name = "btnContratos";
-            this.btnContratos.Size = new System.Drawing.Size(145, 32);
-            this.btnContratos.TabIndex = 5;
-            this.btnContratos.Text = "  Licencias";
-            this.btnContratos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnContratos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnContratos.UseVisualStyleBackColor = true;
-            this.btnContratos.Click += new System.EventHandler(this.btnContratos_Click);
+            this.btnLicencias.FlatAppearance.BorderSize = 0;
+            this.btnLicencias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLicencias.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLicencias.ForeColor = System.Drawing.Color.White;
+            this.btnLicencias.Image = ((System.Drawing.Image)(resources.GetObject("btnLicencias.Image")));
+            this.btnLicencias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLicencias.Location = new System.Drawing.Point(0, 185);
+            this.btnLicencias.Name = "btnLicencias";
+            this.btnLicencias.Size = new System.Drawing.Size(145, 32);
+            this.btnLicencias.TabIndex = 5;
+            this.btnLicencias.Text = "  Licencias";
+            this.btnLicencias.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLicencias.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLicencias.UseVisualStyleBackColor = true;
+            this.btnLicencias.Click += new System.EventHandler(this.btnContratos_Click);
             // 
-            // btnConvenio
+            // btnVacaciones
             // 
-            this.btnConvenio.FlatAppearance.BorderSize = 0;
-            this.btnConvenio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConvenio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConvenio.ForeColor = System.Drawing.Color.White;
-            this.btnConvenio.Image = ((System.Drawing.Image)(resources.GetObject("btnConvenio.Image")));
-            this.btnConvenio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConvenio.Location = new System.Drawing.Point(0, 223);
-            this.btnConvenio.Name = "btnConvenio";
-            this.btnConvenio.Size = new System.Drawing.Size(145, 32);
-            this.btnConvenio.TabIndex = 4;
-            this.btnConvenio.Text = "  Vacaciones";
-            this.btnConvenio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnConvenio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnConvenio.UseVisualStyleBackColor = true;
-            this.btnConvenio.Click += new System.EventHandler(this.btnConvenio_Click);
+            this.btnVacaciones.FlatAppearance.BorderSize = 0;
+            this.btnVacaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVacaciones.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVacaciones.ForeColor = System.Drawing.Color.White;
+            this.btnVacaciones.Image = ((System.Drawing.Image)(resources.GetObject("btnVacaciones.Image")));
+            this.btnVacaciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVacaciones.Location = new System.Drawing.Point(0, 223);
+            this.btnVacaciones.Name = "btnVacaciones";
+            this.btnVacaciones.Size = new System.Drawing.Size(145, 32);
+            this.btnVacaciones.TabIndex = 4;
+            this.btnVacaciones.Text = "  Vacaciones";
+            this.btnVacaciones.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnVacaciones.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnVacaciones.UseVisualStyleBackColor = true;
+            this.btnVacaciones.Click += new System.EventHandler(this.btnConvenio_Click);
             // 
             // pnlContenedor
             // 
             this.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenedor.Location = new System.Drawing.Point(135, 33);
             this.pnlContenedor.Name = "pnlContenedor";
-            this.pnlContenedor.Size = new System.Drawing.Size(715, 417);
+            this.pnlContenedor.Size = new System.Drawing.Size(892, 550);
             this.pnlContenedor.TabIndex = 3;
             // 
             // frmModuloEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 450);
+            this.ClientSize = new System.Drawing.Size(1027, 583);
             this.Controls.Add(this.pnlContenedor);
             this.Controls.Add(this.pnlEmpleados);
             this.Name = "frmModuloEmpleados";
@@ -199,11 +199,11 @@
         private System.Windows.Forms.Button btnAltaEmpleado;
         private System.Windows.Forms.Panel pnlEmpleados;
         private System.Windows.Forms.Label lblEmpleados1;
-        private System.Windows.Forms.Button btnCategorias;
-        private System.Windows.Forms.Button btnContratos;
-        private System.Windows.Forms.Button btnConvenio;
+        private System.Windows.Forms.Button btnListaEmpleados;
+        private System.Windows.Forms.Button btnLicencias;
+        private System.Windows.Forms.Button btnVacaciones;
         private System.Windows.Forms.Label lblEmpleado2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAsignarEquipo;
         private System.Windows.Forms.Panel pnlContenedor;
     }
 }

@@ -165,6 +165,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmHorarioIngreso";
             this.Text = "frmHorarioIngreso";
+            this.Load += new System.EventHandler(this.frmHorarioIngreso_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaDeposito)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

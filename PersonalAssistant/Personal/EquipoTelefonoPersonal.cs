@@ -43,13 +43,10 @@ namespace Personal
                 }
 
                 return lista;
-
             }
             catch (Exception ex)
             {
-
                 throw ex;
-
             }
 
             finally
@@ -59,7 +56,45 @@ namespace Personal
 
         }
 
-        public void alta (EquipoTelefono nuevo)
+        public IList<EquipoTelefono> ListarLibres()
+        {
+            Conexion conexion = null;
+            List<EquipoTelefono> lista = new List<EquipoTelefono>();
+            EquipoTelefono aux;
+            try
+            {
+                conexion = new Conexion();
+                conexion.setearConsulta("select IMEI,modelo, marca, es.descripcion, disponible  from equipoTelefono et inner join estado_telefono es on et.Idestado=es.ID where disponible = 1");
+                conexion.abrirConexion();
+                conexion.ejecutarAccion();
+
+                while (conexion.Lector.Read())
+                {
+                    aux = new EquipoTelefono();
+                    aux.Imei = (string)conexion.Lector["IMEI"];
+                    aux.Modelo = (string)conexion.Lector["modelo"];
+                    aux.Marca = (string)conexion.Lector["marca"];
+                    aux.Condicion = (string)conexion.Lector["descripcion"];
+                    aux.Disponible = (bool)conexion.Lector["disponible"];
+                    lista.Add(aux);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                if (conexion != null)
+                {
+                    conexion.cerrarConexion();
+                }
+            }
+        }
+
+        public void alta(EquipoTelefono nuevo)
         {
             Conexion conexion = null;
             string consulta = "";
@@ -69,8 +104,6 @@ namespace Personal
                 conexion = new Conexion();
                 consulta = "insert into EquipoTelefono (IMEI,Modelo,Marca,Disponible,Idestado) values (@IMEI,@modelo,@marca,1,@estado)";
                 conexion.setearConsulta(consulta);
-
-                //consulta = consulta + " values ('" + nuevo.Imei + "','"+ nuevo.Modelo+ "','"+nuevo.Marca+ "','"+nuevo.Disponible.ToString()+"','"+nuevo.Comentario+ "')";
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@IMEI", nuevo.Imei);
                 conexion.Comando.Parameters.AddWithValue("@modelo", nuevo.Modelo);
@@ -82,7 +115,6 @@ namespace Personal
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
 
@@ -92,8 +124,5 @@ namespace Personal
                     conexion.cerrarConexion();
             }
         }
-
-       
-        
     }
 }

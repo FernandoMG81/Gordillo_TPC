@@ -23,11 +23,11 @@ namespace Personal
                 conexion = new Conexion();
                 if (cp == 0)
                 {
-                    conexion.setearConsulta("Select IDlocalidad, localidad,cp, IDpartido from localidad");
+                    conexion.setearConsulta("Select IDlocalidad, localidad,cp, IDpartido, partido from vw_listado_localidad");
                 }
                 else
                 {
-                    conexion.setearConsulta("select IDlocalidad, localidad, cp, IDpartido from localidad where cp = " + cp.ToString());
+                    conexion.setearConsulta("Select IDlocalidad, localidad,cp, IDpartido, partido from vw_listado_localidad where cp = " + cp.ToString());
                 }
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();

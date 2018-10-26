@@ -46,7 +46,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 33);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(140, 417);
+            this.panel1.Size = new System.Drawing.Size(140, 550);
             this.panel1.TabIndex = 2;
             // 
             // btnAltaEquipos
@@ -101,17 +101,17 @@
             this.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenedor.Location = new System.Drawing.Point(140, 33);
             this.pnlContenedor.Name = "pnlContenedor";
-            this.pnlContenedor.Size = new System.Drawing.Size(660, 417);
+            this.pnlContenedor.Size = new System.Drawing.Size(883, 550);
             this.pnlContenedor.TabIndex = 3;
             // 
-            // moduloControlHorario
+            // frmModuloHorarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1023, 583);
             this.Controls.Add(this.pnlContenedor);
             this.Controls.Add(this.panel1);
-            this.Name = "moduloControlHorario";
+            this.Name = "frmModuloHorarios";
             this.Text = "moduloControlHorario";
             this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.pnlContenedor, 0);

@@ -72,10 +72,11 @@
             // txbIMEI
             // 
             this.txbIMEI.Location = new System.Drawing.Point(105, 40);
+            this.txbIMEI.MaxLength = 20;
             this.txbIMEI.Name = "txbIMEI";
             this.txbIMEI.Size = new System.Drawing.Size(156, 20);
             this.txbIMEI.TabIndex = 0;
-            
+            this.txbIMEI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbIMEI_KeyPress);
             // 
             // lblIMEI
             // 
@@ -90,9 +91,11 @@
             // txbMarca
             // 
             this.txbMarca.Location = new System.Drawing.Point(105, 76);
+            this.txbMarca.MaxLength = 20;
             this.txbMarca.Name = "txbMarca";
             this.txbMarca.Size = new System.Drawing.Size(156, 20);
             this.txbMarca.TabIndex = 2;
+            this.txbMarca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbMarca_KeyPress);
             // 
             // lblMarca
             // 
@@ -107,9 +110,11 @@
             // txbModelo
             // 
             this.txbModelo.Location = new System.Drawing.Point(370, 39);
+            this.txbModelo.MaxLength = 20;
             this.txbModelo.Name = "txbModelo";
             this.txbModelo.Size = new System.Drawing.Size(156, 20);
             this.txbModelo.TabIndex = 1;
+            this.txbModelo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbModelo_KeyPress);
             // 
             // lblModelo
             // 
@@ -127,6 +132,7 @@
             this.txbComentario.Name = "txbComentario";
             this.txbComentario.Size = new System.Drawing.Size(156, 20);
             this.txbComentario.TabIndex = 3;
+            this.txbComentario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbComentario_KeyPress);
             // 
             // lblComentario
             // 
@@ -145,6 +151,7 @@
             this.cbxEstado.Name = "cbxEstado";
             this.cbxEstado.Size = new System.Drawing.Size(156, 21);
             this.cbxEstado.TabIndex = 24;
+            this.cbxEstado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxEstado_KeyPress);
             // 
             // lblEstado
             // 

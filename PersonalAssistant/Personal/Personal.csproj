@@ -48,6 +48,7 @@
     <Compile Include="ConvenioPersonal.cs" />
     <Compile Include="EmpleadoPersonal.cs" />
     <Compile Include="EquipoTelefonoPersonal.cs" />
+    <Compile Include="equipoXusuarioPersonal.cs" />
     <Compile Include="EstadoCivilPersonal.cs" />
     <Compile Include="EstadoTelPersonal.cs" />
     <Compile Include="LocalidadPersonal.cs" />

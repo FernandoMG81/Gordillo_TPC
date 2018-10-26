@@ -44,5 +44,11 @@ namespace Dominio
         //public Int64 IDConvenio { get; set; }
         public Convenio Convenio { get; set; }
         public decimal Basico { get; set; }
+        public bool TelefonoAsignado { get; set; }
+        public bool ControlHorario { get; set; }
+        public DateTime FechaCreacion { get; set; }
+        public string UsuarioCreacion { get; set; }
+        public DateTime FechaModificacion { get; set; }
+        public string UsuarioModificacion { get; set; }
     }
 }

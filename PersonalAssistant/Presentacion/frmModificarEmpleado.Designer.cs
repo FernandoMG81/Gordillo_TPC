@@ -64,7 +64,7 @@
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.ReadOnly = true;
             this.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEmpleados.Size = new System.Drawing.Size(687, 278);
+            this.dgvEmpleados.Size = new System.Drawing.Size(981, 430);
             this.dgvEmpleados.TabIndex = 23;
             // 
             // btnModificar
@@ -75,7 +75,7 @@
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnModificar.Location = new System.Drawing.Point(610, 376);
+            this.btnModificar.Location = new System.Drawing.Point(904, 528);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(89, 21);
             this.btnModificar.TabIndex = 24;
@@ -91,7 +91,7 @@
             this.btnBaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBaja.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnBaja.Location = new System.Drawing.Point(502, 376);
+            this.btnBaja.Location = new System.Drawing.Point(796, 528);
             this.btnBaja.Name = "btnBaja";
             this.btnBaja.Size = new System.Drawing.Size(89, 21);
             this.btnBaja.TabIndex = 25;
@@ -102,7 +102,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(733, 431);
+            this.ClientSize = new System.Drawing.Size(1027, 583);
             this.Controls.Add(this.btnBaja);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.dgvEmpleados);

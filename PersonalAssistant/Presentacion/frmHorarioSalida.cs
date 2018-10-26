@@ -21,7 +21,7 @@ namespace Presentacion
         {
             lblSegundos.Text = DateTime.Now.ToString("ss");
             cbar.Value = Convert.ToInt32(DateTime.Now.ToString("ss"));
-            lblHora.Text = DateTime.Now.ToString("hh:mm");
+            lblHora.Text = DateTime.Now.ToString("HH:mm");
             lblFecha.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
         }
     }
