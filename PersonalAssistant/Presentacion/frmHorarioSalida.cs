@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
+using Personal;
 
 namespace Presentacion
 {
@@ -23,6 +25,23 @@ namespace Presentacion
             cbar.Value = Convert.ToInt32(DateTime.Now.ToString("ss"));
             lblHora.Text = DateTime.Now.ToString("HH:mm");
             lblFecha.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
+        }
+
+        private void frmHorarioSalida_Load(object sender, EventArgs e)
+        {
+            EmpleadoPersonal empleados;
+            horarioPersonal horario;
+            try
+            {
+                horario = new horarioPersonal();
+                empleados = new EmpleadoPersonal();
+                dgvListaDeposito.DataSource = horario.listarSalida();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

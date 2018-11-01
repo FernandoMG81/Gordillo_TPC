@@ -115,10 +115,10 @@ namespace Personal
                 while (conexion.Lector.Read())
                 {
                     aux = new Empleado();
-                    if (!conexion.Lector.IsDBNull(1)) aux.Legajo = (Int64)conexion.Lector["legajo"];
-                    if (!conexion.Lector.IsDBNull(21)) aux.TelefonoSecundario = (string)conexion.Lector["telSecundario"];
-                    if (!conexion.Lector.IsDBNull(27)) aux.Entrecalle1 = (string)conexion.Lector["entreCalle1"];
-                    if (!conexion.Lector.IsDBNull(28)) aux.Entrecalle2 = (string)conexion.Lector["entreCalle2"];
+                    if (conexion.Lector["legajo"] != DBNull.Value) aux.Legajo = (Int64)conexion.Lector["legajo"];
+                    if (conexion.Lector["telSecundario"] != DBNull.Value) aux.TelefonoSecundario = (string)conexion.Lector["telSecundario"];
+                    if (conexion.Lector["entreCalle1"] != DBNull.Value) aux.Entrecalle1 = (string)conexion.Lector["entreCalle1"];
+                    if (conexion.Lector["entreCalle2"] != DBNull.Value) aux.Entrecalle2 = (string)conexion.Lector["entreCalle2"];
                     /*if (!conexion.Lector.IsDBNull(36))
                     {
                         aux.UsuarioCreacion = (string)conexion.Lector["usuarioCreacion"];

@@ -67,6 +67,7 @@
             this.btnIngreso.TabIndex = 21;
             this.btnIngreso.Text = "INGRESO";
             this.btnIngreso.UseVisualStyleBackColor = false;
+            this.btnIngreso.Click += new System.EventHandler(this.btnIngreso_Click);
             // 
             // btnAusente
             // 

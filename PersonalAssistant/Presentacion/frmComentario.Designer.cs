@@ -37,9 +37,9 @@
             this.rtxComentario.BackColor = System.Drawing.SystemColors.Control;
             this.rtxComentario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtxComentario.Location = new System.Drawing.Point(14, 14);
-            this.rtxComentario.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.rtxComentario.Margin = new System.Windows.Forms.Padding(5);
             this.rtxComentario.Name = "rtxComentario";
-            this.rtxComentario.Size = new System.Drawing.Size(392, 161);
+            this.rtxComentario.Size = new System.Drawing.Size(287, 178);
             this.rtxComentario.TabIndex = 0;
             this.rtxComentario.Text = "";
             // 
@@ -50,8 +50,8 @@
             this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOK.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnOK.Location = new System.Drawing.Point(158, 185);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnOK.Location = new System.Drawing.Point(102, 202);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(5);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(111, 35);
             this.btnOK.TabIndex = 22;
@@ -65,12 +65,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(418, 254);
+            this.ClientSize = new System.Drawing.Size(315, 246);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.rtxComentario);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmComentario";
             this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

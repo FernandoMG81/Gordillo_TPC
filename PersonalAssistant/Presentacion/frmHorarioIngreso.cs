@@ -31,16 +31,23 @@ namespace Presentacion
         private void frmHorarioIngreso_Load(object sender, EventArgs e)
         {
             EmpleadoPersonal empleados;
+            horarioPersonal horario;
             try
             {
+                horario = new horarioPersonal();
                 empleados = new EmpleadoPersonal();
-                dgvListaDeposito.DataSource = empleados.listarDeposito();
+                dgvListaDeposito.DataSource = horario.listarIngreso();
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void btnIngreso_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

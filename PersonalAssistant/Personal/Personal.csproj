@@ -51,6 +51,7 @@
     <Compile Include="equipoXusuarioPersonal.cs" />
     <Compile Include="EstadoCivilPersonal.cs" />
     <Compile Include="EstadoTelPersonal.cs" />
+    <Compile Include="horarioPersonal.cs" />
     <Compile Include="LocalidadPersonal.cs" />
     <Compile Include="PartidoPersonal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
