@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
+using Personal;
 
 namespace Presentacion
 {
@@ -15,6 +17,23 @@ namespace Presentacion
         public frmVacaciones()
         {
             InitializeComponent();
+        }
+
+        private void btnGenerar_Click(object sender, EventArgs e)
+        {
+            VacacionesPersonal nuevas = new VacacionesPersonal();
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+
+            nuevas.generar();
+
         }
     }
 }

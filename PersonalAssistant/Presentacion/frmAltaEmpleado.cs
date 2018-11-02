@@ -141,35 +141,6 @@ namespace Presentacion
         }
 
 
-        public void cargaCBXcontrato()
-        {
-            DataTable tabla;
-
-            SqlDataAdapter adaptador;
-            SqlCommand comando;
-            string consulta = "";
-            try
-            {
-                tabla = new DataTable();
-
-                using (SqlConnection conexion = new SqlConnection(@"data source =.\SQLEXPRESS;initial catalog = Gordillo_TPC ; integrated security = sspi"))
-                {
-                    consulta = "select IdContrato, contrato from contrato";
-                    comando = new SqlCommand(consulta, conexion);
-                    adaptador = new SqlDataAdapter(comando);
-                    adaptador.Fill(tabla);
-                }
-
-                cbxContrato.DisplayMember = "contrato";
-                cbxContrato.DataSource = tabla;
-                cbxContrato.Text = "";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-        }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             EmpleadoPersonal empleadoPersonal = new EmpleadoPersonal();
@@ -278,7 +249,6 @@ namespace Presentacion
                     Localidad aux2 = new Localidad();
                     cargarLocalidad(Int64.Parse(txbCP.Text));
                     Int64 ID = Convert.ToInt64(cbxLocalidad.SelectedValue);
-                    MessageBox.Show(cbxLocalidad.SelectedValue.ToString());
                     aux2 = aux.buscarIDpartido(ID);
                     cargarPartido(aux2.IDpartido);
                 }

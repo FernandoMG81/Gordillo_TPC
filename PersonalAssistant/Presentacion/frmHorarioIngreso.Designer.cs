@@ -44,13 +44,17 @@
             // 
             // dgvListaDeposito
             // 
+            this.dgvListaDeposito.AllowUserToAddRows = false;
+            this.dgvListaDeposito.AllowUserToDeleteRows = false;
             this.dgvListaDeposito.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.dgvListaDeposito.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvListaDeposito.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
             this.dgvListaDeposito.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvListaDeposito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaDeposito.Location = new System.Drawing.Point(47, 41);
+            this.dgvListaDeposito.MultiSelect = false;
             this.dgvListaDeposito.Name = "dgvListaDeposito";
+            this.dgvListaDeposito.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaDeposito.Size = new System.Drawing.Size(293, 370);
             this.dgvListaDeposito.TabIndex = 22;
             // 

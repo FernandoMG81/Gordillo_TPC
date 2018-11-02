@@ -19,7 +19,7 @@ namespace Personal
             {
                 conexion = new Conexion();
                 nuevo = new Empleado();
-                conexion.setearConsulta("select r.nombre,r.apellido,r.dni from vw_registro_horario_entrada r inner join vw_registro_horario_salida s on r.dni = s.dni where s.salida is not null");
+                conexion.setearConsulta("select r.nombre,r.apellido,r.dni from vw_registro_horario_entrada r where r.dni not in (select s.dni from vw_registro_horario_salida s where salida is null and r.dni = s.dni)");
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();
                 while(conexion.Lector.Read())

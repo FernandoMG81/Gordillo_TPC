@@ -43,14 +43,18 @@
             // 
             // dgvListaDeposito
             // 
+            this.dgvListaDeposito.AllowUserToAddRows = false;
+            this.dgvListaDeposito.AllowUserToDeleteRows = false;
             this.dgvListaDeposito.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.dgvListaDeposito.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvListaDeposito.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
             this.dgvListaDeposito.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvListaDeposito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaDeposito.Location = new System.Drawing.Point(47, 41);
             this.dgvListaDeposito.Name = "dgvListaDeposito";
-            this.dgvListaDeposito.Size = new System.Drawing.Size(293, 370);
+            this.dgvListaDeposito.ReadOnly = true;
+            this.dgvListaDeposito.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvListaDeposito.Size = new System.Drawing.Size(353, 370);
             this.dgvListaDeposito.TabIndex = 20;
             // 
             // btnSalida
@@ -60,12 +64,13 @@
             this.btnSalida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalida.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalida.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnSalida.Location = new System.Drawing.Point(386, 76);
+            this.btnSalida.Location = new System.Drawing.Point(458, 76);
             this.btnSalida.Name = "btnSalida";
             this.btnSalida.Size = new System.Drawing.Size(213, 31);
             this.btnSalida.TabIndex = 19;
             this.btnSalida.Text = "SALIDA";
             this.btnSalida.UseVisualStyleBackColor = false;
+            this.btnSalida.Click += new System.EventHandler(this.btnSalida_Click);
             // 
             // lblFecha
             // 
@@ -73,7 +78,7 @@
             this.lblFecha.BackColor = System.Drawing.SystemColors.Control;
             this.lblFecha.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.lblFecha.ForeColor = System.Drawing.Color.Blue;
-            this.lblFecha.Location = new System.Drawing.Point(398, 297);
+            this.lblFecha.Location = new System.Drawing.Point(478, 297);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(178, 17);
             this.lblFecha.TabIndex = 31;
@@ -85,7 +90,7 @@
             this.lblHora.BackColor = System.Drawing.SystemColors.Control;
             this.lblHora.Font = new System.Drawing.Font("Century Gothic", 40F);
             this.lblHora.ForeColor = System.Drawing.Color.Blue;
-            this.lblHora.Location = new System.Drawing.Point(404, 218);
+            this.lblHora.Location = new System.Drawing.Point(484, 218);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(162, 65);
             this.lblHora.TabIndex = 30;
@@ -97,7 +102,7 @@
             this.lblSegundos.BackColor = System.Drawing.SystemColors.Control;
             this.lblSegundos.Font = new System.Drawing.Font("Century Gothic", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSegundos.ForeColor = System.Drawing.Color.Blue;
-            this.lblSegundos.Location = new System.Drawing.Point(458, 172);
+            this.lblSegundos.Location = new System.Drawing.Point(538, 172);
             this.lblSegundos.Name = "lblSegundos";
             this.lblSegundos.Size = new System.Drawing.Size(53, 40);
             this.lblSegundos.TabIndex = 29;
@@ -115,7 +120,7 @@
             this.cbar.LabelVisible = true;
             this.cbar.LineProgressThickness = 8;
             this.cbar.LineThickness = 18;
-            this.cbar.Location = new System.Drawing.Point(353, 136);
+            this.cbar.Location = new System.Drawing.Point(433, 136);
             this.cbar.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.cbar.MaxValue = 60;
             this.cbar.Name = "cbar";
@@ -139,7 +144,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 450);
+            this.ClientSize = new System.Drawing.Size(757, 450);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblHora);
             this.Controls.Add(this.lblSegundos);

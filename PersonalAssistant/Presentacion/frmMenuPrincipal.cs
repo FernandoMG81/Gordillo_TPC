@@ -84,5 +84,7 @@ namespace Presentacion
             frmModuloHorarios moduloHorario = new frmModuloHorarios();
             moduloHorario.ShowDialog();
         }
+
+       
     }
 }

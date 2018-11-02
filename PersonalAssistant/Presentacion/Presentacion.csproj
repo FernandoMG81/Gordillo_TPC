@@ -142,6 +142,12 @@
     <Compile Include="frmConvenio.Designer.cs">
       <DependentUpon>frmConvenio.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCorrecto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCorrecto.Designer.cs">
+      <DependentUpon>frmCorrecto.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEmpleadosLista.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,6 +246,9 @@
     <EmbeddedResource Include="frmConvenio.resx">
       <DependentUpon>frmConvenio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCorrecto.resx">
+      <DependentUpon>frmCorrecto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEmpleadosLista.resx">
       <DependentUpon>frmEmpleadosLista.cs</DependentUpon>
     </EmbeddedResource>
@@ -281,6 +290,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -305,6 +315,9 @@
       <Project>{d032c130-da4e-4fbb-99b5-cb7ad02fe056}</Project>
       <Name>Personal</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Correcto.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.109.2\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.109.2\build\net46\System.Data.SQLite.Core.targets')" />
