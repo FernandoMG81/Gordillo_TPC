@@ -195,7 +195,7 @@ namespace Personal
                     "etc.IDestadoCivil, etc.estado, emp.hijos, emp.domicilio, emp.entreCalle1, emp.entreCalle2, loc.cp, loc.IDlocalidad, loc.localidad, loc.IDpartido, par.partido," +
                     "emp.basico,emp.telefonoAsignado from empleado emp, contrato con, seccion sec, concepto ccp, convenio cvn, categoria cat, estadoCivil etc, localidad loc, partido par " +
                     "where emp.IDcontrato = con.IDcontrato and emp.IDseccion = sec.IDseccion and emp.IDconcepto = ccp.IDconcepto and emp.IDconvenio = cvn.IDconvenio and " +
-                    "emp.IDcategoria = cat.IDcategoria and emp.IDestadoCivil = etc.IDestadoCivil and emp.IDlocalidad = loc.IDlocalidad and loc.IDpartido = par.IDpartido and emp.controlHorario = 1");
+                    "emp.IDcategoria = cat.IDcategoria and emp.IDestadoCivil = etc.IDestadoCivil and emp.IDlocalidad = loc.IDlocalidad and loc.IDpartido = par.IDpartido and emp.telefonoAsignado = 0");
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();
 

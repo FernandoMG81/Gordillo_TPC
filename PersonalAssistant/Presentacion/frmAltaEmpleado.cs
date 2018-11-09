@@ -192,7 +192,13 @@ namespace Presentacion
 
                     if (empleado.IDregistro != 0) empleadoPersonal.modificar(empleado);
 
-                    else empleadoPersonal.alta(empleado);
+                    else
+                    {
+                        empleadoPersonal.alta(empleado);
+                        frmCorrecto ok = new frmCorrecto();
+                        ok.ShowDialog();
+                        VaciarTextBoxs();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -351,6 +357,53 @@ namespace Presentacion
             }
         }
 
+        public void VaciarTextBoxs()
+        {
+
+            foreach (Control item in this.Controls)
+            {
+                try
+                {
+                    if (item is TextBox)
+                    {
+                        
+                        item.Text = "";
+                    }
+                    else if (item is RichTextBox)
+                    {
+
+                        item.Text = "";
+                    }
+                    
+                }
+                
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+
+            try
+            {
+                cbxCategoria.SelectedIndex = -1;
+                cbxConcepto.SelectedIndex = -1;
+                cbxContrato.SelectedIndex = -1;
+                cbxConvenio.SelectedIndex = -1;
+                cbxEstadoCivil.SelectedIndex = -1;
+                cbxLocalidad.SelectedIndex = -1;
+                cbxPartido.SelectedIndex = -1;
+                cbxSeccion.SelectedIndex = -1;
+                rdbFemenino.Checked = false;
+                rdbMasculino.Checked = false;
+                rdbNo.Checked = false;
+                rdbSi.Checked = false;
+           
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
 
         bool validarTextBoxsVacios()
         {
@@ -422,7 +475,8 @@ namespace Presentacion
 
         private void txbTelefonoAlternativo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
+        //    if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
+               if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space) && (e.KeyChar != (char)Keys.Divide))
                 e.Handled = true;
         }
 

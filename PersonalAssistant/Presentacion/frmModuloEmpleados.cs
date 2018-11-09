@@ -32,35 +32,54 @@ namespace Presentacion
             fh.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            frmAsignarEquipos asignarEquipo = new frmAsignarEquipos();
-            AbrirFormHijo(asignarEquipo);
-        }
 
         private void btnAltaEmpleado_Click(object sender, EventArgs e)
         {
             frmAltaEmpleado empleado = new frmAltaEmpleado();
             AbrirFormHijo(empleado);
             empleado.Focus();
+            pnlBoton.Height = btnAltaEmpleado.Height;
+            pnlBoton.Top = btnAltaEmpleado.Top;
+            pnlBoton.Show();
         }
 
-        private void btnCategorias_Click(object sender, EventArgs e)
+        
+
+        private void btnAsignarEquipo_Click(object sender, EventArgs e)
+        {
+            frmAsignarEquipos asignarEquipo = new frmAsignarEquipos();
+            AbrirFormHijo(asignarEquipo);
+            pnlBoton.Height = btnAsignarEquipo.Height;
+            pnlBoton.Top = btnAsignarEquipo.Top;
+            pnlBoton.Show();
+
+        }
+
+        private void btnListaEmpleados_Click(object sender, EventArgs e)
         {
             frmModificarEmpleado modificar = new frmModificarEmpleado();
             AbrirFormHijo(modificar);
+            pnlBoton.Height = btnListaEmpleados.Height;
+            pnlBoton.Top = btnListaEmpleados.Top;
+            pnlBoton.Show();
         }
 
-        private void btnContratos_Click(object sender, EventArgs e)
+        private void btnLicencias_Click(object sender, EventArgs e)
         {
             frmLicencias licencias = new frmLicencias();
             AbrirFormHijo(licencias);
+            pnlBoton.Height = btnLicencias.Height;
+            pnlBoton.Top = btnLicencias.Top;
+            pnlBoton.Show();
         }
 
-        private void btnConvenio_Click(object sender, EventArgs e)
+        private void btnVacaciones_Click(object sender, EventArgs e)
         {
             frmVacaciones vacaciones = new frmVacaciones();
             AbrirFormHijo(vacaciones);
+            pnlBoton.Height = btnVacaciones.Height;
+            pnlBoton.Top = btnVacaciones.Top;
+            pnlBoton.Show();
         }
     }
 }

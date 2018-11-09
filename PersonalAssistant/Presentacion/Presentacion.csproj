@@ -82,6 +82,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAsignarVacaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAsignarVacaciones.Designer.cs">
+      <DependentUpon>frmAsignarVacaciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmComentario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +222,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAsignarVacaciones.resx">
+      <DependentUpon>frmAsignarVacaciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAltaEmpleado.resx">
       <DependentUpon>frmAltaEmpleado.cs</DependentUpon>
     </EmbeddedResource>

@@ -12,12 +12,20 @@ namespace Dominio
         private int Mes;
         private int Anio;
         private int DiasAnio;
-        public int DiasVacaciones { get; set; }
+        private DateTime fFinal;
 
         public string dni { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
         public DateTime fecAlta { get; set; }
         public int DiasCalculado { get; set; }
         public int AnioCalculado { get; set; }
+        public int DiasVacaciones { get; set; }
+
+        public override string ToString()
+        {
+            return Apellido + ", " + Nombre;
+        }
 
         private void calcularAntiguedad(DateTime fIni, DateTime fFin)
         {
@@ -79,34 +87,33 @@ namespace Dominio
             return cdFf == cdFI ? cdFI : 30;
         }
 
-        public int calcularVacaciones(DateTime fIni, DateTime fFin)
+        public int calcularVacaciones(DateTime fIni, int year)
         {
-
-            calcularAntiguedad(fIni, fFin);
+            string fechaCierre = "31/12/" + year;
+            fFinal=DateTime.Parse(fechaCierre);
+            
+            calcularAntiguedad(fIni, fFinal);
 
             int vacas = 0;
-            decimal dmes;
+            //decimal dmes;
 
             if (Anio == 0 && Mes < 6)
             {
-                dmes = DiasAnio / 21;
-                vacas = (int)Math.Round(dmes);
+                if (DiasAnio / 7 >= 4 && DiasAnio / 7 <= 7) vacas = 1;
+                else if (DiasAnio / 7 >= 8 && DiasAnio / 7 <= 11) vacas = 2;
+                else if (DiasAnio / 7 >= 12 && DiasAnio / 7 <= 15) vacas = 3;
+                else if (DiasAnio / 7 >= 16 && DiasAnio / 7 <= 19) vacas = 1;
+                else if (DiasAnio / 7 >= 20) vacas = 5;
+
+                //dmes = DiasAnio / 21;
+                //vacas = (int)Math.Round(dmes);
             }
 
-            else if (Anio < 4)
-            {
-                vacas = 14;
-            }
-
-            else if (Anio < 10 && Anio > 4)
-            {
-                vacas = 21;
-            }
-            else if (Anio > 9 && Anio<15)
-            {
-                vacas = 28;
-            }
-
+            else if (Anio <= 4) vacas = 14;
+            else if (Anio >= 5 && Anio <= 9) vacas = 21;
+            else if (Anio >= 10 && Anio <= 14) vacas = 28;
+            else if (Anio >= 15 && Anio <= 19) vacas = 28;
+            else if (Anio >= 20) vacas = 35;
             return vacas;
         }
 

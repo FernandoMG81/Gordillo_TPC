@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmModuloEmpleados));
             this.btnAltaEmpleado = new System.Windows.Forms.Button();
             this.pnlEmpleados = new System.Windows.Forms.Panel();
+            this.pnlBoton = new System.Windows.Forms.Panel();
             this.btnAsignarEquipo = new System.Windows.Forms.Button();
             this.lblEmpleado2 = new System.Windows.Forms.Label();
             this.lblEmpleados1 = new System.Windows.Forms.Label();
@@ -62,6 +63,7 @@
             // pnlEmpleados
             // 
             this.pnlEmpleados.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.pnlEmpleados.Controls.Add(this.pnlBoton);
             this.pnlEmpleados.Controls.Add(this.btnAsignarEquipo);
             this.pnlEmpleados.Controls.Add(this.lblEmpleado2);
             this.pnlEmpleados.Controls.Add(this.lblEmpleados1);
@@ -72,8 +74,17 @@
             this.pnlEmpleados.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlEmpleados.Location = new System.Drawing.Point(0, 33);
             this.pnlEmpleados.Name = "pnlEmpleados";
-            this.pnlEmpleados.Size = new System.Drawing.Size(135, 550);
+            this.pnlEmpleados.Size = new System.Drawing.Size(146, 550);
             this.pnlEmpleados.TabIndex = 2;
+            // 
+            // pnlBoton
+            // 
+            this.pnlBoton.BackColor = System.Drawing.Color.DodgerBlue;
+            this.pnlBoton.Location = new System.Drawing.Point(134, 108);
+            this.pnlBoton.Name = "pnlBoton";
+            this.pnlBoton.Size = new System.Drawing.Size(12, 39);
+            this.pnlBoton.TabIndex = 0;
+            this.pnlBoton.Visible = false;
             // 
             // btnAsignarEquipo
             // 
@@ -91,7 +102,7 @@
             this.btnAsignarEquipo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAsignarEquipo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAsignarEquipo.UseVisualStyleBackColor = true;
-            this.btnAsignarEquipo.Click += new System.EventHandler(this.button1_Click);
+            this.btnAsignarEquipo.Click += new System.EventHandler(this.btnAsignarEquipo_Click);
             // 
             // lblEmpleado2
             // 
@@ -131,7 +142,7 @@
             this.btnListaEmpleados.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnListaEmpleados.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnListaEmpleados.UseVisualStyleBackColor = true;
-            this.btnListaEmpleados.Click += new System.EventHandler(this.btnCategorias_Click);
+            this.btnListaEmpleados.Click += new System.EventHandler(this.btnListaEmpleados_Click);
             // 
             // btnLicencias
             // 
@@ -149,7 +160,7 @@
             this.btnLicencias.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLicencias.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLicencias.UseVisualStyleBackColor = true;
-            this.btnLicencias.Click += new System.EventHandler(this.btnContratos_Click);
+            this.btnLicencias.Click += new System.EventHandler(this.btnLicencias_Click);
             // 
             // btnVacaciones
             // 
@@ -167,14 +178,14 @@
             this.btnVacaciones.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnVacaciones.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnVacaciones.UseVisualStyleBackColor = true;
-            this.btnVacaciones.Click += new System.EventHandler(this.btnConvenio_Click);
+            this.btnVacaciones.Click += new System.EventHandler(this.btnVacaciones_Click);
             // 
             // pnlContenedor
             // 
             this.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContenedor.Location = new System.Drawing.Point(135, 33);
+            this.pnlContenedor.Location = new System.Drawing.Point(146, 33);
             this.pnlContenedor.Name = "pnlContenedor";
-            this.pnlContenedor.Size = new System.Drawing.Size(892, 550);
+            this.pnlContenedor.Size = new System.Drawing.Size(881, 550);
             this.pnlContenedor.TabIndex = 3;
             // 
             // frmModuloEmpleados
@@ -205,5 +216,6 @@
         private System.Windows.Forms.Label lblEmpleado2;
         private System.Windows.Forms.Button btnAsignarEquipo;
         private System.Windows.Forms.Panel pnlContenedor;
+        private System.Windows.Forms.Panel pnlBoton;
     }
 }
