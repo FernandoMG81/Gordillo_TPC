@@ -7,14 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
+using Personal;
 
 namespace Presentacion
 {
     public partial class frmLogin : Form
     {
+        private Usuario usuario;
+
         public frmLogin()
         {
             InitializeComponent();
+        }
+
+        public frmLogin(Usuario Usuario)
+        {
+            InitializeComponent();
+            usuario = Usuario;
         }
 
         private void txtUsuario_Enter(object sender, EventArgs e)

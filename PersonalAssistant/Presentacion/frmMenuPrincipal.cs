@@ -14,6 +14,13 @@ namespace Presentacion
 {
     public partial class frmMenuPrincipal : frmModelo
     {
+        private Usuario usuarioLogueado;
+
+        public Usuario UsuarioLogueado
+        {
+            get { return usuarioLogueado; }
+        }
+
         public frmMenuPrincipal()
         {
             InitializeComponent();
@@ -85,6 +92,21 @@ namespace Presentacion
             moduloHorario.ShowDialog();
         }
 
-       
+        private void frmMenuPrincipal_Load(object sender, EventArgs e)
+        {
+            frmLogin login;
+            try
+            {
+                usuarioLogueado = new Usuario();
+                login = new frmLogin(usuarioLogueado);               
+                login.ShowDialog();
+               
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }

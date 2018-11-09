@@ -269,6 +269,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Name = "frmMenuPrincipal";
             this.Text = "Personal Assistant";
+            this.Load += new System.EventHandler(this.frmMenuPrincipal_Load);
             this.Controls.SetChildIndex(this.rtbNovedades, 0);
             this.Controls.SetChildIndex(this.lblNovedades, 0);
             this.Controls.SetChildIndex(this.rtbPeriodosPrueba, 0);
