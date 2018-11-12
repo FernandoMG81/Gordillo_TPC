@@ -10,7 +10,7 @@ namespace Personal
 {
     public class CategoriaPersonal
     {
-        public IList<Categoria> listar()
+        public IList<Categoria> listar(long Idcon = 0)
         {
             Conexion conexion = null;
             Categoria aux;
@@ -19,7 +19,8 @@ namespace Personal
             {
                 lista = new List<Categoria>();
                 conexion = new Conexion();
-                conexion.setearConsulta("select IDcategoria, categoria, Idconcepto from categoria ");
+                if (Idcon==0) conexion.setearConsulta("select IDcategoria, categoria, Idconcepto from categoria ");
+                else conexion.setearConsulta("select IDcategoria, categoria, Idconcepto from categoria where Idconcepto = " + Idcon.ToString());
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();
 
@@ -44,6 +45,59 @@ namespace Personal
             }
 
             return lista;
+        }
+
+        public void alta(Categoria nuevo)
+        {
+            Conexion conexion = null;
+            try
+            {
+                conexion = new Conexion();
+                conexion.setearConsulta("insert into categoria values (@categoria,@Idconcepto)");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@categoria", nuevo.nombre);
+                conexion.Comando.Parameters.AddWithValue("@Idconcepto", nuevo.IdConcepto);
+                conexion.abrirConexion();
+                conexion.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                if (conexion != null)
+                {
+                    conexion.cerrarConexion();
+                }
+            }
+        }
+
+        public void eliminar(Categoria baja)
+        {
+            Conexion conexion = null;
+            try
+            {
+                conexion = new Conexion();
+                conexion.setearConsulta("delete from categoria where idcategoria = @id");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@id", baja.Idcategoria);
+                conexion.abrirConexion();
+                conexion.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                if (conexion != null)
+                {
+                    conexion.cerrarConexion();
+                }
+            }
         }
     }
 }

@@ -9,13 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
 using Personal;
+using System.Security.Cryptography;
 
 namespace Presentacion
 {
     public partial class frmLogin : Form
     {
         private Usuario usuario;
-
+        
         public frmLogin()
         {
             InitializeComponent();
@@ -81,6 +82,47 @@ namespace Presentacion
         {
             btnCerrar2.Visible = false;
             btnCerrar.Visible = true;
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            UsuariosPersonal usuarioNegocio = new UsuariosPersonal();
+            Encrypt encripta = new Encrypt();
+            try
+            {
+                usuario.Nombre = txtUsuario.Text;              
+                usuario.Password = encripta.EncryptKey(txtClave.Text);
+                if(usuarioNegocio.validarUsuario(usuario))
+                {
+                    usuario = usuarioNegocio.llenarUsuario(usuario.Nombre);
+                    frmMenuPrincipal principal = Owner as frmMenuPrincipal;
+                    principal.UsuarioLogueado.ID = usuario.ID;
+                    principal.UsuarioLogueado.Nombre = usuario.Nombre;
+                    principal.UsuarioLogueado.Password = usuario.Password;
+                    principal.UsuarioLogueado.Sexo = usuario.Sexo;
+                    principal.UsuarioLogueado.Tipo.Id = usuario.Tipo.Id;
+                    principal.UsuarioLogueado.Tipo.Descripcion = usuario.Tipo.Descripcion;
+                    
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o password incorrectos");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void txtClave_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                btnLogin_Click(sender, e);
+            }
         }
     }
 }

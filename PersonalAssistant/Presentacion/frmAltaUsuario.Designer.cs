@@ -39,7 +39,7 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.dgvListaUsuarios = new System.Windows.Forms.DataGridView();
             this.gbSexo = new System.Windows.Forms.GroupBox();
-            this.rbtFemenino = new System.Windows.Forms.RadioButton();
+            this.rdbFemenino = new System.Windows.Forms.RadioButton();
             this.rdbMasculino = new System.Windows.Forms.RadioButton();
             this.pbxAvatar = new System.Windows.Forms.PictureBox();
             this.btnCargarAvatar = new System.Windows.Forms.Button();
@@ -169,7 +169,7 @@
             // 
             // gbSexo
             // 
-            this.gbSexo.Controls.Add(this.rbtFemenino);
+            this.gbSexo.Controls.Add(this.rdbFemenino);
             this.gbSexo.Controls.Add(this.rdbMasculino);
             this.gbSexo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbSexo.Location = new System.Drawing.Point(60, 121);
@@ -179,16 +179,16 @@
             this.gbSexo.TabStop = false;
             this.gbSexo.Text = "Sexo";
             // 
-            // rbtFemenino
+            // rdbFemenino
             // 
-            this.rbtFemenino.AutoSize = true;
-            this.rbtFemenino.Location = new System.Drawing.Point(99, 14);
-            this.rbtFemenino.Name = "rbtFemenino";
-            this.rbtFemenino.Size = new System.Drawing.Size(89, 21);
-            this.rbtFemenino.TabIndex = 3;
-            this.rbtFemenino.TabStop = true;
-            this.rbtFemenino.Text = "Femenino";
-            this.rbtFemenino.UseVisualStyleBackColor = true;
+            this.rdbFemenino.AutoSize = true;
+            this.rdbFemenino.Location = new System.Drawing.Point(99, 14);
+            this.rdbFemenino.Name = "rdbFemenino";
+            this.rdbFemenino.Size = new System.Drawing.Size(89, 21);
+            this.rdbFemenino.TabIndex = 3;
+            this.rdbFemenino.TabStop = true;
+            this.rdbFemenino.Text = "Femenino";
+            this.rdbFemenino.UseVisualStyleBackColor = true;
             // 
             // rdbMasculino
             // 
@@ -204,6 +204,7 @@
             // pbxAvatar
             // 
             this.pbxAvatar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbxAvatar.Image = global::Presentacion.Properties.Resources.Masculino;
             this.pbxAvatar.Location = new System.Drawing.Point(386, 32);
             this.pbxAvatar.Name = "pbxAvatar";
             this.pbxAvatar.Size = new System.Drawing.Size(100, 100);
@@ -284,7 +285,7 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.DataGridView dgvListaUsuarios;
         private System.Windows.Forms.GroupBox gbSexo;
-        private System.Windows.Forms.RadioButton rbtFemenino;
+        private System.Windows.Forms.RadioButton rdbFemenino;
         private System.Windows.Forms.RadioButton rdbMasculino;
         private System.Windows.Forms.PictureBox pbxAvatar;
         private System.Windows.Forms.Button btnCargarAvatar;

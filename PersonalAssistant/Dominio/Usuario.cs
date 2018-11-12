@@ -11,7 +11,14 @@ namespace Dominio
         public long ID { get; set; }
         public string Nombre { get; set; }
         public string Password { get; set; }
-        public string Sexo { get; set; }
-        public string Tipo { get; set; }
+        public char Sexo { get; set; }
+        public string Descripcion { get; set; }
+        public TipoUsuario Tipo { get; set; }
+        public string Imagen { get; set; }
+
+        public override string ToString()
+        {
+            return Nombre + "";
+        }
     }
 }

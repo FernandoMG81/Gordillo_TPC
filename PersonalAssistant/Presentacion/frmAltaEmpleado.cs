@@ -17,18 +17,20 @@ namespace Presentacion
 {
     public partial class frmAltaEmpleado : Form
     {
-
+        private Usuario usuario;
         private Empleado empleado = null;
 
-        public frmAltaEmpleado()
+        public frmAltaEmpleado(Usuario user)
         {
             InitializeComponent();
+            usuario = user;
         }
 
-        public frmAltaEmpleado(Empleado nuevo)
+        public frmAltaEmpleado(Empleado nuevo, Usuario user)
         {
             InitializeComponent();
             empleado = nuevo;
+            usuario = user;
         }
 
         private void frmAltaEmpleado_Load(object sender, EventArgs e)
@@ -71,6 +73,8 @@ namespace Presentacion
 
                 cargarLocalidad();
                 cargarPartido();
+                
+                   
 
                 if (empleado != null)
                 {
@@ -101,8 +105,17 @@ namespace Presentacion
                     cbxEstadoCivil.SelectedValue = empleado.EstadoCivil.IdEstadoCivil;
                     nudHijos.Value = empleado.Hijos;
                     txbBasico.Text = empleado.Basico.ToString();
+                    lblAltaUsuario.Text += empleado.UsuarioCreacion.Nombre;
+                    lblAltaFecha.Text += empleado.FechaCreacion.ToShortDateString();
+                    lblUsuarioModificacion.Text += empleado.UsuarioModificacion.Nombre;
+                    if (empleado.FechaModificacion.ToString() !="1/1/0001 00:00:00")lblFechaModificacion.Text += empleado.FechaModificacion.ToShortDateString();
                     if (empleado.ControlHorario == true) rdbSi.Checked = true;
                     else rdbNo.Checked = false;
+                    lblAltaUsuario.Show();
+                    lblAltaFecha.Show();
+                    lblUsuarioModificacion.Show();
+                    lblFechaModificacion.Show();
+
                 }
 
                 else
@@ -150,6 +163,11 @@ namespace Presentacion
                 try
                 {
                     if (empleado == null) empleado = new Empleado();
+                    else
+                    {
+                        empleado.UsuarioModificacion.ID = usuario.ID;
+                        empleado.FechaModificacion = DateTime.Now;
+                    }
 
                     empleado.FechaAlta = dtpFechaAlta.Value.Date;
                     empleado.Contrato = new Contrato();
@@ -168,26 +186,26 @@ namespace Presentacion
                     empleado.Categoria = new Categoria();
                     empleado.Categoria.Idcategoria = Convert.ToInt64(cbxCategoria.SelectedValue);
                     empleado.Categoria.nombre = cbxCategoria.DisplayMember;
-                    empleado.Nombre = txbNombre.Text;
-                    empleado.Apellido = txbApellido.Text;
+                    empleado.Nombre = txbNombre.Text.Trim();
+                    empleado.Apellido = txbApellido.Text.Trim();
                     empleado.FechaDeNacimiento = dtpFechaNac.Value.Date;
                     empleado.Dni = txbDni.Text;
                     empleado.Cuil = txbCuil.Text;
-                    empleado.ObraSocial = txbObraSocial.Text;
-                    empleado.TelefonoPrincipal = txbTelefonoPrincipal.Text;
-                    empleado.TelefonoSecundario = txbTelefonoAlternativo.Text;
-                    empleado.Nacionalidad = txbNacionalidad.Text;
+                    empleado.ObraSocial = txbObraSocial.Text.Trim();
+                    empleado.TelefonoPrincipal = txbTelefonoPrincipal.Text.Trim();
+                    empleado.TelefonoSecundario = txbTelefonoAlternativo.Text.Trim();
+                    empleado.Nacionalidad = txbNacionalidad.Text.Trim();
                     empleado.EstadoCivil = new EstadoCivil();
                     empleado.EstadoCivil.IdEstadoCivil = Convert.ToByte(cbxEstadoCivil.SelectedValue);
                     empleado.EstadoCivil.Descripcion = cbxEstadoCivil.DisplayMember;
                     empleado.Hijos = Convert.ToByte(nudHijos.Value.ToString());
-                    empleado.Domicilio = txbDomicilio.Text;
-                    empleado.Entrecalle1 = txbEntrecalles1.Text;
-                    empleado.Entrecalle2 = txbEntrecalles2.Text;
+                    empleado.Domicilio = txbDomicilio.Text.Trim();
+                    empleado.Entrecalle1 = txbEntrecalles1.Text.Trim();
+                    empleado.Entrecalle2 = txbEntrecalles2.Text.Trim();
                     empleado.Localidad = new Localidad();
-                    empleado.Localidad.cp = Int64.Parse(txbCP.Text);
+                    empleado.Localidad.cp = Int64.Parse(txbCP.Text.Trim());
                     empleado.Localidad.IDlocalidad = Convert.ToInt64(cbxLocalidad.SelectedValue);
-                    empleado.Basico = Convert.ToDecimal(txbBasico.Text);
+                    empleado.Basico = Convert.ToDecimal(txbBasico.Text.Trim());
                     empleado.ControlHorario = rdbSi.Checked ? true : false;
 
                     if (empleado.IDregistro != 0) empleadoPersonal.modificar(empleado);
@@ -359,24 +377,19 @@ namespace Presentacion
 
         public void VaciarTextBoxs()
         {
-
             foreach (Control item in this.Controls)
             {
                 try
                 {
                     if (item is TextBox)
-                    {
-                        
+                    {                       
                         item.Text = "";
                     }
                     else if (item is RichTextBox)
                     {
-
                         item.Text = "";
-                    }
-                    
+                    }                   
                 }
-                
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
@@ -396,8 +409,7 @@ namespace Presentacion
                 rdbFemenino.Checked = false;
                 rdbMasculino.Checked = false;
                 rdbNo.Checked = false;
-                rdbSi.Checked = false;
-           
+                rdbSi.Checked = false;        
             }
             catch (Exception ex)
             {

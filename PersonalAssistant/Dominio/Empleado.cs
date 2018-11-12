@@ -8,16 +8,16 @@ namespace Dominio
 {
     public class Empleado
     {
-        //public Int64 IDContrato { get; set; }
         public Int64 IDregistro { get; set; }
         public Contrato Contrato { get; set; }
         public Int64 Legajo { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
-        //public Direccion Direccion { get; set; }
         public string Domicilio { get; set; }
         public DateTime FechaAlta { get; set; }
         public bool Baja { get; set; }
+        public DateTime BajaFecha { get; set; }
+        public string BajaMotivo { get; set; }
         public DateTime FechaDeNacimiento { get; set; }
         public int Edad { get; set; }
         public string Nacionalidad { get; set; }
@@ -32,23 +32,18 @@ namespace Dominio
         public int Hijos { get; set; }
         public string ObraSocial { get; set; }
         public DateTime VencimientoPrueba { get; set; }
-        //public Int64 CP { get; set; }
         public Localidad Localidad { get; set; }
-        //public TipoEmpleado Puesto { get; set; }
-        //public Int64 IDCategoria { get; set; }
         public Categoria Categoria { get; set; }
-        //public Int64 IDSeccion { get; set; }
         public Seccion Seccion { get; set; }
-        //public Int64 IDConcepto { get; set; }
         public Concepto Concepto { get; set; }
-        //public Int64 IDConvenio { get; set; }
         public Convenio Convenio { get; set; }
         public decimal Basico { get; set; }
         public bool TelefonoAsignado { get; set; }
         public bool ControlHorario { get; set; }
+        public Usuario UsuarioCreacion { get; set; }
+        public Usuario UsuarioModificacion { get; set; }
         public DateTime FechaCreacion { get; set; }
-        public string UsuarioCreacion { get; set; }
         public DateTime FechaModificacion { get; set; }
-        public string UsuarioModificacion { get; set; }
+        public string Foto { get; set; }
     }
 }

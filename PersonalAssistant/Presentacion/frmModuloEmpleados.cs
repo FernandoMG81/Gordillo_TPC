@@ -8,14 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using Dominio;
+using Personal;
 
 namespace Presentacion
 {
     public partial class frmModuloEmpleados : frmModelo
     {
-        public frmModuloEmpleados()
+        private Usuario usuario;
+        
+
+        public frmModuloEmpleados(Usuario user)
         {
             InitializeComponent();
+            usuario = user;
         }
 
         private void AbrirFormHijo(object formHijo)
@@ -35,7 +41,7 @@ namespace Presentacion
 
         private void btnAltaEmpleado_Click(object sender, EventArgs e)
         {
-            frmAltaEmpleado empleado = new frmAltaEmpleado();
+            frmAltaEmpleado empleado = new frmAltaEmpleado(usuario);
             AbrirFormHijo(empleado);
             empleado.Focus();
             pnlBoton.Height = btnAltaEmpleado.Height;
@@ -57,7 +63,7 @@ namespace Presentacion
 
         private void btnListaEmpleados_Click(object sender, EventArgs e)
         {
-            frmModificarEmpleado modificar = new frmModificarEmpleado();
+            frmModificarEmpleado modificar = new frmModificarEmpleado(usuario);
             AbrirFormHijo(modificar);
             pnlBoton.Height = btnListaEmpleados.Height;
             pnlBoton.Top = btnListaEmpleados.Top;

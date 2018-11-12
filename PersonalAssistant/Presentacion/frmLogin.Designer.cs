@@ -36,17 +36,17 @@
             this.lblLogin = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.linkClave = new System.Windows.Forms.LinkLabel();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnCerrar2 = new System.Windows.Forms.PictureBox();
+            this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.panel1.BackColor = System.Drawing.Color.Gray;
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Enabled = false;
@@ -57,10 +57,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 21);
+            this.pictureBox1.Image = global::Presentacion.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(-29, 198);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(185, 193);
+            this.pictureBox1.Size = new System.Drawing.Size(243, 193);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -89,13 +89,16 @@
             this.txtClave.TabIndex = 2;
             this.txtClave.Text = "CLAVE";
             this.txtClave.Enter += new System.EventHandler(this.txtClave_Enter);
+            this.txtClave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClave_KeyPress);
             this.txtClave.Leave += new System.EventHandler(this.txtClave_Leave);
             // 
             // lblLogin
             // 
             this.lblLogin.AutoSize = true;
+            this.lblLogin.BackColor = System.Drawing.Color.Transparent;
             this.lblLogin.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogin.Location = new System.Drawing.Point(352, 13);
+            this.lblLogin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblLogin.Location = new System.Drawing.Point(357, 46);
             this.lblLogin.Name = "lblLogin";
             this.lblLogin.Size = new System.Drawing.Size(77, 24);
             this.lblLogin.TabIndex = 3;
@@ -114,30 +117,20 @@
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "INGRESAR";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // linkClave
             // 
             this.linkClave.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.linkClave.AutoSize = true;
             this.linkClave.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkClave.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.linkClave.LinkColor = System.Drawing.Color.White;
             this.linkClave.Location = new System.Drawing.Point(301, 365);
             this.linkClave.Name = "linkClave";
             this.linkClave.Size = new System.Drawing.Size(198, 17);
             this.linkClave.TabIndex = 0;
             this.linkClave.TabStop = true;
             this.linkClave.Text = "¿Ha olvidado la contraseña?";
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(550, 0);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(54, 37);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnCerrar.TabIndex = 6;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.MouseEnter += new System.EventHandler(this.btnCerrar_MouseEnter);
             // 
             // btnCerrar2
             // 
@@ -152,10 +145,22 @@
             this.btnCerrar2.Click += new System.EventHandler(this.btnCerrar2_Click);
             this.btnCerrar2.MouseLeave += new System.EventHandler(this.btnCerrar2_MouseLeave);
             // 
-            // Login
+            // btnCerrar
+            // 
+            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
+            this.btnCerrar.Location = new System.Drawing.Point(550, 0);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(54, 37);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnCerrar.TabIndex = 6;
+            this.btnCerrar.TabStop = false;
+            this.btnCerrar.MouseEnter += new System.EventHandler(this.btnCerrar_MouseEnter);
+            // 
+            // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(600, 391);
             this.Controls.Add(this.btnCerrar2);
             this.Controls.Add(this.btnCerrar);
@@ -166,14 +171,14 @@
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Login";
+            this.Name = "frmLogin";
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -25,82 +25,154 @@ namespace Presentacion
         {
             InitializeComponent();
         }
-      
-        private void pictureBox2_MouseEnter(object sender, EventArgs e)
+
+
+
+        private void ptbModuloEmpleados_MouseEnter(object sender, EventArgs e)
         {
             //VER PORQUE SE ROMPE  
             // pictureBox2.BorderStyle = BorderStyle.Fixed3D;
         }
 
-        private void pictureBox2_MouseLeave(object sender, EventArgs e)
+        private void ptbModuloEmpleados_MouseLeave(object sender, EventArgs e)
         {
-           // pictureBox2.BorderStyle = BorderStyle.FixedSingle;
+            // pictureBox2.BorderStyle = BorderStyle.FixedSingle;
         }
 
         //QUITAR SI SE CAMBIA LA IMAGEN
-        private void label1_MouseEnter(object sender, EventArgs e)
+        private void lblModuloEmpleado2_MouseEnter(object sender, EventArgs e)
         {
-           // pictureBox2.BorderStyle = BorderStyle.Fixed3D;
+            // pictureBox2.BorderStyle = BorderStyle.Fixed3D;
         }
 
         //QUITAR SI SE CAMBIA LA IMAGEN
-        private void label2_MouseEnter(object sender, EventArgs e)
+        private void lblModuloEmpleado1_MouseEnter(object sender, EventArgs e)
         {
             //pictureBox2.BorderStyle = BorderStyle.Fixed3D;
         }
 
         private void pbConfiguracion_Click(object sender, EventArgs e)
         {
-            frmConfiguracion configuracion = new frmConfiguracion();
-            configuracion.ShowDialog();
+            if (TipoUsuario.ADMINISTRADOR == usuarioLogueado.Tipo.Id)
+            {
+                frmConfiguracion configuracion = new frmConfiguracion();
+                configuracion.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No tiene permisos para acceder a este módulo");
+
+            }
         }
 
         //QUITAR SI SE CAMBIA LA IMAGEN
         private void lblConfiguracion_Click(object sender, EventArgs e)
         {
-            frmConfiguracion configuracion = new frmConfiguracion();
-            configuracion.ShowDialog();
+            if (TipoUsuario.ADMINISTRADOR == usuarioLogueado.Tipo.Id)
+            {
+                frmConfiguracion configuracion = new frmConfiguracion();
+                configuracion.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No tiene permisos para acceder a este módulo");
+            }
+
         }
 
         private void ptbModuloEmpleados_Click(object sender, EventArgs e)
         {
-            frmModuloEmpleados empleados = new frmModuloEmpleados();
-            empleados.ShowDialog();
+            if (TipoUsuario.ADMINISTRADOR == usuarioLogueado.Tipo.Id || TipoUsuario.EMPLEADOS == usuarioLogueado.Tipo.Id)
+            {
+                frmModuloEmpleados empleados = new frmModuloEmpleados(usuarioLogueado);
+                empleados.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No tiene permisos para acceder a este módulo");
+            }
         }
 
         private void lblModuloEmpleado1_Click(object sender, EventArgs e)
         {
-            frmModuloEmpleados empleados = new frmModuloEmpleados();
-            empleados.ShowDialog();
+            if (TipoUsuario.ADMINISTRADOR == usuarioLogueado.Tipo.Id || TipoUsuario.EMPLEADOS == usuarioLogueado.Tipo.Id)
+            {
+                frmModuloEmpleados empleados = new frmModuloEmpleados(usuarioLogueado);
+                empleados.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No tiene permisos para acceder a este módulo");
+            }
         }
         private void lblModuloEmpleado2_Click(object sender, EventArgs e)
         {
-            frmModuloEmpleados empleados = new frmModuloEmpleados();
-            empleados.ShowDialog();
+            if (TipoUsuario.ADMINISTRADOR == usuarioLogueado.Tipo.Id || TipoUsuario.EMPLEADOS == usuarioLogueado.Tipo.Id)
+            {
+                frmModuloEmpleados empleados = new frmModuloEmpleados(usuarioLogueado);
+                empleados.ShowDialog();
+            }
+
+            else
+            {
+                MessageBox.Show("No tiene permisos para acceder a este módulo");
+            }
         }
 
         private void pbModuloHorarios_Click(object sender, EventArgs e)
         {
-            frmModuloHorarios moduloHorario = new frmModuloHorarios();
-            moduloHorario.ShowDialog();
+            if (TipoUsuario.ADMINISTRADOR == usuarioLogueado.Tipo.Id || TipoUsuario.HORARIO == usuarioLogueado.Tipo.Id)
+            {
+                frmModuloHorarios moduloHorario = new frmModuloHorarios();
+                moduloHorario.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No tiene permisos para acceder a este módulo");
+            }
         }
 
         //QUITAR SI SE CAMBIA LA IMAGEN
         private void lblBotonFichajes_Click(object sender, EventArgs e)
         {
-            frmModuloHorarios moduloHorario = new frmModuloHorarios();
-            moduloHorario.ShowDialog();
+            if (TipoUsuario.ADMINISTRADOR == usuarioLogueado.Tipo.Id || TipoUsuario.HORARIO == usuarioLogueado.Tipo.Id)
+            {
+                frmModuloHorarios moduloHorario = new frmModuloHorarios();
+                moduloHorario.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No tiene permisos para acceder a este módulo");
+            }
         }
 
-        private void frmMenuPrincipal_Load(object sender, EventArgs e)
+
+        private void frmMenuPrincipal_Shown(object sender, EventArgs e)
         {
             frmLogin login;
             try
             {
                 usuarioLogueado = new Usuario();
-                login = new frmLogin(usuarioLogueado);               
+                login = new frmLogin(usuarioLogueado);
+                AddOwnedForm(login);
                 login.ShowDialog();
-               
+                lblusuarioActivo.Text = usuarioLogueado.Nombre;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void frmMenuPrincipal_Load(object sender, EventArgs e)
+        {
+            Novedad Cumpleanios;
+            Novedad PeridodoPrueba;
+            Novedad Vacaciones;
+            try
+            {
+
             }
             catch (Exception ex)
             {

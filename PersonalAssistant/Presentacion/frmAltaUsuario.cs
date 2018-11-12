@@ -38,14 +38,20 @@ namespace Presentacion
         {
             UsuariosPersonal usuario = new UsuariosPersonal();
             Usuario nuevo = new Usuario();
-
+            Encrypt encrypt = new Encrypt();
             //CHequeos
             try
             {
                 nuevo.Nombre = txbUsuario.Text;
-                nuevo.Password = txbClave.Text;
+                nuevo.Password = encrypt.EncryptKey(txbClave.Text);
+                //nuevo.Password = txbClave.Text;
+                nuevo.Tipo = new TipoUsuario();
+                if (rdbAdmin.Checked) nuevo.Tipo.Id = 1;
+                if (rdbPersonal.Checked) nuevo.Tipo.Id = 2;
+                if (rdbDeposito.Checked) nuevo.Tipo.Id = 3;
+                if (rdbMasculino.Checked) nuevo.Sexo = 'M';
+                if (rdbFemenino.Checked) nuevo.Sexo = 'F';
                 
-                nuevo.Tipo = rdbAdmin.Checked ? "1" : rdbPersonal.Checked ? "2" : "3";
                
                 usuario.alta(nuevo);
                 frmAltaUsuario_Load(sender,e);

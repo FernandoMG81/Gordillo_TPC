@@ -52,7 +52,7 @@
             // 
             // pnlBarraSuperior
             // 
-            this.pnlBarraSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.pnlBarraSuperior.BackColor = System.Drawing.Color.Black;
             this.pnlBarraSuperior.Controls.Add(this.label1);
             this.pnlBarraSuperior.Controls.Add(this.ptbMinimizarSelect);
             this.pnlBarraSuperior.Controls.Add(this.ptbMaximizarSelect);
@@ -65,7 +65,7 @@
             this.pnlBarraSuperior.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBarraSuperior.Location = new System.Drawing.Point(0, 0);
             this.pnlBarraSuperior.Name = "pnlBarraSuperior";
-            this.pnlBarraSuperior.Size = new System.Drawing.Size(833, 33);
+            this.pnlBarraSuperior.Size = new System.Drawing.Size(1027, 33);
             this.pnlBarraSuperior.TabIndex = 0;
             this.pnlBarraSuperior.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlBarraSuperior_MouseDown);
             // 
@@ -78,13 +78,13 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(176, 18);
             this.label1.TabIndex = 9;
-            this.label1.Text = "Personal Assistant v0.1 ";
+            this.label1.Text = "Personal Assistant v1.0 ";
             // 
             // ptbMinimizarSelect
             // 
             this.ptbMinimizarSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ptbMinimizarSelect.Image = ((System.Drawing.Image)(resources.GetObject("ptbMinimizarSelect.Image")));
-            this.ptbMinimizarSelect.Location = new System.Drawing.Point(744, 3);
+            this.ptbMinimizarSelect.Location = new System.Drawing.Point(938, 3);
             this.ptbMinimizarSelect.Name = "ptbMinimizarSelect";
             this.ptbMinimizarSelect.Size = new System.Drawing.Size(25, 25);
             this.ptbMinimizarSelect.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -98,7 +98,7 @@
             // 
             this.ptbMaximizarSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ptbMaximizarSelect.Image = ((System.Drawing.Image)(resources.GetObject("ptbMaximizarSelect.Image")));
-            this.ptbMaximizarSelect.Location = new System.Drawing.Point(774, 3);
+            this.ptbMaximizarSelect.Location = new System.Drawing.Point(968, 3);
             this.ptbMaximizarSelect.Name = "ptbMaximizarSelect";
             this.ptbMaximizarSelect.Size = new System.Drawing.Size(25, 25);
             this.ptbMaximizarSelect.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -112,7 +112,7 @@
             // 
             this.ptbCerrarSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ptbCerrarSelect.Image = ((System.Drawing.Image)(resources.GetObject("ptbCerrarSelect.Image")));
-            this.ptbCerrarSelect.Location = new System.Drawing.Point(805, 3);
+            this.ptbCerrarSelect.Location = new System.Drawing.Point(999, 3);
             this.ptbCerrarSelect.Name = "ptbCerrarSelect";
             this.ptbCerrarSelect.Size = new System.Drawing.Size(25, 25);
             this.ptbCerrarSelect.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -126,7 +126,7 @@
             // 
             this.ptbMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ptbMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("ptbMaximizar.Image")));
-            this.ptbMaximizar.Location = new System.Drawing.Point(774, 3);
+            this.ptbMaximizar.Location = new System.Drawing.Point(968, 3);
             this.ptbMaximizar.Name = "ptbMaximizar";
             this.ptbMaximizar.Size = new System.Drawing.Size(25, 25);
             this.ptbMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -138,7 +138,7 @@
             // 
             this.ptbMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ptbMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("ptbMinimizar.Image")));
-            this.ptbMinimizar.Location = new System.Drawing.Point(744, 3);
+            this.ptbMinimizar.Location = new System.Drawing.Point(938, 3);
             this.ptbMinimizar.Name = "ptbMinimizar";
             this.ptbMinimizar.Size = new System.Drawing.Size(25, 25);
             this.ptbMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -150,7 +150,7 @@
             // 
             this.ptbRestaurarSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ptbRestaurarSelect.Image = ((System.Drawing.Image)(resources.GetObject("ptbRestaurarSelect.Image")));
-            this.ptbRestaurarSelect.Location = new System.Drawing.Point(774, 3);
+            this.ptbRestaurarSelect.Location = new System.Drawing.Point(968, 3);
             this.ptbRestaurarSelect.Name = "ptbRestaurarSelect";
             this.ptbRestaurarSelect.Size = new System.Drawing.Size(25, 25);
             this.ptbRestaurarSelect.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -164,7 +164,7 @@
             // 
             this.ptbRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ptbRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("ptbRestaurar.Image")));
-            this.ptbRestaurar.Location = new System.Drawing.Point(774, 3);
+            this.ptbRestaurar.Location = new System.Drawing.Point(968, 3);
             this.ptbRestaurar.Name = "ptbRestaurar";
             this.ptbRestaurar.Size = new System.Drawing.Size(25, 25);
             this.ptbRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -177,7 +177,7 @@
             // 
             this.ptbCerrarM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ptbCerrarM.Image = ((System.Drawing.Image)(resources.GetObject("ptbCerrarM.Image")));
-            this.ptbCerrarM.Location = new System.Drawing.Point(805, 3);
+            this.ptbCerrarM.Location = new System.Drawing.Point(999, 3);
             this.ptbCerrarM.Name = "ptbCerrarM";
             this.ptbCerrarM.Size = new System.Drawing.Size(25, 25);
             this.ptbCerrarM.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -189,8 +189,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(833, 479);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ClientSize = new System.Drawing.Size(1027, 583);
             this.Controls.Add(this.pnlBarraSuperior);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmModelo";

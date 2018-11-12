@@ -44,5 +44,57 @@ namespace Personal
 
             return lista;
         }
+
+        public void alta(Contrato nuevo)
+        {
+            Conexion conexion = null;
+            try
+            {
+                conexion = new Conexion();
+                conexion.setearConsulta("insert into contrato values (@contrato)");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@contrato", nuevo.Descripcion);
+                conexion.abrirConexion();
+                conexion.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                if (conexion != null)
+                {
+                    conexion.cerrarConexion();
+                }
+            }
+        }
+
+        public void eliminar(Contrato baja)
+        {
+            Conexion conexion = null;
+            try
+            {
+                conexion = new Conexion();
+                conexion.setearConsulta("delete from contrato where idcontrato = @id");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@id", baja.Idcontrato);
+                conexion.abrirConexion();
+                conexion.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                if (conexion != null)
+                {
+                    conexion.cerrarConexion();
+                }
+            }
+        }
     }
 }

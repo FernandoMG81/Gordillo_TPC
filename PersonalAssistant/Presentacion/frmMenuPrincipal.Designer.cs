@@ -109,8 +109,6 @@
             this.ptbModuloEmpleados.TabStop = false;
             this.ptbModuloEmpleados.Tag = "";
             this.ptbModuloEmpleados.Click += new System.EventHandler(this.ptbModuloEmpleados_Click);
-            this.ptbModuloEmpleados.MouseEnter += new System.EventHandler(this.pictureBox2_MouseEnter);
-            this.ptbModuloEmpleados.MouseLeave += new System.EventHandler(this.pictureBox2_MouseLeave);
             // 
             // lblModuloEmpleado1
             // 
@@ -125,7 +123,6 @@
             this.lblModuloEmpleado1.TabIndex = 11;
             this.lblModuloEmpleado1.Text = "MODULO";
             this.lblModuloEmpleado1.Click += new System.EventHandler(this.lblModuloEmpleado1_Click);
-            this.lblModuloEmpleado1.MouseEnter += new System.EventHandler(this.label1_MouseEnter);
             // 
             // lblModuloEmpleado2
             // 
@@ -140,7 +137,6 @@
             this.lblModuloEmpleado2.TabIndex = 12;
             this.lblModuloEmpleado2.Text = "EMPLEADOS";
             this.lblModuloEmpleado2.Click += new System.EventHandler(this.lblModuloEmpleado2_Click);
-            this.lblModuloEmpleado2.MouseEnter += new System.EventHandler(this.label2_MouseEnter);
             // 
             // pbModuloHorarios
             // 
@@ -160,7 +156,7 @@
             // 
             // pnlUsuario
             // 
-            this.pnlUsuario.BackColor = System.Drawing.Color.SlateGray;
+            this.pnlUsuario.BackColor = System.Drawing.Color.Gray;
             this.pnlUsuario.Controls.Add(this.button2);
             this.pnlUsuario.Controls.Add(this.lblusuarioActivo);
             this.pnlUsuario.Controls.Add(this.pbUsuario);
@@ -174,7 +170,7 @@
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button2.Font = new System.Drawing.Font("Century Gothic", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(12, 523);
+            this.button2.Location = new System.Drawing.Point(12, 528);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(87, 23);
             this.button2.TabIndex = 2;
@@ -184,13 +180,15 @@
             // lblusuarioActivo
             // 
             this.lblusuarioActivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblusuarioActivo.AutoEllipsis = true;
             this.lblusuarioActivo.AutoSize = true;
             this.lblusuarioActivo.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblusuarioActivo.Location = new System.Drawing.Point(8, 504);
+            this.lblusuarioActivo.Location = new System.Drawing.Point(31, 504);
             this.lblusuarioActivo.Name = "lblusuarioActivo";
-            this.lblusuarioActivo.Size = new System.Drawing.Size(93, 16);
+            this.lblusuarioActivo.Size = new System.Drawing.Size(47, 16);
             this.lblusuarioActivo.TabIndex = 1;
-            this.lblusuarioActivo.Text = "Nombre Usuario";
+            this.lblusuarioActivo.Text = "Usuario";
+            this.lblusuarioActivo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pbUsuario
             // 
@@ -252,7 +250,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1082, 599);
             this.Controls.Add(this.lblBotonFichajes);
             this.Controls.Add(this.lblConfiguracion);
@@ -270,6 +268,7 @@
             this.Name = "frmMenuPrincipal";
             this.Text = "Personal Assistant";
             this.Load += new System.EventHandler(this.frmMenuPrincipal_Load);
+            this.Shown += new System.EventHandler(this.frmMenuPrincipal_Shown);
             this.Controls.SetChildIndex(this.rtbNovedades, 0);
             this.Controls.SetChildIndex(this.lblNovedades, 0);
             this.Controls.SetChildIndex(this.rtbPeriodosPrueba, 0);

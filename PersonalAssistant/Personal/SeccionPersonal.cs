@@ -10,7 +10,7 @@ namespace Personal
 {
     public class SeccionPersonal
     {
-        public IList<Seccion> listar()
+        public IList<Seccion> listar(long id=0)
         {
             Conexion conexion = null;
             Seccion aux;
@@ -19,7 +19,8 @@ namespace Personal
             {
                 lista = new List<Seccion>();
                 conexion = new Conexion();
-                conexion.setearConsulta("select IDseccion, seccion from seccion");
+                if (id==0) conexion.setearConsulta("select IDseccion, seccion from seccion");
+                else conexion.setearConsulta("select IDseccion, seccion from seccion where idSeccion = "+id.ToString());
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();
 
@@ -43,6 +44,58 @@ namespace Personal
             }
 
             return lista;
+        }
+
+        public void alta(Seccion nuevo)
+        {
+            Conexion conexion = null;
+            try
+            {
+                conexion = new Conexion();
+                conexion.setearConsulta("insert into seccion values (@seccion)");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@seccion", nuevo.Nombre);
+                conexion.abrirConexion();
+                conexion.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                if (conexion != null)
+                {
+                    conexion.cerrarConexion();
+                }
+            }
+        }
+
+        public void eliminar(Seccion baja)
+        {
+            Conexion conexion = null;
+            try
+            {
+                conexion = new Conexion();
+                conexion.setearConsulta("delete from seccion where idseccion = @id");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@id", baja.Idseccion);
+                conexion.abrirConexion();
+                conexion.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                if (conexion != null)
+                {
+                    conexion.cerrarConexion();
+                }
+            }
         }
     }
 }

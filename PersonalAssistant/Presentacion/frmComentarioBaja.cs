@@ -7,22 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Dominio;
 
 namespace Presentacion
 {
-    
-    public partial class frmComentario : Form
+    public partial class frmComentarioBaja : Form
     {
-        public frmComentario()
+        public frmComentarioBaja()
         {
             InitializeComponent();
         }
-        
+
         private void btnOK_Click(object sender, EventArgs e)
         {
-            frmAsignarEquipos Principal = Owner as frmAsignarEquipos;
-            Principal.Comentario = rtxComentario.Text;
+            frmModificarEmpleado Principal = Owner as frmModificarEmpleado;
+            Principal.ComentarioBaja = rtxComentario.Text;
+            Principal.fechaBaja = dtpBaja.Value;
             this.Dispose();
         }
     }

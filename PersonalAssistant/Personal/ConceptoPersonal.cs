@@ -19,7 +19,8 @@ namespace Personal
             {
                 lista = new List<Concepto>();
                 conexion = new Conexion();
-                conexion.setearConsulta("select IDconcepto,concepto,IDarea from concepto");
+                if  (ID==0) conexion.setearConsulta("select IDconcepto,concepto,IDarea from concepto");
+                else conexion.setearConsulta("select IDconcepto,concepto,IDarea from concepto where Idarea = "+ID.ToString());
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();
 
@@ -44,6 +45,59 @@ namespace Personal
             }
 
             return lista;
+        }
+
+        public void alta(Concepto nuevo)
+        {
+            Conexion conexion = null;
+            try
+            {
+                conexion = new Conexion();
+                conexion.setearConsulta("insert into concepto values (@concepto,@IdSeccion)");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@concepto", nuevo.Nombre);
+                conexion.Comando.Parameters.AddWithValue("@IdSeccion", nuevo.IdArea);
+                conexion.abrirConexion();
+                conexion.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                if (conexion != null)
+                {
+                    conexion.cerrarConexion();
+                }
+            }
+        }
+
+        public void eliminar(Concepto baja)
+        {
+            Conexion conexion = null;
+            try
+            {
+                conexion = new Conexion();
+                conexion.setearConsulta("delete from concepto where idconcepto = @id");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@id", baja.IdConcepto);
+                conexion.abrirConexion();
+                conexion.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                if (conexion != null)
+                {
+                    conexion.cerrarConexion();
+                }
+            }
         }
     }
 }

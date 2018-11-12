@@ -85,6 +85,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rdbNo = new System.Windows.Forms.RadioButton();
             this.rdbSi = new System.Windows.Forms.RadioButton();
+            this.lblUsuarioModificacion = new System.Windows.Forms.Label();
+            this.lblFechaModificacion = new System.Windows.Forms.Label();
+            this.lblAltaFecha = new System.Windows.Forms.Label();
+            this.lblAltaUsuario = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudHijos)).BeginInit();
             this.gbxSexo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxFoto)).BeginInit();
@@ -98,7 +102,7 @@
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnAgregar.Location = new System.Drawing.Point(245, 504);
+            this.btnAgregar.Location = new System.Drawing.Point(196, 504);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(213, 31);
             this.btnAgregar.TabIndex = 26;
@@ -584,7 +588,7 @@
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrar.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnCerrar.Location = new System.Drawing.Point(483, 504);
+            this.btnCerrar.Location = new System.Drawing.Point(434, 504);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(213, 31);
             this.btnCerrar.TabIndex = 27;
@@ -621,7 +625,7 @@
             this.groupBox1.Controls.Add(this.rdbNo);
             this.groupBox1.Controls.Add(this.rdbSi);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(734, 431);
+            this.groupBox1.Location = new System.Drawing.Point(737, 423);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(163, 65);
             this.groupBox1.TabIndex = 25;
@@ -650,11 +654,59 @@
             this.rdbSi.Text = "SI";
             this.rdbSi.UseVisualStyleBackColor = true;
             // 
+            // lblUsuarioModificacion
+            // 
+            this.lblUsuarioModificacion.AutoSize = true;
+            this.lblUsuarioModificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.lblUsuarioModificacion.Location = new System.Drawing.Point(712, 504);
+            this.lblUsuarioModificacion.Name = "lblUsuarioModificacion";
+            this.lblUsuarioModificacion.Size = new System.Drawing.Size(91, 13);
+            this.lblUsuarioModificacion.TabIndex = 67;
+            this.lblUsuarioModificacion.Text = "Ult. modificación: ";
+            this.lblUsuarioModificacion.Visible = false;
+            // 
+            // lblFechaModificacion
+            // 
+            this.lblFechaModificacion.AutoSize = true;
+            this.lblFechaModificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.lblFechaModificacion.Location = new System.Drawing.Point(731, 527);
+            this.lblFechaModificacion.Name = "lblFechaModificacion";
+            this.lblFechaModificacion.Size = new System.Drawing.Size(69, 13);
+            this.lblFechaModificacion.TabIndex = 68;
+            this.lblFechaModificacion.Text = "Fecha Modif:";
+            this.lblFechaModificacion.Visible = false;
+            // 
+            // lblAltaFecha
+            // 
+            this.lblAltaFecha.AutoSize = true;
+            this.lblAltaFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.lblAltaFecha.Location = new System.Drawing.Point(35, 527);
+            this.lblAltaFecha.Name = "lblAltaFecha";
+            this.lblAltaFecha.Size = new System.Drawing.Size(61, 13);
+            this.lblAltaFecha.TabIndex = 70;
+            this.lblAltaFecha.Text = "Fecha Alta:";
+            this.lblAltaFecha.Visible = false;
+            // 
+            // lblAltaUsuario
+            // 
+            this.lblAltaUsuario.AutoSize = true;
+            this.lblAltaUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.lblAltaUsuario.Location = new System.Drawing.Point(50, 504);
+            this.lblAltaUsuario.Name = "lblAltaUsuario";
+            this.lblAltaUsuario.Size = new System.Drawing.Size(49, 13);
+            this.lblAltaUsuario.TabIndex = 69;
+            this.lblAltaUsuario.Text = "Alta por: ";
+            this.lblAltaUsuario.Visible = false;
+            // 
             // frmAltaEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(909, 556);
+            this.Controls.Add(this.lblAltaFecha);
+            this.Controls.Add(this.lblAltaUsuario);
+            this.Controls.Add(this.lblFechaModificacion);
+            this.Controls.Add(this.lblUsuarioModificacion);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnFoto);
             this.Controls.Add(this.pbxFoto);
@@ -783,5 +835,9 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rdbNo;
         private System.Windows.Forms.RadioButton rdbSi;
+        private System.Windows.Forms.Label lblUsuarioModificacion;
+        private System.Windows.Forms.Label lblFechaModificacion;
+        private System.Windows.Forms.Label lblAltaFecha;
+        private System.Windows.Forms.Label lblAltaUsuario;
     }
 }
