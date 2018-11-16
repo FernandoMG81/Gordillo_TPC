@@ -14,9 +14,12 @@ namespace Presentacion
 {
     public partial class frmVacaciones : Form
     {
-        public frmVacaciones()
+        private Usuario usuarioLogueado;
+
+        public frmVacaciones(Usuario user)
         {
             InitializeComponent();
+            usuarioLogueado = user;
         }
 
         private void btnGenerar_Click(object sender, EventArgs e)
@@ -24,15 +27,21 @@ namespace Presentacion
             VacacionesPersonal nuevas = new VacacionesPersonal();
             try
             {
-              nuevas.generar();
+              nuevas.generar(Convert.ToInt16(cbxAnios.SelectedItem),usuarioLogueado);
             }
-            catch (SystemException)
+            catch (SystemException ex)
             {
+                //MessageBox.Show(ex.ToString());
+
                 MessageBox.Show("Todas las vacaciones del año "+ cbxAnios.SelectedItem.ToString() + Environment.NewLine + "ya han sido generadas");
             }
             catch (Exception)
             {
                 MessageBox.Show("PRUEBA");
+            }
+            finally
+            {
+                cbxAnios_SelectedIndexChanged(sender, e);
             }
         }
 
@@ -50,23 +59,30 @@ namespace Presentacion
                 vac = new VacacionesPersonal();
                 dgvVacaciones.DataSource = vac.listar(cbxAnios.SelectedItem.ToString());
                 dgvVacaciones.Columns["fecAlta"].Visible = false;
-                dgvVacaciones.Columns["AnioCalculado"].Visible = false;
-                dgvVacaciones.Columns["diasCalculado"].Visible = false;
-                dgvVacaciones.Columns["diasVacaciones"].HeaderText = "Vacaciones";
+                dgvVacaciones.Columns["fechaInicio"].Visible = false;
+                dgvVacaciones.Columns["fechaFinal"].Visible = false;
+                dgvVacaciones.Columns["diasVacaciones"].HeaderText = "Resta Vacaciones";
+                dgvVacaciones.Columns["diasCalculado"].HeaderText = "Vacaciones del año";
+                dgvVacaciones.Columns["anioCalculado"].Visible = false;
+                dgvVacaciones.Columns["usuarioCreacion"].HeaderText = "Registrado por";
+                dgvVacaciones.Columns["fechaCreacion"].HeaderText = "Fecha";
+
                 dgvVacaciones.CurrentRow.Selected = false;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Aún no hay vacaciones generadas para el año " + cbxAnios.SelectedItem.ToString());
+                MessageBox.Show(ex.ToString());
+                //MessageBox.Show("Aún no hay vacaciones generadas para el año " + cbxAnios.SelectedItem.ToString());
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+
+        private void btnAsignarVacaciones_Click(object sender, EventArgs e)
         {
             frmAsignarVacaciones asigna;
             try
             {
-                asigna = new frmAsignarVacaciones();
+                asigna = new frmAsignarVacaciones(usuarioLogueado);
                 asigna.ShowDialog();
             }
             catch (Exception ex)

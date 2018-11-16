@@ -15,13 +15,13 @@ namespace Presentacion
 {
     public partial class frmModuloEmpleados : frmModelo
     {
-        private Usuario usuario;
+        private Usuario usuarioLogueado;
         
 
         public frmModuloEmpleados(Usuario user)
         {
             InitializeComponent();
-            usuario = user;
+            usuarioLogueado = user;
         }
 
         private void AbrirFormHijo(object formHijo)
@@ -41,7 +41,7 @@ namespace Presentacion
 
         private void btnAltaEmpleado_Click(object sender, EventArgs e)
         {
-            frmAltaEmpleado empleado = new frmAltaEmpleado(usuario);
+            frmAltaEmpleado empleado = new frmAltaEmpleado(usuarioLogueado);
             AbrirFormHijo(empleado);
             empleado.Focus();
             pnlBoton.Height = btnAltaEmpleado.Height;
@@ -63,7 +63,7 @@ namespace Presentacion
 
         private void btnListaEmpleados_Click(object sender, EventArgs e)
         {
-            frmModificarEmpleado modificar = new frmModificarEmpleado(usuario);
+            frmModificarEmpleado modificar = new frmModificarEmpleado(usuarioLogueado);
             AbrirFormHijo(modificar);
             pnlBoton.Height = btnListaEmpleados.Height;
             pnlBoton.Top = btnListaEmpleados.Top;
@@ -81,7 +81,7 @@ namespace Presentacion
 
         private void btnVacaciones_Click(object sender, EventArgs e)
         {
-            frmVacaciones vacaciones = new frmVacaciones();
+            frmVacaciones vacaciones = new frmVacaciones(usuarioLogueado);
             AbrirFormHijo(vacaciones);
             pnlBoton.Height = btnVacaciones.Height;
             pnlBoton.Top = btnVacaciones.Top;

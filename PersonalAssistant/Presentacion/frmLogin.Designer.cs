@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -38,10 +39,12 @@
             this.linkClave = new System.Windows.Forms.LinkLabel();
             this.btnCerrar2 = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -76,6 +79,7 @@
             this.txtUsuario.TabIndex = 1;
             this.txtUsuario.Text = "USUARIO";
             this.txtUsuario.Enter += new System.EventHandler(this.txtUsuario_Enter);
+            this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
             this.txtUsuario.Leave += new System.EventHandler(this.txtUsuario_Leave);
             // 
             // txtClave
@@ -131,6 +135,7 @@
             this.linkClave.TabIndex = 0;
             this.linkClave.TabStop = true;
             this.linkClave.Text = "¿Ha olvidado la contraseña?";
+            this.linkClave.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkClave_LinkClicked);
             // 
             // btnCerrar2
             // 
@@ -156,6 +161,10 @@
             this.btnCerrar.TabStop = false;
             this.btnCerrar.MouseEnter += new System.EventHandler(this.btnCerrar_MouseEnter);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -179,6 +188,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,5 +205,6 @@
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.PictureBox btnCerrar2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

@@ -16,7 +16,7 @@ namespace Presentacion
     public partial class frmLogin : Form
     {
         private Usuario usuario;
-        
+
         public frmLogin()
         {
             InitializeComponent();
@@ -90,9 +90,9 @@ namespace Presentacion
             Encrypt encripta = new Encrypt();
             try
             {
-                usuario.Nombre = txtUsuario.Text;              
+                usuario.Nombre = txtUsuario.Text;
                 usuario.Password = encripta.EncryptKey(txtClave.Text);
-                if(usuarioNegocio.validarUsuario(usuario))
+                if (usuarioNegocio.validarUsuario(usuario))
                 {
                     usuario = usuarioNegocio.llenarUsuario(usuario.Nombre);
                     frmMenuPrincipal principal = Owner as frmMenuPrincipal;
@@ -102,7 +102,7 @@ namespace Presentacion
                     principal.UsuarioLogueado.Sexo = usuario.Sexo;
                     principal.UsuarioLogueado.Tipo.Id = usuario.Tipo.Id;
                     principal.UsuarioLogueado.Tipo.Descripcion = usuario.Tipo.Descripcion;
-                    
+
                     Close();
                 }
                 else
@@ -119,10 +119,43 @@ namespace Presentacion
 
         private void txtClave_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((int)e.KeyChar == (int)Keys.Enter)
+            if ((int)e.KeyChar == (int)Keys.Enter) //Presionar enter en cualquier momento y activar el boton de login
             {
                 btnLogin_Click(sender, e);
             }
+
+            if (!(char.IsLetterOrDigit(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
+                e.Handled = true;
+
+        }
+
+        private void linkClave_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                if (txtUsuario.Text == "" || txtUsuario.Text == "USUARIO")
+                {
+                    errorProvider1.SetError(txtUsuario, "Debe escribir un nombre de usuario");
+                }
+                else
+                {
+                    MailPersonal mail = new MailPersonal();
+                    mail.enviarCorreo(txtUsuario.Text.ToLower());
+                }
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("El usuario no se encuentra en el sistema");
+            }
+        }
+
+        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetterOrDigit(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
+                e.Handled = true;
+            errorProvider1.Dispose();
         }
     }
 }

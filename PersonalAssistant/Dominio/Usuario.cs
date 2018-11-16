@@ -15,6 +15,7 @@ namespace Dominio
         public string Descripcion { get; set; }
         public TipoUsuario Tipo { get; set; }
         public string Imagen { get; set; }
+        public string Mail { get; set; }
 
         public override string ToString()
         {

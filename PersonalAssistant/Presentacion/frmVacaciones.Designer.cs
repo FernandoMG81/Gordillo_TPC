@@ -34,7 +34,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.cbxAnios = new System.Windows.Forms.ComboBox();
             this.lblAnio = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnAsignarVacaciones = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVacaciones)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,15 +43,15 @@
             this.dgvVacaciones.AllowUserToAddRows = false;
             this.dgvVacaciones.AllowUserToDeleteRows = false;
             this.dgvVacaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvVacaciones.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.dgvVacaciones.BackgroundColor = System.Drawing.Color.RoyalBlue;
             this.dgvVacaciones.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvVacaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVacaciones.EnableHeadersVisualStyles = false;
-            this.dgvVacaciones.Location = new System.Drawing.Point(89, 117);
+            this.dgvVacaciones.Location = new System.Drawing.Point(66, 117);
             this.dgvVacaciones.MultiSelect = false;
             this.dgvVacaciones.Name = "dgvVacaciones";
             this.dgvVacaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVacaciones.Size = new System.Drawing.Size(643, 339);
+            this.dgvVacaciones.Size = new System.Drawing.Size(692, 339);
             this.dgvVacaciones.TabIndex = 25;
             // 
             // btnGenerar
@@ -116,27 +116,27 @@
             this.lblAnio.TabIndex = 41;
             this.lblAnio.Text = "Seleccionar Año ";
             // 
-            // button3
+            // btnAsignarVacaciones
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button3.Location = new System.Drawing.Point(89, 466);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(172, 21);
-            this.button3.TabIndex = 42;
-            this.button3.Text = "ASIGNAR VACACIONES";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnAsignarVacaciones.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnAsignarVacaciones.FlatAppearance.BorderSize = 0;
+            this.btnAsignarVacaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAsignarVacaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsignarVacaciones.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnAsignarVacaciones.Location = new System.Drawing.Point(89, 466);
+            this.btnAsignarVacaciones.Name = "btnAsignarVacaciones";
+            this.btnAsignarVacaciones.Size = new System.Drawing.Size(172, 21);
+            this.btnAsignarVacaciones.TabIndex = 42;
+            this.btnAsignarVacaciones.Text = "ASIGNAR VACACIONES";
+            this.btnAsignarVacaciones.UseVisualStyleBackColor = false;
+            this.btnAsignarVacaciones.Click += new System.EventHandler(this.btnAsignarVacaciones_Click);
             // 
             // frmVacaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(828, 499);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnAsignarVacaciones);
             this.Controls.Add(this.lblAnio);
             this.Controls.Add(this.cbxAnios);
             this.Controls.Add(this.button2);
@@ -160,6 +160,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox cbxAnios;
         private System.Windows.Forms.Label lblAnio;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnAsignarVacaciones;
     }
 }

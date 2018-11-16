@@ -14,6 +14,13 @@ namespace Presentacion
 {
     public partial class frmAltaUsuario : Form
     {
+        protected override void OnShown(EventArgs e)
+        {
+            dgvListaUsuarios.ClearSelection();
+            base.OnShown(e);
+        }
+
+
         public frmAltaUsuario()
         {
             InitializeComponent();
@@ -26,6 +33,11 @@ namespace Presentacion
             try
             {
               dgvListaUsuarios.DataSource = usuarios.Listar();
+                dgvListaUsuarios.Columns["id"].Visible = false;
+                dgvListaUsuarios.Columns["password"].Visible = false;
+                dgvListaUsuarios.Columns["tipo"].Visible = false;
+                dgvListaUsuarios.Columns["sexo"].Visible = false;
+                dgvListaUsuarios.Columns["imagen"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -44,7 +56,7 @@ namespace Presentacion
             {
                 nuevo.Nombre = txbUsuario.Text;
                 nuevo.Password = encrypt.EncryptKey(txbClave.Text);
-                //nuevo.Password = txbClave.Text;
+                nuevo.Mail = txbMail.Text;
                 nuevo.Tipo = new TipoUsuario();
                 if (rdbAdmin.Checked) nuevo.Tipo.Id = 1;
                 if (rdbPersonal.Checked) nuevo.Tipo.Id = 2;

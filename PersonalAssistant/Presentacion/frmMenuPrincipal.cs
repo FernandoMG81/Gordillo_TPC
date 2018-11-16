@@ -160,7 +160,6 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.ToString());
             }
         }

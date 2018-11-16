@@ -53,6 +53,7 @@
     <Compile Include="EstadoTelPersonal.cs" />
     <Compile Include="horarioPersonal.cs" />
     <Compile Include="LocalidadPersonal.cs" />
+    <Compile Include="MailPersonal.cs" />
     <Compile Include="PartidoPersonal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeccionPersonal.cs" />

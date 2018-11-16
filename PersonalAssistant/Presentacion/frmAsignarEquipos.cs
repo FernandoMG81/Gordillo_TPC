@@ -14,6 +14,15 @@ namespace Presentacion
 {
     public partial class frmAsignarEquipos : Form
     {
+        protected override void OnShown(EventArgs e)
+        {
+            dgvAsignados.ClearSelection();
+            dgvListaEmpleados.ClearSelection();
+            dgvListaEquipos.ClearSelection();
+            base.OnShown(e);
+        }
+
+
         public string Comentario { get; set; }
         private List<Empleado> listaEmpleados;
         private List<EquipoTelefono> listaEquipos;
@@ -117,6 +126,8 @@ namespace Presentacion
                 dgvListaEmpleados.Columns["UsuarioCreacion"].Visible = false;
                 dgvListaEmpleados.Columns["FechaModificacion"].Visible = false;
                 dgvListaEmpleados.Columns["UsuarioModificacion"].Visible = false;
+                dgvListaEmpleados.Columns["bajaFecha"].Visible = false;
+                dgvListaEmpleados.Columns["Bajamotivo"].Visible = false;
 
             }
             catch (Exception ex)

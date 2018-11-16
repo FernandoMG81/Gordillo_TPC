@@ -17,10 +17,14 @@ namespace Dominio
         public string dni { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
-        public DateTime fecAlta { get; set; }
+        public DateTime FechaInicio{ get; set; }
+        public DateTime FechaFinal { get; set; }
         public int DiasCalculado { get; set; }
         public int AnioCalculado { get; set; }
         public int DiasVacaciones { get; set; }
+        public DateTime fecAlta { get; set; }
+        public Usuario UsuarioCreacion { get; set; }
+        public DateTime FechaCreacion { get; set; }
 
         public override string ToString()
         {

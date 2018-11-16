@@ -36,10 +36,12 @@
             this.dtpFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.cbxEmpleado = new System.Windows.Forms.ComboBox();
             this.lblEmpleado = new System.Windows.Forms.Label();
-            this.dgvSeccion = new System.Windows.Forms.DataGridView();
+            this.dgvVacacionesAsignadas = new System.Windows.Forms.DataGridView();
             this.lblAnio = new System.Windows.Forms.Label();
             this.cbxAnios = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSeccion)).BeginInit();
+            this.btnGenerar = new System.Windows.Forms.Button();
+            this.btnEliminarVacaciones = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVacacionesAsignadas)).BeginInit();
             this.SuspendLayout();
             // 
             // txbDiasRestantes
@@ -54,6 +56,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(360, 150);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 21);
@@ -64,6 +67,7 @@
             // 
             this.lblDia.AutoSize = true;
             this.lblDia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDia.ForeColor = System.Drawing.Color.White;
             this.lblDia.Location = new System.Drawing.Point(152, 150);
             this.lblDia.Name = "lblDia";
             this.lblDia.Size = new System.Drawing.Size(118, 21);
@@ -81,6 +85,7 @@
             // 
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.ForeColor = System.Drawing.Color.White;
             this.lblFecha.Location = new System.Drawing.Point(166, 113);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(104, 21);
@@ -110,27 +115,31 @@
             // 
             this.lblEmpleado.AutoSize = true;
             this.lblEmpleado.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmpleado.ForeColor = System.Drawing.Color.White;
             this.lblEmpleado.Location = new System.Drawing.Point(180, 79);
             this.lblEmpleado.Name = "lblEmpleado";
             this.lblEmpleado.Size = new System.Drawing.Size(90, 21);
             this.lblEmpleado.TabIndex = 40;
             this.lblEmpleado.Text = "Empleado";
             // 
-            // dgvSeccion
+            // dgvVacacionesAsignadas
             // 
-            this.dgvSeccion.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.dgvSeccion.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvSeccion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSeccion.Location = new System.Drawing.Point(44, 190);
-            this.dgvSeccion.Name = "dgvSeccion";
-            this.dgvSeccion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSeccion.Size = new System.Drawing.Size(643, 338);
-            this.dgvSeccion.TabIndex = 46;
+            this.dgvVacacionesAsignadas.AllowUserToResizeRows = false;
+            this.dgvVacacionesAsignadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvVacacionesAsignadas.BackgroundColor = System.Drawing.Color.RoyalBlue;
+            this.dgvVacacionesAsignadas.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvVacacionesAsignadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVacacionesAsignadas.Location = new System.Drawing.Point(44, 190);
+            this.dgvVacacionesAsignadas.Name = "dgvVacacionesAsignadas";
+            this.dgvVacacionesAsignadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvVacacionesAsignadas.Size = new System.Drawing.Size(764, 338);
+            this.dgvVacacionesAsignadas.TabIndex = 46;
             // 
             // lblAnio
             // 
             this.lblAnio.AutoSize = true;
             this.lblAnio.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAnio.ForeColor = System.Drawing.Color.White;
             this.lblAnio.Location = new System.Drawing.Point(129, 45);
             this.lblAnio.Name = "lblAnio";
             this.lblAnio.Size = new System.Drawing.Size(141, 21);
@@ -146,14 +155,45 @@
             this.cbxAnios.TabIndex = 0;
             this.cbxAnios.SelectedIndexChanged += new System.EventHandler(this.cbxAnios_SelectedIndexChanged);
             // 
+            // btnGenerar
+            // 
+            this.btnGenerar.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnGenerar.FlatAppearance.BorderSize = 0;
+            this.btnGenerar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerar.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnGenerar.Location = new System.Drawing.Point(540, 152);
+            this.btnGenerar.Name = "btnGenerar";
+            this.btnGenerar.Size = new System.Drawing.Size(147, 21);
+            this.btnGenerar.TabIndex = 49;
+            this.btnGenerar.Text = "GUARDAR";
+            this.btnGenerar.UseVisualStyleBackColor = false;
+            this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
+            // 
+            // btnEliminarVacaciones
+            // 
+            this.btnEliminarVacaciones.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnEliminarVacaciones.FlatAppearance.BorderSize = 0;
+            this.btnEliminarVacaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarVacaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarVacaciones.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnEliminarVacaciones.Location = new System.Drawing.Point(44, 548);
+            this.btnEliminarVacaciones.Name = "btnEliminarVacaciones";
+            this.btnEliminarVacaciones.Size = new System.Drawing.Size(147, 21);
+            this.btnEliminarVacaciones.TabIndex = 50;
+            this.btnEliminarVacaciones.Text = "ELIMINAR";
+            this.btnEliminarVacaciones.UseVisualStyleBackColor = false;
+            // 
             // frmAsignarVacaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(724, 541);
+            this.ClientSize = new System.Drawing.Size(855, 625);
+            this.Controls.Add(this.btnEliminarVacaciones);
+            this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.lblAnio);
             this.Controls.Add(this.cbxAnios);
-            this.Controls.Add(this.dgvSeccion);
+            this.Controls.Add(this.dgvVacacionesAsignadas);
             this.Controls.Add(this.txbDiasRestantes);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblDia);
@@ -173,10 +213,12 @@
             this.Controls.SetChildIndex(this.lblDia, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.txbDiasRestantes, 0);
-            this.Controls.SetChildIndex(this.dgvSeccion, 0);
+            this.Controls.SetChildIndex(this.dgvVacacionesAsignadas, 0);
             this.Controls.SetChildIndex(this.cbxAnios, 0);
             this.Controls.SetChildIndex(this.lblAnio, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSeccion)).EndInit();
+            this.Controls.SetChildIndex(this.btnGenerar, 0);
+            this.Controls.SetChildIndex(this.btnEliminarVacaciones, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVacacionesAsignadas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,8 +234,10 @@
         private System.Windows.Forms.DateTimePicker dtpFechaInicio;
         private System.Windows.Forms.ComboBox cbxEmpleado;
         private System.Windows.Forms.Label lblEmpleado;
-        private System.Windows.Forms.DataGridView dgvSeccion;
+        private System.Windows.Forms.DataGridView dgvVacacionesAsignadas;
         private System.Windows.Forms.Label lblAnio;
         private System.Windows.Forms.ComboBox cbxAnios;
+        private System.Windows.Forms.Button btnGenerar;
+        private System.Windows.Forms.Button btnEliminarVacaciones;
     }
 }
