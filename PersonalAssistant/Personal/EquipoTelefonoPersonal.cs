@@ -124,5 +124,33 @@ namespace Personal
                     conexion.cerrarConexion();
             }
         }
+
+        public void baja(EquipoTelefono aux)
+        {
+            Conexion conexion = null;
+            string consulta = "";
+
+            try
+            {
+                conexion = new Conexion();
+                consulta = "delete from EquipoTelefono where IMEI = @IMEI";
+                conexion.setearConsulta(consulta);
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@IMEI", aux.Imei);
+
+                conexion.abrirConexion();
+                conexion.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            finally
+            {
+                if (conexion != null)
+                    conexion.cerrarConexion();
+            }
+        }
     }
 }

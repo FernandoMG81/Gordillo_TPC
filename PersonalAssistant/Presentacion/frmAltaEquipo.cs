@@ -22,7 +22,7 @@ namespace Presentacion
 
         private void frmAltaEquipo_Load(object sender, EventArgs e)
         {
-            EstadoTelPersonal estado = new EstadoTelPersonal(); ;           
+            EstadoTelPersonal estado = new EstadoTelPersonal(); ;
             EquipoTelefonoPersonal equipo = new EquipoTelefonoPersonal();
 
             try
@@ -34,15 +34,15 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-              MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString());
             }
 
 
-            
+
         }
 
 
-        public bool validarTextBox ()
+        public bool validarTextBox()
         {
             foreach (Control item in this.Controls)
             {
@@ -89,37 +89,37 @@ namespace Presentacion
         {
 
             if (validarTextBox())
-            { 
-            EquipoTelefonoPersonal equipo = new EquipoTelefonoPersonal();
-            EquipoTelefono nuevo = new EquipoTelefono();
-
-            try
             {
+                EquipoTelefonoPersonal equipo = new EquipoTelefonoPersonal();
+                EquipoTelefono nuevo = new EquipoTelefono();
+
+                try
+                {
                     nuevo.Imei = txbIMEI.Text;
                     nuevo.Modelo = txbModelo.Text;
                     nuevo.Marca = txbMarca.Text;
                     nuevo.Condicion = cbxEstado.SelectedValue.ToString();
                     //nuevo.Comentario = txbComentario.Text;
                     nuevo.Disponible = true;
-                
+
 
                     equipo.alta(nuevo);
                     frmAltaEquipo_Load(sender, e);
-            }
-            catch (Exception ex)
-            {
+                }
+                catch (Exception ex)
+                {
 
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                txbIMEI.Text = "";
-                txbMarca.Text = "";
-                txbModelo.Text = "";
-                txbComentario.Text = "";
-                txbIMEI.Focus();
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    txbIMEI.Text = "";
+                    txbMarca.Text = "";
+                    txbModelo.Text = "";
+                    
+                    txbIMEI.Focus();
 
-            }
+                }
             }
         }
 
@@ -150,6 +150,30 @@ namespace Presentacion
         private void cbxEstado_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            frmConfirma confirma;
+            EquipoTelefonoPersonal elimina;
+            try
+            {
+                confirma = new frmConfirma("Seguro desear eliminar definitivamente el equipo seleccionado?");
+                confirma.ShowDialog();
+
+                if (confirma.Confirma == true)
+                {
+                    elimina = new EquipoTelefonoPersonal();
+                    elimina.baja((EquipoTelefono)dgvListaEquipos.CurrentRow.DataBoundItem);
+                    frmAltaEquipo_Load(sender, e);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

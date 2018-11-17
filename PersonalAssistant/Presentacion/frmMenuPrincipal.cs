@@ -179,5 +179,10 @@ namespace Presentacion
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            frmMenuPrincipal_Shown(sender, e);
+        }
     }
 }

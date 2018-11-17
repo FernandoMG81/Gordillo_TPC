@@ -156,6 +156,7 @@
             this.btnCiudades.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCiudades.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCiudades.UseVisualStyleBackColor = true;
+            this.btnCiudades.Visible = false;
             this.btnCiudades.Click += new System.EventHandler(this.btnCiudades_Click);
             // 
             // btnAltaUsuarios

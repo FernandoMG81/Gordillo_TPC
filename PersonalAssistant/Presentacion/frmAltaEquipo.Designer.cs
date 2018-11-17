@@ -36,20 +36,25 @@
             this.lblMarca = new System.Windows.Forms.Label();
             this.txbModelo = new System.Windows.Forms.TextBox();
             this.lblModelo = new System.Windows.Forms.Label();
-            this.txbComentario = new System.Windows.Forms.TextBox();
-            this.lblComentario = new System.Windows.Forms.Label();
             this.cbxEstado = new System.Windows.Forms.ComboBox();
             this.lblEstado = new System.Windows.Forms.Label();
+            this.btnBorrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaEquipos)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvListaEquipos
             // 
+            this.dgvListaEquipos.AllowUserToAddRows = false;
+            this.dgvListaEquipos.AllowUserToDeleteRows = false;
+            this.dgvListaEquipos.AllowUserToResizeRows = false;
+            this.dgvListaEquipos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaEquipos.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
             this.dgvListaEquipos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListaEquipos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaEquipos.Location = new System.Drawing.Point(30, 158);
+            this.dgvListaEquipos.MultiSelect = false;
             this.dgvListaEquipos.Name = "dgvListaEquipos";
+            this.dgvListaEquipos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaEquipos.Size = new System.Drawing.Size(541, 199);
             this.dgvListaEquipos.TabIndex = 5;
             this.dgvListaEquipos.TabStop = false;
@@ -61,7 +66,7 @@
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnAgregar.Location = new System.Drawing.Point(356, 114);
+            this.btnAgregar.Location = new System.Drawing.Point(200, 115);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(213, 31);
             this.btnAgregar.TabIndex = 4;
@@ -126,52 +131,48 @@
             this.lblModelo.TabIndex = 21;
             this.lblModelo.Text = "Modelo";
             // 
-            // txbComentario
-            // 
-            this.txbComentario.Location = new System.Drawing.Point(370, 76);
-            this.txbComentario.Name = "txbComentario";
-            this.txbComentario.Size = new System.Drawing.Size(156, 20);
-            this.txbComentario.TabIndex = 3;
-            this.txbComentario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbComentario_KeyPress);
-            // 
-            // lblComentario
-            // 
-            this.lblComentario.AutoSize = true;
-            this.lblComentario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblComentario.Location = new System.Drawing.Point(268, 76);
-            this.lblComentario.Name = "lblComentario";
-            this.lblComentario.Size = new System.Drawing.Size(91, 20);
-            this.lblComentario.TabIndex = 23;
-            this.lblComentario.Text = "Comentario";
-            // 
             // cbxEstado
             // 
             this.cbxEstado.FormattingEnabled = true;
-            this.cbxEstado.Location = new System.Drawing.Point(105, 114);
+            this.cbxEstado.Location = new System.Drawing.Point(370, 75);
             this.cbxEstado.Name = "cbxEstado";
             this.cbxEstado.Size = new System.Drawing.Size(156, 21);
-            this.cbxEstado.TabIndex = 24;
+            this.cbxEstado.TabIndex = 3;
             this.cbxEstado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxEstado_KeyPress);
             // 
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
             this.lblEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstado.Location = new System.Drawing.Point(33, 115);
+            this.lblEstado.Location = new System.Drawing.Point(298, 76);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(60, 20);
             this.lblEstado.TabIndex = 25;
             this.lblEstado.Text = "Estado";
             // 
+            // btnBorrar
+            // 
+            this.btnBorrar.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnBorrar.FlatAppearance.BorderSize = 0;
+            this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBorrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBorrar.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnBorrar.Location = new System.Drawing.Point(30, 376);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(213, 31);
+            this.btnBorrar.TabIndex = 26;
+            this.btnBorrar.Text = "BORRAR";
+            this.btnBorrar.UseVisualStyleBackColor = false;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
             // frmAltaEquipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(595, 368);
+            this.ClientSize = new System.Drawing.Size(595, 436);
+            this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.lblEstado);
             this.Controls.Add(this.cbxEstado);
-            this.Controls.Add(this.txbComentario);
-            this.Controls.Add(this.lblComentario);
             this.Controls.Add(this.txbModelo);
             this.Controls.Add(this.lblModelo);
             this.Controls.Add(this.txbMarca);
@@ -200,9 +201,8 @@
         private System.Windows.Forms.Label lblMarca;
         private System.Windows.Forms.TextBox txbModelo;
         private System.Windows.Forms.Label lblModelo;
-        private System.Windows.Forms.TextBox txbComentario;
-        private System.Windows.Forms.Label lblComentario;
         private System.Windows.Forms.ComboBox cbxEstado;
         private System.Windows.Forms.Label lblEstado;
+        private System.Windows.Forms.Button btnBorrar;
     }
 }

@@ -38,7 +38,7 @@
             this.lblModuloEmpleado2 = new System.Windows.Forms.Label();
             this.pbModuloHorarios = new System.Windows.Forms.PictureBox();
             this.pnlUsuario = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.lblusuarioActivo = new System.Windows.Forms.Label();
             this.pbUsuario = new System.Windows.Forms.PictureBox();
             this.pbConfiguracion = new System.Windows.Forms.PictureBox();
@@ -157,7 +157,7 @@
             // pnlUsuario
             // 
             this.pnlUsuario.BackColor = System.Drawing.Color.Gray;
-            this.pnlUsuario.Controls.Add(this.button2);
+            this.pnlUsuario.Controls.Add(this.btnCerrarSesion);
             this.pnlUsuario.Controls.Add(this.lblusuarioActivo);
             this.pnlUsuario.Controls.Add(this.pbUsuario);
             this.pnlUsuario.Dock = System.Windows.Forms.DockStyle.Left;
@@ -166,16 +166,17 @@
             this.pnlUsuario.Size = new System.Drawing.Size(112, 566);
             this.pnlUsuario.TabIndex = 14;
             // 
-            // button2
+            // btnCerrarSesion
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(12, 528);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(87, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Cambiar Clave";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCerrarSesion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCerrarSesion.Font = new System.Drawing.Font("Century Gothic", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrarSesion.Location = new System.Drawing.Point(12, 528);
+            this.btnCerrarSesion.Name = "btnCerrarSesion";
+            this.btnCerrarSesion.Size = new System.Drawing.Size(87, 23);
+            this.btnCerrarSesion.TabIndex = 2;
+            this.btnCerrarSesion.Text = "Cerrar Sesión";
+            this.btnCerrarSesion.UseVisualStyleBackColor = true;
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
             // lblusuarioActivo
             // 
@@ -304,7 +305,7 @@
         private System.Windows.Forms.Panel pnlUsuario;
         private System.Windows.Forms.Label lblusuarioActivo;
         private System.Windows.Forms.PictureBox pbUsuario;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.PictureBox pbConfiguracion;
         private System.Windows.Forms.Label lblConfiguracion;
         private System.Windows.Forms.Label lblBotonFichajes;
