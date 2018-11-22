@@ -8,14 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using Dominio;
+using Personal;
 
 namespace Presentacion
 {
     public partial class frmModuloHorarios : frmModelo
     {
-        public frmModuloHorarios()
+        private Usuario usuarioLogueado;
+
+        public frmModuloHorarios(Usuario user)
         {
             InitializeComponent();
+            usuarioLogueado = user;
         }
 
         private void AbrirFormHijo(object formHijo)
@@ -33,15 +38,27 @@ namespace Presentacion
         }
         private void btnAltaUsuarios_Click(object sender, EventArgs e)
         {
-            frmHorarioIngreso ingreso = new frmHorarioIngreso();
+            frmHorarioIngreso ingreso = new frmHorarioIngreso(usuarioLogueado);
             AbrirFormHijo(ingreso);
 
         }
 
         private void btnAltaEquipos_Click(object sender, EventArgs e)
         {
-            frmHorarioSalida salida = new frmHorarioSalida();
+            frmHorarioSalida salida = new frmHorarioSalida(usuarioLogueado);
             AbrirFormHijo(salida);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmReporteHorario reporte = new frmReporteHorario();
+            reporte.ShowDialog();
+        }
+
+        private void btnInforme_Click(object sender, EventArgs e)
+        {
+            frmInformeHorario informe = new frmInformeHorario();
+            AbrirFormHijo(informe);
         }
     }
 }

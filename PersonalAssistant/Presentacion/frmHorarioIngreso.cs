@@ -14,9 +14,12 @@ namespace Presentacion
 {
     public partial class frmHorarioIngreso : Form
     {
-        public frmHorarioIngreso()
+        private Usuario usuarioLogueado;
+
+        public frmHorarioIngreso(Usuario user)
         {
             InitializeComponent();
+            usuarioLogueado = user;
         }
 
         private void tmr1_Tick(object sender, EventArgs e)
@@ -71,6 +74,9 @@ namespace Presentacion
                 dgvListaDeposito.Columns["UsuarioCreacion"].Visible = false;
                 dgvListaDeposito.Columns["FechaModificacion"].Visible = false;
                 dgvListaDeposito.Columns["UsuarioModificacion"].Visible = false;
+                dgvListaDeposito.Columns["bajaFecha"].Visible = false;
+                dgvListaDeposito.Columns["bajaMotivo"].Visible = false;
+                dgvListaDeposito.Columns["foto"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -83,16 +89,17 @@ namespace Presentacion
         {
             Empleado ingreso;
             Conexion conexion = null;
-            long prueba = 9;
+            
             try
             {
                 conexion = new Conexion();
                 ingreso = new Empleado();
                 ingreso = (Empleado)dgvListaDeposito.CurrentRow.DataBoundItem;
-                conexion.setearConsulta("exec sp_registro_ingreso @dni, @IDusuarioIngreso");
+                conexion.setearConsulta("exec sp_registro_ingreso @dni, @IDusuarioIngreso, @estado");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@dni",ingreso.Dni);
-                conexion.Comando.Parameters.AddWithValue("@IDusuarioIngreso", prueba); //TODO:modificar cuando se realice lo de usuarios
+                conexion.Comando.Parameters.AddWithValue("@IDusuarioIngreso", usuarioLogueado.ID);
+                conexion.Comando.Parameters.AddWithValue("@estado", 1); //1 es que entro a trabajar;
 
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();
@@ -108,6 +115,42 @@ namespace Presentacion
             finally
             {
                 if (conexion!=null)
+                {
+                    conexion.cerrarConexion();
+                }
+            }
+        }
+
+        private void btnAusente_Click(object sender, EventArgs e)
+        {
+            Empleado ingreso;
+            Conexion conexion = null;
+
+            try
+            {
+                conexion = new Conexion();
+                ingreso = new Empleado();
+                ingreso = (Empleado)dgvListaDeposito.CurrentRow.DataBoundItem;
+                conexion.setearConsulta("exec sp_registro_ingreso @dni, @IDusuarioIngreso, @estado");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@dni", ingreso.Dni);
+                conexion.Comando.Parameters.AddWithValue("@IDusuarioIngreso", usuarioLogueado.ID);
+                conexion.Comando.Parameters.AddWithValue("@estado", 0); //se ausento;
+
+                conexion.abrirConexion();
+                conexion.ejecutarAccion();
+                frmHorarioIngreso_Load(sender, e);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+
+            finally
+            {
+                if (conexion != null)
                 {
                     conexion.cerrarConexion();
                 }

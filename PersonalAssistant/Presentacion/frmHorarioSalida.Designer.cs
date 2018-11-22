@@ -38,6 +38,8 @@
             this.cbar = new Bunifu.Framework.UI.BunifuCircleProgressbar();
             this.tmr2 = new System.Windows.Forms.Timer(this.components);
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.txbApellido = new System.Windows.Forms.TextBox();
+            this.lblApellido = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaDeposito)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,14 +49,14 @@
             this.dgvListaDeposito.AllowUserToDeleteRows = false;
             this.dgvListaDeposito.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.dgvListaDeposito.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvListaDeposito.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.dgvListaDeposito.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvListaDeposito.BackgroundColor = System.Drawing.Color.RoyalBlue;
             this.dgvListaDeposito.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvListaDeposito.Location = new System.Drawing.Point(47, 41);
+            this.dgvListaDeposito.Location = new System.Drawing.Point(47, 76);
             this.dgvListaDeposito.Name = "dgvListaDeposito";
             this.dgvListaDeposito.ReadOnly = true;
             this.dgvListaDeposito.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListaDeposito.Size = new System.Drawing.Size(353, 370);
+            this.dgvListaDeposito.Size = new System.Drawing.Size(296, 335);
             this.dgvListaDeposito.TabIndex = 20;
             // 
             // btnSalida
@@ -64,7 +66,7 @@
             this.btnSalida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalida.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalida.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnSalida.Location = new System.Drawing.Point(458, 76);
+            this.btnSalida.Location = new System.Drawing.Point(389, 76);
             this.btnSalida.Name = "btnSalida";
             this.btnSalida.Size = new System.Drawing.Size(213, 31);
             this.btnSalida.TabIndex = 19;
@@ -78,7 +80,7 @@
             this.lblFecha.BackColor = System.Drawing.SystemColors.Control;
             this.lblFecha.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.lblFecha.ForeColor = System.Drawing.Color.Blue;
-            this.lblFecha.Location = new System.Drawing.Point(478, 297);
+            this.lblFecha.Location = new System.Drawing.Point(409, 297);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(178, 17);
             this.lblFecha.TabIndex = 31;
@@ -90,7 +92,7 @@
             this.lblHora.BackColor = System.Drawing.SystemColors.Control;
             this.lblHora.Font = new System.Drawing.Font("Century Gothic", 40F);
             this.lblHora.ForeColor = System.Drawing.Color.Blue;
-            this.lblHora.Location = new System.Drawing.Point(484, 218);
+            this.lblHora.Location = new System.Drawing.Point(415, 218);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(162, 65);
             this.lblHora.TabIndex = 30;
@@ -102,7 +104,7 @@
             this.lblSegundos.BackColor = System.Drawing.SystemColors.Control;
             this.lblSegundos.Font = new System.Drawing.Font("Century Gothic", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSegundos.ForeColor = System.Drawing.Color.Blue;
-            this.lblSegundos.Location = new System.Drawing.Point(538, 172);
+            this.lblSegundos.Location = new System.Drawing.Point(469, 172);
             this.lblSegundos.Name = "lblSegundos";
             this.lblSegundos.Size = new System.Drawing.Size(53, 40);
             this.lblSegundos.TabIndex = 29;
@@ -120,7 +122,7 @@
             this.cbar.LabelVisible = true;
             this.cbar.LineProgressThickness = 8;
             this.cbar.LineThickness = 18;
-            this.cbar.Location = new System.Drawing.Point(433, 136);
+            this.cbar.Location = new System.Drawing.Point(364, 136);
             this.cbar.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.cbar.MaxValue = 60;
             this.cbar.Name = "cbar";
@@ -140,11 +142,30 @@
             this.bunifuElipse2.ElipseRadius = 5;
             this.bunifuElipse2.TargetControl = this;
             // 
+            // txbApellido
+            // 
+            this.txbApellido.Location = new System.Drawing.Point(119, 41);
+            this.txbApellido.Name = "txbApellido";
+            this.txbApellido.Size = new System.Drawing.Size(224, 20);
+            this.txbApellido.TabIndex = 33;
+            // 
+            // lblApellido
+            // 
+            this.lblApellido.AutoSize = true;
+            this.lblApellido.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApellido.Location = new System.Drawing.Point(44, 42);
+            this.lblApellido.Name = "lblApellido";
+            this.lblApellido.Size = new System.Drawing.Size(72, 17);
+            this.lblApellido.TabIndex = 32;
+            this.lblApellido.Text = "APELLIDO:";
+            // 
             // frmHorarioSalida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(757, 450);
+            this.ClientSize = new System.Drawing.Size(672, 450);
+            this.Controls.Add(this.txbApellido);
+            this.Controls.Add(this.lblApellido);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblHora);
             this.Controls.Add(this.lblSegundos);
@@ -171,5 +192,7 @@
         private Bunifu.Framework.UI.BunifuCircleProgressbar cbar;
         private System.Windows.Forms.Timer tmr2;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
+        private System.Windows.Forms.TextBox txbApellido;
+        private System.Windows.Forms.Label lblApellido;
     }
 }

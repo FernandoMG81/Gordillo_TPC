@@ -129,5 +129,11 @@ namespace Presentacion
                 cbxEmpleado.Text = "";
             }
         }
+
+        private void txbDiasAsignar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
+                e.Handled = true;
+        }
     }
 }

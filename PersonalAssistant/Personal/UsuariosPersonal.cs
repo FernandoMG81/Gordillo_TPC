@@ -35,7 +35,7 @@ namespace Personal
                     aux = new Usuario();
                     aux.ID = (long)lector["Idregistro"];
                     aux.Nombre = (string)lector["nombre"];
-                    if(lector["mail"] != DBNull.Value)aux.Mail = (string)lector["mail"];
+                    if (lector["mail"] != DBNull.Value) aux.Mail = (string)lector["mail"];
                     aux.Password = (string)lector["clave"];
                     aux.Sexo = Convert.ToChar(lector["sexo"]);
                     aux.Tipo = new TipoUsuario();
@@ -87,6 +87,8 @@ namespace Personal
             }
         }
 
+
+
         public Usuario llenarUsuario(string user)
         {
             Conexion conexion = null;
@@ -95,16 +97,17 @@ namespace Personal
             {
                 conexion = new Conexion();
                 logueado = new Usuario();
-                conexion.setearConsulta("select u.idregistro,u.nombre,u.clave,u.sexo,u.idtipo,u.clave,u.mail, t.descripcion from usuarios u,tipoUsuario t where u.idtipo = t.idtipo and nombre = '"+user+"'");
+                conexion.setearConsulta("select u.idregistro,u.nombre,u.clave,u.sexo,u.idtipo,u.clave,u.mail, t.descripcion, u.imagen from usuarios u,tipoUsuario t where u.idtipo = t.idtipo and nombre = '" + user + "'");
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();
                 conexion.Lector.Read();
 
                 logueado.ID = (long)conexion.Lector["Idregistro"];
-                logueado.Sexo =Convert.ToChar(conexion.Lector["sexo"]);
+                logueado.Sexo = Convert.ToChar(conexion.Lector["sexo"]);
                 logueado.Nombre = (string)conexion.Lector["Nombre"];
                 logueado.Password = (string)conexion.Lector["Clave"];
                 logueado.Mail = (string)conexion.Lector["mail"];
+                if (conexion.Lector["imagen"] != DBNull.Value) logueado.Imagen = (string)conexion.Lector["imagen"];
                 logueado.Tipo = new TipoUsuario();
                 logueado.Tipo.Id = (byte)conexion.Lector["IdTipo"];
                 logueado.Tipo.Descripcion = (string)conexion.Lector["descripcion"];
@@ -118,8 +121,8 @@ namespace Personal
             }
             finally
             {
-                if(conexion==null)
-                conexion.cerrarConexion();
+                if (conexion == null)
+                    conexion.cerrarConexion();
             }
         }
 
@@ -131,13 +134,14 @@ namespace Personal
             {
                 conexion = new Conexion();
 
-                conexion.setearConsulta("insert into usuarios (nombre, clave, Idtipo,sexo, mail) values (@nombre,@clave,@Idtipo,@sexo,@mail)");
+                conexion.setearConsulta("insert into usuarios (nombre, clave, Idtipo,sexo, mail,imagen) values (@nombre,@clave,@Idtipo,@sexo,@mail,@imagen)");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@nombre", nuevo.Nombre);
                 conexion.Comando.Parameters.AddWithValue("@clave", nuevo.Password);
                 conexion.Comando.Parameters.AddWithValue("@Idtipo", nuevo.Tipo.Id);
                 conexion.Comando.Parameters.AddWithValue("@sexo", nuevo.Sexo);
                 conexion.Comando.Parameters.AddWithValue("@mail", nuevo.Mail);
+                conexion.Comando.Parameters.AddWithValue("@imagen", nuevo.Imagen);
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();
             }
@@ -184,5 +188,47 @@ namespace Personal
             }
         }
 
+        public void modificar(Usuario user)
+        {
+            Conexion conexion;
+            try
+            {
+                conexion = new Conexion();
+                conexion.setearConsulta("update usuarios set Clave=@clave, imagen=@imagen, mail=@mail, sexo=@sexo,idtipo=@tipo Where Nombre=@Nombre");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@nombre", user.Nombre.ToLower());
+                conexion.Comando.Parameters.AddWithValue("@clave", user.Password);
+                conexion.Comando.Parameters.AddWithValue("@imagen", user.Imagen);
+                conexion.Comando.Parameters.AddWithValue("@mail", user.Mail);
+                conexion.Comando.Parameters.AddWithValue("@sexo", user.Sexo);
+                conexion.Comando.Parameters.AddWithValue("@tipo", user.Tipo.Id);
+                conexion.abrirConexion();
+                conexion.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void modificarImagenMail(Usuario user)
+        {
+            Conexion conexion;
+            try
+            {
+                conexion = new Conexion();
+                conexion.setearConsulta("update usuarios set imagen=@imagen, mail=@mail Where Nombre=@Nombre");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("@nombre", user.Nombre.ToLower());
+                conexion.Comando.Parameters.AddWithValue("@imagen", user.Imagen);
+                conexion.Comando.Parameters.AddWithValue("@mail", user.Mail);
+                conexion.abrirConexion();
+                conexion.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

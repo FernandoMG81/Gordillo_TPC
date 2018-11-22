@@ -25,9 +25,6 @@ namespace Presentacion
 
             try
             {
-                //cargarDgvSeccion();
-                //cargarDgvConcepto();
-                //cargarDgvCategoria();
                 cargarSecciones();
                 cbSeccion.Text = "";
                 cbCategoria.Text = "";
@@ -39,24 +36,7 @@ namespace Presentacion
             }
         }
 
-        private void cbSeccion_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                long temp = 0;
-                if (long.TryParse(cbSeccion.SelectedValue.ToString(), out temp))
-                {
-                    cargarConceptos((long)cbSeccion.SelectedValue);
-                    cargarDgvSeccion((long)cbSeccion.SelectedValue);
-                    cargarDgvConcepto((long)cbSeccion.SelectedValue);
-                }
-            }
-            catch (Exception ex)
-            {
-                
-                MessageBox.Show(ex.ToString());
-            }
-        }
+        
         private void cargarDgvSeccion(long id = 0)
         {
             SeccionPersonal Secciones;
@@ -198,6 +178,29 @@ namespace Presentacion
                 MessageBox.Show(ex.ToString());
             }
 
+        }
+
+        private void cbSeccion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                long temp = 0;
+                if (long.TryParse(cbSeccion.SelectedValue.ToString(), out temp))
+                {
+                    cargarConceptos((long)cbSeccion.SelectedValue);
+                    cargarDgvSeccion((long)cbSeccion.SelectedValue);
+                    cargarDgvConcepto((long)cbSeccion.SelectedValue);
+                    if (cbConcepto.Items.Count == 0)
+                    {
+                        dgvCategoria.DataSource = "";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void cbConcepto_SelectedIndexChanged(object sender, EventArgs e)

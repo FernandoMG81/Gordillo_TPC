@@ -15,6 +15,7 @@ namespace Presentacion
     public partial class frmMenuPrincipal : frmModelo
     {
         private Usuario usuarioLogueado;
+        private List<Novedad> listadoCumple;
 
         public Usuario UsuarioLogueado
         {
@@ -123,7 +124,7 @@ namespace Presentacion
         {
             if (TipoUsuario.ADMINISTRADOR == usuarioLogueado.Tipo.Id || TipoUsuario.HORARIO == usuarioLogueado.Tipo.Id)
             {
-                frmModuloHorarios moduloHorario = new frmModuloHorarios();
+                frmModuloHorarios moduloHorario = new frmModuloHorarios(usuarioLogueado);
                 moduloHorario.ShowDialog();
             }
             else
@@ -137,7 +138,7 @@ namespace Presentacion
         {
             if (TipoUsuario.ADMINISTRADOR == usuarioLogueado.Tipo.Id || TipoUsuario.HORARIO == usuarioLogueado.Tipo.Id)
             {
-                frmModuloHorarios moduloHorario = new frmModuloHorarios();
+                frmModuloHorarios moduloHorario = new frmModuloHorarios(usuarioLogueado);
                 moduloHorario.ShowDialog();
             }
             else
@@ -157,20 +158,51 @@ namespace Presentacion
                 AddOwnedForm(login);
                 login.ShowDialog();
                 lblusuarioActivo.Text = usuarioLogueado.Nombre;
+                pbxUsuario.Image = Bitmap.FromFile(usuarioLogueado.Imagen);
+            }
+            catch (ArgumentNullException)
+            {
+                if (usuarioLogueado.Sexo == 'M') pbxUsuario.Image = Properties.Resources.Masculino;
+                else pbxUsuario.Image = Properties.Resources.Femenino;
+            }
+            catch (ArgumentException)
+            {
+                if (usuarioLogueado.Sexo == 'M') pbxUsuario.Image = Properties.Resources.Masculino;
+                else pbxUsuario.Image = Properties.Resources.Femenino;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+            
         }
 
         private void frmMenuPrincipal_Load(object sender, EventArgs e)
         {
-            Novedad Cumpleanios;
-            Novedad PeridodoPrueba;
-            Novedad Vacaciones;
+            Novedad PeridodoPrueba, Cumpleanios,Vacaciones;
+          
+            NovedadPersonal novedadesCumple;
             try
             {
+                Cumpleanios = new Novedad();
+                PeridodoPrueba = new Novedad();
+                Vacaciones = new Novedad();
+                novedadesCumple = new NovedadPersonal();
+
+
+                listadoCumple = novedadesCumple.traerCumpleaniosDia();
+                lblCumpleDia.Text = "";
+                foreach (var item in listadoCumple)
+                {
+                    lblCumpleDia.Text += item.NovedadPrincipal + Environment.NewLine;
+                }
+
+                listadoCumple = novedadesCumple.traerCumpleaniosMes();
+                lblCumpleMes.Text = "";
+                foreach (var item in listadoCumple)
+                {
+                    lblCumpleMes.Text += item.NovedadPrincipal + Environment.NewLine;
+                }
 
             }
             catch (Exception ex)
@@ -183,6 +215,33 @@ namespace Presentacion
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             frmMenuPrincipal_Shown(sender, e);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmModificarUsuario modi;
+            try
+            {
+                modi = new frmModificarUsuario(usuarioLogueado);
+                modi.ShowDialog();
+                pbxUsuario.Image = Bitmap.FromFile(usuarioLogueado.Imagen);
+
+            }
+            catch (ArgumentNullException)
+            {
+                if (usuarioLogueado.Sexo == 'M') pbxUsuario.Image = Properties.Resources.Masculino;
+                else pbxUsuario.Image = Properties.Resources.Femenino;
+            }
+            catch (ArgumentException)
+            {
+                if (usuarioLogueado.Sexo == 'M') pbxUsuario.Image = Properties.Resources.Masculino;
+                else pbxUsuario.Image = Properties.Resources.Femenino;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

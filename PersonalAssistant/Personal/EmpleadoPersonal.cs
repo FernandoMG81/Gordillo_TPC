@@ -209,6 +209,26 @@ namespace Personal
             return lista;
         }
 
+        public void modificarLegajo(Empleado aux)
+        {
+            Conexion conexion = null;
+            try
+            {
+                conexion = new Conexion();
+                conexion.setearConsulta("update empleado set legajo = @legajo where dni = @dni");
+                conexion.Comando.Parameters.AddWithValue("@legajo", aux.Legajo);
+                conexion.Comando.Parameters.AddWithValue("@dni", aux.Dni);
+                conexion.abrirConexion();
+                conexion.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public IList<Empleado> listarDeposito()
         {
             List<Empleado> lista = new List<Empleado>();
@@ -386,12 +406,13 @@ namespace Personal
             try
             {
                 conexion = new Conexion();
-                conexion.setearConsulta("insert into empleado (fecAlta,sexo,IDcontrato,IDseccion,IDconcepto,IDconvenio,IDcategoria,obraSocial,nombre,apellido,fechaNac,dni,cuil,telPrincipal,telSecundario,nacionalidad," +
-                    "IDestadoCivil,hijos,Domicilio,entrecalle1,entrecalle2,IDlocalidad,basico,telefonoAsignado,controlHorario,IdUsuarioCreacion,fechaCreacion)" +
-                    "values (@fecAlta,@sexo,@IDcontrato,@IDseccion,@IDconcepto,@IDconvenio,@IDcategoria,@obraSocial,@nombre,@apellido,@fechaNac,@dni,@cuil,@telPrincipal,@telSecundario," +
-                    "@nacionalidad,@IDestadoCivil,@hijos,@Domicilio,@entrecalle1,@entrecalle2,@IDlocalidad,@basico,@telefonoAsignado,@controlHorario,@idUsuarioCreacion,@fechaCreacion)");
+                conexion.setearConsulta("insert into empleado (fecAlta,sexo,vencimiento,IDcontrato,IDseccion,IDconcepto,IDconvenio,IDcategoria,obraSocial,nombre,apellido,fechaNac,dni,cuil,telPrincipal," +
+                    "telSecundario,nacionalidad, IDestadoCivil,hijos,Domicilio,entrecalle1,entrecalle2,IDlocalidad,basico,telefonoAsignado,controlHorario,IdUsuarioCreacion,fechaCreacion,baja)" +
+                    "values (@fecAlta,@sexo,@vencimientoPrueba,@IDcontrato,@IDseccion,@IDconcepto,@IDconvenio,@IDcategoria,@obraSocial,@nombre,@apellido,@fechaNac,@dni,@cuil,@telPrincipal,@telSecundario," +
+                    "@nacionalidad,@IDestadoCivil,@hijos,@Domicilio,@entrecalle1,@entrecalle2,@IDlocalidad,@basico,@telefonoAsignado,@controlHorario,@idUsuarioCreacion,@fechaCreacion,0)");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@fecAlta", nuevo.FechaAlta);
+                conexion.Comando.Parameters.AddWithValue("@vencimientoPrueba", nuevo.VencimientoPrueba);
                 conexion.Comando.Parameters.AddWithValue("@sexo", nuevo.Sexo);
                 conexion.Comando.Parameters.AddWithValue("@IDcontrato", nuevo.Contrato.Idcontrato);
                 conexion.Comando.Parameters.AddWithValue("@IDseccion", nuevo.Seccion.Idseccion);
@@ -443,13 +464,14 @@ namespace Personal
             try
             {
                 conexion = new Conexion();
-                conexion.setearConsulta("update empleado set fecAlta = @fecAlta, sexo = @sexo, IDcontrato = @IDcontrato, IDseccion = @IDseccion, IDconcepto = @IDconcepto, " +
+                conexion.setearConsulta("update empleado set fecAlta = @fecAlta,vencimiento = @vencimiento, sexo = @sexo, IDcontrato = @IDcontrato, IDseccion = @IDseccion, IDconcepto = @IDconcepto, " +
                     "IDconvenio = @IDconvenio, IDcategoria = @IDcategoria, obraSocial = @obraSocial,nombre = @nombre, apellido = @apellido, fechaNac= @fechaNac, dni = @dni, cuil = @cuil, nacionalidad=@nacionalidad, " +
                     "IDestadoCivil = @IDestadoCivil, hijos=@hijos, Domicilio=@Domicilio, entrecalle1=@entreCalle1, entrecalle2=entreCalle2, IDlocalidad=IDlocalidad, basico=@basico, " +
                     "telPrincipal=@telPrincipal, telSecundario=@telSecundario, controlHorario = @controlHorario,IdUsuarioModi = @IdUsuarioModificacion,fechaModi = @fechaModificacion where dni = @dni");
                 
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@fecAlta", nuevo.FechaAlta);
+                conexion.Comando.Parameters.AddWithValue("@vencimiento", nuevo.VencimientoPrueba);
                 conexion.Comando.Parameters.AddWithValue("@sexo", nuevo.Sexo);
                 conexion.Comando.Parameters.AddWithValue("@IDcontrato", nuevo.Contrato.Idcontrato);
                 conexion.Comando.Parameters.AddWithValue("@IDseccion", nuevo.Seccion.Idseccion);

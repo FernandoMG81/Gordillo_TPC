@@ -39,6 +39,8 @@
             this.lblHora = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblFecha = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.tmr1 = new System.Windows.Forms.Timer(this.components);
+            this.lblApellido = new System.Windows.Forms.Label();
+            this.txbApellido = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaDeposito)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,14 +50,14 @@
             this.dgvListaDeposito.AllowUserToDeleteRows = false;
             this.dgvListaDeposito.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.dgvListaDeposito.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvListaDeposito.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.dgvListaDeposito.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvListaDeposito.BackgroundColor = System.Drawing.Color.RoyalBlue;
             this.dgvListaDeposito.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvListaDeposito.Location = new System.Drawing.Point(47, 41);
+            this.dgvListaDeposito.Location = new System.Drawing.Point(47, 86);
             this.dgvListaDeposito.MultiSelect = false;
             this.dgvListaDeposito.Name = "dgvListaDeposito";
             this.dgvListaDeposito.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListaDeposito.Size = new System.Drawing.Size(293, 370);
+            this.dgvListaDeposito.Size = new System.Drawing.Size(293, 400);
             this.dgvListaDeposito.TabIndex = 22;
             // 
             // btnIngreso
@@ -65,7 +67,7 @@
             this.btnIngreso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngreso.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnIngreso.Location = new System.Drawing.Point(386, 41);
+            this.btnIngreso.Location = new System.Drawing.Point(386, 101);
             this.btnIngreso.Name = "btnIngreso";
             this.btnIngreso.Size = new System.Drawing.Size(213, 31);
             this.btnIngreso.TabIndex = 21;
@@ -80,12 +82,13 @@
             this.btnAusente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAusente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAusente.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnAusente.Location = new System.Drawing.Point(386, 372);
+            this.btnAusente.Location = new System.Drawing.Point(386, 432);
             this.btnAusente.Name = "btnAusente";
             this.btnAusente.Size = new System.Drawing.Size(213, 31);
             this.btnAusente.TabIndex = 23;
             this.btnAusente.Text = "AUSENTE";
             this.btnAusente.UseVisualStyleBackColor = false;
+            this.btnAusente.Click += new System.EventHandler(this.btnAusente_Click);
             // 
             // bunifuElipse1
             // 
@@ -104,7 +107,7 @@
             this.cbar.LabelVisible = true;
             this.cbar.LineProgressThickness = 8;
             this.cbar.LineThickness = 18;
-            this.cbar.Location = new System.Drawing.Point(359, 96);
+            this.cbar.Location = new System.Drawing.Point(359, 156);
             this.cbar.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.cbar.MaxValue = 60;
             this.cbar.Name = "cbar";
@@ -120,7 +123,7 @@
             this.lblSegundos.BackColor = System.Drawing.SystemColors.Control;
             this.lblSegundos.Font = new System.Drawing.Font("Century Gothic", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSegundos.ForeColor = System.Drawing.Color.Blue;
-            this.lblSegundos.Location = new System.Drawing.Point(464, 132);
+            this.lblSegundos.Location = new System.Drawing.Point(464, 192);
             this.lblSegundos.Name = "lblSegundos";
             this.lblSegundos.Size = new System.Drawing.Size(53, 40);
             this.lblSegundos.TabIndex = 25;
@@ -132,7 +135,7 @@
             this.lblHora.BackColor = System.Drawing.SystemColors.Control;
             this.lblHora.Font = new System.Drawing.Font("Century Gothic", 40F);
             this.lblHora.ForeColor = System.Drawing.Color.Blue;
-            this.lblHora.Location = new System.Drawing.Point(410, 178);
+            this.lblHora.Location = new System.Drawing.Point(410, 238);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(162, 65);
             this.lblHora.TabIndex = 26;
@@ -144,7 +147,7 @@
             this.lblFecha.BackColor = System.Drawing.SystemColors.Control;
             this.lblFecha.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.lblFecha.ForeColor = System.Drawing.Color.Blue;
-            this.lblFecha.Location = new System.Drawing.Point(404, 257);
+            this.lblFecha.Location = new System.Drawing.Point(404, 317);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(178, 17);
             this.lblFecha.TabIndex = 27;
@@ -155,11 +158,30 @@
             this.tmr1.Enabled = true;
             this.tmr1.Tick += new System.EventHandler(this.tmr1_Tick);
             // 
+            // lblApellido
+            // 
+            this.lblApellido.AutoSize = true;
+            this.lblApellido.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApellido.Location = new System.Drawing.Point(41, 42);
+            this.lblApellido.Name = "lblApellido";
+            this.lblApellido.Size = new System.Drawing.Size(72, 17);
+            this.lblApellido.TabIndex = 28;
+            this.lblApellido.Text = "APELLIDO:";
+            // 
+            // txbApellido
+            // 
+            this.txbApellido.Location = new System.Drawing.Point(116, 41);
+            this.txbApellido.Name = "txbApellido";
+            this.txbApellido.Size = new System.Drawing.Size(224, 20);
+            this.txbApellido.TabIndex = 29;
+            // 
             // frmHorarioIngreso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(640, 450);
+            this.ClientSize = new System.Drawing.Size(640, 520);
+            this.Controls.Add(this.txbApellido);
+            this.Controls.Add(this.lblApellido);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblHora);
             this.Controls.Add(this.lblSegundos);
@@ -188,5 +210,7 @@
         private Bunifu.Framework.UI.BunifuCustomLabel lblSegundos;
         private Bunifu.Framework.UI.BunifuCircleProgressbar cbar;
         private System.Windows.Forms.Timer tmr1;
+        private System.Windows.Forms.TextBox txbApellido;
+        private System.Windows.Forms.Label lblApellido;
     }
 }

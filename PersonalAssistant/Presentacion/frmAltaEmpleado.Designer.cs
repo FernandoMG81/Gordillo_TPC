@@ -89,6 +89,8 @@
             this.lblFechaModificacion = new System.Windows.Forms.Label();
             this.lblAltaFecha = new System.Windows.Forms.Label();
             this.lblAltaUsuario = new System.Windows.Forms.Label();
+            this.lblFechaContrato = new System.Windows.Forms.Label();
+            this.dtpFechaFinaliza = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.nudHijos)).BeginInit();
             this.gbxSexo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxFoto)).BeginInit();
@@ -130,7 +132,7 @@
             // 
             // txbApellido
             // 
-            this.txbApellido.Location = new System.Drawing.Point(439, 181);
+            this.txbApellido.Location = new System.Drawing.Point(438, 181);
             this.txbApellido.Name = "txbApellido";
             this.txbApellido.Size = new System.Drawing.Size(156, 20);
             this.txbApellido.TabIndex = 7;
@@ -140,7 +142,7 @@
             // 
             this.lblApellido.AutoSize = true;
             this.lblApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApellido.Location = new System.Drawing.Point(363, 180);
+            this.lblApellido.Location = new System.Drawing.Point(370, 180);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(59, 18);
             this.lblApellido.TabIndex = 17;
@@ -170,12 +172,13 @@
             this.cbxContrato.Name = "cbxContrato";
             this.cbxContrato.Size = new System.Drawing.Size(145, 21);
             this.cbxContrato.TabIndex = 0;
+            this.cbxContrato.SelectedIndexChanged += new System.EventHandler(this.cbxContrato_SelectedIndexChanged);
             this.cbxContrato.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxContrato_KeyPress);
             // 
             // cbxCategoria
             // 
             this.cbxCategoria.FormattingEnabled = true;
-            this.cbxCategoria.Location = new System.Drawing.Point(438, 94);
+            this.cbxCategoria.Location = new System.Drawing.Point(438, 99);
             this.cbxCategoria.Name = "cbxCategoria";
             this.cbxCategoria.Size = new System.Drawing.Size(144, 21);
             this.cbxCategoria.TabIndex = 3;
@@ -185,7 +188,7 @@
             // 
             this.lblCategoria.AutoSize = true;
             this.lblCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoria.Location = new System.Drawing.Point(348, 96);
+            this.lblCategoria.Location = new System.Drawing.Point(357, 100);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(72, 18);
             this.lblCategoria.TabIndex = 22;
@@ -194,7 +197,7 @@
             // cbxSeccion
             // 
             this.cbxSeccion.FormattingEnabled = true;
-            this.cbxSeccion.Location = new System.Drawing.Point(198, 53);
+            this.cbxSeccion.Location = new System.Drawing.Point(200, 66);
             this.cbxSeccion.Name = "cbxSeccion";
             this.cbxSeccion.Size = new System.Drawing.Size(144, 21);
             this.cbxSeccion.TabIndex = 1;
@@ -204,7 +207,7 @@
             // 
             this.lblSeccion.AutoSize = true;
             this.lblSeccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSeccion.Location = new System.Drawing.Point(130, 54);
+            this.lblSeccion.Location = new System.Drawing.Point(130, 67);
             this.lblSeccion.Name = "lblSeccion";
             this.lblSeccion.Size = new System.Drawing.Size(62, 18);
             this.lblSeccion.TabIndex = 24;
@@ -213,7 +216,7 @@
             // cbxConcepto
             // 
             this.cbxConcepto.FormattingEnabled = true;
-            this.cbxConcepto.Location = new System.Drawing.Point(438, 55);
+            this.cbxConcepto.Location = new System.Drawing.Point(438, 67);
             this.cbxConcepto.Name = "cbxConcepto";
             this.cbxConcepto.Size = new System.Drawing.Size(144, 21);
             this.cbxConcepto.TabIndex = 2;
@@ -223,7 +226,7 @@
             // 
             this.lblConcepto.AutoSize = true;
             this.lblConcepto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConcepto.Location = new System.Drawing.Point(347, 56);
+            this.lblConcepto.Location = new System.Drawing.Point(356, 68);
             this.lblConcepto.Name = "lblConcepto";
             this.lblConcepto.Size = new System.Drawing.Size(73, 18);
             this.lblConcepto.TabIndex = 26;
@@ -250,7 +253,7 @@
             // 
             // txbCuil
             // 
-            this.txbCuil.Location = new System.Drawing.Point(439, 222);
+            this.txbCuil.Location = new System.Drawing.Point(438, 222);
             this.txbCuil.MaxLength = 11;
             this.txbCuil.Name = "txbCuil";
             this.txbCuil.Size = new System.Drawing.Size(156, 20);
@@ -261,7 +264,7 @@
             // 
             this.lblCuil.AutoSize = true;
             this.lblCuil.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCuil.Location = new System.Drawing.Point(381, 222);
+            this.lblCuil.Location = new System.Drawing.Point(388, 222);
             this.lblCuil.Name = "lblCuil";
             this.lblCuil.Size = new System.Drawing.Size(41, 18);
             this.lblCuil.TabIndex = 30;
@@ -270,7 +273,7 @@
             // cbxConvenio
             // 
             this.cbxConvenio.FormattingEnabled = true;
-            this.cbxConvenio.Location = new System.Drawing.Point(206, 131);
+            this.cbxConvenio.Location = new System.Drawing.Point(200, 131);
             this.cbxConvenio.Name = "cbxConvenio";
             this.cbxConvenio.Size = new System.Drawing.Size(121, 21);
             this.cbxConvenio.TabIndex = 4;
@@ -280,7 +283,7 @@
             // 
             this.lblConvenio.AutoSize = true;
             this.lblConvenio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConvenio.Location = new System.Drawing.Point(118, 133);
+            this.lblConvenio.Location = new System.Drawing.Point(121, 133);
             this.lblConvenio.Name = "lblConvenio";
             this.lblConvenio.Size = new System.Drawing.Size(71, 18);
             this.lblConvenio.TabIndex = 32;
@@ -288,7 +291,7 @@
             // 
             // txbObraSocial
             // 
-            this.txbObraSocial.Location = new System.Drawing.Point(439, 131);
+            this.txbObraSocial.Location = new System.Drawing.Point(438, 131);
             this.txbObraSocial.Name = "txbObraSocial";
             this.txbObraSocial.Size = new System.Drawing.Size(156, 20);
             this.txbObraSocial.TabIndex = 5;
@@ -324,7 +327,7 @@
             // 
             // txbEntrecalles1
             // 
-            this.txbEntrecalles1.Location = new System.Drawing.Point(439, 263);
+            this.txbEntrecalles1.Location = new System.Drawing.Point(438, 263);
             this.txbEntrecalles1.Name = "txbEntrecalles1";
             this.txbEntrecalles1.Size = new System.Drawing.Size(156, 20);
             this.txbEntrecalles1.TabIndex = 11;
@@ -334,7 +337,7 @@
             // 
             this.lblEntreCalles.AutoSize = true;
             this.lblEntreCalles.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEntreCalles.Location = new System.Drawing.Point(341, 264);
+            this.lblEntreCalles.Location = new System.Drawing.Point(348, 264);
             this.lblEntreCalles.Name = "lblEntreCalles";
             this.lblEntreCalles.Size = new System.Drawing.Size(81, 18);
             this.lblEntreCalles.TabIndex = 38;
@@ -495,6 +498,7 @@
             // 
             this.nudHijos.Location = new System.Drawing.Point(410, 431);
             this.nudHijos.Name = "nudHijos";
+            this.nudHijos.ReadOnly = true;
             this.nudHijos.Size = new System.Drawing.Size(34, 20);
             this.nudHijos.TabIndex = 21;
             // 
@@ -502,7 +506,7 @@
             // 
             this.lblAlta.AutoSize = true;
             this.lblAlta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAlta.Location = new System.Drawing.Point(396, 13);
+            this.lblAlta.Location = new System.Drawing.Point(436, 13);
             this.lblAlta.Name = "lblAlta";
             this.lblAlta.Size = new System.Drawing.Size(32, 18);
             this.lblAlta.TabIndex = 59;
@@ -698,11 +702,32 @@
             this.lblAltaUsuario.Text = "Alta por: ";
             this.lblAltaUsuario.Visible = false;
             // 
+            // lblFechaContrato
+            // 
+            this.lblFechaContrato.AutoSize = true;
+            this.lblFechaContrato.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaContrato.Location = new System.Drawing.Point(337, 41);
+            this.lblFechaContrato.Name = "lblFechaContrato";
+            this.lblFechaContrato.Size = new System.Drawing.Size(131, 18);
+            this.lblFechaContrato.TabIndex = 72;
+            this.lblFechaContrato.Text = "Fecha Finalización";
+            this.lblFechaContrato.Visible = false;
+            // 
+            // dtpFechaFinaliza
+            // 
+            this.dtpFechaFinaliza.Location = new System.Drawing.Point(470, 40);
+            this.dtpFechaFinaliza.Name = "dtpFechaFinaliza";
+            this.dtpFechaFinaliza.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaFinaliza.TabIndex = 71;
+            this.dtpFechaFinaliza.Visible = false;
+            // 
             // frmAltaEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(909, 556);
+            this.Controls.Add(this.lblFechaContrato);
+            this.Controls.Add(this.dtpFechaFinaliza);
             this.Controls.Add(this.lblAltaFecha);
             this.Controls.Add(this.lblAltaUsuario);
             this.Controls.Add(this.lblFechaModificacion);
@@ -839,5 +864,7 @@
         private System.Windows.Forms.Label lblFechaModificacion;
         private System.Windows.Forms.Label lblAltaFecha;
         private System.Windows.Forms.Label lblAltaUsuario;
+        private System.Windows.Forms.Label lblFechaContrato;
+        private System.Windows.Forms.DateTimePicker dtpFechaFinaliza;
     }
 }

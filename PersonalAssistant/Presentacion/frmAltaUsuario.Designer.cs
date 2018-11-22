@@ -46,6 +46,7 @@
             this.btnBorrar = new System.Windows.Forms.Button();
             this.txbMail = new System.Windows.Forms.TextBox();
             this.lblMail = new System.Windows.Forms.Label();
+            this.txbDireccionFoto = new System.Windows.Forms.TextBox();
             this.gbTipoUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaUsuarios)).BeginInit();
             this.gbSexo.SuspendLayout();
@@ -214,6 +215,7 @@
             this.pbxAvatar.Location = new System.Drawing.Point(386, 32);
             this.pbxAvatar.Name = "pbxAvatar";
             this.pbxAvatar.Size = new System.Drawing.Size(100, 100);
+            this.pbxAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxAvatar.TabIndex = 8;
             this.pbxAvatar.TabStop = false;
             // 
@@ -230,6 +232,7 @@
             this.btnCargarAvatar.TabIndex = 5;
             this.btnCargarAvatar.Text = "Subir Imagen";
             this.btnCargarAvatar.UseVisualStyleBackColor = false;
+            this.btnCargarAvatar.Click += new System.EventHandler(this.btnCargarAvatar_Click);
             // 
             // btnBorrar
             // 
@@ -264,11 +267,20 @@
             this.lblMail.TabIndex = 11;
             this.lblMail.Text = "Mail recupero";
             // 
+            // txbDireccionFoto
+            // 
+            this.txbDireccionFoto.Location = new System.Drawing.Point(502, 112);
+            this.txbDireccionFoto.Name = "txbDireccionFoto";
+            this.txbDireccionFoto.Size = new System.Drawing.Size(100, 20);
+            this.txbDireccionFoto.TabIndex = 12;
+            this.txbDireccionFoto.Visible = false;
+            // 
             // frmAltaUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(634, 431);
+            this.Controls.Add(this.txbDireccionFoto);
             this.Controls.Add(this.txbMail);
             this.Controls.Add(this.lblMail);
             this.Controls.Add(this.btnBorrar);
@@ -317,5 +329,6 @@
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.TextBox txbMail;
         private System.Windows.Forms.Label lblMail;
+        private System.Windows.Forms.TextBox txbDireccionFoto;
     }
 }

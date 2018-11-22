@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>..\..\..\..\..\Desktop\personal assistant\Bunifu_UI_v1.5.3.dll</HintPath>
@@ -45,14 +48,27 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="GMap.NET.Core, Version=1.8.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
-      <HintPath>..\packages\GMap.NET.Windows.1.8.5\lib\net40\GMap.NET.Core.dll</HintPath>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="GMap.NET.WindowsForms, Version=1.8.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
-      <HintPath>..\packages\GMap.NET.Windows.1.8.5\lib\net40\GMap.NET.WindowsForms.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
-    <Reference Include="GMap.NET.WindowsPresentation, Version=1.8.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
-      <HintPath>..\packages\GMap.NET.Windows.1.8.5\lib\net40\GMap.NET.WindowsPresentation.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -184,6 +200,12 @@
     <Compile Include="frmHorarioSalida.Designer.cs">
       <DependentUpon>frmHorarioSalida.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInformeHorario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInformeHorario.Designer.cs">
+      <DependentUpon>frmInformeHorario.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLicencias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,11 +236,23 @@
     <Compile Include="frmModificarEmpleado.Designer.cs">
       <DependentUpon>frmModificarEmpleado.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmModificarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarUsuario.Designer.cs">
+      <DependentUpon>frmModificarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmModuloEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmModuloEmpleados.Designer.cs">
       <DependentUpon>frmModuloEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteHorario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteHorario.Designer.cs">
+      <DependentUpon>frmReporteHorario.cs</DependentUpon>
     </Compile>
     <Compile Include="frmVacaciones.cs">
       <SubType>Form</SubType>
@@ -232,8 +266,14 @@
     <Compile Include="frmModuloHorarios.Designer.cs">
       <DependentUpon>frmModuloHorarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gordillo_TPCDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Gordillo_TPCDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="frmAsignarVacaciones.resx">
       <DependentUpon>frmAsignarVacaciones.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,6 +325,9 @@
     <EmbeddedResource Include="frmHorarioSalida.resx">
       <DependentUpon>frmHorarioSalida.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmInformeHorario.resx">
+      <DependentUpon>frmInformeHorario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLicencias.resx">
       <DependentUpon>frmLicencias.cs</DependentUpon>
     </EmbeddedResource>
@@ -300,8 +343,14 @@
     <EmbeddedResource Include="frmModificarEmpleado.resx">
       <DependentUpon>frmModificarEmpleado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarUsuario.resx">
+      <DependentUpon>frmModificarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmModuloEmpleados.resx">
       <DependentUpon>frmModuloEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteHorario.resx">
+      <DependentUpon>frmReporteHorario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVacaciones.resx">
       <DependentUpon>frmVacaciones.cs</DependentUpon>
@@ -309,6 +358,7 @@
     <EmbeddedResource Include="frmModuloHorarios.resx">
       <DependentUpon>frmModuloHorarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Horarios.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -319,7 +369,22 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Gordillo_TPCDataSet.xsc">
+      <DependentUpon>Gordillo_TPCDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Gordillo_TPCDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Gordillo_TPCDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Gordillo_TPCDataSet.xss">
+      <DependentUpon>Gordillo_TPCDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\frmModuloHorarios.datasource" />
+    <None Include="Properties\DataSources\frmReporteHorario.datasource" />
+    <None Include="Properties\DataSources\frmVacaciones.datasource" />
+    <None Include="Properties\DataSources\Personal.horarioPersonal.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -354,6 +419,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app.ico" />
+    <None Include="Resources\usuario.png" />
+    <None Include="Resources\excel-icon.png" />
+    <None Include="Resources\CUMPLE MES.gif" />
+    <None Include="Resources\Novedades.gif" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.109.2\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.109.2\build\net46\System.Data.SQLite.Core.targets')" />

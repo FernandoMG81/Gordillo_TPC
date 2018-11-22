@@ -54,8 +54,49 @@ namespace Presentacion
 
                 dgvLegajos.DataSource = ListaLegajos;
                 dgvLegajos.Columns["idRegistro"].Visible = false;
-
-
+                dgvLegajos.Columns["Nombre"].ReadOnly = true;
+                dgvLegajos.Columns["apellido"].ReadOnly = true;
+               // dgvLegajos.Columns["fechaAlta"].HeaderText = "Fecha de alta";
+                dgvLegajos.Columns["fechaAlta"].ReadOnly = true;
+               // dgvLegajos.Columns["VencimientoPrueba"].HeaderText = "Vencimiento Periodo de Prueba";
+                dgvLegajos.Columns["VencimientoPrueba"].ReadOnly = true;
+                dgvLegajos.Columns["dni"].ReadOnly = true;
+                dgvLegajos.Columns["sexo"].Visible = false;
+                dgvLegajos.Columns["contrato"].Visible = false;
+                dgvLegajos.Columns["concepto"].Visible = false;
+                dgvLegajos.Columns["seccion"].Visible = false;
+                dgvLegajos.Columns["convenio"].Visible = false;
+                dgvLegajos.Columns["categoria"].Visible = false;
+                dgvLegajos.Columns["obraSocial"].Visible = false;
+                dgvLegajos.Columns["fechaDeNacimiento"].Visible = false;
+                dgvLegajos.Columns["cuil"].Visible = false;
+                dgvLegajos.Columns["telefonoPrincipal"].Visible = false;
+                dgvLegajos.Columns["telefonoSecundario"].Visible = false;
+                dgvLegajos.Columns["nacionalidad"].Visible = false;
+                dgvLegajos.Columns["estadoCivil"].Visible = false;
+                dgvLegajos.Columns["hijos"].Visible = false;
+                dgvLegajos.Columns["domicilio"].Visible = false;
+                dgvLegajos.Columns["entreCalle1"].Visible = false;
+                dgvLegajos.Columns["entreCalle2"].Visible = false;
+                dgvLegajos.Columns["localidad"].Visible = false;
+                dgvLegajos.Columns["basico"].Visible = false;
+                dgvLegajos.Columns["edad"].Visible = false;
+                dgvLegajos.Columns["baja"].Visible = false;
+                dgvLegajos.Columns["Apellido"].DisplayIndex = 0;
+                dgvLegajos.Columns["nombre"].DisplayIndex = 1;
+                dgvLegajos.Columns["TelefonoAsignado"].Visible = false;
+                dgvLegajos.Columns["ControlHorario"].Visible = false;
+                dgvLegajos.Columns["FechaCreacion"].Visible = false;
+                dgvLegajos.Columns["UsuarioCreacion"].Visible = false;
+                dgvLegajos.Columns["FechaModificacion"].Visible = false;
+                dgvLegajos.Columns["UsuarioModificacion"].Visible = false;
+                dgvLegajos.Columns["bajaFecha"].Visible = false;
+                dgvLegajos.Columns["bajaMotivo"].Visible = false;
+                dgvLegajos.Columns["foto"].Visible = false;
+                dgvLegajos.Columns["legajo"].DisplayIndex = 0;
+                dgvLegajos.Columns["dni"].DisplayIndex = 1;
+                dgvLegajos.Columns["nombre"].DisplayIndex = 2;
+                dgvLegajos.Columns["apellido"].DisplayIndex = 3;
             }
             catch (Exception ex)
             {
@@ -207,6 +248,21 @@ namespace Presentacion
             }
 
     
+        }
+
+        private void dgvLegajos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            EmpleadoPersonal legajo;
+            try
+            {
+                legajo = new EmpleadoPersonal();
+                legajo.modificarLegajo((Empleado)dgvLegajos.CurrentRow.DataBoundItem);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("El Número de legajo ya existe");
+            }
         }
     }
 }

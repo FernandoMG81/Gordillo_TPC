@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmModuloHorarios));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnInforme = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnAltaEquipos = new System.Windows.Forms.Button();
             this.lblControlHorarios = new System.Windows.Forms.Label();
             this.btnAltaUsuarios = new System.Windows.Forms.Button();
@@ -40,6 +42,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel1.Controls.Add(this.btnInforme);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnAltaEquipos);
             this.panel1.Controls.Add(this.lblControlHorarios);
             this.panel1.Controls.Add(this.btnAltaUsuarios);
@@ -48,6 +52,34 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(140, 550);
             this.panel1.TabIndex = 2;
+            // 
+            // btnInforme
+            // 
+            this.btnInforme.FlatAppearance.BorderSize = 0;
+            this.btnInforme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInforme.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInforme.ForeColor = System.Drawing.Color.White;
+            this.btnInforme.Image = ((System.Drawing.Image)(resources.GetObject("btnInforme.Image")));
+            this.btnInforme.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInforme.Location = new System.Drawing.Point(0, 251);
+            this.btnInforme.Name = "btnInforme";
+            this.btnInforme.Size = new System.Drawing.Size(134, 32);
+            this.btnInforme.TabIndex = 10;
+            this.btnInforme.Text = "Informe";
+            this.btnInforme.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnInforme.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnInforme.UseVisualStyleBackColor = true;
+            this.btnInforme.Click += new System.EventHandler(this.btnInforme_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(23, 289);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnAltaEquipos
             // 
@@ -128,5 +160,7 @@
         private System.Windows.Forms.Label lblControlHorarios;
         private System.Windows.Forms.Button btnAltaUsuarios;
         private System.Windows.Forms.Panel pnlContenedor;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnInforme;
     }
 }

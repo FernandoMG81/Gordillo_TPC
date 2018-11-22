@@ -14,9 +14,12 @@ namespace Presentacion
 {
     public partial class frmHorarioSalida : Form
     {
-        public frmHorarioSalida()
+        private Usuario usuarioLogueado;
+
+        public frmHorarioSalida(Usuario user)
         {
             InitializeComponent();
+            usuarioLogueado = user;
         }
 
         private void tmr2_Tick(object sender, EventArgs e)
@@ -50,7 +53,7 @@ namespace Presentacion
         {
             Horario salida;
             Conexion conexion = null;
-            long prueba = 9;
+            
             try
             {
                 conexion = new Conexion();
@@ -60,7 +63,7 @@ namespace Presentacion
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@IDregistroHorario", salida.IDregistro);
                 conexion.Comando.Parameters.AddWithValue("@dni", salida.dni);
-                conexion.Comando.Parameters.AddWithValue("@IDusuarioSalida", prueba); //TODO:modificar cuando se realice lo de usuarios
+                conexion.Comando.Parameters.AddWithValue("@IDusuarioSalida", usuarioLogueado.ID); 
 
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();

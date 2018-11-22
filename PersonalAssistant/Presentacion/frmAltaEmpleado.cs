@@ -17,20 +17,20 @@ namespace Presentacion
 {
     public partial class frmAltaEmpleado : Form
     {
-        private Usuario usuario;
+        private Usuario usuarioLogueado;
         private Empleado empleado = null;
 
         public frmAltaEmpleado(Usuario user)
         {
             InitializeComponent();
-            usuario = user;
+            usuarioLogueado = user;
         }
 
         public frmAltaEmpleado(Empleado nuevo, Usuario user)
         {
             InitializeComponent();
             empleado = nuevo;
-            usuario = user;
+            usuarioLogueado = user;
         }
 
         private void frmAltaEmpleado_Load(object sender, EventArgs e)
@@ -73,8 +73,8 @@ namespace Presentacion
 
                 cargarLocalidad();
                 cargarPartido();
-                
-                   
+
+
 
                 if (empleado != null)
                 {
@@ -108,7 +108,7 @@ namespace Presentacion
                     lblAltaUsuario.Text += empleado.UsuarioCreacion.Nombre;
                     lblAltaFecha.Text += empleado.FechaCreacion.ToShortDateString();
                     lblUsuarioModificacion.Text += empleado.UsuarioModificacion.Nombre;
-                    if (empleado.FechaModificacion.ToString() !="1/1/0001 00:00:00")lblFechaModificacion.Text += empleado.FechaModificacion.ToShortDateString();
+                    if (empleado.FechaModificacion.ToString() != "1/1/0001 00:00:00") lblFechaModificacion.Text += empleado.FechaModificacion.ToShortDateString();
                     if (empleado.ControlHorario == true) rdbSi.Checked = true;
                     else rdbNo.Checked = false;
                     lblAltaUsuario.Show();
@@ -165,7 +165,7 @@ namespace Presentacion
                     if (empleado == null) empleado = new Empleado();
                     else
                     {
-                        empleado.UsuarioModificacion.ID = usuario.ID;
+                        empleado.UsuarioModificacion.ID = usuarioLogueado.ID;
                         empleado.FechaModificacion = DateTime.Now;
                     }
 
@@ -207,6 +207,13 @@ namespace Presentacion
                     empleado.Localidad.IDlocalidad = Convert.ToInt64(cbxLocalidad.SelectedValue);
                     empleado.Basico = Convert.ToDecimal(txbBasico.Text.Trim());
                     empleado.ControlHorario = rdbSi.Checked ? true : false;
+                    empleado.UsuarioCreacion = new Usuario();
+                    empleado.UsuarioCreacion.ID = usuarioLogueado.ID;
+                    empleado.FechaCreacion = DateTime.Now;
+                    if (cbxContrato.SelectedItem.ToString() == "TIEMPO INDETERMINADO")
+                        empleado.VencimientoPrueba = dtpFechaAlta.Value.AddMonths(3);
+                    if (cbxContrato.SelectedItem.ToString() == "TIEMPO DETERMINADO")
+                        empleado.VencimientoPrueba = dtpFechaFinaliza.Value;
 
                     if (empleado.IDregistro != 0) empleadoPersonal.modificar(empleado);
 
@@ -382,13 +389,13 @@ namespace Presentacion
                 try
                 {
                     if (item is TextBox)
-                    {                       
+                    {
                         item.Text = "";
                     }
                     else if (item is RichTextBox)
                     {
                         item.Text = "";
-                    }                   
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -409,7 +416,8 @@ namespace Presentacion
                 rdbFemenino.Checked = false;
                 rdbMasculino.Checked = false;
                 rdbNo.Checked = false;
-                rdbSi.Checked = false;        
+                rdbSi.Checked = false;
+                dtpFechaNac.Value = DateTime.Now;
             }
             catch (Exception ex)
             {
@@ -487,8 +495,8 @@ namespace Presentacion
 
         private void txbTelefonoAlternativo_KeyPress(object sender, KeyPressEventArgs e)
         {
-        //    if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
-               if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space) && (e.KeyChar != (char)Keys.Divide))
+            //    if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space) && (e.KeyChar != (char)Keys.Divide))
                 e.Handled = true;
         }
 
@@ -544,6 +552,20 @@ namespace Presentacion
         {
             if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
                 e.Handled = true;
+        }
+
+        private void cbxContrato_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxContrato.SelectedItem.ToString() == "TIEMPO INDETERMINADO")
+            {
+                lblFechaContrato.Visible = false;
+                dtpFechaFinaliza.Visible = false;
+            }
+            if (cbxContrato.SelectedItem.ToString() == "TIEMPO DETERMINADO")
+            {
+                lblFechaContrato.Visible = true;
+                dtpFechaFinaliza.Visible = true;
+            }
         }
     }
 }

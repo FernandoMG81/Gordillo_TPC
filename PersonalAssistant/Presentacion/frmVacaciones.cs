@@ -29,7 +29,7 @@ namespace Presentacion
             {
               nuevas.generar(Convert.ToInt16(cbxAnios.SelectedItem),usuarioLogueado);
             }
-            catch (SystemException ex)
+            catch (SystemException)
             {
                 //MessageBox.Show(ex.ToString());
 
@@ -71,8 +71,8 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
-                //MessageBox.Show("Aún no hay vacaciones generadas para el año " + cbxAnios.SelectedItem.ToString());
+                //MessageBox.Show(ex.ToString());
+                MessageBox.Show("Aún no hay vacaciones generadas para el año " + cbxAnios.SelectedItem.ToString());
             }
         }
 

@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtClave = new System.Windows.Forms.TextBox();
-            this.lblLogin = new System.Windows.Forms.Label();
+            this.lblLoginMensaje = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.linkClave = new System.Windows.Forms.LinkLabel();
             this.btnCerrar2 = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblUsuarioMensaje = new System.Windows.Forms.Label();
+            this.lblClaveMensaje = new System.Windows.Forms.Label();
+            this.lblNoExiste = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -96,17 +96,17 @@
             this.txtClave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClave_KeyPress);
             this.txtClave.Leave += new System.EventHandler(this.txtClave_Leave);
             // 
-            // lblLogin
+            // lblLoginMensaje
             // 
-            this.lblLogin.AutoSize = true;
-            this.lblLogin.BackColor = System.Drawing.Color.Transparent;
-            this.lblLogin.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblLogin.Location = new System.Drawing.Point(357, 46);
-            this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(77, 24);
-            this.lblLogin.TabIndex = 3;
-            this.lblLogin.Text = "LOGIN";
+            this.lblLoginMensaje.AutoSize = true;
+            this.lblLoginMensaje.BackColor = System.Drawing.Color.Transparent;
+            this.lblLoginMensaje.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoginMensaje.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblLoginMensaje.Location = new System.Drawing.Point(357, 46);
+            this.lblLoginMensaje.Name = "lblLoginMensaje";
+            this.lblLoginMensaje.Size = new System.Drawing.Size(77, 24);
+            this.lblLoginMensaje.TabIndex = 3;
+            this.lblLoginMensaje.Text = "LOGIN";
             // 
             // btnLogin
             // 
@@ -161,9 +161,35 @@
             this.btnCerrar.TabStop = false;
             this.btnCerrar.MouseEnter += new System.EventHandler(this.btnCerrar_MouseEnter);
             // 
-            // errorProvider1
+            // lblUsuarioMensaje
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.lblUsuarioMensaje.AutoSize = true;
+            this.lblUsuarioMensaje.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuarioMensaje.ForeColor = System.Drawing.Color.Lime;
+            this.lblUsuarioMensaje.Location = new System.Drawing.Point(249, 162);
+            this.lblUsuarioMensaje.Name = "lblUsuarioMensaje";
+            this.lblUsuarioMensaje.Size = new System.Drawing.Size(0, 16);
+            this.lblUsuarioMensaje.TabIndex = 8;
+            // 
+            // lblClaveMensaje
+            // 
+            this.lblClaveMensaje.AutoSize = true;
+            this.lblClaveMensaje.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClaveMensaje.ForeColor = System.Drawing.Color.Lime;
+            this.lblClaveMensaje.Location = new System.Drawing.Point(252, 222);
+            this.lblClaveMensaje.Name = "lblClaveMensaje";
+            this.lblClaveMensaje.Size = new System.Drawing.Size(0, 16);
+            this.lblClaveMensaje.TabIndex = 9;
+            // 
+            // lblNoExiste
+            // 
+            this.lblNoExiste.AutoSize = true;
+            this.lblNoExiste.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNoExiste.ForeColor = System.Drawing.Color.Lime;
+            this.lblNoExiste.Location = new System.Drawing.Point(309, 263);
+            this.lblNoExiste.Name = "lblNoExiste";
+            this.lblNoExiste.Size = new System.Drawing.Size(0, 16);
+            this.lblNoExiste.TabIndex = 10;
             // 
             // frmLogin
             // 
@@ -171,11 +197,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(600, 391);
+            this.Controls.Add(this.lblNoExiste);
+            this.Controls.Add(this.lblClaveMensaje);
+            this.Controls.Add(this.lblUsuarioMensaje);
             this.Controls.Add(this.btnCerrar2);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.linkClave);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.lblLogin);
+            this.Controls.Add(this.lblLoginMensaje);
             this.Controls.Add(this.txtClave);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.panel1);
@@ -188,7 +217,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,12 +227,14 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtClave;
-        private System.Windows.Forms.Label lblLogin;
+        private System.Windows.Forms.Label lblLoginMensaje;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.LinkLabel linkClave;
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.PictureBox btnCerrar2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label lblUsuarioMensaje;
+        private System.Windows.Forms.Label lblClaveMensaje;
+        private System.Windows.Forms.Label lblNoExiste;
     }
 }

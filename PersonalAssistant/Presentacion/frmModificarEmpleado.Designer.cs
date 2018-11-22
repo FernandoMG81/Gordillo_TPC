@@ -129,7 +129,6 @@
             this.tbcListadoEmpleados.Size = new System.Drawing.Size(857, 418);
             this.tbcListadoEmpleados.TabIndex = 28;
             this.tbcListadoEmpleados.SelectedIndexChanged += new System.EventHandler(this.tbcListadoEmpleados_SelectedIndexChanged);
-          
             // 
             // tbpActivos
             // 
@@ -191,16 +190,16 @@
             this.dgvLegajos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvLegajos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvLegajos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLegajos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvLegajos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLegajos.Location = new System.Drawing.Point(4, 5);
             this.dgvLegajos.MultiSelect = false;
             this.dgvLegajos.Name = "dgvLegajos";
-            this.dgvLegajos.ReadOnly = true;
-            this.dgvLegajos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLegajos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvLegajos.Size = new System.Drawing.Size(842, 378);
             this.dgvLegajos.TabIndex = 25;
+            this.dgvLegajos.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLegajos_CellValueChanged);
             // 
             // cbxBuscar
             // 

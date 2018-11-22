@@ -80,6 +80,7 @@
             this.txbDiasAsignar.Name = "txbDiasAsignar";
             this.txbDiasAsignar.Size = new System.Drawing.Size(39, 20);
             this.txbDiasAsignar.TabIndex = 3;
+            this.txbDiasAsignar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbDiasAsignar_KeyPress);
             // 
             // lblFecha
             // 

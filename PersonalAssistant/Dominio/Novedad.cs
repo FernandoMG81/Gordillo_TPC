@@ -9,6 +9,6 @@ namespace Dominio
     public class Novedad
     {
         public string NovedadPrincipal { get; set; }
-        public string NovedadSecundaria { get; set; }
     }
+    
 }
