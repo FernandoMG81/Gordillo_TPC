@@ -51,7 +51,7 @@ namespace Presentacion
         private void btnCargarAvatar_Click(object sender, EventArgs e)
         {
             OpenFileDialog file = new OpenFileDialog();
-            file.Filter = "Archivos de imagen (*.jpg)(*.jpeg)|*.jpg;*.jpeg|PNG (*.png)|*.png |GIF (*.gif)|*.gif";
+            file.Filter = "Archivos de imagen (*.jpg)(*.jpeg)|*.jpg;*.jpeg|PNG (*.png)|*.png|GIF (*.gif)|*.gif";
 
             if (file.ShowDialog() == DialogResult.OK)
             {

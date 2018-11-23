@@ -128,6 +128,8 @@ namespace Presentacion
                 dgvListaEmpleados.Columns["UsuarioModificacion"].Visible = false;
                 dgvListaEmpleados.Columns["bajaFecha"].Visible = false;
                 dgvListaEmpleados.Columns["Bajamotivo"].Visible = false;
+                dgvListaEmpleados.Columns["foto"].Visible = false;
+
 
             }
             catch (Exception ex)

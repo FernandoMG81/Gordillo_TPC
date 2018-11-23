@@ -15,6 +15,11 @@ namespace Presentacion
 {
     public partial class frmAltaEquipo : Form
     {
+        protected override void OnShown(EventArgs e)
+        {
+            dgvListaEquipos.ClearSelection();
+            base.OnShown(e);
+        }
         public frmAltaEquipo()
         {
             InitializeComponent();
@@ -31,6 +36,7 @@ namespace Presentacion
                 cbxEstado.ValueMember = "Id";
                 cbxEstado.DisplayMember = "Nombre";
                 dgvListaEquipos.DataSource = equipo.Listar();
+                dgvListaEquipos.Columns["Disponible"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -158,7 +164,7 @@ namespace Presentacion
             EquipoTelefonoPersonal elimina;
             try
             {
-                confirma = new frmConfirma("Seguro desear eliminar definitivamente el equipo seleccionado?");
+                confirma = new frmConfirma("Seguro desear eliminar definitivamente el equipo" + Environment.NewLine + dgvListaEquipos.CurrentRow.DataBoundItem + " seleccionado?");
                 confirma.ShowDialog();
 
                 if (confirma.Confirma == true)
@@ -171,9 +177,13 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.ToString());
             }
+        }
+     
+        private void dgvListaEquipos_MouseClick(object sender, MouseEventArgs e)
+        {
+            btnBorrar.Visible = true;
         }
     }
 }

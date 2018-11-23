@@ -192,6 +192,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pnlContenedor);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmConfiguracion";
             this.Text = "frmConfiguracion";
             this.Controls.SetChildIndex(this.panel1, 0);

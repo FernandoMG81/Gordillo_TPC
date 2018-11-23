@@ -34,6 +34,7 @@
             this.lblModuloEmpleado2 = new System.Windows.Forms.Label();
             this.pbModuloHorarios = new System.Windows.Forms.PictureBox();
             this.pnlUsuario = new System.Windows.Forms.Panel();
+            this.btnModificarUsuario = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.lblusuarioActivo = new System.Windows.Forms.Label();
             this.pbxUsuario = new System.Windows.Forms.PictureBox();
@@ -43,12 +44,11 @@
             this.lblCumpleDia = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblCumpleMes = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblVencimientos = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.lblVacacionesProximas = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ptbModuloEmpleados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbModuloHorarios)).BeginInit();
             this.pnlUsuario.SuspendLayout();
@@ -122,7 +122,7 @@
             // pnlUsuario
             // 
             this.pnlUsuario.BackColor = System.Drawing.Color.Gray;
-            this.pnlUsuario.Controls.Add(this.button1);
+            this.pnlUsuario.Controls.Add(this.btnModificarUsuario);
             this.pnlUsuario.Controls.Add(this.btnCerrarSesion);
             this.pnlUsuario.Controls.Add(this.lblusuarioActivo);
             this.pnlUsuario.Controls.Add(this.pbxUsuario);
@@ -131,6 +131,18 @@
             this.pnlUsuario.Name = "pnlUsuario";
             this.pnlUsuario.Size = new System.Drawing.Size(112, 629);
             this.pnlUsuario.TabIndex = 14;
+            // 
+            // btnModificarUsuario
+            // 
+            this.btnModificarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnModificarUsuario.Font = new System.Drawing.Font("Century Gothic", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarUsuario.Location = new System.Drawing.Point(12, 598);
+            this.btnModificarUsuario.Name = "btnModificarUsuario";
+            this.btnModificarUsuario.Size = new System.Drawing.Size(87, 23);
+            this.btnModificarUsuario.TabIndex = 3;
+            this.btnModificarUsuario.Text = "Modificar";
+            this.btnModificarUsuario.UseVisualStyleBackColor = true;
+            this.btnModificarUsuario.Click += new System.EventHandler(this.btnModificarUsuario_Click);
             // 
             // btnCerrarSesion
             // 
@@ -243,33 +255,35 @@
             // 
             this.lblVencimientos.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblVencimientos.AutoSize = true;
+            this.lblVencimientos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(35)))));
             this.lblVencimientos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVencimientos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblVencimientos.Location = new System.Drawing.Point(464, 512);
+            this.lblVencimientos.Location = new System.Drawing.Point(433, 495);
             this.lblVencimientos.Name = "lblVencimientos";
             this.lblVencimientos.Size = new System.Drawing.Size(241, 17);
             this.lblVencimientos.TabIndex = 22;
             this.lblVencimientos.Text = "VENCIMIENTOS PERIODOS DE PRUEBA";
             // 
-            // bunifuCustomLabel1
+            // lblVacacionesProximas
             // 
-            this.bunifuCustomLabel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.bunifuCustomLabel1.AutoSize = true;
-            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(799, 407);
-            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(164, 17);
-            this.bunifuCustomLabel1.TabIndex = 23;
-            this.bunifuCustomLabel1.Text = "VACACIONES SIGUIENTES";
+            this.lblVacacionesProximas.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblVacacionesProximas.AutoSize = true;
+            this.lblVacacionesProximas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(35)))));
+            this.lblVacacionesProximas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVacacionesProximas.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblVacacionesProximas.Location = new System.Drawing.Point(736, 390);
+            this.lblVacacionesProximas.Name = "lblVacacionesProximas";
+            this.lblVacacionesProximas.Size = new System.Drawing.Size(164, 17);
+            this.lblVacacionesProximas.TabIndex = 23;
+            this.lblVacacionesProximas.Text = "VACACIONES SIGUIENTES";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(444, 448);
+            this.pictureBox2.Location = new System.Drawing.Point(433, 448);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(270, 52);
+            this.pictureBox2.Size = new System.Drawing.Size(293, 52);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 25;
             this.pictureBox2.TabStop = false;
@@ -289,9 +303,9 @@
             // 
             this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(741, 338);
+            this.pictureBox4.Location = new System.Drawing.Point(731, 328);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(270, 52);
+            this.pictureBox4.Size = new System.Drawing.Size(323, 63);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 27;
             this.pictureBox4.TabStop = false;
@@ -307,18 +321,6 @@
             this.pictureBox5.TabIndex = 28;
             this.pictureBox5.TabStop = false;
             // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(12, 598);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Modificar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // frmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -328,7 +330,7 @@
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.lblCumpleDia);
-            this.Controls.Add(this.bunifuCustomLabel1);
+            this.Controls.Add(this.lblVacacionesProximas);
             this.Controls.Add(this.lblVencimientos);
             this.Controls.Add(this.lblCumpleMes);
             this.Controls.Add(this.lblBotonFichajes);
@@ -359,7 +361,7 @@
             this.Controls.SetChildIndex(this.lblBotonFichajes, 0);
             this.Controls.SetChildIndex(this.lblCumpleMes, 0);
             this.Controls.SetChildIndex(this.lblVencimientos, 0);
-            this.Controls.SetChildIndex(this.bunifuCustomLabel1, 0);
+            this.Controls.SetChildIndex(this.lblVacacionesProximas, 0);
             this.Controls.SetChildIndex(this.lblCumpleDia, 0);
             this.Controls.SetChildIndex(this.pictureBox3, 0);
             this.Controls.SetChildIndex(this.pictureBox4, 0);
@@ -393,12 +395,12 @@
         private Bunifu.Framework.UI.BunifuCustomLabel lblCumpleDia;
         private Bunifu.Framework.UI.BunifuCustomLabel lblCumpleMes;
         private Bunifu.Framework.UI.BunifuCustomLabel lblVencimientos;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblVacacionesProximas;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnModificarUsuario;
     }
 }
 

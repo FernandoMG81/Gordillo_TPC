@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmModuloHorarios));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnInforme = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnAltaEquipos = new System.Windows.Forms.Button();
             this.lblControlHorarios = new System.Windows.Forms.Label();
             this.btnAltaUsuarios = new System.Windows.Forms.Button();
@@ -43,7 +42,6 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panel1.Controls.Add(this.btnInforme);
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnAltaEquipos);
             this.panel1.Controls.Add(this.lblControlHorarios);
             this.panel1.Controls.Add(this.btnAltaUsuarios);
@@ -70,16 +68,6 @@
             this.btnInforme.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnInforme.UseVisualStyleBackColor = true;
             this.btnInforme.Click += new System.EventHandler(this.btnInforme_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(23, 289);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnAltaEquipos
             // 
@@ -143,6 +131,7 @@
             this.ClientSize = new System.Drawing.Size(1023, 583);
             this.Controls.Add(this.pnlContenedor);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmModuloHorarios";
             this.Text = "moduloControlHorario";
             this.Controls.SetChildIndex(this.panel1, 0);
@@ -160,7 +149,6 @@
         private System.Windows.Forms.Label lblControlHorarios;
         private System.Windows.Forms.Button btnAltaUsuarios;
         private System.Windows.Forms.Panel pnlContenedor;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnInforme;
     }
 }

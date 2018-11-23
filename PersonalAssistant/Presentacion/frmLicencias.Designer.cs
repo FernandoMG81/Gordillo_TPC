@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.cbEmpleado = new System.Windows.Forms.ComboBox();
-            this.dgvSeccion = new System.Windows.Forms.DataGridView();
+            this.dgvLicencias = new System.Windows.Forms.DataGridView();
             this.btnAgregarLicencia = new System.Windows.Forms.Button();
             this.lblEmpleado = new System.Windows.Forms.Label();
             this.lblMotivo = new System.Windows.Forms.Label();
@@ -38,7 +38,7 @@
             this.dtpFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaFinal = new System.Windows.Forms.DateTimePicker();
             this.lblFechaFinal = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSeccion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLicencias)).BeginInit();
             this.SuspendLayout();
             // 
             // cbEmpleado
@@ -48,16 +48,23 @@
             this.cbEmpleado.Name = "cbEmpleado";
             this.cbEmpleado.Size = new System.Drawing.Size(246, 21);
             this.cbEmpleado.TabIndex = 17;
+            this.cbEmpleado.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cbEmpleado_Format);
             // 
-            // dgvSeccion
+            // dgvLicencias
             // 
-            this.dgvSeccion.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.dgvSeccion.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvSeccion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSeccion.Location = new System.Drawing.Point(72, 194);
-            this.dgvSeccion.Name = "dgvSeccion";
-            this.dgvSeccion.Size = new System.Drawing.Size(584, 244);
-            this.dgvSeccion.TabIndex = 16;
+            this.dgvLicencias.AllowUserToResizeRows = false;
+            this.dgvLicencias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvLicencias.BackgroundColor = System.Drawing.Color.RoyalBlue;
+            this.dgvLicencias.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvLicencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLicencias.Location = new System.Drawing.Point(72, 194);
+            this.dgvLicencias.MultiSelect = false;
+            this.dgvLicencias.Name = "dgvLicencias";
+            this.dgvLicencias.ReadOnly = true;
+            this.dgvLicencias.RowHeadersVisible = false;
+            this.dgvLicencias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLicencias.Size = new System.Drawing.Size(584, 244);
+            this.dgvLicencias.TabIndex = 16;
             // 
             // btnAgregarLicencia
             // 
@@ -72,6 +79,7 @@
             this.btnAgregarLicencia.TabIndex = 15;
             this.btnAgregarLicencia.Text = "AGREGAR";
             this.btnAgregarLicencia.UseVisualStyleBackColor = false;
+            this.btnAgregarLicencia.Click += new System.EventHandler(this.btnAgregarLicencia_Click);
             // 
             // lblEmpleado
             // 
@@ -146,13 +154,14 @@
             this.Controls.Add(this.txbMotivo);
             this.Controls.Add(this.lblMotivo);
             this.Controls.Add(this.cbEmpleado);
-            this.Controls.Add(this.dgvSeccion);
+            this.Controls.Add(this.dgvLicencias);
             this.Controls.Add(this.btnAgregarLicencia);
             this.Controls.Add(this.lblEmpleado);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmLicencias";
             this.Text = "frmLicencias";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSeccion)).EndInit();
+            this.Load += new System.EventHandler(this.frmLicencias_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLicencias)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,7 +170,7 @@
         #endregion
 
         private System.Windows.Forms.ComboBox cbEmpleado;
-        private System.Windows.Forms.DataGridView dgvSeccion;
+        private System.Windows.Forms.DataGridView dgvLicencias;
         private System.Windows.Forms.Button btnAgregarLicencia;
         private System.Windows.Forms.Label lblEmpleado;
         private System.Windows.Forms.Label lblMotivo;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmModificarUsuario));
             this.txbMail = new System.Windows.Forms.TextBox();
             this.lblMail = new System.Windows.Forms.Label();
             this.btnCargarAvatar = new System.Windows.Forms.Button();
@@ -142,6 +143,7 @@
             this.txbDireccionImagen.Name = "txbDireccionImagen";
             this.txbDireccionImagen.Size = new System.Drawing.Size(76, 20);
             this.txbDireccionImagen.TabIndex = 19;
+            this.txbDireccionImagen.Visible = false;
             // 
             // txbDireccionCopia
             // 
@@ -149,6 +151,7 @@
             this.txbDireccionCopia.Name = "txbDireccionCopia";
             this.txbDireccionCopia.Size = new System.Drawing.Size(76, 20);
             this.txbDireccionCopia.TabIndex = 20;
+            this.txbDireccionCopia.Visible = false;
             // 
             // frmModificarUsuario
             // 
@@ -166,6 +169,7 @@
             this.Controls.Add(this.txtClaveNueva);
             this.Controls.Add(this.lblClaveAnterior);
             this.Controls.Add(this.lblClaveNueva);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmModificarUsuario";
             this.Text = "frmModificarUsuario";
             this.Load += new System.EventHandler(this.frmModificarUsuario_Load);

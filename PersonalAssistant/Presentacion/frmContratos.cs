@@ -14,6 +14,12 @@ namespace Presentacion
 {
     public partial class frmContratos : Form
     {
+        protected override void OnShown(EventArgs e)
+        {
+            dgvListaConvenios.ClearSelection();
+            base.OnShown(e);
+        }
+
         public frmContratos()
         {
             InitializeComponent();

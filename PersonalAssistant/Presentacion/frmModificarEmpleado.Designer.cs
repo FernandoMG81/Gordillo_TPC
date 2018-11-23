@@ -40,6 +40,8 @@
             this.tbpLegajo = new System.Windows.Forms.TabPage();
             this.dgvLegajos = new System.Windows.Forms.DataGridView();
             this.cbxBuscar = new System.Windows.Forms.ComboBox();
+            this.lblNota = new System.Windows.Forms.Label();
+            this.btnExcel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleadosActivos)).BeginInit();
             this.tbcListadoEmpleados.SuspendLayout();
             this.tbpActivos.SuspendLayout();
@@ -53,7 +55,7 @@
             // 
             this.lblBuscar.AutoSize = true;
             this.lblBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuscar.Location = new System.Drawing.Point(420, 45);
+            this.lblBuscar.Location = new System.Drawing.Point(15, 24);
             this.lblBuscar.Name = "lblBuscar";
             this.lblBuscar.Size = new System.Drawing.Size(59, 20);
             this.lblBuscar.TabIndex = 21;
@@ -61,7 +63,7 @@
             // 
             // txbBuscar
             // 
-            this.txbBuscar.Location = new System.Drawing.Point(612, 44);
+            this.txbBuscar.Location = new System.Drawing.Point(207, 23);
             this.txbBuscar.Name = "txbBuscar";
             this.txbBuscar.Size = new System.Drawing.Size(230, 20);
             this.txbBuscar.TabIndex = 22;
@@ -207,16 +209,41 @@
             this.cbxBuscar.Items.AddRange(new object[] {
             "Apellido",
             "Nombre"});
-            this.cbxBuscar.Location = new System.Drawing.Point(485, 44);
+            this.cbxBuscar.Location = new System.Drawing.Point(80, 23);
             this.cbxBuscar.Name = "cbxBuscar";
             this.cbxBuscar.Size = new System.Drawing.Size(121, 21);
             this.cbxBuscar.TabIndex = 29;
+            // 
+            // lblNota
+            // 
+            this.lblNota.AutoSize = true;
+            this.lblNota.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNota.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblNota.Location = new System.Drawing.Point(16, 58);
+            this.lblNota.Name = "lblNota";
+            this.lblNota.Size = new System.Drawing.Size(324, 15);
+            this.lblNota.TabIndex = 30;
+            this.lblNota.Text = "Nota: Hacer doble clic en la celda del legajo a modificar.";
+            this.lblNota.Visible = false;
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.BackColor = System.Drawing.Color.Transparent;
+            this.btnExcel.Image = global::Presentacion.Properties.Resources.excel_icon;
+            this.btnExcel.Location = new System.Drawing.Point(808, 42);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(57, 47);
+            this.btnExcel.TabIndex = 31;
+            this.btnExcel.UseVisualStyleBackColor = false;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
             // frmModificarEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(876, 565);
+            this.Controls.Add(this.btnExcel);
+            this.Controls.Add(this.lblNota);
             this.Controls.Add(this.cbxBuscar);
             this.Controls.Add(this.tbcListadoEmpleados);
             this.Controls.Add(this.btnBaja);
@@ -253,5 +280,7 @@
         private System.Windows.Forms.TabPage tbpLegajo;
         private System.Windows.Forms.DataGridView dgvLegajos;
         private System.Windows.Forms.ComboBox cbxBuscar;
+        private System.Windows.Forms.Label lblNota;
+        private System.Windows.Forms.Button btnExcel;
     }
 }

@@ -15,6 +15,14 @@ namespace Presentacion
     public partial class frmCategoria : Form
     {
 
+        
+        protected override void OnShown(EventArgs e)
+        {
+            dgvCategoria.ClearSelection();
+            dgvConcepto.ClearSelection();
+            dgvSeccion.ClearSelection();
+            base.OnShown(e);
+        }
         public frmCategoria()
         {
             InitializeComponent();

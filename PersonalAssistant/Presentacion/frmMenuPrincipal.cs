@@ -15,7 +15,7 @@ namespace Presentacion
     public partial class frmMenuPrincipal : frmModelo
     {
         private Usuario usuarioLogueado;
-        private List<Novedad> listadoCumple;
+        private List<Novedad> listadosNovedad;
 
         public Usuario UsuarioLogueado
         {
@@ -181,27 +181,51 @@ namespace Presentacion
         {
             Novedad PeridodoPrueba, Cumpleanios,Vacaciones;
           
-            NovedadPersonal novedadesCumple;
+            NovedadPersonal novedades;
             try
             {
                 Cumpleanios = new Novedad();
                 PeridodoPrueba = new Novedad();
                 Vacaciones = new Novedad();
-                novedadesCumple = new NovedadPersonal();
+                novedades = new NovedadPersonal();
 
 
-                listadoCumple = novedadesCumple.traerCumpleaniosDia();
+                listadosNovedad = novedades.traerCumpleaniosDia();
                 lblCumpleDia.Text = "";
-                foreach (var item in listadoCumple)
+                foreach (var item in listadosNovedad)
                 {
                     lblCumpleDia.Text += item.NovedadPrincipal + Environment.NewLine;
                 }
 
-                listadoCumple = novedadesCumple.traerCumpleaniosMes();
+                listadosNovedad = novedades.traerCumpleaniosMes();
                 lblCumpleMes.Text = "";
-                foreach (var item in listadoCumple)
+                foreach (var item in listadosNovedad)
                 {
                     lblCumpleMes.Text += item.NovedadPrincipal + Environment.NewLine;
+                }
+
+                listadosNovedad = novedades.traerVencimientos();
+                lblVencimientos.Text = "";
+                foreach (var item in listadosNovedad)
+                {
+                    lblVencimientos.Text += item.NovedadPrincipal;
+                    if (lblVacacionesProximas.Text.Length <= 66)
+                    {
+                        for (int i = 0; i < (67 - lblVencimientos.Text.Length); i++) lblVencimientos.Text += " ";
+                    }
+                    lblVencimientos.Text += Environment.NewLine;
+                }
+
+                listadosNovedad = novedades.traerVacaciones();
+                lblVacacionesProximas .Text = "";
+                foreach (var item in listadosNovedad)
+                {
+                    lblVacacionesProximas.Text += item.NovedadPrincipal;
+                    if(lblVacacionesProximas.Text.Length <= 68)
+                    {
+                        for (int i = 0; i < (69 - lblVacacionesProximas.Text.Length); i++) lblVacacionesProximas.Text += " ";
+                    }
+                    lblVacacionesProximas.Text += Environment.NewLine;
                 }
 
             }
@@ -217,7 +241,8 @@ namespace Presentacion
             frmMenuPrincipal_Shown(sender, e);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void btnModificarUsuario_Click(object sender, EventArgs e)
         {
             frmModificarUsuario modi;
             try

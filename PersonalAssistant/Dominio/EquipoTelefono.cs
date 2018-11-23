@@ -14,5 +14,11 @@ namespace Dominio
         public Boolean Disponible { get; set; }
         //public string Comentario { get; set; }
         public string Condicion { get; set; }
+
+        public override string ToString()
+        {
+            return Modelo + " Marca: " + Marca;
+        }
+
     }
 }

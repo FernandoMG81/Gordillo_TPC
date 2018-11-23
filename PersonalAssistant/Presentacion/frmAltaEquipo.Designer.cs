@@ -48,16 +48,19 @@
             this.dgvListaEquipos.AllowUserToDeleteRows = false;
             this.dgvListaEquipos.AllowUserToResizeRows = false;
             this.dgvListaEquipos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvListaEquipos.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.dgvListaEquipos.BackgroundColor = System.Drawing.Color.RoyalBlue;
             this.dgvListaEquipos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListaEquipos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaEquipos.Location = new System.Drawing.Point(30, 158);
             this.dgvListaEquipos.MultiSelect = false;
             this.dgvListaEquipos.Name = "dgvListaEquipos";
+            this.dgvListaEquipos.ReadOnly = true;
+            this.dgvListaEquipos.RowHeadersVisible = false;
             this.dgvListaEquipos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaEquipos.Size = new System.Drawing.Size(541, 199);
             this.dgvListaEquipos.TabIndex = 5;
             this.dgvListaEquipos.TabStop = false;
+            this.dgvListaEquipos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvListaEquipos_MouseClick);
             // 
             // btnAgregar
             // 
@@ -157,12 +160,13 @@
             this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBorrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBorrar.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnBorrar.Location = new System.Drawing.Point(30, 376);
+            this.btnBorrar.Location = new System.Drawing.Point(200, 369);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(213, 31);
             this.btnBorrar.TabIndex = 26;
             this.btnBorrar.Text = "BORRAR";
             this.btnBorrar.UseVisualStyleBackColor = false;
+            this.btnBorrar.Visible = false;
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // frmAltaEquipo

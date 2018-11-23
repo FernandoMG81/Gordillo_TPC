@@ -46,6 +46,7 @@
     <Compile Include="Encrypt.cs" />
     <Compile Include="equipoXusuario.cs" />
     <Compile Include="Ficha.cs" />
+    <Compile Include="Licencia.cs" />
     <Compile Include="Localidad.cs" />
     <Compile Include="Concepto.cs" />
     <Compile Include="Contrato.cs" />

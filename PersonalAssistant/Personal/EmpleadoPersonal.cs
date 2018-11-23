@@ -23,10 +23,10 @@ namespace Personal
                     "cvn.convenio, cat.IDcategoria, cat.categoria, emp.obraSocial, emp.nombre, emp.apellido, emp.fechaNac, emp.dni, emp.cuil, emp.telPrincipal,emp.telSecundario, emp.nacionalidad, " +
                     "etc.IDestadoCivil, etc.estado, emp.hijos, emp.domicilio, emp.entreCalle1, emp.entreCalle2, loc.cp, loc.IDlocalidad, loc.localidad, loc.IDpartido, par.partido," +
                     "emp.basico, emp.telefonoAsignado, emp.controlHorario, us.nombre as usuario, emp.fechaCreacion, emp.fechaModi,(select nombre from usuarios where Idregistro = emp.IdusuarioModi) as userModi, " +
-                    "emp.bajaFecha,emp.bajaMotivo,emp.baja from empleado emp, contrato con, seccion sec, " +
+                    "emp.bajaFecha,emp.bajaMotivo,emp.baja, emp.foto from empleado emp, contrato con, seccion sec, " +
                     "concepto ccp, convenio cvn, categoria cat, estadoCivil etc, localidad loc, partido par, usuarios us " +
                     "where us.Idregistro = emp.IdUsuarioCreacion and emp.IDcontrato = con.IDcontrato and emp.IDseccion = sec.IDseccion and emp.IDconcepto = ccp.IDconcepto and emp.IDconvenio = cvn.IDconvenio and " +
-                    "emp.IDcategoria = cat.IDcategoria and emp.IDestadoCivil = etc.IDestadoCivil and emp.IDlocalidad = loc.IDlocalidad and loc.IDpartido = par.IDpartido and baja ='"+baja.ToString()+"'");
+                    "emp.IDcategoria = cat.IDcategoria and emp.IDestadoCivil = etc.IDestadoCivil and emp.IDlocalidad = loc.IDlocalidad and loc.IDpartido = par.IDpartido and baja ='"+baja.ToString()+"' order by emp.apellido asc, emp.nombre asc");
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();
 
@@ -46,6 +46,7 @@ namespace Personal
                     if (conexion.Lector["bajaFecha"] != DBNull.Value) aux.BajaFecha = (DateTime)conexion.Lector["bajaFecha"];
                     if (conexion.Lector["bajaMotivo"] != DBNull.Value) aux.BajaMotivo = (string)conexion.Lector["bajaMotivo"];
                     if (conexion.Lector["baja"] != DBNull.Value) aux.Baja = (bool)conexion.Lector["baja"];
+                    if (conexion.Lector["foto"] != DBNull.Value) aux.Foto = (string)conexion.Lector["foto"];
 
                     aux.IDregistro = (long)conexion.Lector["Idregistro"];
                     aux.FechaAlta = (DateTime)conexion.Lector["fecAlta"];
@@ -329,7 +330,7 @@ namespace Personal
                 conexion.setearConsulta("select Idregistro,emp.legajo, emp.fecAlta, emp.sexo, con.IDcontrato, con.contrato, sec.IDseccion, sec.seccion, ccp.IDconcepto, ccp.concepto, cvn.IDconvenio, " +
                     "cvn.convenio, cat.IDcategoria, cat.categoria, emp.obraSocial, emp.nombre, emp.apellido, emp.fechaNac, emp.dni, emp.cuil, emp.telPrincipal,emp.telSecundario, emp.nacionalidad, " +
                     "etc.IDestadoCivil, etc.estado, emp.hijos, emp.domicilio, emp.entreCalle1, emp.entreCalle2, loc.cp, loc.IDlocalidad, loc.localidad, loc.IDpartido, par.partido," +
-                    "emp.basico,emp.telefonoAsignado from empleado emp, contrato con, seccion sec, concepto ccp, convenio cvn, categoria cat, estadoCivil etc, localidad loc, partido par " +
+                    "emp.basico,emp.telefonoAsignado, emp.foto from empleado emp, contrato con, seccion sec, concepto ccp, convenio cvn, categoria cat, estadoCivil etc, localidad loc, partido par " +
                     "where emp.IDcontrato = con.IDcontrato and emp.IDseccion = sec.IDseccion and emp.IDconcepto = ccp.IDconcepto and emp.IDconvenio = cvn.IDconvenio and " +
                     "emp.IDcategoria = cat.IDcategoria and emp.IDestadoCivil = etc.IDestadoCivil and emp.IDlocalidad = loc.IDlocalidad and loc.IDpartido = par.IDpartido and emp.telefonoAsignado = 0");
                 conexion.abrirConexion();
@@ -342,7 +343,7 @@ namespace Personal
                     if (conexion.Lector["telSecundario"] != DBNull.Value) aux.TelefonoSecundario = (string)conexion.Lector["telSecundario"];
                     if (conexion.Lector["entrecalle1"] != DBNull.Value) aux.Entrecalle1 = (string)conexion.Lector["entreCalle1"];
                     if (conexion.Lector["entrecalle2"] != DBNull.Value) aux.Entrecalle2 = (string)conexion.Lector["entreCalle2"];
-
+                    if (conexion.Lector["foto"] != DBNull.Value) aux.Foto = (string)conexion.Lector["foto"];
                     aux.IDregistro = (long)conexion.Lector["Idregistro"];
                     aux.FechaAlta = (DateTime)conexion.Lector["fecAlta"];
                     aux.Sexo = Convert.ToChar(conexion.Lector["sexo"]);
@@ -407,9 +408,9 @@ namespace Personal
             {
                 conexion = new Conexion();
                 conexion.setearConsulta("insert into empleado (fecAlta,sexo,vencimiento,IDcontrato,IDseccion,IDconcepto,IDconvenio,IDcategoria,obraSocial,nombre,apellido,fechaNac,dni,cuil,telPrincipal," +
-                    "telSecundario,nacionalidad, IDestadoCivil,hijos,Domicilio,entrecalle1,entrecalle2,IDlocalidad,basico,telefonoAsignado,controlHorario,IdUsuarioCreacion,fechaCreacion,baja)" +
+                    "telSecundario,nacionalidad, IDestadoCivil,hijos,Domicilio,entrecalle1,entrecalle2,IDlocalidad,basico,telefonoAsignado,controlHorario,IdUsuarioCreacion,fechaCreacion,baja,foto)" +
                     "values (@fecAlta,@sexo,@vencimientoPrueba,@IDcontrato,@IDseccion,@IDconcepto,@IDconvenio,@IDcategoria,@obraSocial,@nombre,@apellido,@fechaNac,@dni,@cuil,@telPrincipal,@telSecundario," +
-                    "@nacionalidad,@IDestadoCivil,@hijos,@Domicilio,@entrecalle1,@entrecalle2,@IDlocalidad,@basico,@telefonoAsignado,@controlHorario,@idUsuarioCreacion,@fechaCreacion,0)");
+                    "@nacionalidad,@IDestadoCivil,@hijos,@Domicilio,@entrecalle1,@entrecalle2,@IDlocalidad,@basico,@telefonoAsignado,@controlHorario,@idUsuarioCreacion,@fechaCreacion,0,@foto)");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@fecAlta", nuevo.FechaAlta);
                 conexion.Comando.Parameters.AddWithValue("@vencimientoPrueba", nuevo.VencimientoPrueba);
@@ -439,9 +440,8 @@ namespace Personal
                 conexion.Comando.Parameters.AddWithValue("@controlHorario", nuevo.ControlHorario);
                 conexion.Comando.Parameters.AddWithValue("@idUsuarioCreacion", nuevo.UsuarioCreacion.ID);
                 conexion.Comando.Parameters.AddWithValue("@fechaCreacion", nuevo.FechaCreacion);
-
-
-
+                conexion.Comando.Parameters.AddWithValue("@foto", nuevo.Foto);
+            
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();
             }
@@ -467,7 +467,7 @@ namespace Personal
                 conexion.setearConsulta("update empleado set fecAlta = @fecAlta,vencimiento = @vencimiento, sexo = @sexo, IDcontrato = @IDcontrato, IDseccion = @IDseccion, IDconcepto = @IDconcepto, " +
                     "IDconvenio = @IDconvenio, IDcategoria = @IDcategoria, obraSocial = @obraSocial,nombre = @nombre, apellido = @apellido, fechaNac= @fechaNac, dni = @dni, cuil = @cuil, nacionalidad=@nacionalidad, " +
                     "IDestadoCivil = @IDestadoCivil, hijos=@hijos, Domicilio=@Domicilio, entrecalle1=@entreCalle1, entrecalle2=entreCalle2, IDlocalidad=IDlocalidad, basico=@basico, " +
-                    "telPrincipal=@telPrincipal, telSecundario=@telSecundario, controlHorario = @controlHorario,IdUsuarioModi = @IdUsuarioModificacion,fechaModi = @fechaModificacion where dni = @dni");
+                    "telPrincipal=@telPrincipal, telSecundario=@telSecundario, controlHorario = @controlHorario,IdUsuarioModi = @IdUsuarioModificacion,fechaModi = @fechaModificacion, foto = @foto where dni = @dni");
                 
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@fecAlta", nuevo.FechaAlta);
@@ -498,6 +498,7 @@ namespace Personal
                 conexion.Comando.Parameters.AddWithValue("@controlHorario", nuevo.ControlHorario);
                 conexion.Comando.Parameters.AddWithValue("@IdUsuarioModificacion", nuevo.UsuarioModificacion.ID);
                 conexion.Comando.Parameters.AddWithValue("@fechaModificacion", nuevo.FechaModificacion);
+                conexion.Comando.Parameters.AddWithValue("@foto", nuevo.Foto);
 
 
                 conexion.abrirConexion();

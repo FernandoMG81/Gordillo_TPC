@@ -184,6 +184,7 @@
             this.btnEliminarVacaciones.TabIndex = 50;
             this.btnEliminarVacaciones.Text = "ELIMINAR";
             this.btnEliminarVacaciones.UseVisualStyleBackColor = false;
+            this.btnEliminarVacaciones.Click += new System.EventHandler(this.btnEliminarVacaciones_Click);
             // 
             // frmAsignarVacaciones
             // 

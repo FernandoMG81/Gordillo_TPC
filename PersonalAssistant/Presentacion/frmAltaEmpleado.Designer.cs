@@ -91,6 +91,7 @@
             this.lblAltaUsuario = new System.Windows.Forms.Label();
             this.lblFechaContrato = new System.Windows.Forms.Label();
             this.dtpFechaFinaliza = new System.Windows.Forms.DateTimePicker();
+            this.txbFoto = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudHijos)).BeginInit();
             this.gbxSexo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxFoto)).BeginInit();
@@ -570,10 +571,11 @@
             // txbBasico
             // 
             this.txbBasico.Location = new System.Drawing.Point(643, 432);
-            this.txbBasico.MaxLength = 7;
+            this.txbBasico.MaxLength = 12;
             this.txbBasico.Name = "txbBasico";
-            this.txbBasico.Size = new System.Drawing.Size(59, 20);
+            this.txbBasico.Size = new System.Drawing.Size(76, 20);
             this.txbBasico.TabIndex = 22;
+            this.txbBasico.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbBasico_KeyPress);
             // 
             // lblBasico
             // 
@@ -604,9 +606,11 @@
             // pbxFoto
             // 
             this.pbxFoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbxFoto.Image = global::Presentacion.Properties.Resources.usuario;
             this.pbxFoto.Location = new System.Drawing.Point(706, 8);
             this.pbxFoto.Name = "pbxFoto";
             this.pbxFoto.Size = new System.Drawing.Size(134, 134);
+            this.pbxFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxFoto.TabIndex = 66;
             this.pbxFoto.TabStop = false;
             // 
@@ -623,6 +627,7 @@
             this.btnFoto.TabIndex = 24;
             this.btnFoto.Text = "CARGAR FOTO";
             this.btnFoto.UseVisualStyleBackColor = false;
+            this.btnFoto.Click += new System.EventHandler(this.btnFoto_Click);
             // 
             // groupBox1
             // 
@@ -721,11 +726,20 @@
             this.dtpFechaFinaliza.TabIndex = 71;
             this.dtpFechaFinaliza.Visible = false;
             // 
+            // txbFoto
+            // 
+            this.txbFoto.Location = new System.Drawing.Point(847, 121);
+            this.txbFoto.Name = "txbFoto";
+            this.txbFoto.Size = new System.Drawing.Size(50, 20);
+            this.txbFoto.TabIndex = 73;
+            this.txbFoto.Visible = false;
+            // 
             // frmAltaEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(909, 556);
+            this.Controls.Add(this.txbFoto);
             this.Controls.Add(this.lblFechaContrato);
             this.Controls.Add(this.dtpFechaFinaliza);
             this.Controls.Add(this.lblAltaFecha);
@@ -790,6 +804,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmAltaEmpleado";
             this.Load += new System.EventHandler(this.frmAltaEmpleado_Load);
+            this.Shown += new System.EventHandler(this.frmAltaEmpleado_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.nudHijos)).EndInit();
             this.gbxSexo.ResumeLayout(false);
             this.gbxSexo.PerformLayout();
@@ -866,5 +881,6 @@
         private System.Windows.Forms.Label lblAltaUsuario;
         private System.Windows.Forms.Label lblFechaContrato;
         private System.Windows.Forms.DateTimePicker dtpFechaFinaliza;
+        private System.Windows.Forms.TextBox txbFoto;
     }
 }

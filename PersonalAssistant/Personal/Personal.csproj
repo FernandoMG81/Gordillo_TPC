@@ -52,6 +52,7 @@
     <Compile Include="EstadoCivilPersonal.cs" />
     <Compile Include="EstadoTelPersonal.cs" />
     <Compile Include="horarioPersonal.cs" />
+    <Compile Include="LicenciaPersonal.cs" />
     <Compile Include="LocalidadPersonal.cs" />
     <Compile Include="MailPersonal.cs" />
     <Compile Include="NovedadPersonal.cs" />

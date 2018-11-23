@@ -73,7 +73,7 @@ namespace Personal
             {
                 conexion = new Conexion();
 
-                conexion.setearConsulta("select v.dni,v.dias,v.fIni,v.fFin,v.anio,us.nombre as usuario,v.fcreacion, e.nombre,e.apellido from vacaciones v,usuarios us,empleado e where anio = @anio and v.dni = e.dni and us.idregistro = v.idusuario");
+                conexion.setearConsulta("select v.idregistro,v.dni,v.dias,v.fIni,v.fFin,v.anio,us.nombre as usuario,v.fcreacion, e.nombre,e.apellido from vacaciones v,usuarios us,empleado e where anio = @anio and v.dni = e.dni and us.idregistro = v.idusuario order by v.fIni asc");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@anio", anio);
                 conexion.abrirConexion();
@@ -82,6 +82,7 @@ namespace Personal
                 while (conexion.Lector.Read())
                 {
                     vac = new Vacaciones();
+                    vac.IDregistro = (long)conexion.Lector["Idregistro"];
                     vac.dni = (string)conexion.Lector["dni"];
                     vac.Nombre = (string)conexion.Lector["nombre"];
                     vac.Apellido = (string)conexion.Lector["apellido"];
@@ -137,6 +138,8 @@ namespace Personal
                 throw ex;
             }
         }
+
+        
 
         public void nuevasVacaciones(Vacaciones nuevo, Usuario user)
         {
@@ -255,6 +258,31 @@ namespace Personal
                 if (conexion != null)
                     conexion.cerrarConexion();
             }
+        }
+
+        public void eliminar(Vacaciones baja)
+        {
+            Conexion conexion = null;
+
+            try
+            {
+                conexion = new Conexion();
+                conexion.setearConsulta("delete from vacaciones where idregistro = @id");
+                conexion.Comando.Parameters.Clear();
+                conexion.Comando.Parameters.AddWithValue("id", baja.IDregistro);
+                conexion.abrirConexion();
+                conexion.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.cerrarConexion();
+            }
+
         }
     }
 }

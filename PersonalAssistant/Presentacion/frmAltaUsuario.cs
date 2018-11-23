@@ -73,7 +73,6 @@ namespace Presentacion
                     string destino = Path.Combine(Application.StartupPath, string.Format("c:\\PRUEBA\\{0}", Path.GetFileName(txbDireccionFoto.Text))); //TODO: Cambiar al directorio real de las fotos
                     if (txbDireccionFoto.Text != destino) File.Copy(txbDireccionFoto.Text, destino);
                     usuarioActivo.Imagen = destino;
-
                 }
 
 
@@ -89,7 +88,6 @@ namespace Presentacion
             {
                 MessageBox.Show("Ya existe un usuario con ese nombre");
             }
-
         }
 
         private void dgvListaUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -137,7 +135,6 @@ namespace Presentacion
 
             try
             {
-
                 baja = (Usuario)dgvListaUsuarios.CurrentRow.DataBoundItem;
                 equipo.baja(baja);
                 usuarioActivo = null;
@@ -148,7 +145,6 @@ namespace Presentacion
             {
                 MessageBox.Show(ex.ToString());
             }
-
         }
 
         private void limpiar()
@@ -167,7 +163,7 @@ namespace Presentacion
         private void btnCargarAvatar_Click(object sender, EventArgs e)
         {
             OpenFileDialog file = new OpenFileDialog();
-            file.Filter = "Archivos de imagen (*.jpg)(*.jpeg)|*.jpg;*.jpeg|PNG (*.png)|*.png |GIF (*.gif)|*.gif";
+            file.Filter = "Archivos de imagen (*.jpg)(*.jpeg)|*.jpg;*.jpeg|PNG (*.png)|*.png|GIF(*.gif)|*.gif";
 
             if (file.ShowDialog() == DialogResult.OK)
             {

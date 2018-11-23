@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Dominio;
 using Personal;
 using System.Data.SqlClient;
+using System.IO;
 
 
 
@@ -19,6 +20,7 @@ namespace Presentacion
     {
         private Usuario usuarioLogueado;
         private Empleado empleado = null;
+        private bool completo = false;
 
         public frmAltaEmpleado(Usuario user)
         {
@@ -105,6 +107,19 @@ namespace Presentacion
                     cbxEstadoCivil.SelectedValue = empleado.EstadoCivil.IdEstadoCivil;
                     nudHijos.Value = empleado.Hijos;
                     txbBasico.Text = empleado.Basico.ToString();
+                    txbFoto.Text = empleado.Foto;
+
+                    if (empleado.Sexo == 'M')
+                    {
+                        rdbMasculino.Checked = true;
+                        pbxFoto.Image = Properties.Resources.Masculino;
+                    }
+                    else
+                    {
+                        rdbFemenino.Checked = true;
+                        pbxFoto.Image = Properties.Resources.Femenino;
+                    }
+                    if (txbFoto.Text != "") pbxFoto.Image = Bitmap.FromFile(txbFoto.Text);
                     lblAltaUsuario.Text += empleado.UsuarioCreacion.Nombre;
                     lblAltaFecha.Text += empleado.FechaCreacion.ToShortDateString();
                     lblUsuarioModificacion.Text += empleado.UsuarioModificacion.Nombre;
@@ -115,7 +130,6 @@ namespace Presentacion
                     lblAltaFecha.Show();
                     lblUsuarioModificacion.Show();
                     lblFechaModificacion.Show();
-
                 }
 
                 else
@@ -146,8 +160,6 @@ namespace Presentacion
 
                 MessageBox.Show(ex.ToString());
             }
-
-
 
             //SE INICIA CON EL DIA DE ALTA POSTERIOR AL DE LA CARGA, SI ES FINDE SE CORRE AL LUNES.
 
@@ -214,6 +226,14 @@ namespace Presentacion
                         empleado.VencimientoPrueba = dtpFechaAlta.Value.AddMonths(3);
                     if (cbxContrato.SelectedItem.ToString() == "TIEMPO DETERMINADO")
                         empleado.VencimientoPrueba = dtpFechaFinaliza.Value;
+                    empleado.Foto = txbFoto.Text;
+                    if (txbFoto.Text != "")
+                    {
+                        string destino = Path.Combine(Application.StartupPath, string.Format("c:\\PRUEBA\\{0}", Path.GetFileName(txbFoto.Text))); //TODO: Cambiar al directorio real de las fotos
+                        if (txbFoto.Text != destino) File.Copy(txbFoto.Text, destino);
+                        empleado.Foto = destino;
+                    }
+
 
                     if (empleado.IDregistro != 0) empleadoPersonal.modificar(empleado);
 
@@ -222,6 +242,7 @@ namespace Presentacion
                         empleadoPersonal.alta(empleado);
                         frmCorrecto ok = new frmCorrecto();
                         ok.ShowDialog();
+
                         VaciarTextBoxs();
                     }
                 }
@@ -265,7 +286,7 @@ namespace Presentacion
 
         private void txbCP_Validated(object sender, EventArgs e)
         {
-            PartidoPersonal partidos = new PartidoPersonal();
+
             try
             {
                 if (txbCP.Text == "")
@@ -361,10 +382,9 @@ namespace Presentacion
 
         private void cbxLocalidad_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             try
             {
-                if (txbDni.Text != "")
+                if (completo)
                 {
                     LocalidadPersonal aux = new LocalidadPersonal();
                     Localidad aux2 = new Localidad();
@@ -373,11 +393,9 @@ namespace Presentacion
                     txbCP.Text = aux2.cp.ToString();
                     cargarPartido(aux2.IDpartido);
                 }
-
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.ToString());
             }
         }
@@ -418,6 +436,7 @@ namespace Presentacion
                 rdbNo.Checked = false;
                 rdbSi.Checked = false;
                 dtpFechaNac.Value = DateTime.Now;
+                pbxFoto.Image = Properties.Resources.usuario;
             }
             catch (Exception ex)
             {
@@ -556,16 +575,48 @@ namespace Presentacion
 
         private void cbxContrato_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbxContrato.SelectedItem.ToString() == "TIEMPO INDETERMINADO")
+            try
             {
-                lblFechaContrato.Visible = false;
-                dtpFechaFinaliza.Visible = false;
+                if (cbxContrato.SelectedItem.ToString() == "TIEMPO INDETERMINADO")
+                {
+                    lblFechaContrato.Visible = false;
+                    dtpFechaFinaliza.Visible = false;
+                }
+                if (cbxContrato.SelectedItem.ToString() == "TIEMPO DETERMINADO")
+                {
+                    lblFechaContrato.Visible = true;
+                    dtpFechaFinaliza.Visible = true;
+                }
+
             }
-            if (cbxContrato.SelectedItem.ToString() == "TIEMPO DETERMINADO")
+            catch (Exception ex)
             {
-                lblFechaContrato.Visible = true;
-                dtpFechaFinaliza.Visible = true;
+
+
             }
+        }
+
+        private void btnFoto_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog file = new OpenFileDialog();
+            file.Filter = "Archivos de imagen (*.jpg)(*.jpeg)|*.jpg;*.jpeg|PNG (*.png)|*.png|GIF(*.gif)|*.gif";
+
+            if (file.ShowDialog() == DialogResult.OK)
+            {
+                pbxFoto.ImageLocation = file.FileName;
+                txbFoto.Text = file.FileName;
+            }
+        }
+
+        private void txbBasico_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != '.')
+                e.Handled = true;
+        }
+
+        private void frmAltaEmpleado_Shown(object sender, EventArgs e)
+        {
+            completo = true;
         }
     }
 }

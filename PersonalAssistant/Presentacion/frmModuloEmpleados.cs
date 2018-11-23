@@ -72,7 +72,7 @@ namespace Presentacion
 
         private void btnLicencias_Click(object sender, EventArgs e)
         {
-            frmLicencias licencias = new frmLicencias();
+            frmLicencias licencias = new frmLicencias(usuarioLogueado);
             AbrirFormHijo(licencias);
             pnlBoton.Height = btnLicencias.Height;
             pnlBoton.Top = btnLicencias.Top;

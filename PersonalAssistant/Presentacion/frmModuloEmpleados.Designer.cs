@@ -195,6 +195,7 @@
             this.ClientSize = new System.Drawing.Size(1027, 583);
             this.Controls.Add(this.pnlContenedor);
             this.Controls.Add(this.pnlEmpleados);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmModuloEmpleados";
             this.Text = "frmModuloEmpleados";
             this.Controls.SetChildIndex(this.pnlEmpleados, 0);

@@ -40,6 +40,7 @@ namespace Presentacion
                 dgvVacacionesAsignadas.Columns["fechaInicio"].DefaultCellStyle.Format = "dd/MM/yyyy";
                 dgvVacacionesAsignadas.Columns["fechaFinal"].DefaultCellStyle.Format = "dd/MM/yyyy";
                 dgvVacacionesAsignadas.Columns["dni"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                
             }
             catch (Exception ex)
             {
@@ -134,6 +135,30 @@ namespace Presentacion
         {
             if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
                 e.Handled = true;
+        }
+
+        private void btnEliminarVacaciones_Click(object sender, EventArgs e)
+        {
+            VacacionesPersonal vacas;
+            Vacaciones baja;
+            VacacionesPersonal lista = new VacacionesPersonal(); ;
+            frmConfirma confirma;
+            try
+            {
+                vacas = new VacacionesPersonal();
+                baja = new Vacaciones();
+                baja = (Vacaciones)dgvVacacionesAsignadas.CurrentRow.DataBoundItem;
+                confirma = new frmConfirma("Seguro desea eliminar las vacaciones asignadas de" + Environment.NewLine + baja.Apellido + " del " + baja.FechaInicio.ToShortDateString() + " al " + baja.FechaFinal.ToShortDateString());
+                confirma.ShowDialog();
+                if (confirma.Confirma) vacas.eliminar(baja);
+                cbxAnios.Items.Clear();
+                AsignarVacaciones_Load(sender, e);
+            }
+            
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

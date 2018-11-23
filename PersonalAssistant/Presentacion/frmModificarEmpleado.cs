@@ -10,12 +10,16 @@ using System.Windows.Forms;
 using Dominio;
 using Personal;
 using System.Data.SqlClient;
+using Microsoft.Office.Interop.Excel;
+
 
 namespace Presentacion
 {
     public partial class frmModificarEmpleado : Form
     {
         private Usuario usuario;
+        private string solapa = "ACTIVOS";
+
         public string ComentarioBaja { get; set; }
         public DateTime fechaBaja { get; set; }
         public List<Empleado> ListaActivos { get; set; }
@@ -56,9 +60,9 @@ namespace Presentacion
                 dgvLegajos.Columns["idRegistro"].Visible = false;
                 dgvLegajos.Columns["Nombre"].ReadOnly = true;
                 dgvLegajos.Columns["apellido"].ReadOnly = true;
-               // dgvLegajos.Columns["fechaAlta"].HeaderText = "Fecha de alta";
+                // dgvLegajos.Columns["fechaAlta"].HeaderText = "Fecha de alta";
                 dgvLegajos.Columns["fechaAlta"].ReadOnly = true;
-               // dgvLegajos.Columns["VencimientoPrueba"].HeaderText = "Vencimiento Periodo de Prueba";
+                // dgvLegajos.Columns["VencimientoPrueba"].HeaderText = "Vencimiento Periodo de Prueba";
                 dgvLegajos.Columns["VencimientoPrueba"].ReadOnly = true;
                 dgvLegajos.Columns["dni"].ReadOnly = true;
                 dgvLegajos.Columns["sexo"].Visible = false;
@@ -158,16 +162,24 @@ namespace Presentacion
             {
                 btnBaja.Visible = true;
                 btnModificar.Visible = true;
+                lblNota.Visible = false;
+                btnExcel.Visible = true;
+                solapa = "ACTIVOS";
             }
             if (tbcListadoEmpleados.SelectedIndex == 1)
             {
                 btnBaja.Visible = false;
                 btnModificar.Visible = true;
+                lblNota.Visible = false;
+                btnExcel.Visible = true;
+                solapa = "BAJAS";
             }
             if (tbcListadoEmpleados.SelectedIndex == 2)
             {
                 btnBaja.Visible = false;
                 btnModificar.Visible = false;
+                lblNota.Visible = true;
+                btnExcel.Visible = false;
             }
         }
 
@@ -247,7 +259,7 @@ namespace Presentacion
                 }
             }
 
-    
+
         }
 
         private void dgvLegajos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -264,7 +276,117 @@ namespace Presentacion
                 MessageBox.Show("El Número de legajo ya existe");
             }
         }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveFileDialog archivo = new SaveFileDialog();
+                archivo.Filter = "Excel (*.xls)|*.xls";
+                if(solapa == "ACTIVOS") archivo.FileName = "Reporte Empleados Activo" + DateTime.Now.Date.ToShortDateString().Replace('/', '-');
+                else archivo.FileName = "Reporte Empleados Baja" + DateTime.Now.Date.ToShortDateString().Replace('/', '-');
+                if (archivo.ShowDialog() == DialogResult.OK)
+                {
+                    Microsoft.Office.Interop.Excel.Application aplicacion;
+                    Microsoft.Office.Interop.Excel.Workbook libroDeTrabajo;
+                    Microsoft.Office.Interop.Excel.Worksheet hojaDeTrabajo;
+
+                    aplicacion = new Microsoft.Office.Interop.Excel.Application();
+                    libroDeTrabajo = aplicacion.Workbooks.Add();
+                    hojaDeTrabajo = (Microsoft.Office.Interop.Excel.Worksheet)libroDeTrabajo.Worksheets.get_Item(1);
+
+                    hojaDeTrabajo.Cells[1, "A"] = dgvEmpleadosActivos.Columns[0].HeaderText;
+                    hojaDeTrabajo.Cells[1, "B"] = dgvEmpleadosActivos.Columns[1].HeaderText;
+                    hojaDeTrabajo.Cells[1, "C"] = dgvEmpleadosActivos.Columns[2].HeaderText;
+                    hojaDeTrabajo.Cells[1, "D"] = dgvEmpleadosActivos.Columns[3].HeaderText;
+                    hojaDeTrabajo.Cells[1, "E"] = dgvEmpleadosActivos.Columns[4].HeaderText;
+                    hojaDeTrabajo.Cells[1, "F"] = dgvEmpleadosActivos.Columns[5].HeaderText;
+                    hojaDeTrabajo.Cells[1, "G"] = dgvEmpleadosActivos.Columns[6].HeaderText;
+                    hojaDeTrabajo.Cells[1, "H"] = dgvEmpleadosActivos.Columns[7].HeaderText;
+                    hojaDeTrabajo.Cells[1, "I"] = dgvEmpleadosActivos.Columns[8].HeaderText;
+                    hojaDeTrabajo.Cells[1, "J"] = dgvEmpleadosActivos.Columns[9].HeaderText;
+                    hojaDeTrabajo.Cells[1, "K"] = dgvEmpleadosActivos.Columns[10].HeaderText;
+                    hojaDeTrabajo.Cells[1, "L"] = dgvEmpleadosActivos.Columns[11].HeaderText;
+                    hojaDeTrabajo.Cells[1, "M"] = dgvEmpleadosActivos.Columns[12].HeaderText;
+                    hojaDeTrabajo.Cells[1, "N"] = dgvEmpleadosActivos.Columns[13].HeaderText;
+                    hojaDeTrabajo.Cells[1, "O"] = dgvEmpleadosActivos.Columns[14].HeaderText;
+                    hojaDeTrabajo.Cells[1, "P"] = dgvEmpleadosActivos.Columns[15].HeaderText;
+                    hojaDeTrabajo.Cells[1, "Q"] = dgvEmpleadosActivos.Columns[16].HeaderText;
+                    hojaDeTrabajo.Cells[1, "R"] = dgvEmpleadosActivos.Columns[17].HeaderText;
+                    hojaDeTrabajo.Cells[1, "S"] = dgvEmpleadosActivos.Columns[18].HeaderText;
+                    hojaDeTrabajo.Cells[1, "T"] = dgvEmpleadosActivos.Columns[19].HeaderText;
+                    hojaDeTrabajo.Cells[1, "U"] = dgvEmpleadosActivos.Columns[20].HeaderText;
+                    hojaDeTrabajo.Cells[1, "V"] = dgvEmpleadosActivos.Columns[21].HeaderText;
+                    hojaDeTrabajo.Cells[1, "W"] = dgvEmpleadosActivos.Columns[22].HeaderText;
+                    hojaDeTrabajo.Cells[1, "X"] = dgvEmpleadosActivos.Columns[23].HeaderText;
+                    hojaDeTrabajo.Cells[1, "Y"] = dgvEmpleadosActivos.Columns[24].HeaderText;
+                    hojaDeTrabajo.Cells[1, "Z"] = dgvEmpleadosActivos.Columns[25].HeaderText;
+                    hojaDeTrabajo.Cells[1, "AA"] = dgvEmpleadosActivos.Columns[26].HeaderText;
+                    hojaDeTrabajo.Cells[1, "AB"] = dgvEmpleadosActivos.Columns[27].HeaderText;
+                    hojaDeTrabajo.Cells[1, "AC"] = dgvEmpleadosActivos.Columns[28].HeaderText;
+                    hojaDeTrabajo.Cells[1, "AD"] = dgvEmpleadosActivos.Columns[29].HeaderText;
+                    hojaDeTrabajo.Cells[1, "AE"] = dgvEmpleadosActivos.Columns[30].HeaderText;
+                    hojaDeTrabajo.Cells[1, "AF"] = dgvEmpleadosActivos.Columns[31].HeaderText;
+                    hojaDeTrabajo.Cells[1, "AG"] = dgvEmpleadosActivos.Columns[32].HeaderText;
+                    hojaDeTrabajo.Cells[1, "AH"] = dgvEmpleadosActivos.Columns[33].HeaderText;
+                    hojaDeTrabajo.Cells[1, "AI"] = dgvEmpleadosActivos.Columns[34].HeaderText;
+                    hojaDeTrabajo.Cells[1, "AJ"] = dgvEmpleadosActivos.Columns[35].HeaderText;
+                    hojaDeTrabajo.Cells[1, "AK"] = dgvEmpleadosActivos.Columns[36].HeaderText;
+
+                    //hojaDeTrabajo.Columns[1].Autofill();
+                    //hojaDeTrabajo.Columns[2].AutoFill();
+                    //hojaDeTrabajo.Columns[3].AutoFill();
+                    //hojaDeTrabajo.Columns[4].AutoFill();
+                    //hojaDeTrabajo.Columns[5].AutoFill();
+                    //hojaDeTrabajo.Columns[6].AutoFill();
+                    hojaDeTrabajo.Name = "Empleados";
+
+                    //Recorremos el DataGridView rellenando la hoja de trabajo
+                    if (solapa == "ACTIVOS")
+                    {
+                        for (int i = 0; i < dgvEmpleadosActivos.Rows.Count; i++)
+                        {
+                            for (int j = 0; j < dgvEmpleadosActivos.Columns.Count; j++)
+                            {
+                                if (dgvEmpleadosActivos.Rows[i].Cells[j].Value != null)
+                                {
+                                    hojaDeTrabajo.Cells[i + 2, j + 1] = dgvEmpleadosActivos.Rows[i].Cells[j].Value.ToString();
+                                }
+                            }
+                        }
+                       //hojaDeTrabajo.Columns["A"].Delete();
+                    }
+                    else
+                    {
+                        for (int i = 0; i < dgvEmpleadosBaja.Rows.Count; i++)
+                        {
+                            for (int j = 0; j < dgvEmpleadosBaja.Columns.Count; j++)
+                            {
+                                if (dgvEmpleadosBaja.Rows[i].Cells[j].Value != null)
+                                {
+                                    hojaDeTrabajo.Cells[i + 2, j + 1] = dgvEmpleadosBaja.Rows[i].Cells[j].Value.ToString();
+                                }
+                            }
+                        }
+                    }
+
+
+
+                    libroDeTrabajo.SaveAs(archivo.FileName,
+                        Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal);
+                    libroDeTrabajo.Close(true);
+                    aplicacion.Quit();
+                    MessageBox.Show("Empleados Exportado a Excel", "Personal Assistant");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al exportar la informacion debido a: " + ex.ToString());
+            }
+
+        }
     }
 }
-    
+
+
 

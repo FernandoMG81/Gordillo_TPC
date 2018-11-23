@@ -14,6 +14,7 @@ namespace Dominio
         private int DiasAnio;
         private DateTime fFinal;
 
+        public long IDregistro { get; set; }
         public string dni { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
