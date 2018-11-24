@@ -17,11 +17,11 @@ namespace Presentacion
             InitializeComponent();
         }
 
-        private void btnOK_Click(object sender, EventArgs e)
+        private void BtnOK_Click(object sender, EventArgs e)
         {
             frmModificarEmpleado Principal = Owner as frmModificarEmpleado;
             Principal.ComentarioBaja = rtxComentario.Text;
-            Principal.fechaBaja = dtpBaja.Value;
+            Principal.FechaBaja = dtpBaja.Value;
             this.Dispose();
         }
     }

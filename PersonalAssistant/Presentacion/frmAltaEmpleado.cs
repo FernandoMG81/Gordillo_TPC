@@ -35,7 +35,7 @@ namespace Presentacion
             usuarioLogueado = user;
         }
 
-        private void frmAltaEmpleado_Load(object sender, EventArgs e)
+        private void FrmAltaEmpleado_Load(object sender, EventArgs e)
         {
 
             ConceptoPersonal concepto = new ConceptoPersonal();
@@ -73,8 +73,8 @@ namespace Presentacion
                 cbxEstadoCivil.ValueMember = "IdEstadoCivil";
                 cbxEstadoCivil.DisplayMember = "Descripcion";
 
-                cargarLocalidad();
-                cargarPartido();
+                CargarLocalidad();
+                CargarPartido();
 
 
 
@@ -166,11 +166,11 @@ namespace Presentacion
         }
 
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void BtnAgregar_Click(object sender, EventArgs e)
         {
             EmpleadoPersonal empleadoPersonal = new EmpleadoPersonal();
 
-            if (validarTextBoxsVacios())
+            if (ValidarTextBoxsVacios())
             {
                 try
                 {
@@ -182,22 +182,32 @@ namespace Presentacion
                     }
 
                     empleado.FechaAlta = dtpFechaAlta.Value.Date;
-                    empleado.Contrato = new Contrato();
-                    empleado.Contrato.Idcontrato = Convert.ToInt64(cbxContrato.SelectedValue);
-                    empleado.Contrato.Descripcion = cbxContrato.DisplayMember;
+                    empleado.Contrato = new Contrato
+                    {
+                        Idcontrato = Convert.ToInt64(cbxContrato.SelectedValue),
+                        Descripcion = cbxContrato.DisplayMember
+                    };
                     empleado.Sexo = rdbMasculino.Checked ? 'M' : 'F';
-                    empleado.Seccion = new Seccion();
-                    empleado.Seccion.Idseccion = Convert.ToInt64(cbxSeccion.SelectedValue);
-                    empleado.Seccion.Nombre = cbxSeccion.DisplayMember;
-                    empleado.Concepto = new Concepto();
-                    empleado.Concepto.IdConcepto = Convert.ToInt64(cbxConcepto.SelectedValue);
-                    empleado.Concepto.Nombre = cbxConcepto.DisplayMember;
-                    empleado.Convenio = new Convenio();
-                    empleado.Convenio.IDconvenio = Convert.ToInt64(cbxConvenio.SelectedValue);
-                    empleado.Convenio.Descripcion = cbxConvenio.DisplayMember;
-                    empleado.Categoria = new Categoria();
-                    empleado.Categoria.Idcategoria = Convert.ToInt64(cbxCategoria.SelectedValue);
-                    empleado.Categoria.nombre = cbxCategoria.DisplayMember;
+                    empleado.Seccion = new Seccion
+                    {
+                        Idseccion = Convert.ToInt64(cbxSeccion.SelectedValue),
+                        Nombre = cbxSeccion.DisplayMember
+                    };
+                    empleado.Concepto = new Concepto
+                    {
+                        IdConcepto = Convert.ToInt64(cbxConcepto.SelectedValue),
+                        Nombre = cbxConcepto.DisplayMember
+                    };
+                    empleado.Convenio = new Convenio
+                    {
+                        IDconvenio = Convert.ToInt64(cbxConvenio.SelectedValue),
+                        Descripcion = cbxConvenio.DisplayMember
+                    };
+                    empleado.Categoria = new Categoria
+                    {
+                        Idcategoria = Convert.ToInt64(cbxCategoria.SelectedValue),
+                        nombre = cbxCategoria.DisplayMember
+                    };
                     empleado.Nombre = txbNombre.Text.Trim();
                     empleado.Apellido = txbApellido.Text.Trim();
                     empleado.FechaDeNacimiento = dtpFechaNac.Value.Date;
@@ -207,20 +217,26 @@ namespace Presentacion
                     empleado.TelefonoPrincipal = txbTelefonoPrincipal.Text.Trim();
                     empleado.TelefonoSecundario = txbTelefonoAlternativo.Text.Trim();
                     empleado.Nacionalidad = txbNacionalidad.Text.Trim();
-                    empleado.EstadoCivil = new EstadoCivil();
-                    empleado.EstadoCivil.IdEstadoCivil = Convert.ToByte(cbxEstadoCivil.SelectedValue);
-                    empleado.EstadoCivil.Descripcion = cbxEstadoCivil.DisplayMember;
+                    empleado.EstadoCivil = new EstadoCivil
+                    {
+                        IdEstadoCivil = Convert.ToByte(cbxEstadoCivil.SelectedValue),
+                        Descripcion = cbxEstadoCivil.DisplayMember
+                    };
                     empleado.Hijos = Convert.ToByte(nudHijos.Value.ToString());
                     empleado.Domicilio = txbDomicilio.Text.Trim();
                     empleado.Entrecalle1 = txbEntrecalles1.Text.Trim();
                     empleado.Entrecalle2 = txbEntrecalles2.Text.Trim();
-                    empleado.Localidad = new Localidad();
-                    empleado.Localidad.cp = Int64.Parse(txbCP.Text.Trim());
-                    empleado.Localidad.IDlocalidad = Convert.ToInt64(cbxLocalidad.SelectedValue);
+                    empleado.Localidad = new Localidad
+                    {
+                        cp = Int64.Parse(txbCP.Text.Trim()),
+                        IDlocalidad = Convert.ToInt64(cbxLocalidad.SelectedValue)
+                    };
                     empleado.Basico = Convert.ToDecimal(txbBasico.Text.Trim());
                     empleado.ControlHorario = rdbSi.Checked ? true : false;
-                    empleado.UsuarioCreacion = new Usuario();
-                    empleado.UsuarioCreacion.ID = usuarioLogueado.ID;
+                    empleado.UsuarioCreacion = new Usuario
+                    {
+                        ID = usuarioLogueado.ID
+                    };
                     empleado.FechaCreacion = DateTime.Now;
                     if (cbxContrato.SelectedItem.ToString() == "TIEMPO INDETERMINADO")
                         empleado.VencimientoPrueba = dtpFechaAlta.Value.AddMonths(3);
@@ -254,57 +270,59 @@ namespace Presentacion
 
         }
 
-        private void cbxContrato_KeyPress(object sender, KeyPressEventArgs e)
+        private void CbxContrato_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
         }
 
-        private void cbxSeccion_KeyPress(object sender, KeyPressEventArgs e)
+        private void CbxSeccion_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
         }
 
-        private void cbxConcepto_KeyPress(object sender, KeyPressEventArgs e)
+        private void CbxConcepto_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
         }
 
-        private void cbxCategoria_KeyPress(object sender, KeyPressEventArgs e)
+        private void CbxCategoria_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
         }
 
-        private void cbxConvenio_KeyPress(object sender, KeyPressEventArgs e)
+        private void CbxConvenio_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
         }
 
-        private void cbxEstadoCivil_KeyPress(object sender, KeyPressEventArgs e)
+        private void CbxEstadoCivil_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
         }
 
-        private void txbCP_Validated(object sender, EventArgs e)
+        private void TxbCP_Validated(object sender, EventArgs e)
         {
 
             try
             {
-                if (txbCP.Text == "")
+                if (completo)
                 {
-                    cargarLocalidad();
-                    cargarPartido();
-                }
+                    if (txbCP.Text == "")
+                    {
+                        CargarLocalidad();
+                        CargarPartido();
+                    }
 
-                else
-                {
-                    LocalidadPersonal aux = new LocalidadPersonal();
-                    Localidad aux2 = new Localidad();
-                    cargarLocalidad(Int64.Parse(txbCP.Text));
-                    Int64 ID = Convert.ToInt64(cbxLocalidad.SelectedValue);
-                    aux2 = aux.buscarIDpartido(ID);
-                    cargarPartido(aux2.IDpartido);
+                    else
+                    {
+                        LocalidadPersonal aux = new LocalidadPersonal();
+                        Localidad aux2 = new Localidad();
+                        CargarLocalidad(Int64.Parse(txbCP.Text));
+                        Int64 ID = Convert.ToInt64(cbxLocalidad.SelectedValue);
+                        aux2 = aux.buscarIDpartido(ID);
+                        CargarPartido(aux2.IDpartido);
+                    }
                 }
-
             }
             catch (Exception ex)
             {
@@ -314,7 +332,7 @@ namespace Presentacion
 
         }
 
-        private void cargarLocalidad(Int64 cp = 0)
+        private void CargarLocalidad(Int64 cp = 0)
         {
             LocalidadPersonal localidades;
 
@@ -346,7 +364,7 @@ namespace Presentacion
             }
         }
 
-        private void cargarPartido(Int64 ID = 0)
+        private void CargarPartido(Int64 ID = 0)
         {
             PartidoPersonal partidos;
 
@@ -375,12 +393,12 @@ namespace Presentacion
             }
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void cbxLocalidad_SelectedIndexChanged(object sender, EventArgs e)
+        private void CbxLocalidad_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
@@ -391,7 +409,7 @@ namespace Presentacion
                     Int64 ID = Convert.ToInt64(cbxLocalidad.SelectedValue);
                     aux2 = aux.buscarIDpartido(ID);
                     txbCP.Text = aux2.cp.ToString();
-                    cargarPartido(aux2.IDpartido);
+                    CargarPartido(aux2.IDpartido);
                 }
             }
             catch (Exception ex)
@@ -444,7 +462,7 @@ namespace Presentacion
             }
         }
 
-        bool validarTextBoxsVacios()
+        bool ValidarTextBoxsVacios()
         {
             foreach (Control item in this.Controls)
             {
@@ -488,92 +506,92 @@ namespace Presentacion
             return true;
         }
 
-        private void txbCP_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxbCP_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
                 e.Handled = true;
         }
 
-        private void txbDni_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxbDni_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
                 e.Handled = true;
         }
 
-        private void txbCuil_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxbCuil_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
                 e.Handled = true;
         }
 
-        private void txbTelefonoPrincipal_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxbTelefonoPrincipal_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
                 e.Handled = true;
         }
 
-        private void txbTelefonoAlternativo_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxbTelefonoAlternativo_KeyPress(object sender, KeyPressEventArgs e)
         {
             //    if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space) && (e.KeyChar != (char)Keys.Divide))
                 e.Handled = true;
         }
 
-        private void txbObraSocial_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxbObraSocial_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetterOrDigit(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
                 e.Handled = true;
         }
 
-        private void txbNombre_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxbNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetterOrDigit(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
                 e.Handled = true;
         }
 
-        private void txbApellido_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxbApellido_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetterOrDigit(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
                 e.Handled = true;
         }
 
-        private void txbDomicilio_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxbDomicilio_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetterOrDigit(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
                 e.Handled = true;
         }
 
-        private void txbEntrecalles1_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxbEntrecalles1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetterOrDigit(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
                 e.Handled = true;
         }
 
-        private void txbEntrecalles2_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxbEntrecalles2_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetterOrDigit(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
                 e.Handled = true;
         }
 
-        private void cbxLocalidad_KeyPress(object sender, KeyPressEventArgs e)
+        private void CbxLocalidad_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetterOrDigit(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
                 e.Handled = true;
         }
 
-        private void cbxPartido_KeyPress(object sender, KeyPressEventArgs e)
+        private void CbxPartido_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetterOrDigit(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
                 e.Handled = true;
         }
 
-        private void txbNacionalidad_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxbNacionalidad_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
                 e.Handled = true;
         }
 
-        private void cbxContrato_SelectedIndexChanged(object sender, EventArgs e)
+        private void CbxContrato_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
@@ -589,17 +607,17 @@ namespace Presentacion
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-
-
             }
         }
 
-        private void btnFoto_Click(object sender, EventArgs e)
+        private void BtnFoto_Click(object sender, EventArgs e)
         {
-            OpenFileDialog file = new OpenFileDialog();
-            file.Filter = "Archivos de imagen (*.jpg)(*.jpeg)|*.jpg;*.jpeg|PNG (*.png)|*.png|GIF(*.gif)|*.gif";
+            OpenFileDialog file = new OpenFileDialog
+            {
+                Filter = "Archivos de imagen (*.jpg)(*.jpeg)|*.jpg;*.jpeg|PNG (*.png)|*.png|GIF(*.gif)|*.gif"
+            };
 
             if (file.ShowDialog() == DialogResult.OK)
             {
@@ -608,15 +626,62 @@ namespace Presentacion
             }
         }
 
-        private void txbBasico_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxbBasico_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != '.')
                 e.Handled = true;
         }
 
-        private void frmAltaEmpleado_Shown(object sender, EventArgs e)
+        private void FrmAltaEmpleado_Shown(object sender, EventArgs e)
         {
             completo = true;
+        }
+
+        private void cbxSeccion_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            ConceptoPersonal concepto;
+            try
+            {
+                concepto = new ConceptoPersonal();
+                cbxConcepto.DataSource = concepto.listar(((Seccion)cbxSeccion.SelectedItem).Idseccion);
+                cbxConcepto.SelectedIndex = -1;
+                cbxCategoria.DataSource = null;
+                cbxCategoria.SelectedIndex = -1;
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void cbxConcepto_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+            CategoriaPersonal categoria;
+            try
+            {
+                categoria = new CategoriaPersonal();
+                cbxCategoria.DataSource = categoria.listar(((Concepto)cbxConcepto.SelectedItem).IdConcepto);
+                cbxCategoria.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            cbxSeccion.SelectedValue = 3;
+        }
+
+        private void cbxCategoria_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            cbxConcepto.SelectedValue = ((Categoria)cbxCategoria.SelectedItem).IdConcepto;
+            cbxSeccion.SelectedValue = ((Concepto)cbxConcepto.SelectedItem).IdArea;
         }
     }
 }

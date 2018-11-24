@@ -94,6 +94,7 @@ namespace Presentacion
         {
             btnBorrar.Visible = true;
             txbUsuario.Enabled = false;
+            
             UsuariosPersonal usuario;
             Encrypt encripta;
             try

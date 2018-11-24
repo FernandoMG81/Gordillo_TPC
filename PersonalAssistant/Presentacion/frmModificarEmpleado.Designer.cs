@@ -67,7 +67,7 @@
             this.txbBuscar.Name = "txbBuscar";
             this.txbBuscar.Size = new System.Drawing.Size(230, 20);
             this.txbBuscar.TabIndex = 22;
-            this.txbBuscar.TextChanged += new System.EventHandler(this.txbBuscar_TextChanged);
+            this.txbBuscar.TextChanged += new System.EventHandler(this.TxbBuscar_TextChanged);
             // 
             // dgvEmpleadosActivos
             // 
@@ -101,7 +101,7 @@
             this.btnModificar.TabIndex = 24;
             this.btnModificar.Text = "MODIFICAR";
             this.btnModificar.UseVisualStyleBackColor = false;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            this.btnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
             // 
             // btnBaja
             // 
@@ -117,7 +117,7 @@
             this.btnBaja.TabIndex = 25;
             this.btnBaja.Text = "BAJA";
             this.btnBaja.UseVisualStyleBackColor = false;
-            this.btnBaja.Click += new System.EventHandler(this.btnBaja_Click);
+            this.btnBaja.Click += new System.EventHandler(this.BtnBaja_Click);
             // 
             // tbcListadoEmpleados
             // 
@@ -130,7 +130,7 @@
             this.tbcListadoEmpleados.SelectedIndex = 0;
             this.tbcListadoEmpleados.Size = new System.Drawing.Size(857, 418);
             this.tbcListadoEmpleados.TabIndex = 28;
-            this.tbcListadoEmpleados.SelectedIndexChanged += new System.EventHandler(this.tbcListadoEmpleados_SelectedIndexChanged);
+            this.tbcListadoEmpleados.SelectedIndexChanged += new System.EventHandler(this.TbcListadoEmpleados_SelectedIndexChanged);
             // 
             // tbpActivos
             // 
@@ -201,7 +201,7 @@
             this.dgvLegajos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvLegajos.Size = new System.Drawing.Size(842, 378);
             this.dgvLegajos.TabIndex = 25;
-            this.dgvLegajos.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLegajos_CellValueChanged);
+            this.dgvLegajos.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvLegajos_CellValueChanged);
             // 
             // cbxBuscar
             // 
@@ -235,7 +235,7 @@
             this.btnExcel.Size = new System.Drawing.Size(57, 47);
             this.btnExcel.TabIndex = 31;
             this.btnExcel.UseVisualStyleBackColor = false;
-            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            this.btnExcel.Click += new System.EventHandler(this.BtnExcel_Click);
             // 
             // frmModificarEmpleado
             // 

@@ -30,7 +30,7 @@ namespace Presentacion
                 dtpDesde.Value = dtpDesde.Value.AddMinutes(-DateTime.Now.Minute);
                 dtpHasta.Value = dtpHasta.Value.AddHours(23-DateTime.Now.Hour);
                 dtpHasta.Value = dtpHasta.Value.AddMinutes(59-DateTime.Now.Minute);
-                dgvInforme.DataSource = informe.listarInforme(dtpDesde.Value, dtpHasta.Value);
+                dgvInforme.DataSource = informe.listarInforme(dtpDesde.Value, dtpHasta.Value, cbxEmpleados.SelectedValue.ToString());
                 dgvInforme.Columns["idregistro"].Visible = false;
 
             }
@@ -100,6 +100,25 @@ namespace Presentacion
                 MessageBox.Show("Error al exportar la informacion debido a: " + ex.ToString());
             }
 
+        }
+
+        private void frmInformeHorario_Load(object sender, EventArgs e)
+        {
+            EmpleadoPersonal emp;
+            Empleado aux;
+            try
+            {
+                emp = new EmpleadoPersonal();
+                aux = new Empleado();
+                cbxEmpleados.DataSource = emp.listarDepositoInforme();
+                cbxEmpleados.DisplayMember = "Nombre";
+                cbxEmpleados.ValueMember = "dni";
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

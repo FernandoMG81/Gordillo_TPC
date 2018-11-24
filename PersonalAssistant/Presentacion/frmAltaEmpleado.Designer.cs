@@ -92,6 +92,7 @@
             this.lblFechaContrato = new System.Windows.Forms.Label();
             this.dtpFechaFinaliza = new System.Windows.Forms.DateTimePicker();
             this.txbFoto = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudHijos)).BeginInit();
             this.gbxSexo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxFoto)).BeginInit();
@@ -111,7 +112,7 @@
             this.btnAgregar.TabIndex = 26;
             this.btnAgregar.Text = "GUARDAR";
             this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.btnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // txbNombre
             // 
@@ -119,7 +120,7 @@
             this.txbNombre.Name = "txbNombre";
             this.txbNombre.Size = new System.Drawing.Size(156, 20);
             this.txbNombre.TabIndex = 6;
-            this.txbNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbNombre_KeyPress);
+            this.txbNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbNombre_KeyPress);
             // 
             // lblNombre
             // 
@@ -137,7 +138,7 @@
             this.txbApellido.Name = "txbApellido";
             this.txbApellido.Size = new System.Drawing.Size(156, 20);
             this.txbApellido.TabIndex = 7;
-            this.txbApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbApellido_KeyPress);
+            this.txbApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbApellido_KeyPress);
             // 
             // lblApellido
             // 
@@ -173,8 +174,8 @@
             this.cbxContrato.Name = "cbxContrato";
             this.cbxContrato.Size = new System.Drawing.Size(145, 21);
             this.cbxContrato.TabIndex = 0;
-            this.cbxContrato.SelectedIndexChanged += new System.EventHandler(this.cbxContrato_SelectedIndexChanged);
-            this.cbxContrato.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxContrato_KeyPress);
+            this.cbxContrato.SelectedIndexChanged += new System.EventHandler(this.CbxContrato_SelectedIndexChanged);
+            this.cbxContrato.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CbxContrato_KeyPress);
             // 
             // cbxCategoria
             // 
@@ -183,7 +184,8 @@
             this.cbxCategoria.Name = "cbxCategoria";
             this.cbxCategoria.Size = new System.Drawing.Size(144, 21);
             this.cbxCategoria.TabIndex = 3;
-            this.cbxCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxCategoria_KeyPress);
+            this.cbxCategoria.SelectionChangeCommitted += new System.EventHandler(this.cbxCategoria_SelectionChangeCommitted);
+            this.cbxCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CbxCategoria_KeyPress);
             // 
             // lblCategoria
             // 
@@ -202,7 +204,8 @@
             this.cbxSeccion.Name = "cbxSeccion";
             this.cbxSeccion.Size = new System.Drawing.Size(144, 21);
             this.cbxSeccion.TabIndex = 1;
-            this.cbxSeccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxSeccion_KeyPress);
+            this.cbxSeccion.SelectionChangeCommitted += new System.EventHandler(this.cbxSeccion_SelectionChangeCommitted);
+            this.cbxSeccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CbxSeccion_KeyPress);
             // 
             // lblSeccion
             // 
@@ -221,7 +224,8 @@
             this.cbxConcepto.Name = "cbxConcepto";
             this.cbxConcepto.Size = new System.Drawing.Size(144, 21);
             this.cbxConcepto.TabIndex = 2;
-            this.cbxConcepto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxConcepto_KeyPress);
+            this.cbxConcepto.SelectionChangeCommitted += new System.EventHandler(this.cbxConcepto_SelectionChangeCommitted);
+            this.cbxConcepto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CbxConcepto_KeyPress);
             // 
             // lblConcepto
             // 
@@ -240,7 +244,7 @@
             this.txbDni.Name = "txbDni";
             this.txbDni.Size = new System.Drawing.Size(156, 20);
             this.txbDni.TabIndex = 8;
-            this.txbDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbDni_KeyPress);
+            this.txbDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbDni_KeyPress);
             // 
             // lblDni
             // 
@@ -259,7 +263,7 @@
             this.txbCuil.Name = "txbCuil";
             this.txbCuil.Size = new System.Drawing.Size(156, 20);
             this.txbCuil.TabIndex = 9;
-            this.txbCuil.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbCuil_KeyPress);
+            this.txbCuil.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbCuil_KeyPress);
             // 
             // lblCuil
             // 
@@ -278,7 +282,7 @@
             this.cbxConvenio.Name = "cbxConvenio";
             this.cbxConvenio.Size = new System.Drawing.Size(121, 21);
             this.cbxConvenio.TabIndex = 4;
-            this.cbxConvenio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxConvenio_KeyPress);
+            this.cbxConvenio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CbxConvenio_KeyPress);
             // 
             // lblConvenio
             // 
@@ -296,7 +300,7 @@
             this.txbObraSocial.Name = "txbObraSocial";
             this.txbObraSocial.Size = new System.Drawing.Size(156, 20);
             this.txbObraSocial.TabIndex = 5;
-            this.txbObraSocial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbObraSocial_KeyPress);
+            this.txbObraSocial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbObraSocial_KeyPress);
             // 
             // lblObraSocial
             // 
@@ -314,7 +318,7 @@
             this.txbDomicilio.Name = "txbDomicilio";
             this.txbDomicilio.Size = new System.Drawing.Size(156, 20);
             this.txbDomicilio.TabIndex = 10;
-            this.txbDomicilio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbDomicilio_KeyPress);
+            this.txbDomicilio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbDomicilio_KeyPress);
             // 
             // lblDomicilio
             // 
@@ -332,7 +336,7 @@
             this.txbEntrecalles1.Name = "txbEntrecalles1";
             this.txbEntrecalles1.Size = new System.Drawing.Size(156, 20);
             this.txbEntrecalles1.TabIndex = 11;
-            this.txbEntrecalles1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbEntrecalles1_KeyPress);
+            this.txbEntrecalles1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbEntrecalles1_KeyPress);
             // 
             // lblEntreCalles
             // 
@@ -350,7 +354,7 @@
             this.txbEntrecalles2.Name = "txbEntrecalles2";
             this.txbEntrecalles2.Size = new System.Drawing.Size(156, 20);
             this.txbEntrecalles2.TabIndex = 12;
-            this.txbEntrecalles2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbEntrecalles2_KeyPress);
+            this.txbEntrecalles2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbEntrecalles2_KeyPress);
             // 
             // txbCP
             // 
@@ -359,8 +363,8 @@
             this.txbCP.Name = "txbCP";
             this.txbCP.Size = new System.Drawing.Size(59, 20);
             this.txbCP.TabIndex = 13;
-            this.txbCP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbCP_KeyPress);
-            this.txbCP.Validated += new System.EventHandler(this.txbCP_Validated);
+            this.txbCP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbCP_KeyPress);
+            this.txbCP.Validated += new System.EventHandler(this.TxbCP_Validated);
             // 
             // lblCp
             // 
@@ -399,7 +403,7 @@
             this.txbTelefonoPrincipal.Name = "txbTelefonoPrincipal";
             this.txbTelefonoPrincipal.Size = new System.Drawing.Size(156, 20);
             this.txbTelefonoPrincipal.TabIndex = 16;
-            this.txbTelefonoPrincipal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbTelefonoPrincipal_KeyPress);
+            this.txbTelefonoPrincipal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbTelefonoPrincipal_KeyPress);
             // 
             // lblTelefono
             // 
@@ -418,7 +422,7 @@
             this.txbTelefonoAlternativo.Name = "txbTelefonoAlternativo";
             this.txbTelefonoAlternativo.Size = new System.Drawing.Size(183, 20);
             this.txbTelefonoAlternativo.TabIndex = 17;
-            this.txbTelefonoAlternativo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbTelefonoAlternativo_KeyPress);
+            this.txbTelefonoAlternativo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbTelefonoAlternativo_KeyPress);
             // 
             // lblTelefonoAlternativo
             // 
@@ -454,7 +458,7 @@
             this.txbNacionalidad.Name = "txbNacionalidad";
             this.txbNacionalidad.Size = new System.Drawing.Size(156, 20);
             this.txbNacionalidad.TabIndex = 19;
-            this.txbNacionalidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbNacionalidad_KeyPress);
+            this.txbNacionalidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbNacionalidad_KeyPress);
             // 
             // lblNacionalidad
             // 
@@ -473,7 +477,7 @@
             this.cbxEstadoCivil.Name = "cbxEstadoCivil";
             this.cbxEstadoCivil.Size = new System.Drawing.Size(121, 21);
             this.cbxEstadoCivil.TabIndex = 20;
-            this.cbxEstadoCivil.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxEstadoCivil_KeyPress);
+            this.cbxEstadoCivil.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CbxEstadoCivil_KeyPress);
             // 
             // lblEstadoCivil
             // 
@@ -522,8 +526,8 @@
             this.cbxLocalidad.Name = "cbxLocalidad";
             this.cbxLocalidad.Size = new System.Drawing.Size(178, 21);
             this.cbxLocalidad.TabIndex = 14;
-            this.cbxLocalidad.SelectedIndexChanged += new System.EventHandler(this.cbxLocalidad_SelectedIndexChanged);
-            this.cbxLocalidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxLocalidad_KeyPress);
+            this.cbxLocalidad.SelectedIndexChanged += new System.EventHandler(this.CbxLocalidad_SelectedIndexChanged);
+            this.cbxLocalidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CbxLocalidad_KeyPress);
             // 
             // cbxPartido
             // 
@@ -532,7 +536,7 @@
             this.cbxPartido.Name = "cbxPartido";
             this.cbxPartido.Size = new System.Drawing.Size(148, 21);
             this.cbxPartido.TabIndex = 15;
-            this.cbxPartido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxPartido_KeyPress);
+            this.cbxPartido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CbxPartido_KeyPress);
             // 
             // gbxSexo
             // 
@@ -575,7 +579,7 @@
             this.txbBasico.Name = "txbBasico";
             this.txbBasico.Size = new System.Drawing.Size(76, 20);
             this.txbBasico.TabIndex = 22;
-            this.txbBasico.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbBasico_KeyPress);
+            this.txbBasico.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbBasico_KeyPress);
             // 
             // lblBasico
             // 
@@ -601,7 +605,7 @@
             this.btnCerrar.Text = "CERRAR";
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Visible = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.btnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // pbxFoto
             // 
@@ -627,7 +631,7 @@
             this.btnFoto.TabIndex = 24;
             this.btnFoto.Text = "CARGAR FOTO";
             this.btnFoto.UseVisualStyleBackColor = false;
-            this.btnFoto.Click += new System.EventHandler(this.btnFoto_Click);
+            this.btnFoto.Click += new System.EventHandler(this.BtnFoto_Click);
             // 
             // groupBox1
             // 
@@ -734,11 +738,22 @@
             this.txbFoto.TabIndex = 73;
             this.txbFoto.Visible = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(44, 99);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 74;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmAltaEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(909, 556);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.txbFoto);
             this.Controls.Add(this.lblFechaContrato);
             this.Controls.Add(this.dtpFechaFinaliza);
@@ -803,8 +818,8 @@
             this.Name = "frmAltaEmpleado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmAltaEmpleado";
-            this.Load += new System.EventHandler(this.frmAltaEmpleado_Load);
-            this.Shown += new System.EventHandler(this.frmAltaEmpleado_Shown);
+            this.Load += new System.EventHandler(this.FrmAltaEmpleado_Load);
+            this.Shown += new System.EventHandler(this.FrmAltaEmpleado_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.nudHijos)).EndInit();
             this.gbxSexo.ResumeLayout(false);
             this.gbxSexo.PerformLayout();
@@ -882,5 +897,6 @@
         private System.Windows.Forms.Label lblFechaContrato;
         private System.Windows.Forms.DateTimePicker dtpFechaFinaliza;
         private System.Windows.Forms.TextBox txbFoto;
+        private System.Windows.Forms.Button button1;
     }
 }

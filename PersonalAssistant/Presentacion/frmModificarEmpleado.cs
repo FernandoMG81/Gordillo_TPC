@@ -21,7 +21,7 @@ namespace Presentacion
         private string solapa = "ACTIVOS";
 
         public string ComentarioBaja { get; set; }
-        public DateTime fechaBaja { get; set; }
+        public DateTime FechaBaja { get; set; }
         public List<Empleado> ListaActivos { get; set; }
         public List<Empleado> ListaBajas { get; set; }
         public List<Empleado> ListaLegajos { get; set; }
@@ -108,7 +108,7 @@ namespace Presentacion
             }
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void BtnModificar_Click(object sender, EventArgs e)
         {
             EmpleadoPersonal empleado = new EmpleadoPersonal();
             Empleado modificar;
@@ -128,7 +128,7 @@ namespace Presentacion
             }
         }
 
-        private void btnBaja_Click(object sender, EventArgs e)
+        private void BtnBaja_Click(object sender, EventArgs e)
         {
             EmpleadoPersonal baja;
             Empleado aux;
@@ -143,7 +143,7 @@ namespace Presentacion
                 aux.UsuarioModificacion.ID = usuario.ID;
                 aux.FechaModificacion = DateTime.Now;
                 comentario.ShowDialog();
-                aux.BajaFecha = fechaBaja;
+                aux.BajaFecha = FechaBaja;
                 aux.BajaMotivo = ComentarioBaja;
                 baja.bajaLogica(aux);
                 frmModificarEmpleado_Load(sender, e);
@@ -156,7 +156,7 @@ namespace Presentacion
         }
 
 
-        private void tbcListadoEmpleados_SelectedIndexChanged(object sender, EventArgs e)
+        private void TbcListadoEmpleados_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tbcListadoEmpleados.SelectedIndex == 0)
             {
@@ -183,7 +183,7 @@ namespace Presentacion
             }
         }
 
-        private void txbBuscar_TextChanged(object sender, EventArgs e)
+        private void TxbBuscar_TextChanged(object sender, EventArgs e)
         {
             if (tbcListadoEmpleados.SelectedIndex == 0)
             {
@@ -262,7 +262,7 @@ namespace Presentacion
 
         }
 
-        private void dgvLegajos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void DgvLegajos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             EmpleadoPersonal legajo;
             try
@@ -270,20 +270,22 @@ namespace Presentacion
                 legajo = new EmpleadoPersonal();
                 legajo.modificarLegajo((Empleado)dgvLegajos.CurrentRow.DataBoundItem);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 MessageBox.Show("El Número de legajo ya existe");
             }
         }
 
-        private void btnExcel_Click(object sender, EventArgs e)
+        private void BtnExcel_Click(object sender, EventArgs e)
         {
             try
             {
-                SaveFileDialog archivo = new SaveFileDialog();
-                archivo.Filter = "Excel (*.xls)|*.xls";
-                if(solapa == "ACTIVOS") archivo.FileName = "Reporte Empleados Activo" + DateTime.Now.Date.ToShortDateString().Replace('/', '-');
+                SaveFileDialog archivo = new SaveFileDialog
+                {
+                    Filter = "Excel (*.xls)|*.xls"
+                };
+                if (solapa == "ACTIVOS") archivo.FileName = "Reporte Empleados Activo" + DateTime.Now.Date.ToShortDateString().Replace('/', '-');
                 else archivo.FileName = "Reporte Empleados Baja" + DateTime.Now.Date.ToShortDateString().Replace('/', '-');
                 if (archivo.ShowDialog() == DialogResult.OK)
                 {

@@ -73,7 +73,7 @@
             this.ptbModuloEmpleados.TabIndex = 10;
             this.ptbModuloEmpleados.TabStop = false;
             this.ptbModuloEmpleados.Tag = "";
-            this.ptbModuloEmpleados.Click += new System.EventHandler(this.ptbModuloEmpleados_Click);
+            this.ptbModuloEmpleados.Click += new System.EventHandler(this.PtbModuloEmpleados_Click);
             // 
             // lblModuloEmpleado1
             // 
@@ -87,7 +87,7 @@
             this.lblModuloEmpleado1.Size = new System.Drawing.Size(96, 22);
             this.lblModuloEmpleado1.TabIndex = 11;
             this.lblModuloEmpleado1.Text = "MODULO";
-            this.lblModuloEmpleado1.Click += new System.EventHandler(this.lblModuloEmpleado1_Click);
+            this.lblModuloEmpleado1.Click += new System.EventHandler(this.LblModuloEmpleado1_Click);
             // 
             // lblModuloEmpleado2
             // 
@@ -101,7 +101,7 @@
             this.lblModuloEmpleado2.Size = new System.Drawing.Size(122, 22);
             this.lblModuloEmpleado2.TabIndex = 12;
             this.lblModuloEmpleado2.Text = "EMPLEADOS";
-            this.lblModuloEmpleado2.Click += new System.EventHandler(this.lblModuloEmpleado2_Click);
+            this.lblModuloEmpleado2.Click += new System.EventHandler(this.LblModuloEmpleado2_Click);
             // 
             // pbModuloHorarios
             // 
@@ -117,7 +117,7 @@
             this.pbModuloHorarios.TabIndex = 13;
             this.pbModuloHorarios.TabStop = false;
             this.pbModuloHorarios.Tag = "";
-            this.pbModuloHorarios.Click += new System.EventHandler(this.pbModuloHorarios_Click);
+            this.pbModuloHorarios.Click += new System.EventHandler(this.PbModuloHorarios_Click);
             // 
             // pnlUsuario
             // 
@@ -142,7 +142,7 @@
             this.btnModificarUsuario.TabIndex = 3;
             this.btnModificarUsuario.Text = "Modificar";
             this.btnModificarUsuario.UseVisualStyleBackColor = true;
-            this.btnModificarUsuario.Click += new System.EventHandler(this.btnModificarUsuario_Click);
+            this.btnModificarUsuario.Click += new System.EventHandler(this.BtnModificarUsuario_Click);
             // 
             // btnCerrarSesion
             // 
@@ -154,7 +154,7 @@
             this.btnCerrarSesion.TabIndex = 2;
             this.btnCerrarSesion.Text = "Cerrar Sesión";
             this.btnCerrarSesion.UseVisualStyleBackColor = true;
-            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
+            this.btnCerrarSesion.Click += new System.EventHandler(this.BtnCerrarSesion_Click);
             // 
             // lblusuarioActivo
             // 
@@ -195,7 +195,7 @@
             this.pbConfiguracion.TabIndex = 15;
             this.pbConfiguracion.TabStop = false;
             this.pbConfiguracion.Tag = "";
-            this.pbConfiguracion.Click += new System.EventHandler(this.pbConfiguracion_Click);
+            this.pbConfiguracion.Click += new System.EventHandler(this.PbConfiguracion_Click);
             // 
             // lblConfiguracion
             // 
@@ -210,7 +210,7 @@
             this.lblConfiguracion.Size = new System.Drawing.Size(196, 22);
             this.lblConfiguracion.TabIndex = 16;
             this.lblConfiguracion.Text = "CONFIGURACIONES";
-            this.lblConfiguracion.Click += new System.EventHandler(this.lblConfiguracion_Click);
+            this.lblConfiguracion.Click += new System.EventHandler(this.LblConfiguracion_Click);
             // 
             // lblBotonFichajes
             // 
@@ -224,7 +224,7 @@
             this.lblBotonFichajes.Size = new System.Drawing.Size(186, 22);
             this.lblBotonFichajes.TabIndex = 18;
             this.lblBotonFichajes.Text = "MODULO FICHAJES";
-            this.lblBotonFichajes.Click += new System.EventHandler(this.lblBotonFichajes_Click);
+            this.lblBotonFichajes.Click += new System.EventHandler(this.LblBotonFichajes_Click);
             // 
             // lblCumpleDia
             // 
@@ -237,6 +237,7 @@
             this.lblCumpleDia.Size = new System.Drawing.Size(128, 16);
             this.lblCumpleDia.TabIndex = 20;
             this.lblCumpleDia.Text = "CUMPLEAÑOS DEL DIA";
+            this.lblCumpleDia.Visible = false;
             // 
             // lblCumpleMes
             // 
@@ -258,7 +259,7 @@
             this.lblVencimientos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(35)))));
             this.lblVencimientos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVencimientos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblVencimientos.Location = new System.Drawing.Point(433, 495);
+            this.lblVencimientos.Location = new System.Drawing.Point(433, 457);
             this.lblVencimientos.Name = "lblVencimientos";
             this.lblVencimientos.Size = new System.Drawing.Size(241, 17);
             this.lblVencimientos.TabIndex = 22;
@@ -281,7 +282,7 @@
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(433, 448);
+            this.pictureBox2.Location = new System.Drawing.Point(433, 410);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(293, 52);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -347,8 +348,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMenuPrincipal";
             this.Text = "Personal Assistant";
-            this.Load += new System.EventHandler(this.frmMenuPrincipal_Load);
-            this.Shown += new System.EventHandler(this.frmMenuPrincipal_Shown);
+            this.Load += new System.EventHandler(this.FrmMenuPrincipal_Load);
+            this.Shown += new System.EventHandler(this.FrmMenuPrincipal_Shown);
             this.Controls.SetChildIndex(this.pictureBox5, 0);
             this.Controls.SetChildIndex(this.pictureBox2, 0);
             this.Controls.SetChildIndex(this.ptbModuloEmpleados, 0);

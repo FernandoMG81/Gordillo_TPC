@@ -110,7 +110,7 @@ namespace Personal
             return lista;
         }
 
-        
+       
 
         public IList<Empleado> listarLegajosPendientes()
         {
@@ -538,6 +538,43 @@ namespace Personal
                 throw ex;
             }
 
+        }
+
+        public object listarDepositoInforme()
+        {
+            List<Empleado> lista = new List<Empleado>();
+            Empleado aux;
+            Conexion conexion;
+            try
+            {
+                conexion = new Conexion();
+
+                conexion.setearConsulta("select apellido + nombre as nombre, dni from empleado where controlHorario = 1 order by nombre asc");
+                conexion.abrirConexion();
+                conexion.ejecutarAccion();
+
+                aux = new Empleado();
+                aux.Nombre = "TODOS";
+                aux.Dni = "0";
+                lista.Add(aux);
+
+                while (conexion.Lector.Read())
+                {
+                    aux = new Empleado();
+                    aux.Nombre = (string)conexion.Lector["nombre"];
+                    
+                    aux.Dni = (string)conexion.Lector["dni"];
+                    
+                    lista.Add(aux);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return lista;
         }
     }
 }

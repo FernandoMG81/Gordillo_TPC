@@ -22,7 +22,7 @@ namespace Presentacion
             usuarioLogueado = user;
         }
 
-        private void btnGenerar_Click(object sender, EventArgs e)
+        private void BtnGenerar_Click(object sender, EventArgs e)
         {
             VacacionesPersonal nuevas = new VacacionesPersonal();
             try
@@ -41,7 +41,7 @@ namespace Presentacion
             }
             finally
             {
-                cbxAnios_SelectedIndexChanged(sender, e);
+                CbxAnios_SelectedIndexChanged(sender, e);
             }
         }
 
@@ -50,7 +50,7 @@ namespace Presentacion
             for (int i = 2017; i <= DateTime.Now.Year; i++) cbxAnios.Items.Add(i);
         }
 
-        private void cbxAnios_SelectedIndexChanged(object sender, EventArgs e)
+        private void CbxAnios_SelectedIndexChanged(object sender, EventArgs e)
         {
             VacacionesPersonal vac;
 
@@ -69,7 +69,7 @@ namespace Presentacion
 
                 dgvVacaciones.CurrentRow.Selected = false;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //MessageBox.Show(ex.ToString());
                 MessageBox.Show("Aún no hay vacaciones generadas para el año " + cbxAnios.SelectedItem.ToString());
@@ -77,7 +77,7 @@ namespace Presentacion
         }
 
 
-        private void btnAsignarVacaciones_Click(object sender, EventArgs e)
+        private void BtnAsignarVacaciones_Click(object sender, EventArgs e)
         {
             frmAsignarVacaciones asigna;
             try

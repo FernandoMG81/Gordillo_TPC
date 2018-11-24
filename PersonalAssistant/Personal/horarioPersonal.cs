@@ -46,7 +46,7 @@ namespace Personal
             return lista;
         }
 
-        public List<Horario> listarInforme(DateTime desde, DateTime hasta)
+        public List<Horario> listarInforme(DateTime desde, DateTime hasta, string emp)
         {
             List<Horario> informe;
             Conexion conexion=null;
@@ -55,10 +55,12 @@ namespace Personal
             {
                 conexion = new Conexion();
                 informe = new List<Horario>();
-                conexion.setearConsulta("select p.dni,p.inicio,p.salida,p.estado,p.IDusuarioIngreso,p.IDUsuarioSalida,e.nombre,e.apellido from planillaHoraria p, empleado e where inicio between @desde and @hasta and p.dni = e.dni");
+                if (emp == "0")  conexion.setearConsulta("select p.dni,p.inicio,p.salida,p.estado,p.IDusuarioIngreso,p.IDUsuarioSalida,e.nombre,e.apellido from planillaHoraria p, empleado e where inicio between @desde and @hasta and p.dni = e.dni order by p.inicio asc");
+                else conexion.setearConsulta("select p.dni,p.inicio,p.salida,p.estado,p.IDusuarioIngreso,p.IDUsuarioSalida,e.nombre,e.apellido from planillaHoraria p, empleado e where inicio between @desde and @hasta and p.dni = e.dni and e.dni = @dni order by p.inicio asc");
                 conexion.Comando.Parameters.Clear();
                 conexion.Comando.Parameters.AddWithValue("@desde", desde);
                 conexion.Comando.Parameters.AddWithValue("@hasta", hasta);
+                conexion.Comando.Parameters.AddWithValue("@dni", emp);
                 conexion.abrirConexion();
                 conexion.ejecutarAccion();
 

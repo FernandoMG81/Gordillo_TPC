@@ -40,6 +40,7 @@
             this.txtClaveAnterior = new System.Windows.Forms.TextBox();
             this.txbDireccionImagen = new System.Windows.Forms.TextBox();
             this.txbDireccionCopia = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxAvatar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -153,11 +154,24 @@
             this.txbDireccionCopia.TabIndex = 20;
             this.txbDireccionCopia.Visible = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.label2.ForeColor = System.Drawing.Color.Lime;
+            this.label2.Location = new System.Drawing.Point(61, 333);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(258, 19);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Cambios guardados correctamente";
+            this.label2.Visible = false;
+            // 
             // frmModificarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(371, 433);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.txbDireccionCopia);
             this.Controls.Add(this.txbDireccionImagen);
             this.Controls.Add(this.txbMail);
@@ -184,6 +198,7 @@
             this.Controls.SetChildIndex(this.txbMail, 0);
             this.Controls.SetChildIndex(this.txbDireccionImagen, 0);
             this.Controls.SetChildIndex(this.txbDireccionCopia, 0);
+            this.Controls.SetChildIndex(this.label2, 0);
             ((System.ComponentModel.ISupportInitialize)(this.pbxAvatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -203,5 +218,6 @@
         private System.Windows.Forms.TextBox txtClaveAnterior;
         private System.Windows.Forms.TextBox txbDireccionImagen;
         private System.Windows.Forms.TextBox txbDireccionCopia;
+        private System.Windows.Forms.Label label2;
     }
 }

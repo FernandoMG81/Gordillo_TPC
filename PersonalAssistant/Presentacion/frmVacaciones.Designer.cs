@@ -30,8 +30,6 @@
         {
             this.dgvVacaciones = new System.Windows.Forms.DataGridView();
             this.btnGenerar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.cbxAnios = new System.Windows.Forms.ComboBox();
             this.lblAnio = new System.Windows.Forms.Label();
             this.btnAsignarVacaciones = new System.Windows.Forms.Button();
@@ -67,35 +65,7 @@
             this.btnGenerar.TabIndex = 35;
             this.btnGenerar.Text = "GENERAR VACACIONES";
             this.btnGenerar.UseVisualStyleBackColor = false;
-            this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button1.Location = new System.Drawing.Point(643, 466);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 21);
-            this.button1.TabIndex = 38;
-            this.button1.Text = "BORRAR";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button2.Location = new System.Drawing.Point(531, 466);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(89, 21);
-            this.button2.TabIndex = 39;
-            this.button2.Text = "MODIFICAR";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnGenerar.Click += new System.EventHandler(this.BtnGenerar_Click);
             // 
             // cbxAnios
             // 
@@ -104,7 +74,7 @@
             this.cbxAnios.Name = "cbxAnios";
             this.cbxAnios.Size = new System.Drawing.Size(83, 21);
             this.cbxAnios.TabIndex = 40;
-            this.cbxAnios.SelectedIndexChanged += new System.EventHandler(this.cbxAnios_SelectedIndexChanged);
+            this.cbxAnios.SelectedIndexChanged += new System.EventHandler(this.CbxAnios_SelectedIndexChanged);
             // 
             // lblAnio
             // 
@@ -129,7 +99,7 @@
             this.btnAsignarVacaciones.TabIndex = 42;
             this.btnAsignarVacaciones.Text = "ASIGNAR VACACIONES";
             this.btnAsignarVacaciones.UseVisualStyleBackColor = false;
-            this.btnAsignarVacaciones.Click += new System.EventHandler(this.btnAsignarVacaciones_Click);
+            this.btnAsignarVacaciones.Click += new System.EventHandler(this.BtnAsignarVacaciones_Click);
             // 
             // frmVacaciones
             // 
@@ -139,10 +109,9 @@
             this.Controls.Add(this.btnAsignarVacaciones);
             this.Controls.Add(this.lblAnio);
             this.Controls.Add(this.cbxAnios);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.dgvVacaciones);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmVacaciones";
             this.Text = "frmVacaciones";
@@ -156,8 +125,6 @@
         #endregion
         private System.Windows.Forms.DataGridView dgvVacaciones;
         private System.Windows.Forms.Button btnGenerar;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox cbxAnios;
         private System.Windows.Forms.Label lblAnio;
         private System.Windows.Forms.Button btnAsignarVacaciones;

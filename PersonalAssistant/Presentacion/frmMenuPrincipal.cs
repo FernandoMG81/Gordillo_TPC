@@ -29,30 +29,30 @@ namespace Presentacion
 
 
 
-        private void ptbModuloEmpleados_MouseEnter(object sender, EventArgs e)
+        private void PtbModuloEmpleados_MouseEnter(object sender, EventArgs e)
         {
             //VER PORQUE SE ROMPE  
             // pictureBox2.BorderStyle = BorderStyle.Fixed3D;
         }
 
-        private void ptbModuloEmpleados_MouseLeave(object sender, EventArgs e)
+        private void PtbModuloEmpleados_MouseLeave(object sender, EventArgs e)
         {
             // pictureBox2.BorderStyle = BorderStyle.FixedSingle;
         }
 
         //QUITAR SI SE CAMBIA LA IMAGEN
-        private void lblModuloEmpleado2_MouseEnter(object sender, EventArgs e)
+        private void LblModuloEmpleado2_MouseEnter(object sender, EventArgs e)
         {
             // pictureBox2.BorderStyle = BorderStyle.Fixed3D;
         }
 
         //QUITAR SI SE CAMBIA LA IMAGEN
-        private void lblModuloEmpleado1_MouseEnter(object sender, EventArgs e)
+        private void LblModuloEmpleado1_MouseEnter(object sender, EventArgs e)
         {
             //pictureBox2.BorderStyle = BorderStyle.Fixed3D;
         }
 
-        private void pbConfiguracion_Click(object sender, EventArgs e)
+        private void PbConfiguracion_Click(object sender, EventArgs e)
         {
             if (TipoUsuario.ADMINISTRADOR == usuarioLogueado.Tipo.Id)
             {
@@ -67,7 +67,7 @@ namespace Presentacion
         }
 
         //QUITAR SI SE CAMBIA LA IMAGEN
-        private void lblConfiguracion_Click(object sender, EventArgs e)
+        private void LblConfiguracion_Click(object sender, EventArgs e)
         {
             if (TipoUsuario.ADMINISTRADOR == usuarioLogueado.Tipo.Id)
             {
@@ -81,7 +81,7 @@ namespace Presentacion
 
         }
 
-        private void ptbModuloEmpleados_Click(object sender, EventArgs e)
+        private void PtbModuloEmpleados_Click(object sender, EventArgs e)
         {
             if (TipoUsuario.ADMINISTRADOR == usuarioLogueado.Tipo.Id || TipoUsuario.EMPLEADOS == usuarioLogueado.Tipo.Id)
             {
@@ -94,7 +94,7 @@ namespace Presentacion
             }
         }
 
-        private void lblModuloEmpleado1_Click(object sender, EventArgs e)
+        private void LblModuloEmpleado1_Click(object sender, EventArgs e)
         {
             if (TipoUsuario.ADMINISTRADOR == usuarioLogueado.Tipo.Id || TipoUsuario.EMPLEADOS == usuarioLogueado.Tipo.Id)
             {
@@ -106,7 +106,7 @@ namespace Presentacion
                 MessageBox.Show("No tiene permisos para acceder a este módulo");
             }
         }
-        private void lblModuloEmpleado2_Click(object sender, EventArgs e)
+        private void LblModuloEmpleado2_Click(object sender, EventArgs e)
         {
             if (TipoUsuario.ADMINISTRADOR == usuarioLogueado.Tipo.Id || TipoUsuario.EMPLEADOS == usuarioLogueado.Tipo.Id)
             {
@@ -120,7 +120,7 @@ namespace Presentacion
             }
         }
 
-        private void pbModuloHorarios_Click(object sender, EventArgs e)
+        private void PbModuloHorarios_Click(object sender, EventArgs e)
         {
             if (TipoUsuario.ADMINISTRADOR == usuarioLogueado.Tipo.Id || TipoUsuario.HORARIO == usuarioLogueado.Tipo.Id)
             {
@@ -134,7 +134,7 @@ namespace Presentacion
         }
 
         //QUITAR SI SE CAMBIA LA IMAGEN
-        private void lblBotonFichajes_Click(object sender, EventArgs e)
+        private void LblBotonFichajes_Click(object sender, EventArgs e)
         {
             if (TipoUsuario.ADMINISTRADOR == usuarioLogueado.Tipo.Id || TipoUsuario.HORARIO == usuarioLogueado.Tipo.Id)
             {
@@ -148,7 +148,7 @@ namespace Presentacion
         }
 
 
-        private void frmMenuPrincipal_Shown(object sender, EventArgs e)
+        private void FrmMenuPrincipal_Shown(object sender, EventArgs e)
         {
             frmLogin login;
             try
@@ -177,7 +177,7 @@ namespace Presentacion
             
         }
 
-        private void frmMenuPrincipal_Load(object sender, EventArgs e)
+        private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
             Novedad PeridodoPrueba, Cumpleanios,Vacaciones;
           
@@ -236,13 +236,13 @@ namespace Presentacion
             }
         }
 
-        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        private void BtnCerrarSesion_Click(object sender, EventArgs e)
         {
-            frmMenuPrincipal_Shown(sender, e);
+            FrmMenuPrincipal_Shown(sender, e);
         }
 
 
-        private void btnModificarUsuario_Click(object sender, EventArgs e)
+        private void BtnModificarUsuario_Click(object sender, EventArgs e)
         {
             frmModificarUsuario modi;
             try
